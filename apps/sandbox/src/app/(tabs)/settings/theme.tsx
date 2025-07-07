@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function SettingsScreen() {
+export default function ThemeScreen() {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export default function SettingsScreen() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/(tabs)/settings.tsx to edit this screen.</Text>
+      <Text>Edit app/(tabs)/settings/theme.tsx to edit this screen.</Text>
     </View>
   );
 }
