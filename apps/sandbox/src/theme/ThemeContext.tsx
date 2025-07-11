@@ -6,8 +6,13 @@ import {
   DefaultTheme as NavigationDefaultTheme,
   type Theme,
 } from "@react-navigation/native";
+import Storage from "expo-sqlite/kv-store";
 
 export type ThemeMode = "system" | "light" | "dark";
+
+const STORAGE_KEY = {
+  THEME_MODE: "theme-mode",
+} as const;
 
 interface ThemeContextValue {
   mode: ThemeMode;
@@ -18,8 +23,15 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
+const isValidThemeMode = (value: unknown): value is ThemeMode => {
+  return value === "system" || value === "light" || value === "dark";
+};
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<ThemeMode>("system");
+  const [mode, setMode] = useState<ThemeMode>(() => {
+    const stored = Storage.getItemSync(STORAGE_KEY.THEME_MODE);
+    return isValidThemeMode(stored) ? stored : "system";
+  });
   const colorScheme = useColorScheme();
 
   const isDark = useMemo(() => {
@@ -33,10 +45,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return isDark ? NavigationDarkTheme : NavigationDefaultTheme;
   }, [isDark]);
 
+  const handleSetMode = (newMode: ThemeMode) => {
+    setMode(newMode);
+    Storage.setItemSync(STORAGE_KEY.THEME_MODE, newMode);
+  };
+
   const value = useMemo(
     () => ({
       mode,
-      setMode,
+      setMode: handleSetMode,
       theme,
       isDark,
     }),
