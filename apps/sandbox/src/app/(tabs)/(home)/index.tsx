@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { Link } from "expo-router";
+import { useThemeContext } from "../../../theme/ThemeContext";
 
 export default function Index() {
   const { theme } = useThemeContext();
@@ -11,6 +12,12 @@ export default function Index() {
       <Text style={[styles.text, { color: theme.colors.text }]}>
         Welcome to the app!
       </Text>
+      <Link
+        href="/navigation-patterns"
+        style={[styles.link, { color: theme.colors.primary }]}
+      >
+        Go to Navigation Patterns
+      </Link>
     </View>
   );
 }
@@ -24,5 +31,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     fontWeight: "500",
+    marginBottom: 20,
+  },
+  link: {
+    fontSize: 16,
+    textDecorationLine: "underline",
   },
 });
