@@ -1,4 +1,7 @@
-import { LinkList, type LinkItem } from "../../../components/LinkList";
+import {
+  LinkList,
+  type LinkItem,
+} from "../../../components/link-list/LinkList";
 
 const list = [
   {
