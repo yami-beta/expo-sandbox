@@ -15,7 +15,7 @@ function RootLayoutContent() {
         />
         <Stack.Screen
           name="navigation-patterns"
-          options={{ title: "Navigation Patterns" }}
+          options={{ headerShown: false }}
         />
       </Stack>
     </>

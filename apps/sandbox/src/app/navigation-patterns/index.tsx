@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Link } from "expo-router";
-import { useThemeContext } from "../theme/ThemeContext";
+import { useThemeContext } from "../../theme/ThemeContext";
 
 export default function NavigationPatterns() {
   const { theme } = useThemeContext();
@@ -29,15 +29,37 @@ export default function NavigationPatterns() {
         </View>
 
         <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>
+            Presentation Styles:
+          </Text>
+
+          <Link
+            href="/navigation-patterns/modal"
+            style={[styles.link, { color: theme.colors.primary }]}
+          >
+            Modal Presentation
+          </Link>
+
+          <Link
+            href="/navigation-patterns/form-sheet"
+            style={[styles.link, { color: theme.colors.primary }]}
+          >
+            Form Sheet Presentation
+          </Link>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>
+            Other Navigation Examples:
+          </Text>
+
           <Link
             href="/settings"
             style={[styles.link, { color: theme.colors.primary }]}
           >
             Go to Settings Tab
           </Link>
-        </View>
 
-        <View style={styles.section}>
           <Link
             href="/settings/theme"
             style={[styles.link, { color: theme.colors.primary }]}
@@ -85,6 +107,7 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 16,
     textDecorationLine: "underline",
-    paddingVertical: 5,
+    paddingVertical: 8,
+    marginVertical: 2,
   },
 });
