@@ -9,7 +9,14 @@ function RootLayoutContent() {
     <>
       <StatusBar style={isDark ? "light" : "dark"} />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false, title: "Home" }}
+        />
+        <Stack.Screen
+          name="navigation-patterns"
+          options={{ title: "Navigation Patterns" }}
+        />
       </Stack>
     </>
   );

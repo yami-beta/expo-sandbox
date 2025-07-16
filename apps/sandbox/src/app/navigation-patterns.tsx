@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Link } from "expo-router";
-import { useThemeContext } from "../../../theme/ThemeContext";
+import { useThemeContext } from "../theme/ThemeContext";
 
 export default function NavigationPatterns() {
   const { theme } = useThemeContext();
