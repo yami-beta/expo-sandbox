@@ -15,10 +15,6 @@ export default function HomeLayout() {
       }}
     >
       <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen
-        name="navigation-patterns"
-        options={{ title: "Navigation Patterns" }}
-      />
     </Stack>
   );
 }
