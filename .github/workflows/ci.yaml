@@ -59,5 +59,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate typed routes
+        run: pnpm -C apps/sandbox generate-types
+
       - name: Run TypeScript type check
         run: pnpm -C apps/sandbox typecheck

@@ -12,6 +12,7 @@
     "lint:expo": "expo lint",
     "lint:prettier": "prettier . --check",
     "format": "prettier . --write",
+    "generate-types": "expo customize tsconfig.json",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
