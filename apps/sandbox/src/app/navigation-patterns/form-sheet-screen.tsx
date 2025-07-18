@@ -152,7 +152,7 @@ export default function FormSheetScreen() {
               styles.submitButton,
               {
                 backgroundColor: pressed
-                  ? theme.colors.primaryLight
+                  ? theme.colors.border
                   : theme.colors.primary,
               },
             ]}

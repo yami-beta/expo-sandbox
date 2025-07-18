@@ -28,7 +28,7 @@ export default function FormSheetSample() {
             styles.button,
             {
               backgroundColor: pressed
-                ? theme.colors.primaryLight
+                ? theme.colors.border
                 : theme.colors.primary,
             },
           ]}
@@ -62,7 +62,7 @@ export default function FormSheetSample() {
           <View
             style={[
               styles.noteBox,
-              { backgroundColor: theme.colors.primaryLight },
+              { backgroundColor: theme.colors.card },
             ]}
           >
             <Text style={[styles.noteText, { color: theme.colors.text }]}>

@@ -11,7 +11,8 @@
     "lint": "pnpm run '/^lint:.*/'",
     "lint:expo": "expo lint",
     "lint:prettier": "prettier . --check",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
