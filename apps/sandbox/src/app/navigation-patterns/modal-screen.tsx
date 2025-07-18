@@ -58,12 +58,7 @@ export default function ModalScreen() {
           </Text>
         </View>
 
-        <View
-          style={[
-            styles.demoBox,
-            { backgroundColor: theme.colors.primaryLight },
-          ]}
-        >
+        <View style={[styles.demoBox, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.demoTitle, { color: theme.colors.text }]}>
             Demo Content
           </Text>
@@ -78,7 +73,7 @@ export default function ModalScreen() {
             styles.primaryButton,
             {
               backgroundColor: pressed
-                ? theme.colors.primaryLight
+                ? theme.colors.border
                 : theme.colors.primary,
             },
           ]}

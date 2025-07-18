@@ -28,7 +28,7 @@ export default function ModalSample() {
             styles.button,
             {
               backgroundColor: pressed
-                ? theme.colors.primaryLight
+                ? theme.colors.border
                 : theme.colors.primary,
             },
           ]}

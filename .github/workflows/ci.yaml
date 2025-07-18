@@ -36,3 +36,31 @@ jobs:
 
       - name: Check Prettier formatting
         run: pnpm -C apps/sandbox lint:prettier
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate typed routes
+        run: pnpm -C apps/sandbox generate-types
+
+      - name: Run TypeScript type check
+        run: pnpm -C apps/sandbox typecheck
