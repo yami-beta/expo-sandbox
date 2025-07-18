@@ -58,12 +58,7 @@ export default function ModalScreen() {
           </Text>
         </View>
 
-        <View
-          style={[
-            styles.demoBox,
-            { backgroundColor: theme.colors.card },
-          ]}
-        >
+        <View style={[styles.demoBox, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.demoTitle, { color: theme.colors.text }]}>
             Demo Content
           </Text>

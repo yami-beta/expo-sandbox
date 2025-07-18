@@ -60,10 +60,7 @@ export default function FormSheetSample() {
 
         {Platform.OS === "android" && (
           <View
-            style={[
-              styles.noteBox,
-              { backgroundColor: theme.colors.card },
-            ]}
+            style={[styles.noteBox, { backgroundColor: theme.colors.card }]}
           >
             <Text style={[styles.noteText, { color: theme.colors.text }]}>
               Note: Form sheet presentation is iOS-specific. On Android, it will
