@@ -44,6 +44,7 @@ export default function NavigationPatternsLayout() {
         options={{
           title: "Form Sheet Screen",
           presentation: "formSheet",
+          sheetGrabberVisible: true,
         }}
       />
     </Stack>
