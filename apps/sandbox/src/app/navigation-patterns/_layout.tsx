@@ -17,32 +17,32 @@ export default function NavigationPatternsLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Navigation Patterns",
+          title: "ナビゲーションパターン",
         }}
       />
       <Stack.Screen
         name="modal"
         options={{
-          title: "Modal Sample",
+          title: "モーダルサンプル",
         }}
       />
       <Stack.Screen
         name="form-sheet"
         options={{
-          title: "Form Sheet Sample",
+          title: "フォームシートサンプル",
         }}
       />
       <Stack.Screen
         name="modal-screen"
         options={{
-          title: "Modal Screen",
+          title: "モーダル画面",
           presentation: "modal",
         }}
       />
       <Stack.Screen
         name="form-sheet-screen"
         options={{
-          title: "Form Sheet Screen",
+          title: "フォームシート画面",
           presentation: "formSheet",
           sheetGrabberVisible: true,
         }}

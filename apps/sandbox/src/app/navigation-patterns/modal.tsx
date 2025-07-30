@@ -16,11 +16,11 @@ export default function ModalSample() {
     >
       <View style={styles.content}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
-          Modal Presentation Sample
+          モーダル表示サンプル
         </Text>
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
-          Tap the button below to open a screen with modal presentation.
+          下のボタンをタップしてモーダル表示で画面を開きます。
         </Text>
 
         <Pressable
@@ -34,17 +34,17 @@ export default function ModalSample() {
           ]}
           onPress={openModal}
         >
-          <Text style={styles.buttonText}>Open Modal</Text>
+          <Text style={styles.buttonText}>モーダルを開く</Text>
         </Pressable>
 
         <View style={styles.infoBox}>
           <Text style={[styles.infoTitle, { color: theme.colors.text }]}>
-            About Modal Presentation:
+            モーダル表示について：
           </Text>
           <Text style={[styles.infoText, { color: theme.colors.text }]}>
-            • Covers the entire screen{"\n"}• Animates from bottom to top{"\n"}•
-            Can be dismissed with swipe down gesture{"\n"}• Blocks interaction
-            with the parent screen
+            • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
+            下へのスワイプジェスチャーで閉じることができます{"\n"}•
+            親画面との対話をブロックします
           </Text>
         </View>
       </View>
