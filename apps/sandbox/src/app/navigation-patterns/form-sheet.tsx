@@ -16,11 +16,11 @@ export default function FormSheetSample() {
     >
       <View style={styles.content}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
-          Form Sheet Presentation Sample
+          フォームシート表示サンプル
         </Text>
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
-          Tap the button below to open a screen with form sheet presentation.
+          下のボタンをタップしてフォームシート表示で画面を開きます。
         </Text>
 
         <Pressable
@@ -34,27 +34,27 @@ export default function FormSheetSample() {
           ]}
           onPress={openFormSheet}
         >
-          <Text style={styles.buttonText}>Open Form Sheet</Text>
+          <Text style={styles.buttonText}>フォームシートを開く</Text>
         </Pressable>
 
         <View style={styles.infoBox}>
           <Text style={[styles.infoTitle, { color: theme.colors.text }]}>
-            About Form Sheet Presentation:
+            フォームシート表示について：
           </Text>
           <Text style={[styles.infoText, { color: theme.colors.text }]}>
             •{" "}
             {Platform.OS === "ios"
-              ? "Smaller modal that doesn't cover the entire screen"
-              : "On Android, behaves like a regular modal"}
+              ? "画面全体を覆わない小さめのモーダル"
+              : "Androidでは通常のモーダルとして動作"}
             {"\n"}•{" "}
             {Platform.OS === "ios"
-              ? "Shows parent screen in the background"
-              : "Covers the entire screen on Android"}
+              ? "背景に親画面を表示"
+              : "Androidでは画面全体を覆います"}
             {"\n"}•{" "}
             {Platform.OS === "ios"
-              ? "Ideal for forms and focused tasks"
-              : "Platform-specific behavior"}
-            {"\n"}• Can be dismissed with swipe down gesture
+              ? "フォームや集中的なタスクに最適"
+              : "プラットフォーム固有の動作"}
+            {"\n"}• 下へのスワイプジェスチャーで閉じることができます
           </Text>
         </View>
 
@@ -63,8 +63,8 @@ export default function FormSheetSample() {
             style={[styles.noteBox, { backgroundColor: theme.colors.card }]}
           >
             <Text style={[styles.noteText, { color: theme.colors.text }]}>
-              Note: Form sheet presentation is iOS-specific. On Android, it will
-              display as a regular modal.
+              注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして
+              表示されます。
             </Text>
           </View>
         )}

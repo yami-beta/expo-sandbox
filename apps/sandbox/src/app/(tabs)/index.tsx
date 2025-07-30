@@ -3,7 +3,7 @@ import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
 const list = [
   {
     href: "/navigation-patterns",
-    text: "Navigation Patterns",
+    text: "ナビゲーションパターン",
   },
 ] as const satisfies LinkItem[];
 

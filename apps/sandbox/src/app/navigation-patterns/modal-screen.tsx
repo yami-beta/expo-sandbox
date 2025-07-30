@@ -17,7 +17,7 @@ export default function ModalScreen() {
     >
       <View style={styles.header}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
-          Modal Screen
+          モーダル画面
         </Text>
         <Pressable
           style={({ pressed }) => [
@@ -31,40 +31,40 @@ export default function ModalScreen() {
           <Text
             style={[styles.closeButtonText, { color: theme.colors.primary }]}
           >
-            Close
+            閉じる
           </Text>
         </Pressable>
       </View>
 
       <View style={styles.content}>
         <Text style={[styles.subtitle, { color: theme.colors.text }]}>
-          This is a modal presentation
+          これはモーダル表示です
         </Text>
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
-          This screen was presented using the modal presentation style. You can
-          dismiss it by:
+          この画面はモーダル表示スタイルで表示されています。
+          以下の方法で閉じることができます：
         </Text>
 
         <View style={styles.list}>
           <Text style={[styles.listItem, { color: theme.colors.text }]}>
-            • Tapping the &quot;Close&quot; button
+            • 「閉じる」ボタンをタップ
           </Text>
           <Text style={[styles.listItem, { color: theme.colors.text }]}>
-            • Swiping down from the top (iOS)
+            • 上から下へスワイプ（iOS）
           </Text>
           <Text style={[styles.listItem, { color: theme.colors.text }]}>
-            • Using the back gesture (Android)
+            • 戻るジェスチャーを使用（Android）
           </Text>
         </View>
 
         <View style={[styles.demoBox, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.demoTitle, { color: theme.colors.text }]}>
-            Demo Content
+            デモコンテンツ
           </Text>
           <Text style={[styles.demoText, { color: theme.colors.text }]}>
-            This modal can contain any content like forms, images, or
-            interactive elements.
+            このモーダルにはフォーム、画像、インタラクティブな要素など、
+            あらゆるコンテンツを含めることができます。
           </Text>
         </View>
 
@@ -79,7 +79,7 @@ export default function ModalScreen() {
           ]}
           onPress={closeModal}
         >
-          <Text style={styles.primaryButtonText}>Done</Text>
+          <Text style={styles.primaryButtonText}>完了</Text>
         </Pressable>
       </View>
     </ScrollView>

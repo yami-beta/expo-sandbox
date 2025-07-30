@@ -14,8 +14,8 @@ export default function SettingsLayout() {
         headerShadowVisible: !theme.dark,
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Settings" }} />
-      <Stack.Screen name="theme" options={{ title: "Theme" }} />
+      <Stack.Screen name="index" options={{ title: "設定" }} />
+      <Stack.Screen name="theme" options={{ title: "テーマ" }} />
     </Stack>
   );
 }

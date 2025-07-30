@@ -38,7 +38,7 @@ export default function FormSheetScreen() {
       >
         <View style={styles.header}>
           <Text style={[styles.title, { color: theme.colors.text }]}>
-            Form Sheet Example
+            フォームシートの例
           </Text>
           <View style={styles.headerButtons}>
             <Pressable
@@ -51,7 +51,7 @@ export default function FormSheetScreen() {
               <Text
                 style={[styles.cancelButtonText, { color: theme.colors.text }]}
               >
-                Cancel
+                キャンセル
               </Text>
             </Pressable>
             <Pressable
@@ -64,7 +64,7 @@ export default function FormSheetScreen() {
               <Text
                 style={[styles.doneButtonText, { color: theme.colors.primary }]}
               >
-                Done
+                完了
               </Text>
             </Pressable>
           </View>
@@ -73,21 +73,21 @@ export default function FormSheetScreen() {
         <View style={styles.content}>
           <Text style={[styles.subtitle, { color: theme.colors.text }]}>
             {Platform.OS === "ios"
-              ? "Form Sheet Presentation"
-              : "Modal Form (Android)"}
+              ? "フォームシート表示"
+              : "モーダルフォーム（Android）"}
           </Text>
 
           <Text style={[styles.description, { color: theme.colors.text }]}>
-            This demonstrates a form presented in a{" "}
-            {Platform.OS === "ios" ? "form sheet" : "modal"}.
+            これは {Platform.OS === "ios" ? "フォームシート" : "モーダル"}
+            で表示されたフォームのデモです。
             {Platform.OS === "ios" &&
-              " Notice how you can see the parent screen in the background."}
+              "背景に親画面が見えることに注目してください。"}
           </Text>
 
           <View style={styles.form}>
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                Name
+                名前
               </Text>
               <TextInput
                 style={[
@@ -100,14 +100,14 @@ export default function FormSheetScreen() {
                 ]}
                 value={name}
                 onChangeText={setName}
-                placeholder="Enter your name"
+                placeholder="名前を入力"
                 placeholderTextColor={theme.colors.text + "80"}
               />
             </View>
 
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                Email
+                メールアドレス
               </Text>
               <TextInput
                 style={[
@@ -120,7 +120,7 @@ export default function FormSheetScreen() {
                 ]}
                 value={email}
                 onChangeText={setEmail}
-                placeholder="Enter your email"
+                placeholder="メールアドレスを入力"
                 placeholderTextColor={theme.colors.text + "80"}
                 keyboardType="email-address"
                 autoCapitalize="none"
@@ -129,7 +129,7 @@ export default function FormSheetScreen() {
 
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                Message
+                メッセージ
               </Text>
               <TextInput
                 style={[
@@ -142,7 +142,7 @@ export default function FormSheetScreen() {
                 ]}
                 value={message}
                 onChangeText={setMessage}
-                placeholder="Enter your message"
+                placeholder="メッセージを入力"
                 placeholderTextColor={theme.colors.text + "80"}
                 multiline
                 numberOfLines={4}
@@ -162,7 +162,7 @@ export default function FormSheetScreen() {
               ]}
               onPress={handleSubmit}
             >
-              <Text style={styles.submitButtonText}>Submit Form</Text>
+              <Text style={styles.submitButtonText}>フォームを送信</Text>
             </Pressable>
           </View>
         </View>

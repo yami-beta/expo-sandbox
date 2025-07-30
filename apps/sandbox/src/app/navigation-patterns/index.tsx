@@ -3,11 +3,11 @@ import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
 const list = [
   {
     href: "/navigation-patterns/modal",
-    text: "Modal Presentation",
+    text: "モーダル表示",
   },
   {
     href: "/navigation-patterns/form-sheet",
-    text: "Form Sheet Presentation",
+    text: "フォームシート表示",
   },
 ] as const satisfies LinkItem[];
 
