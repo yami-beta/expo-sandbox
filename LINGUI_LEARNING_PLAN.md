@@ -4,17 +4,17 @@
 
 ## 進捗チェックリスト
 
-### フェーズ1: 基礎学習と環境構築（1日目）
-- [ ] Linguiの基礎知識習得
-  - [ ] Linguiの概要と主要概念（i18n、メッセージカタログ、翻訳フロー）の理解
-  - [ ] React Nativeでの利用方法の確認
-- [ ] 必要なパッケージのインストール
-  - [ ] `@lingui/core`、`@lingui/react`、`@lingui/macro`のインストール
-  - [ ] `@lingui/cli`の開発環境への追加
-  - [ ] Babel設定の更新（`babel-plugin-macros`の追加）
-- [ ] Lingui設定ファイルの作成
-  - [ ] `lingui.config.js`の基本設定（日本語・英語対応）
-  - [ ] TypeScript型定義の確認
+### フェーズ1: 基礎学習と環境構築（1日目）✅
+- [x] Linguiの基礎知識習得
+  - [x] Linguiの概要と主要概念（i18n、メッセージカタログ、翻訳フロー）の理解
+  - [x] React Nativeでの利用方法の確認
+- [x] 必要なパッケージのインストール
+  - [x] `@lingui/core`、`@lingui/react`、`@lingui/macro`のインストール
+  - [x] `@lingui/cli`の開発環境への追加
+  - [x] Babel設定の更新（`babel-plugin-macros`の追加）
+- [x] Lingui設定ファイルの作成
+  - [x] `lingui.config.js`の基本設定（日本語・英語対応）
+  - [x] TypeScript型定義の確認（v5では組み込み）
 
 ### フェーズ2: 最小限の実装（2日目）
 - [ ] i18nプロバイダーの設定
@@ -65,10 +65,10 @@
 ```bash
 # Linguiパッケージのインストール
 pnpm -C apps/sandbox add @lingui/core @lingui/react @lingui/macro
-pnpm -C apps/sandbox add -D @lingui/cli babel-plugin-macros
+pnpm -C apps/sandbox add -D @lingui/cli @lingui/babel-plugin-lingui-macro
 
 # TypeScript型定義の確認
-pnpm -C apps/sandbox add -D @types/lingui__core @types/lingui__react @types/lingui__macro
+# Lingui v5では型定義が組み込みのため不要
 ```
 
 ### babel.config.jsの更新
@@ -78,8 +78,7 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      // 既存のプラグイン...
-      'macros', // Linguiマクロのサポート
+      '@lingui/babel-plugin-lingui-macro', // Lingui推奨のBabelプラグイン
     ],
   };
 };
@@ -92,8 +91,8 @@ module.exports = {
   sourceLocale: 'ja',
   catalogs: [
     {
-      path: 'src/locales/{locale}/messages',
-      include: ['src'],
+      path: '<rootDir>/src/locales/{locale}/messages',
+      include: ['<rootDir>/src'],
       exclude: ['**/node_modules/**'],
     },
   ],
@@ -127,7 +126,13 @@ apps/sandbox/
 
 ## メモ・気づき
 
-（ここに学習中の気づきやメモを追加してください）
+### フェーズ1完了時のメモ（2025-08-01）
+- Lingui v5では型定義が組み込みになっているため、`@types/lingui__*`パッケージは不要
+- Expoプロジェクトでは`babel.config.js`がデフォルトで存在しないため、新規作成が必要
+- ~~`babel-plugin-macros`を追加してLinguiマクロをサポート~~ → 公式推奨の`@lingui/babel-plugin-lingui-macro`に変更
+- `lingui.config.js`で日本語を`sourceLocale`に設定（アプリのデフォルト言語）
+- 公式ドキュメントによると`@lingui/babel-plugin-lingui-macro`の使用が推奨されている
+- `<rootDir>`を使用したパス指定により、monorepo構造でも明確な設定が可能
 
 ---
 
