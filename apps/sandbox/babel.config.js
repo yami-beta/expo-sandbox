@@ -1,9 +1,9 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo'],
+    presets: ["babel-preset-expo"],
     plugins: [
-      '@lingui/babel-plugin-lingui-macro', // Lingui推奨のBabelプラグイン
+      "@lingui/babel-plugin-lingui-macro", // Lingui推奨のBabelプラグイン
     ],
   };
 };
