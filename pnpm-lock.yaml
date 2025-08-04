@@ -116,6 +116,9 @@ importers:
       '@lingui/cli':
         specifier: ^5.3.3
         version: 5.3.3(babel-plugin-macros@3.1.0)(typescript@5.8.3)
+      '@lingui/metro-transformer':
+        specifier: ^5.4.0
+        version: 5.4.0(@expo/metro-config@0.20.17)(babel-plugin-macros@3.1.0)(expo@53.0.20(@babel/core@7.27.7)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0)))(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(typescript@5.8.3)
       '@types/react':
         specifier: ~19.0.10
         version: 19.0.14
@@ -1025,8 +1028,21 @@ packages:
     resolution: {integrity: sha512-Cgac9D9ZrTrNdQPxRc5gmZXVUnofBoSUC7CHSEuua5tPolr20oP4snYEnpOvs2D/sM6AWTbM199i7F2e5m4HYA==}
     engines: {node: '>=20.0.0'}
 
+  '@lingui/babel-plugin-extract-messages@5.4.0':
+    resolution: {integrity: sha512-hcxnDgtby6rfhRvLM0Q9IsJhIjNR9dnHrKLKgSHsc5dTA/RYajSYbsdUXECvOQN+whwgBoQtZb/hvALmBpmjQA==}
+    engines: {node: '>=20.0.0'}
+
   '@lingui/babel-plugin-lingui-macro@5.3.3':
     resolution: {integrity: sha512-LSdJVBchjHPtFemQJiykDlpSksN9jusKcLbkuhdpgMETNMS5EyFwLTud7YUo5qkOIhtpYIf9mj94t1vGRVeSYQ==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      babel-plugin-macros: 2 || 3
+    peerDependenciesMeta:
+      babel-plugin-macros:
+        optional: true
+
+  '@lingui/babel-plugin-lingui-macro@5.4.0':
+    resolution: {integrity: sha512-VKRc/uQ4fyFJfRcBwaWDqDXNTj99IJzgAFX/P0keeTmLltW1nm/d367Ksku19JI1SDUo42p65YEuk3VxuXyQ3g==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       babel-plugin-macros: 2 || 3
@@ -1039,8 +1055,17 @@ packages:
     engines: {node: '>=20.0.0'}
     hasBin: true
 
+  '@lingui/cli@5.4.0':
+    resolution: {integrity: sha512-S/mWIsTc1ggx0GajoIftIVEiv5pQWuBK+ip/YMrJrvr/gVHEzja/cT4db5f8dwadWyZ/YfJuEnz22RSKqBrrKA==}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
+
   '@lingui/conf@5.3.3':
     resolution: {integrity: sha512-YVjGeGQg4BrHrC+/s7kHYYjcBzAPFoGWl/ujdp05J6+PjV7yXnwUaMa3A7XhKFdRqpJReXf9FOWZUsIIBcPSEQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@lingui/conf@5.4.0':
+    resolution: {integrity: sha512-S4YIWyyPpncTfilNzmvSrPUJ8lFKvOs/2+j4Lpzwj5Ue5DIpxB+2WnpNkfw3GsQl3ilPiFbo87R21XKLNzMF+Q==}
     engines: {node: '>=20.0.0'}
 
   '@lingui/core@5.3.3':
@@ -1055,8 +1080,24 @@ packages:
       babel-plugin-macros:
         optional: true
 
+  '@lingui/core@5.4.0':
+    resolution: {integrity: sha512-WtdAMkSU8Hbw0nOt+sZsNLJ2B8AO5EfZTpPIrzpKRiZ8RHZl/JOPzQlBLGbxKEoiPIiNcLnm3SZDNRJ16F/AYw==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@lingui/babel-plugin-lingui-macro': 5.4.0
+      babel-plugin-macros: 2 || 3
+    peerDependenciesMeta:
+      '@lingui/babel-plugin-lingui-macro':
+        optional: true
+      babel-plugin-macros:
+        optional: true
+
   '@lingui/format-po@5.3.3':
     resolution: {integrity: sha512-sKGJqsIJLPMKwtSP1js7cfFzEXsNSppzYxDPVO06i71Xd0jn8a+KXLMaSAQj9jY/dpxN8wKsCt26gOnHYi5c5g==}
+    engines: {node: '>=20.0.0'}
+
+  '@lingui/format-po@5.4.0':
+    resolution: {integrity: sha512-zQ930if6pTXAT4fQzbVdqORNc9g4XNCB2LwQ4nhzm65acCHI/BVMnGXkeU5qWLdX5xXPRIxaJbUvhXWh3Shy3A==}
     engines: {node: '>=20.0.0'}
 
   '@lingui/macro@5.3.3':
@@ -1076,6 +1117,28 @@ packages:
     engines: {node: '>=20.0.0'}
     bundledDependencies:
       - '@messageformat/date-skeleton'
+
+  '@lingui/message-utils@5.4.0':
+    resolution: {integrity: sha512-Ok++R55W3kvI8dN7itti0DmQatDLodOUJVuEDDhCydzpYJCurwc60hZCn/o/M2SI2+BCVlkTOCXGkdcrpJVS2Q==}
+    engines: {node: '>=20.0.0'}
+    bundledDependencies:
+      - '@messageformat/date-skeleton'
+
+  '@lingui/metro-transformer@5.4.0':
+    resolution: {integrity: sha512-feDM6TnjEydQwFIx6sf1f7tbL8Frgud17Hf8guofJ3NtLAOpUPEIAY2odmbp4ziKtmrZZoRvMlPAsh/0v9HNoA==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@expo/metro-config': '*'
+      '@react-native/metro-babel-transformer': '*'
+      expo: '>=50.0.0'
+      react-native: '>=0.73.0'
+    peerDependenciesMeta:
+      '@expo/metro-config':
+        optional: true
+      '@react-native/metro-babel-transformer':
+        optional: true
+      expo:
+        optional: true
 
   '@lingui/react@5.3.3':
     resolution: {integrity: sha512-DEFmI24pDdy/wsIDYtmYg5qwAPmgZIjoy9q10GVGmjq952D0sQJoGBGz+ucGQFSNmT7SnktauJHH+xEUdO/Cgg==}
@@ -5581,6 +5644,8 @@ snapshots:
 
   '@lingui/babel-plugin-extract-messages@5.3.3': {}
 
+  '@lingui/babel-plugin-extract-messages@5.4.0': {}
+
   '@lingui/babel-plugin-lingui-macro@5.3.3(babel-plugin-macros@3.1.0)(typescript@5.8.3)':
     dependencies:
       '@babel/core': 7.27.7
@@ -5589,6 +5654,20 @@ snapshots:
       '@lingui/conf': 5.3.3(typescript@5.8.3)
       '@lingui/core': 5.3.3(@lingui/babel-plugin-lingui-macro@5.3.3(babel-plugin-macros@3.1.0)(typescript@5.8.3))(babel-plugin-macros@3.1.0)
       '@lingui/message-utils': 5.3.3
+    optionalDependencies:
+      babel-plugin-macros: 3.1.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  '@lingui/babel-plugin-lingui-macro@5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3)':
+    dependencies:
+      '@babel/core': 7.27.7
+      '@babel/runtime': 7.27.6
+      '@babel/types': 7.27.7
+      '@lingui/conf': 5.4.0(typescript@5.8.3)
+      '@lingui/core': 5.4.0(@lingui/babel-plugin-lingui-macro@5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3))(babel-plugin-macros@3.1.0)
+      '@lingui/message-utils': 5.4.0
     optionalDependencies:
       babel-plugin-macros: 3.1.0
     transitivePeerDependencies:
@@ -5627,7 +5706,49 @@ snapshots:
       - supports-color
       - typescript
 
+  '@lingui/cli@5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3)':
+    dependencies:
+      '@babel/core': 7.27.7
+      '@babel/generator': 7.27.5
+      '@babel/parser': 7.27.7
+      '@babel/runtime': 7.27.6
+      '@babel/types': 7.27.7
+      '@lingui/babel-plugin-extract-messages': 5.4.0
+      '@lingui/babel-plugin-lingui-macro': 5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3)
+      '@lingui/conf': 5.4.0(typescript@5.8.3)
+      '@lingui/core': 5.4.0(@lingui/babel-plugin-lingui-macro@5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3))(babel-plugin-macros@3.1.0)
+      '@lingui/format-po': 5.4.0(typescript@5.8.3)
+      '@lingui/message-utils': 5.4.0
+      chokidar: 3.5.1
+      cli-table: 0.3.11
+      commander: 10.0.1
+      convert-source-map: 2.0.0
+      date-fns: 3.6.0
+      esbuild: 0.25.8
+      glob: 11.0.3
+      micromatch: 4.0.8
+      normalize-path: 3.0.0
+      ora: 5.4.1
+      picocolors: 1.1.1
+      pofile: 1.1.4
+      pseudolocale: 2.1.0
+      source-map: 0.8.0-beta.0
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+      - typescript
+
   '@lingui/conf@5.3.3(typescript@5.8.3)':
+    dependencies:
+      '@babel/runtime': 7.27.6
+      cosmiconfig: 8.3.6(typescript@5.8.3)
+      jest-validate: 29.7.0
+      jiti: 1.21.7
+      picocolors: 1.1.1
+    transitivePeerDependencies:
+      - typescript
+
+  '@lingui/conf@5.4.0(typescript@5.8.3)':
     dependencies:
       '@babel/runtime': 7.27.6
       cosmiconfig: 8.3.6(typescript@5.8.3)
@@ -5645,10 +5766,27 @@ snapshots:
       '@lingui/babel-plugin-lingui-macro': 5.3.3(babel-plugin-macros@3.1.0)(typescript@5.8.3)
       babel-plugin-macros: 3.1.0
 
+  '@lingui/core@5.4.0(@lingui/babel-plugin-lingui-macro@5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3))(babel-plugin-macros@3.1.0)':
+    dependencies:
+      '@babel/runtime': 7.27.6
+      '@lingui/message-utils': 5.4.0
+    optionalDependencies:
+      '@lingui/babel-plugin-lingui-macro': 5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3)
+      babel-plugin-macros: 3.1.0
+
   '@lingui/format-po@5.3.3(typescript@5.8.3)':
     dependencies:
       '@lingui/conf': 5.3.3(typescript@5.8.3)
       '@lingui/message-utils': 5.3.3
+      date-fns: 3.6.0
+      pofile: 1.1.4
+    transitivePeerDependencies:
+      - typescript
+
+  '@lingui/format-po@5.4.0(typescript@5.8.3)':
+    dependencies:
+      '@lingui/conf': 5.4.0(typescript@5.8.3)
+      '@lingui/message-utils': 5.4.0
       date-fns: 3.6.0
       pofile: 1.1.4
     transitivePeerDependencies:
@@ -5668,6 +5806,26 @@ snapshots:
     dependencies:
       '@messageformat/parser': 5.1.1
       js-sha256: 0.10.1
+
+  '@lingui/message-utils@5.4.0':
+    dependencies:
+      '@messageformat/parser': 5.1.1
+      js-sha256: 0.10.1
+
+  '@lingui/metro-transformer@5.4.0(@expo/metro-config@0.20.17)(babel-plugin-macros@3.1.0)(expo@53.0.20(@babel/core@7.27.7)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0)))(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(typescript@5.8.3)':
+    dependencies:
+      '@babel/runtime': 7.27.6
+      '@lingui/cli': 5.4.0(babel-plugin-macros@3.1.0)(typescript@5.8.3)
+      '@lingui/conf': 5.4.0(typescript@5.8.3)
+      memoize-one: 6.0.0
+      react-native: 0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0)
+    optionalDependencies:
+      '@expo/metro-config': 0.20.17
+      expo: 53.0.20(@babel/core@7.27.7)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0)))(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.27.7)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+      - typescript
 
   '@lingui/react@5.3.3(@lingui/babel-plugin-lingui-macro@5.3.3(babel-plugin-macros@3.1.0)(typescript@5.8.3))(babel-plugin-macros@3.1.0)(react@19.0.0)':
     dependencies:

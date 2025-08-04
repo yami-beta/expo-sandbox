@@ -65,7 +65,7 @@
 ```bash
 # Linguiパッケージのインストール
 pnpm -C apps/sandbox add @lingui/core @lingui/react @lingui/macro
-pnpm -C apps/sandbox add -D @lingui/cli @lingui/babel-plugin-lingui-macro
+pnpm -C apps/sandbox add -D @lingui/cli @lingui/babel-plugin-lingui-macro @lingui/metro-transformer
 
 # TypeScript型定義の確認
 # Lingui v5では型定義が組み込みのため不要
@@ -100,11 +100,31 @@ module.exports = {
 };
 ```
 
+### metro.config.jsの設定（Expo用）
+```javascript
+const { getDefaultConfig } = require("expo/metro-config");
+const config = getDefaultConfig(__dirname);
+const { transformer, resolver } = config;
+
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve("@lingui/metro-transformer/expo"),
+};
+
+config.resolver = {
+  ...resolver,
+  sourceExts: [...resolver.sourceExts, "po", "pot"],
+};
+
+module.exports = config;
+```
+
 ### 作成・更新が必要なファイル構造
 ```
 apps/sandbox/
 ├── lingui.config.js         # Lingui設定ファイル
 ├── babel.config.js          # Babel設定（更新）
+├── metro.config.js          # Metro設定（.poファイルのサポート）
 ├── src/
 │   ├── i18n/               # i18n関連のユーティリティ
 │   │   ├── index.ts        # i18n初期化
@@ -133,6 +153,7 @@ apps/sandbox/
 - `lingui.config.js`で日本語を`sourceLocale`に設定（アプリのデフォルト言語）
 - 公式ドキュメントによると`@lingui/babel-plugin-lingui-macro`の使用が推奨されている
 - `<rootDir>`を使用したパス指定により、monorepo構造でも明確な設定が可能
+- **追加**: `@lingui/metro-transformer`とmetro.config.jsの設定が必要（.poファイルのサポート）
 
 ---
 
