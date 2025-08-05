@@ -1,0 +1,31 @@
+name: 'Setup Node.js and pnpm'
+description: 'Setup Node.js, pnpm, and install dependencies'
+
+inputs:
+  node-version:
+    description: 'Version of Node.js to use'
+    required: false
+    default: 'lts/*'
+  install-deps:
+    description: 'Whether to install dependencies'
+    required: false
+    default: 'true'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        run_install: false
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      if: inputs.install-deps == 'true'
+      run: pnpm install --frozen-lockfile
+      shell: bash
