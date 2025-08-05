@@ -25,9 +25,19 @@ export function initI18n(locale: Locale = defaultLocale) {
   i18n.loadAndActivate({ locale, messages });
 }
 
+// ロケールの型ガード
+function isValidLocale(locale: string): locale is Locale {
+  return locale in locales;
+}
+
 // 現在のロケールを取得
 export function getCurrentLocale(): Locale {
-  return i18n.locale as Locale;
+  const currentLocale = i18n.locale;
+  if (isValidLocale(currentLocale)) {
+    return currentLocale;
+  }
+  // 不正なロケールの場合はデフォルトロケールを返す
+  return defaultLocale;
 }
 
 // ロケールを変更
