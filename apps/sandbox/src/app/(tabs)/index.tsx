@@ -1,12 +1,13 @@
+import { Trans } from "@lingui/react/macro";
 import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
 
-const list = [
-  {
-    href: "/navigation-patterns",
-    text: "ナビゲーションパターン",
-  },
-] as const satisfies LinkItem[];
-
 export default function Index() {
+  const list = [
+    {
+      href: "/navigation-patterns",
+      text: <Trans>ナビゲーションパターン</Trans>,
+    },
+  ] as const satisfies LinkItem[];
+
   return <LinkList data={list} />;
 }

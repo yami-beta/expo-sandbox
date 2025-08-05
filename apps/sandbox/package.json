@@ -13,7 +13,8 @@
     "lint:prettier": "prettier . --check",
     "format": "prettier . --write",
     "generate-types": "expo customize tsconfig.json",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lingui:extract": "lingui extract"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",

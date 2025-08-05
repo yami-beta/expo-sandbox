@@ -1,12 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, type LinkProps } from "expo-router";
-import type { ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 import { useThemeContext } from "../../theme/ThemeContext";
 
 export type LinkItem = {
   href: LinkProps["href"];
-  text: string;
+  text: ReactNode;
 };
 
 type LinkListProps = {
