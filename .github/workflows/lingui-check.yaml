@@ -1,0 +1,46 @@
+name: Lingui Check
+
+on:
+  pull_request:
+    paths:
+      - 'apps/sandbox/src/**/*.tsx'
+      - 'apps/sandbox/src/**/*.ts'
+
+jobs:
+  lingui-check:
+    name: Lingui Extract Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run lingui extract
+        run: pnpm -C apps/sandbox lingui:extract
+
+      - name: Check for uncommitted changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Error: lingui extract produced changes. Please run 'pnpm -C apps/sandbox lingui:extract' and commit the changes."
+            echo ""
+            echo "Changed files:"
+            git status --porcelain
+            echo ""
+            echo "Diff:"
+            git diff
+            exit 1
+          fi
