@@ -16,16 +16,16 @@
   - [x] `lingui.config.js`の基本設定（日本語・英語対応）
   - [x] TypeScript型定義の確認（v5では組み込み）
 
-### フェーズ2: 最小限の実装（2日目）
-- [ ] i18nプロバイダーの設定
-  - [ ] `_layout.tsx`にLinguiProviderの追加
-  - [ ] 言語検出とデフォルト言語の設定
-- [ ] シンプルなテキスト翻訳の実装
-  - [ ] 1つの画面（例：ホーム画面）で基本的な翻訳を実装
-  - [ ] `Trans`コンポーネントと`t`マクロの使い方を学習
-- [ ] メッセージ抽出とカタログ生成
-  - [ ] `lingui extract`コマンドの実行
-  - [ ] 生成されたメッセージカタログの確認
+### フェーズ2: 最小限の実装（2日目）✅
+- [x] i18nプロバイダーの設定
+  - [x] `_layout.tsx`にLinguiProviderの追加
+  - [x] 言語検出とデフォルト言語の設定
+- [x] シンプルなテキスト翻訳の実装
+  - [x] 1つの画面（例：ホーム画面）で基本的な翻訳を実装
+  - [x] `Trans`コンポーネントと`t`マクロの使い方を学習
+- [x] メッセージ抽出とカタログ生成
+  - [x] `lingui extract`コマンドの実行
+  - [x] 生成されたメッセージカタログの確認
 
 ### フェーズ3: 言語切り替え機能（3日目）
 - [ ] 言語切り替えUIの実装
@@ -155,6 +155,37 @@ apps/sandbox/
 - `<rootDir>`を使用したパス指定により、monorepo構造でも明確な設定が可能
 - **追加**: `@lingui/metro-transformer`とmetro.config.jsの設定が必要（.poファイルのサポート）
 
+### フェーズ2完了時のメモ（2025-08-04）
+- ~~`I18nProvider`にReact Native用の`defaultComponent={Text}`設定が必要~~ → 実際は不要
+- LinkListコンポーネントのtextプロパティをReactNodeに変更して翻訳コンポーネントに対応
+- ~~`compileNamespace: "ts"`設定でTypeScript形式のメッセージカタログを生成~~ → Metro Transformerで.poファイルを直接使用
+- ~~`Trans`コンポーネントは明示的なIDを使用（例：`<Trans id="navigation.patterns">`）~~ → Generated IDsを使用する方が推奨
+- Generated IDsの利点：自動ID生成、重複メッセージの自動マージ、バンドルサイズ削減
+- ~~package.jsonに`lingui:extract`と`lingui:compile`スクリプトを追加~~ → extractのみで十分（.poファイルを直接使用）
+- ~~生成されたメッセージファイルのeslint-disable警告は無視してOK~~ → コンパイル不要
+- **Metro Transformerにより.poファイルを直接インポート可能** - `lingui compile`が不要に
+- `src/po-types.d.ts`でTypeScript型定義を追加
+
+### Metro Transformer vs Compile調査メモ（2025-08-04）
+
+#### Metro Transformer（新アプローチ）
+- **登場時期**: 2024年11月（Lingui 4.12.0以降）
+- **特徴**: .poファイルを直接インポート、ビルドステップ不要
+- **メリット**: 開発体験向上、ホットリロード対応、簡潔なワークフロー
+- **デメリット**: まだ新しい、実装例が少ない、トラブルシューティング情報が限定的
+- **推奨対象**: 新規プロジェクト、Lingui公式推奨
+
+#### Compile（従来アプローチ）
+- **特徴**: `lingui extract` → `lingui compile` の2ステップ
+- **メリット**: 実績豊富、安定性高い、CI/CD統合しやすい、デバッグ情報豊富
+- **デメリット**: 追加ビルドステップ必要、ファイル管理が複雑
+- **推奨対象**: 既存プロジェクト、安定性重視
+
+#### 現状と今後
+- **2025年1月現在**: 従来のcompileアプローチが一般的
+- **今後の予測**: Metro Transformerが新標準になる可能性大
+- **GitHubの実装例**: まだcompileアプローチが多数派（Metro Transformerは新しすぎるため）
+
 ---
 
-最終更新日: 2025-08-01
+最終更新日: 2025-08-04
