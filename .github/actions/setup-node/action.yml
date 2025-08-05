@@ -6,10 +6,6 @@ inputs:
     description: 'Version of Node.js to use'
     required: false
     default: 'lts/*'
-  pnpm-version:
-    description: 'Version of pnpm to use'
-    required: false
-    default: 'latest'
   install-deps:
     description: 'Whether to install dependencies'
     required: false
@@ -21,7 +17,6 @@ runs:
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: ${{ inputs.pnpm-version }}
         run_install: false
 
     - name: Setup Node.js
