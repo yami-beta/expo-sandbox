@@ -3,10 +3,10 @@ import { StatusBar } from "expo-status-bar";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { ThemeProvider, useThemeContext } from "../theme/ThemeContext";
-import { initI18n } from "../i18n";
+import { initializeI18n } from "../i18n";
 
-// アプリ起動時に一度だけi18nを初期化
-initI18n();
+// アプリ起動時に一度だけi18nを初期化（保存された言語設定を読み込む）
+initializeI18n();
 
 function RootLayoutContent() {
   const { isDark } = useThemeContext();

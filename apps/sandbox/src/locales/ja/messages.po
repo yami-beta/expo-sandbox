@@ -20,3 +20,7 @@ msgstr "テーマ"
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
+
+#: src/app/(tabs)/settings/index.tsx:15
+msgid "言語"
+msgstr "言語"
