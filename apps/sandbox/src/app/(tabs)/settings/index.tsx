@@ -10,6 +10,10 @@ export default function SettingsScreen() {
       href: "/settings/theme",
       text: <Trans>テーマ</Trans>,
     },
+    {
+      href: "/settings/language",
+      text: <Trans>言語</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
