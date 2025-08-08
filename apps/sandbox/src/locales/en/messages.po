@@ -22,5 +22,5 @@ msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
 #: src/app/(tabs)/settings/index.tsx:15
-msgid "言語"
-msgstr "Language"
+#~ msgid "言語"
+#~ msgstr "Language"
