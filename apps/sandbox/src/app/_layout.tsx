@@ -5,7 +5,7 @@ import { i18n } from "@lingui/core";
 import { ThemeProvider, useThemeContext } from "../theme/ThemeContext";
 import { initializeI18n } from "../i18n";
 
-// アプリ起動時に一度だけi18nを初期化（保存された言語設定を読み込む）
+// アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
 
 function RootLayoutContent() {
