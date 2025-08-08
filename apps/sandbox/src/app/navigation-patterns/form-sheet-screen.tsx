@@ -11,10 +11,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { useState } from "react";
+import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function FormSheetScreen() {
   const { theme } = useThemeContext();
   const router = useRouter();
+  const { t } = useLingui();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -38,7 +40,7 @@ export default function FormSheetScreen() {
       >
         <View style={styles.header}>
           <Text style={[styles.title, { color: theme.colors.text }]}>
-            フォームシートの例
+            <Trans>フォームシートの例</Trans>
           </Text>
           <View style={styles.headerButtons}>
             <Pressable
@@ -51,7 +53,7 @@ export default function FormSheetScreen() {
               <Text
                 style={[styles.cancelButtonText, { color: theme.colors.text }]}
               >
-                キャンセル
+                <Trans>キャンセル</Trans>
               </Text>
             </Pressable>
             <Pressable
@@ -64,7 +66,7 @@ export default function FormSheetScreen() {
               <Text
                 style={[styles.doneButtonText, { color: theme.colors.primary }]}
               >
-                完了
+                <Trans>完了</Trans>
               </Text>
             </Pressable>
           </View>
@@ -72,22 +74,26 @@ export default function FormSheetScreen() {
 
         <View style={styles.content}>
           <Text style={[styles.subtitle, { color: theme.colors.text }]}>
-            {Platform.OS === "ios"
-              ? "フォームシート表示"
-              : "モーダルフォーム（Android）"}
+            <Trans>
+              {Platform.OS === "ios"
+                ? "フォームシート表示"
+                : "モーダルフォーム（Android）"}
+            </Trans>
           </Text>
 
           <Text style={[styles.description, { color: theme.colors.text }]}>
-            これは {Platform.OS === "ios" ? "フォームシート" : "モーダル"}
-            で表示されたフォームのデモです。
-            {Platform.OS === "ios" &&
-              "背景に親画面が見えることに注目してください。"}
+            <Trans>
+              これは {Platform.OS === "ios" ? "フォームシート" : "モーダル"}
+              で表示されたフォームのデモです。
+              {Platform.OS === "ios" &&
+                "背景に親画面が見えることに注目してください。"}
+            </Trans>
           </Text>
 
           <View style={styles.form}>
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                名前
+                <Trans>名前</Trans>
               </Text>
               <TextInput
                 style={[
@@ -100,14 +106,14 @@ export default function FormSheetScreen() {
                 ]}
                 value={name}
                 onChangeText={setName}
-                placeholder="名前を入力"
+                placeholder={t`名前を入力`}
                 placeholderTextColor={theme.colors.text + "80"}
               />
             </View>
 
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                メールアドレス
+                <Trans>メールアドレス</Trans>
               </Text>
               <TextInput
                 style={[
@@ -120,7 +126,7 @@ export default function FormSheetScreen() {
                 ]}
                 value={email}
                 onChangeText={setEmail}
-                placeholder="メールアドレスを入力"
+                placeholder={t`メールアドレスを入力`}
                 placeholderTextColor={theme.colors.text + "80"}
                 keyboardType="email-address"
                 autoCapitalize="none"
@@ -129,7 +135,7 @@ export default function FormSheetScreen() {
 
             <View style={styles.formGroup}>
               <Text style={[styles.label, { color: theme.colors.text }]}>
-                メッセージ
+                <Trans>メッセージ</Trans>
               </Text>
               <TextInput
                 style={[
@@ -142,7 +148,7 @@ export default function FormSheetScreen() {
                 ]}
                 value={message}
                 onChangeText={setMessage}
-                placeholder="メッセージを入力"
+                placeholder={t`メッセージを入力`}
                 placeholderTextColor={theme.colors.text + "80"}
                 multiline
                 numberOfLines={4}
@@ -162,7 +168,9 @@ export default function FormSheetScreen() {
               ]}
               onPress={handleSubmit}
             >
-              <Text style={styles.submitButtonText}>フォームを送信</Text>
+              <Text style={styles.submitButtonText}>
+                <Trans>フォームを送信</Trans>
+              </Text>
             </Pressable>
           </View>
         </View>

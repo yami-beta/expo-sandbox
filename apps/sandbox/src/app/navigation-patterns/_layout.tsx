@@ -1,8 +1,10 @@
 import { Stack } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
+import { useLingui } from "@lingui/react/macro";
 
 export default function NavigationPatternsLayout() {
   const { theme } = useThemeContext();
+  const { t } = useLingui();
 
   return (
     <Stack
@@ -17,32 +19,32 @@ export default function NavigationPatternsLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "ナビゲーションパターン",
+          title: t`ナビゲーションパターン`,
         }}
       />
       <Stack.Screen
         name="modal"
         options={{
-          title: "モーダルサンプル",
+          title: t`モーダルサンプル`,
         }}
       />
       <Stack.Screen
         name="form-sheet"
         options={{
-          title: "フォームシートサンプル",
+          title: t`フォームシートサンプル`,
         }}
       />
       <Stack.Screen
         name="modal-screen"
         options={{
-          title: "モーダル画面",
+          title: t`モーダル画面`,
           presentation: "modal",
         }}
       />
       <Stack.Screen
         name="form-sheet-screen"
         options={{
-          title: "フォームシート画面",
+          title: t`フォームシート画面`,
           presentation: "formSheet",
           sheetGrabberVisible: true,
         }}

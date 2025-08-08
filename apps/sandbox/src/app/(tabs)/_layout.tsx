@@ -1,9 +1,11 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
+import { useLingui } from "@lingui/react/macro";
 
 export default function TabLayout() {
   const { theme } = useThemeContext();
+  const { t } = useLingui();
 
   return (
     <Tabs
@@ -24,7 +26,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "ホーム",
+          title: t`ホーム`,
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),
@@ -33,7 +35,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "設定",
+          title: t`設定`,
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="cog" color={color} />

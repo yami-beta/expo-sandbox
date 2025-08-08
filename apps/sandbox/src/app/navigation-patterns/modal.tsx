@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
+import { Trans } from "@lingui/react/macro";
 
 export default function ModalSample() {
   const { theme } = useThemeContext();
@@ -16,11 +17,11 @@ export default function ModalSample() {
     >
       <View style={styles.content}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
-          モーダル表示サンプル
+          <Trans>モーダル表示サンプル</Trans>
         </Text>
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
-          下のボタンをタップしてモーダル表示で画面を開きます。
+          <Trans>下のボタンをタップしてモーダル表示で画面を開きます。</Trans>
         </Text>
 
         <Pressable
@@ -34,17 +35,21 @@ export default function ModalSample() {
           ]}
           onPress={openModal}
         >
-          <Text style={styles.buttonText}>モーダルを開く</Text>
+          <Text style={styles.buttonText}>
+            <Trans>モーダルを開く</Trans>
+          </Text>
         </Pressable>
 
         <View style={styles.infoBox}>
           <Text style={[styles.infoTitle, { color: theme.colors.text }]}>
-            モーダル表示について：
+            <Trans>モーダル表示について：</Trans>
           </Text>
           <Text style={[styles.infoText, { color: theme.colors.text }]}>
-            • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
-            下へのスワイプジェスチャーで閉じることができます{"\n"}•
-            親画面との対話をブロックします
+            <Trans>
+              • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
+              下へのスワイプジェスチャーで閉じることができます{"\n"}•
+              親画面との対話をブロックします
+            </Trans>
           </Text>
         </View>
       </View>
