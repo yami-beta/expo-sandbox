@@ -13,14 +13,234 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: Platform.OS === "ios" ? "フォームシート表示" : "モーダルフォーム（Android）"
+#: src/app/navigation-patterns/form-sheet-screen.tsx:77
+msgid "{0}"
+msgstr "{0}"
+
+#: src/app/navigation-patterns/form-sheet.tsx:50
+msgid ""
+"【iOS】\n"
+"• 画面全体を覆わない小さめのモーダル\n"
+"• 背景に親画面を表示\n"
+"• フォームや集中的なタスクに最適\n"
+"\n"
+"【Android】\n"
+"• 通常のモーダルとして動作\n"
+"• 画面全体を覆います\n"
+"• プラットフォーム固有の動作\n"
+"\n"
+"【共通】\n"
+"• 下へのスワイプジェスチャーで閉じることができます"
+msgstr ""
+"【iOS】\n"
+"• Smaller modal that doesn't cover the entire screen\n"
+"• Shows parent screen in background\n"
+"• Ideal for forms and focused tasks\n"
+"\n"
+"【Android】\n"
+"• Works as a regular modal\n"
+"• Covers the entire screen\n"
+"• Platform-specific behavior\n"
+"\n"
+"【Common】\n"
+"• Can be closed with a downward swipe gesture"
+
+#: src/app/navigation-patterns/form-sheet.tsx:50
+#~ msgid ""
+#~ "• {0}\n"
+#~ "• {1}\n"
+#~ "• {2}\n"
+#~ "• 下へのスワイプジェスチャーで閉じることができます"
+#~ msgstr ""
+#~ "• {0}\n"
+#~ "• {1}\n"
+#~ "• {2}\n"
+#~ "• Can be closed with a downward swipe gesture"
+
+#: src/app/navigation-patterns/modal-screen.tsx:54
+msgid "• 「閉じる」ボタンをタップ"
+msgstr "• Tap the \"Close\" button"
+
+#: src/app/navigation-patterns/modal-screen.tsx:57
+msgid "• 上から下へスワイプ（iOS）"
+msgstr "• Swipe down from top (iOS)"
+
+#: src/app/navigation-patterns/modal-screen.tsx:60
+msgid "• 戻るジェスチャーを使用（Android）"
+msgstr "• Use back gesture (Android)"
+
+#: src/app/navigation-patterns/modal.tsx:48
+msgid ""
+"• 画面全体を覆います\n"
+"• 下から上へアニメーションします\n"
+"• 下へのスワイプジェスチャーで閉じることができます\n"
+"• 親画面との対話をブロックします"
+msgstr ""
+"• Covers the entire screen\n"
+"• Animates from bottom to top\n"
+"• Can be closed with a downward swipe gesture\n"
+"• Blocks interaction with the parent screen"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:56
+msgid "キャンセル"
+msgstr "Cancel"
+
+#: src/app/navigation-patterns/modal-screen.tsx:69
+msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
+msgstr "This modal can contain any content such as forms, images, interactive elements, and more."
+
+#: src/app/navigation-patterns/modal-screen.tsx:46
+msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
+msgstr "This screen is displayed in modal presentation style. You can close it in the following ways:"
+
+#. placeholder {0}: Platform.OS === "ios" ? "フォームシート" : "モーダル"
+#. placeholder {1}: Platform.OS === "ios" && "背景に親画面が見えることに注目してください。"
+#: src/app/navigation-patterns/form-sheet-screen.tsx:85
+msgid "これは {0}で表示されたフォームのデモです。{1}"
+msgstr "This is a form demo displayed in {0}. {1}"
+
+#: src/app/navigation-patterns/modal-screen.tsx:42
+msgid "これはモーダル表示です"
+msgstr "This is a Modal Display"
+
+#: src/app/(tabs)/settings/theme.tsx:10
+msgid "システム設定に従う"
+msgstr "Follow system settings"
+
+#: src/app/(tabs)/settings/theme.tsx:12
+msgid "ダーク"
+msgstr "Dark"
+
 #: src/app/(tabs)/settings/index.tsx:11
+#: src/app/(tabs)/settings/_layout.tsx:20
 msgid "テーマ"
 msgstr "Theme"
 
+#: src/app/navigation-patterns/modal-screen.tsx:66
+msgid "デモコンテンツ"
+msgstr "Demo Content"
+
+#: src/app/navigation-patterns/_layout.tsx:22
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
+#: src/app/navigation-patterns/_layout.tsx:34
+msgid "フォームシートサンプル"
+msgstr "Form Sheet Sample"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:43
+msgid "フォームシートの例"
+msgstr "Form Sheet Example"
+
+#: src/app/navigation-patterns/form-sheet.tsx:41
+msgid "フォームシートを開く"
+msgstr "Open Form Sheet"
+
+#: src/app/navigation-patterns/_layout.tsx:47
+msgid "フォームシート画面"
+msgstr "Form Sheet Screen"
+
+#: src/app/navigation-patterns/index.tsx:12
+msgid "フォームシート表示"
+msgstr "Form Sheet Display"
+
+#: src/app/navigation-patterns/form-sheet.tsx:20
+msgid "フォームシート表示サンプル"
+msgstr "Form Sheet Display Sample"
+
+#: src/app/navigation-patterns/form-sheet.tsx:47
+msgid "フォームシート表示について："
+msgstr "About Form Sheet Display:"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:172
+msgid "フォームを送信"
+msgstr "Submit Form"
+
+#: src/app/(tabs)/_layout.tsx:29
+msgid "ホーム"
+msgstr "Home"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:116
+msgid "メールアドレス"
+msgstr "Email Address"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:129
+msgid "メールアドレスを入力"
+msgstr "Enter email address"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:138
+msgid "メッセージ"
+msgstr "Message"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:151
+msgid "メッセージを入力"
+msgstr "Enter message"
+
+#: src/app/navigation-patterns/_layout.tsx:28
+msgid "モーダルサンプル"
+msgstr "Modal Sample"
+
+#: src/app/navigation-patterns/modal.tsx:39
+msgid "モーダルを開く"
+msgstr "Open Modal"
+
+#: src/app/navigation-patterns/modal-screen.tsx:21
+#: src/app/navigation-patterns/_layout.tsx:40
+msgid "モーダル画面"
+msgstr "Modal Screen"
+
+#: src/app/navigation-patterns/index.tsx:8
+msgid "モーダル表示"
+msgstr "Modal Display"
+
+#: src/app/navigation-patterns/modal.tsx:20
+msgid "モーダル表示サンプル"
+msgstr "Modal Display Sample"
+
+#: src/app/navigation-patterns/modal.tsx:45
+msgid "モーダル表示について："
+msgstr "About Modal Display:"
+
+#: src/app/(tabs)/settings/theme.tsx:11
+msgid "ライト"
+msgstr "Light"
+
+#: src/app/navigation-patterns/form-sheet.tsx:24
+msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
+msgstr "Tap the button below to open a screen in form sheet display."
+
+#: src/app/navigation-patterns/modal.tsx:24
+msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
+msgstr "Tap the button below to open a screen in modal display."
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:96
+msgid "名前"
+msgstr "Name"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:109
+msgid "名前を入力"
+msgstr "Enter name"
+
+#: src/app/navigation-patterns/modal-screen.tsx:88
+#: src/app/navigation-patterns/form-sheet-screen.tsx:69
+msgid "完了"
+msgstr "Done"
+
+#: src/app/navigation-patterns/form-sheet.tsx:73
+#~ msgid "注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして 表示されます。"
+#~ msgstr "Note: Form sheet display is iOS-specific. On Android, it will be displayed as a regular modal."
+
 #: src/app/(tabs)/settings/index.tsx:15
 #~ msgid "言語"
 #~ msgstr "Language"
+
+#: src/app/(tabs)/_layout.tsx:38
+#: src/app/(tabs)/settings/_layout.tsx:19
+msgid "設定"
+msgstr "Settings"
+
+#: src/app/navigation-patterns/modal-screen.tsx:35
+msgid "閉じる"
+msgstr "Close"

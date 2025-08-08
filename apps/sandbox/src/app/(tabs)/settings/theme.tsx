@@ -1,13 +1,15 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useThemeContext, type ThemeMode } from "../../../theme/ThemeContext";
+import { useLingui } from "@lingui/react/macro";
 
 export default function ThemeScreen() {
   const { mode, setMode, theme } = useThemeContext();
+  const { t } = useLingui();
 
   const options: { value: ThemeMode; label: string }[] = [
-    { value: "system", label: "システム設定に従う" },
-    { value: "light", label: "ライト" },
-    { value: "dark", label: "ダーク" },
+    { value: "system", label: t`システム設定に従う` },
+    { value: "light", label: t`ライト` },
+    { value: "dark", label: t`ダーク` },
   ];
 
   return (

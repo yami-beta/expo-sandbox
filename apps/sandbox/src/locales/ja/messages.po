@@ -13,14 +13,234 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: Platform.OS === "ios" ? "フォームシート表示" : "モーダルフォーム（Android）"
+#: src/app/navigation-patterns/form-sheet-screen.tsx:77
+msgid "{0}"
+msgstr "{0}"
+
+#: src/app/navigation-patterns/form-sheet.tsx:50
+msgid ""
+"【iOS】\n"
+"• 画面全体を覆わない小さめのモーダル\n"
+"• 背景に親画面を表示\n"
+"• フォームや集中的なタスクに最適\n"
+"\n"
+"【Android】\n"
+"• 通常のモーダルとして動作\n"
+"• 画面全体を覆います\n"
+"• プラットフォーム固有の動作\n"
+"\n"
+"【共通】\n"
+"• 下へのスワイプジェスチャーで閉じることができます"
+msgstr ""
+"【iOS】\n"
+"• 画面全体を覆わない小さめのモーダル\n"
+"• 背景に親画面を表示\n"
+"• フォームや集中的なタスクに最適\n"
+"\n"
+"【Android】\n"
+"• 通常のモーダルとして動作\n"
+"• 画面全体を覆います\n"
+"• プラットフォーム固有の動作\n"
+"\n"
+"【共通】\n"
+"• 下へのスワイプジェスチャーで閉じることができます"
+
+#: src/app/navigation-patterns/form-sheet.tsx:50
+#~ msgid ""
+#~ "• {0}\n"
+#~ "• {1}\n"
+#~ "• {2}\n"
+#~ "• 下へのスワイプジェスチャーで閉じることができます"
+#~ msgstr ""
+#~ "• {0}\n"
+#~ "• {1}\n"
+#~ "• {2}\n"
+#~ "• 下へのスワイプジェスチャーで閉じることができます"
+
+#: src/app/navigation-patterns/modal-screen.tsx:54
+msgid "• 「閉じる」ボタンをタップ"
+msgstr "• 「閉じる」ボタンをタップ"
+
+#: src/app/navigation-patterns/modal-screen.tsx:57
+msgid "• 上から下へスワイプ（iOS）"
+msgstr "• 上から下へスワイプ（iOS）"
+
+#: src/app/navigation-patterns/modal-screen.tsx:60
+msgid "• 戻るジェスチャーを使用（Android）"
+msgstr "• 戻るジェスチャーを使用（Android）"
+
+#: src/app/navigation-patterns/modal.tsx:48
+msgid ""
+"• 画面全体を覆います\n"
+"• 下から上へアニメーションします\n"
+"• 下へのスワイプジェスチャーで閉じることができます\n"
+"• 親画面との対話をブロックします"
+msgstr ""
+"• 画面全体を覆います\n"
+"• 下から上へアニメーションします\n"
+"• 下へのスワイプジェスチャーで閉じることができます\n"
+"• 親画面との対話をブロックします"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:56
+msgid "キャンセル"
+msgstr "キャンセル"
+
+#: src/app/navigation-patterns/modal-screen.tsx:69
+msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
+msgstr "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
+
+#: src/app/navigation-patterns/modal-screen.tsx:46
+msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
+msgstr "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
+
+#. placeholder {0}: Platform.OS === "ios" ? "フォームシート" : "モーダル"
+#. placeholder {1}: Platform.OS === "ios" && "背景に親画面が見えることに注目してください。"
+#: src/app/navigation-patterns/form-sheet-screen.tsx:85
+msgid "これは {0}で表示されたフォームのデモです。{1}"
+msgstr "これは {0}で表示されたフォームのデモです。{1}"
+
+#: src/app/navigation-patterns/modal-screen.tsx:42
+msgid "これはモーダル表示です"
+msgstr "これはモーダル表示です"
+
+#: src/app/(tabs)/settings/theme.tsx:10
+msgid "システム設定に従う"
+msgstr "システム設定に従う"
+
+#: src/app/(tabs)/settings/theme.tsx:12
+msgid "ダーク"
+msgstr "ダーク"
+
 #: src/app/(tabs)/settings/index.tsx:11
+#: src/app/(tabs)/settings/_layout.tsx:20
 msgid "テーマ"
 msgstr "テーマ"
 
+#: src/app/navigation-patterns/modal-screen.tsx:66
+msgid "デモコンテンツ"
+msgstr "デモコンテンツ"
+
+#: src/app/navigation-patterns/_layout.tsx:22
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
+#: src/app/navigation-patterns/_layout.tsx:34
+msgid "フォームシートサンプル"
+msgstr "フォームシートサンプル"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:43
+msgid "フォームシートの例"
+msgstr "フォームシートの例"
+
+#: src/app/navigation-patterns/form-sheet.tsx:41
+msgid "フォームシートを開く"
+msgstr "フォームシートを開く"
+
+#: src/app/navigation-patterns/_layout.tsx:47
+msgid "フォームシート画面"
+msgstr "フォームシート画面"
+
+#: src/app/navigation-patterns/index.tsx:12
+msgid "フォームシート表示"
+msgstr "フォームシート表示"
+
+#: src/app/navigation-patterns/form-sheet.tsx:20
+msgid "フォームシート表示サンプル"
+msgstr "フォームシート表示サンプル"
+
+#: src/app/navigation-patterns/form-sheet.tsx:47
+msgid "フォームシート表示について："
+msgstr "フォームシート表示について："
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:172
+msgid "フォームを送信"
+msgstr "フォームを送信"
+
+#: src/app/(tabs)/_layout.tsx:29
+msgid "ホーム"
+msgstr "ホーム"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:116
+msgid "メールアドレス"
+msgstr "メールアドレス"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:129
+msgid "メールアドレスを入力"
+msgstr "メールアドレスを入力"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:138
+msgid "メッセージ"
+msgstr "メッセージ"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:151
+msgid "メッセージを入力"
+msgstr "メッセージを入力"
+
+#: src/app/navigation-patterns/_layout.tsx:28
+msgid "モーダルサンプル"
+msgstr "モーダルサンプル"
+
+#: src/app/navigation-patterns/modal.tsx:39
+msgid "モーダルを開く"
+msgstr "モーダルを開く"
+
+#: src/app/navigation-patterns/modal-screen.tsx:21
+#: src/app/navigation-patterns/_layout.tsx:40
+msgid "モーダル画面"
+msgstr "モーダル画面"
+
+#: src/app/navigation-patterns/index.tsx:8
+msgid "モーダル表示"
+msgstr "モーダル表示"
+
+#: src/app/navigation-patterns/modal.tsx:20
+msgid "モーダル表示サンプル"
+msgstr "モーダル表示サンプル"
+
+#: src/app/navigation-patterns/modal.tsx:45
+msgid "モーダル表示について："
+msgstr "モーダル表示について："
+
+#: src/app/(tabs)/settings/theme.tsx:11
+msgid "ライト"
+msgstr "ライト"
+
+#: src/app/navigation-patterns/form-sheet.tsx:24
+msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
+msgstr "下のボタンをタップしてフォームシート表示で画面を開きます。"
+
+#: src/app/navigation-patterns/modal.tsx:24
+msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
+msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:96
+msgid "名前"
+msgstr "名前"
+
+#: src/app/navigation-patterns/form-sheet-screen.tsx:109
+msgid "名前を入力"
+msgstr "名前を入力"
+
+#: src/app/navigation-patterns/modal-screen.tsx:88
+#: src/app/navigation-patterns/form-sheet-screen.tsx:69
+msgid "完了"
+msgstr "完了"
+
+#: src/app/navigation-patterns/form-sheet.tsx:73
+#~ msgid "注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして 表示されます。"
+#~ msgstr "注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして 表示されます。"
+
 #: src/app/(tabs)/settings/index.tsx:15
 #~ msgid "言語"
 #~ msgstr "言語"
+
+#: src/app/(tabs)/_layout.tsx:38
+#: src/app/(tabs)/settings/_layout.tsx:19
+msgid "設定"
+msgstr "設定"
+
+#: src/app/navigation-patterns/modal-screen.tsx:35
+msgid "閉じる"
+msgstr "閉じる"

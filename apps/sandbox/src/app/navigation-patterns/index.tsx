@@ -1,16 +1,17 @@
 import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
-
-const list = [
-  {
-    href: "/navigation-patterns/modal",
-    text: "モーダル表示",
-  },
-  {
-    href: "/navigation-patterns/form-sheet",
-    text: "フォームシート表示",
-  },
-] as const satisfies LinkItem[];
+import { Trans } from "@lingui/react/macro";
 
 export default function NavigationPatterns() {
+  const list = [
+    {
+      href: "/navigation-patterns/modal",
+      text: <Trans>モーダル表示</Trans>,
+    },
+    {
+      href: "/navigation-patterns/form-sheet",
+      text: <Trans>フォームシート表示</Trans>,
+    },
+  ] as const satisfies LinkItem[];
+
   return <LinkList data={list} />;
 }
