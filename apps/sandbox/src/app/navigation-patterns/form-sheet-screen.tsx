@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { useState } from "react";
-import { Trans, useLingui, Select } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function FormSheetScreen() {
   const { theme } = useThemeContext();
@@ -74,12 +74,11 @@ export default function FormSheetScreen() {
 
         <View style={styles.content}>
           <Text style={[styles.subtitle, { color: theme.colors.text }]}>
-            <Select
-              value={Platform.OS}
-              ios={<Trans>フォームシート表示</Trans>}
-              android={<Trans>モーダルフォーム（Android）</Trans>}
-              other={<Trans>モーダルフォーム</Trans>}
-            />
+            {Platform.OS === "ios" ? (
+              <Trans>フォームシート表示</Trans>
+            ) : (
+              <Trans>モーダルフォーム（Android）</Trans>
+            )}
           </Text>
 
           <Text style={[styles.description, { color: theme.colors.text }]}>
