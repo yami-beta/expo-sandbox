@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { useState } from "react";
-import { Trans, useLingui } from "@lingui/react/macro";
+import { Trans, useLingui, Select } from "@lingui/react/macro";
 
 export default function FormSheetScreen() {
   const { theme } = useThemeContext();
@@ -74,20 +74,23 @@ export default function FormSheetScreen() {
 
         <View style={styles.content}>
           <Text style={[styles.subtitle, { color: theme.colors.text }]}>
-            <Trans>
-              {Platform.OS === "ios"
-                ? "フォームシート表示"
-                : "モーダルフォーム（Android）"}
-            </Trans>
+            <Select
+              value={Platform.OS}
+              ios={<Trans>フォームシート表示</Trans>}
+              android={<Trans>モーダルフォーム（Android）</Trans>}
+              other={<Trans>モーダルフォーム</Trans>}
+            />
           </Text>
 
           <Text style={[styles.description, { color: theme.colors.text }]}>
-            <Trans>
-              これは {Platform.OS === "ios" ? "フォームシート" : "モーダル"}
-              で表示されたフォームのデモです。
-              {Platform.OS === "ios" &&
-                "背景に親画面が見えることに注目してください。"}
-            </Trans>
+            {Platform.OS === "ios" ? (
+              <Trans>
+                これはフォームシートで表示されたフォームのデモです。
+                背景に親画面が見えることに注目してください。
+              </Trans>
+            ) : (
+              <Trans>これはモーダルで表示されたフォームのデモです。</Trans>
+            )}
           </Text>
 
           <View style={styles.form}>
