@@ -56,7 +56,21 @@
   - [x] 階層的な命名規則の決定
   - [x] 既存キーのリファクタリング
 
-### フェーズ6: Pluralマクロの学習（6日目）
+### フェーズ6: IntlのPolyfill設定（6日目）
+- [ ] Intl APIのPolyfill要件の理解
+  - [ ] React NativeでのIntl APIサポート状況の確認
+  - [ ] 必要なPolyfillパッケージの調査
+  - [ ] パフォーマンスへの影響評価
+- [ ] 必要なパッケージのインストール
+  - [ ] `@formatjs/intl-locale`のインストール
+  - [ ] `@formatjs/intl-pluralrules`のインストール
+  - [ ] 日本語・英語のlocale-dataの追加
+- [ ] Polyfillの実装
+  - [ ] `_layout.tsx`へのPolyfillインポート追加
+  - [ ] polyfill-forceを使用した最適化
+  - [ ] 動作確認とバンドルサイズの測定
+
+### フェーズ7: Pluralマクロの学習（7日目）
 - [ ] `plural`マクロの基礎学習
   - [ ] 単数形・複数形の切り替えパターンの理解
   - [ ] 日本語と英語での複数形処理の違いを学習
@@ -65,7 +79,7 @@
   - [ ] ファイル数、メッセージ数などのカウント表示
   - [ ] ゼロの場合の特別な表記（「アイテムがありません」など）
 
-### フェーズ7: Selectマクロの学習（7日目）
+### フェーズ8: Selectマクロの学習（8日目）
 - [ ] `select`マクロの基礎学習
   - [ ] 条件による文言切り替えの仕組み理解
   - [ ] 性別、ステータスなどの選択的表示パターン
@@ -74,7 +88,7 @@
   - [ ] 権限レベルによるメッセージ切り替え
   - [ ] アプリケーション状態による表示分岐
 
-### フェーズ8: SelectOrdinalマクロの学習（8日目）
+### フェーズ9: SelectOrdinalマクロの学習（9日目）
 - [ ] `selectOrdinal`マクロの基礎学習
   - [ ] 序数の表現（1st, 2nd, 3rd, 1位, 2位, 3位など）
   - [ ] 言語による序数表現の違いを理解
@@ -83,7 +97,7 @@
   - [ ] 順位、階層、レベルの表示
   - [ ] 進捗ステップの表示（第1段階、第2段階など）
 
-### フェーズ9: ナビゲーション関連の翻訳（9日目）
+### フェーズ10: ナビゲーション関連の翻訳（10日目）
 - [ ] タブナビゲーションの翻訳
   - [ ] タブバーラベルの動的翻訳
   - [ ] バッジテキストの翻訳
@@ -92,7 +106,7 @@
   - [ ] ヘッダーボタンのテキスト翻訳
 - [ ] ドロワーメニューの翻訳（該当する場合）
 
-### フェーズ10: フォーマット機能（10日目）
+### フェーズ11: フォーマット機能（11日目）
 - [ ] 日付のローカライズ
   - [ ] 日付表示形式の地域対応
   - [ ] 相対時間表示の実装（例: "3日前"）
@@ -102,7 +116,7 @@
 - [ ] カスタムフォーマッターの実装
   - [ ] アプリ固有のフォーマット要件への対応
 
-### フェーズ11: ワークフロー最適化（11日目）
+### フェーズ12: ワークフロー最適化（12日目）
 - [ ] 開発ワークフローの確立
   - [ ] npm scriptsへの翻訳コマンド追加
   - [ ] pre-commitフックでの自動チェック
@@ -343,6 +357,54 @@ Lingui公式ドキュメントによると、**モバイルアプリでの言語
   - コードの一貫性を保つことの重要性
   - Generated IDsは条件分岐の実装方法に関わらず適切に動作
 
+### フェーズ6完了時のメモ（予定）
+- IntlのPolyfillに関する学習内容と実装結果を記録予定
+
 ---
 
-最終更新日: 2025-08-12
+## IntlのPolyfill設定詳細
+
+### 必要なパッケージのインストール
+
+```bash
+# IntlのPolyfillパッケージをインストール
+pnpm -C apps/sandbox add @formatjs/intl-locale @formatjs/intl-pluralrules
+```
+
+### Polyfillの実装方法
+
+`src/app/_layout.tsx`の最上部（他のインポートより前）に以下を追加：
+
+```typescript
+// Intl APIのPolyfill（React Native向け）
+import "@formatjs/intl-locale/polyfill-force";
+import "@formatjs/intl-pluralrules/polyfill-force";
+import "@formatjs/intl-pluralrules/locale-data/ja"; // 日本語のlocale data
+import "@formatjs/intl-pluralrules/locale-data/en"; // 英語のlocale data
+```
+
+### なぜPolyfillが必要なのか
+
+1. **React NativeのJavaScriptエンジンの制限**
+   - React NativeのJavaScriptエンジン（Hermes等）は、すべてのIntl APIをネイティブサポートしていない
+   - 特に`Intl.Locale`と`Intl.PluralRules`は多くの環境で未実装
+
+2. **Linguiの高度な機能の前提条件**
+   - `plural`マクロ: `Intl.PluralRules`に依存
+   - `selectOrdinal`マクロ: `Intl.PluralRules`の序数機能に依存
+   - 適切な言語別の複数形処理にはこれらのAPIが必須
+
+3. **polyfill-forceを使用する理由**
+   - 通常のpolyfillは環境チェックを行うが、低スペック端末では初期化に時間がかかる
+   - `polyfill-force`は環境チェックをスキップし、常にpolyfillを適用
+   - 初期化時間を短縮し、パフォーマンスを改善
+
+### 注意事項
+
+- **バンドルサイズへの影響**: Polyfillの追加により、JavaScriptバンドルサイズが増加します
+- **パフォーマンス**: 初回起動時にPolyfillの読み込みが必要ですが、`polyfill-force`により最小限に抑えられます
+- **メンテナンス**: 新しい言語を追加する際は、対応するlocale-dataのインポートも必要です
+
+---
+
+最終更新日: 2025-08-13
