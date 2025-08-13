@@ -35,6 +35,12 @@ npm run reset-project
 
 This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
+## Project Documentation
+
+### 技術ドキュメント
+
+- [Expo Routerナビゲーション設定ガイド](./docs/expo-router-navigation-settings.md) - Stack.Screenの設定場所とpresentationオプションの制限事項について
+
 ## Learn more
 
 To learn more about developing your project with Expo, look at the following resources:

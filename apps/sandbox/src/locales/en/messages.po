@@ -130,12 +130,12 @@ msgstr "Theme"
 msgid "デモコンテンツ"
 msgstr "Demo Content"
 
-#: src/app/navigation-patterns/_layout.tsx:22
+#: src/app/_layout.tsx:42
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
-#: src/app/navigation-patterns/_layout.tsx:34
+#: src/app/_layout.tsx:54
 msgid "フォームシートサンプル"
 msgstr "Form Sheet Sample"
 
@@ -147,7 +147,7 @@ msgstr "Form Sheet Example"
 msgid "フォームシートを開く"
 msgstr "Open Form Sheet"
 
-#: src/app/navigation-patterns/_layout.tsx:47
+#: src/app/_layout.tsx:67
 msgid "フォームシート画面"
 msgstr "Form Sheet Screen"
 
@@ -168,6 +168,7 @@ msgstr "About Form Sheet Display:"
 msgid "フォームを送信"
 msgstr "Submit Form"
 
+#: src/app/_layout.tsx:37
 #: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "Home"
@@ -188,7 +189,7 @@ msgstr "Message"
 msgid "メッセージを入力"
 msgstr "Enter message"
 
-#: src/app/navigation-patterns/_layout.tsx:28
+#: src/app/_layout.tsx:48
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
 
@@ -200,8 +201,8 @@ msgstr "Modal Form (Android)"
 msgid "モーダルを開く"
 msgstr "Open Modal"
 
+#: src/app/_layout.tsx:60
 #: src/app/navigation-patterns/modal-screen.tsx:21
-#: src/app/navigation-patterns/_layout.tsx:40
 msgid "モーダル画面"
 msgstr "Modal Screen"
 
