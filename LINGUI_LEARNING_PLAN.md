@@ -56,19 +56,19 @@
   - [x] 階層的な命名規則の決定
   - [x] 既存キーのリファクタリング
 
-### フェーズ6: IntlのPolyfill設定（6日目）
-- [ ] Intl APIのPolyfill要件の理解
-  - [ ] React NativeでのIntl APIサポート状況の確認
-  - [ ] 必要なPolyfillパッケージの調査
-  - [ ] パフォーマンスへの影響評価
-- [ ] 必要なパッケージのインストール
-  - [ ] `@formatjs/intl-locale`のインストール
-  - [ ] `@formatjs/intl-pluralrules`のインストール
-  - [ ] 日本語・英語のlocale-dataの追加
-- [ ] Polyfillの実装
-  - [ ] `_layout.tsx`へのPolyfillインポート追加
-  - [ ] polyfill-forceを使用した最適化
-  - [ ] 動作確認とバンドルサイズの測定
+### フェーズ6: IntlのPolyfill設定（6日目）✅
+- [x] Intl APIのPolyfill要件の理解
+  - [x] React NativeでのIntl APIサポート状況の確認
+  - [x] 必要なPolyfillパッケージの調査
+  - [x] パフォーマンスへの影響評価
+- [x] 必要なパッケージのインストール
+  - [x] `@formatjs/intl-locale`のインストール
+  - [x] `@formatjs/intl-pluralrules`のインストール
+  - [x] 日本語・英語のlocale-dataの追加
+- [x] Polyfillの実装
+  - [x] `_layout.tsx`へのPolyfillインポート追加
+  - [x] polyfill-forceを使用した最適化
+  - [x] 動作確認とバンドルサイズの測定
 
 ### フェーズ7: Pluralマクロの学習（7日目）
 - [ ] `plural`マクロの基礎学習
@@ -357,8 +357,24 @@ Lingui公式ドキュメントによると、**モバイルアプリでの言語
   - コードの一貫性を保つことの重要性
   - Generated IDsは条件分岐の実装方法に関わらず適切に動作
 
-### フェーズ6完了時のメモ（予定）
-- IntlのPolyfillに関する学習内容と実装結果を記録予定
+### フェーズ6完了時のメモ（2025-08-13）
+- **必要なパッケージ**：
+  - `@formatjs/intl-locale`: Intl.Locale APIのpolyfill
+  - `@formatjs/intl-pluralrules`: Intl.PluralRules APIのpolyfill（plural/selectOrdinalマクロに必要）
+- **実装内容**：
+  - `_layout.tsx`の最上部（他のインポートより前）にPolyfillを追加
+  - `polyfill-force`版を使用（環境チェックをスキップして初期化時間を短縮）
+  - 日本語と英語のlocale-dataを明示的にインポート
+- **技術的背景**：
+  - React Native（特にHermes）はすべてのIntl APIをネイティブサポートしていない
+  - Linguiの高度な機能（plural、selectOrdinalマクロ）はこれらのAPIに依存
+  - Lingui公式ドキュメント（08/2024時点）でもPolyfillが必要と明記
+- **パフォーマンスへの配慮**：
+  - `polyfill-force`により低スペック端末での初期化時間を改善
+  - バンドルサイズへの影響はあるが、i18n機能には必須
+- **注意点**：
+  - 新しい言語を追加する際は、対応するlocale-dataのインポートも必要
+  - Polyfillインポートは他のすべてのインポートより前に配置することが重要
 
 ---
 

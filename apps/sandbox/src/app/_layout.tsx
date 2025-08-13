@@ -1,3 +1,10 @@
+// Intl APIのPolyfill（React Native向け）
+// 他のインポートより前に配置する必要がある
+import "@formatjs/intl-locale/polyfill-force";
+import "@formatjs/intl-pluralrules/polyfill-force";
+import "@formatjs/intl-pluralrules/locale-data/ja"; // 日本語のlocale data
+import "@formatjs/intl-pluralrules/locale-data/en"; // 英語のlocale data
+
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { I18nProvider } from "@lingui/react";
