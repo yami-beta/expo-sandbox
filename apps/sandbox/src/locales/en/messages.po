@@ -85,11 +85,11 @@ msgstr ""
 "• Can be closed with a downward swipe gesture\n"
 "• Blocks interaction with the parent screen"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:56
+#: src/app/navigation-patterns/form-sheet-screen.tsx:59
 msgid "キャンセル"
 msgstr "Cancel"
 
-#: src/app/navigation-patterns/modal-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:71
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 msgstr "This modal can contain any content such as forms, images, interactive elements, and more."
 
@@ -101,11 +101,11 @@ msgstr "This screen is displayed in modal presentation style. You can close it i
 #~ msgid "これは {0}で表示されたフォームのデモです。{1}"
 #~ msgstr "This is a form demo displayed in {0}. {1}"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:86
+#: src/app/navigation-patterns/form-sheet-screen.tsx:92
 msgid "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
 msgstr "This is a form demo displayed in a form sheet. Notice that you can see the parent screen in the background."
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:91
+#: src/app/navigation-patterns/form-sheet-screen.tsx:97
 msgid "これはモーダルで表示されたフォームのデモです。"
 msgstr "This is a form demo displayed in a modal."
 
@@ -126,16 +126,16 @@ msgstr "Dark"
 msgid "テーマ"
 msgstr "Theme"
 
-#: src/app/navigation-patterns/modal-screen.tsx:66
+#: src/app/navigation-patterns/modal-screen.tsx:68
 msgid "デモコンテンツ"
 msgstr "Demo Content"
 
-#: src/app/navigation-patterns/_layout.tsx:22
+#: src/app/_layout.tsx:42
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
-#: src/app/navigation-patterns/_layout.tsx:34
+#: src/app/_layout.tsx:54
 msgid "フォームシートサンプル"
 msgstr "Form Sheet Sample"
 
@@ -147,12 +147,12 @@ msgstr "Form Sheet Example"
 msgid "フォームシートを開く"
 msgstr "Open Form Sheet"
 
-#: src/app/navigation-patterns/_layout.tsx:47
+#: src/app/_layout.tsx:67
 msgid "フォームシート画面"
 msgstr "Form Sheet Screen"
 
 #: src/app/navigation-patterns/index.tsx:12
-#: src/app/navigation-patterns/form-sheet-screen.tsx:78
+#: src/app/navigation-patterns/form-sheet-screen.tsx:84
 msgid "フォームシート表示"
 msgstr "Form Sheet Display"
 
@@ -164,35 +164,36 @@ msgstr "Form Sheet Display Sample"
 msgid "フォームシート表示について："
 msgstr "About Form Sheet Display:"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:174
+#: src/app/navigation-patterns/form-sheet-screen.tsx:180
 msgid "フォームを送信"
 msgstr "Submit Form"
 
+#: src/app/_layout.tsx:37
 #: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "Home"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:118
+#: src/app/navigation-patterns/form-sheet-screen.tsx:124
 msgid "メールアドレス"
 msgstr "Email Address"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:131
+#: src/app/navigation-patterns/form-sheet-screen.tsx:137
 msgid "メールアドレスを入力"
 msgstr "Enter email address"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:140
+#: src/app/navigation-patterns/form-sheet-screen.tsx:146
 msgid "メッセージ"
 msgstr "Message"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:153
+#: src/app/navigation-patterns/form-sheet-screen.tsx:159
 msgid "メッセージを入力"
 msgstr "Enter message"
 
-#: src/app/navigation-patterns/_layout.tsx:28
+#: src/app/_layout.tsx:48
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:80
+#: src/app/navigation-patterns/form-sheet-screen.tsx:86
 msgid "モーダルフォーム（Android）"
 msgstr "Modal Form (Android)"
 
@@ -200,8 +201,8 @@ msgstr "Modal Form (Android)"
 msgid "モーダルを開く"
 msgstr "Open Modal"
 
+#: src/app/_layout.tsx:60
 #: src/app/navigation-patterns/modal-screen.tsx:21
-#: src/app/navigation-patterns/_layout.tsx:40
 msgid "モーダル画面"
 msgstr "Modal Screen"
 
@@ -229,16 +230,16 @@ msgstr "Tap the button below to open a screen in form sheet display."
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "Tap the button below to open a screen in modal display."
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:98
+#: src/app/navigation-patterns/form-sheet-screen.tsx:104
 msgid "名前"
 msgstr "Name"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:111
+#: src/app/navigation-patterns/form-sheet-screen.tsx:117
 msgid "名前を入力"
 msgstr "Enter name"
 
-#: src/app/navigation-patterns/modal-screen.tsx:88
-#: src/app/navigation-patterns/form-sheet-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:90
+#: src/app/navigation-patterns/form-sheet-screen.tsx:75
 msgid "完了"
 msgstr "Done"
 

@@ -85,11 +85,11 @@ msgstr ""
 "• 下へのスワイプジェスチャーで閉じることができます\n"
 "• 親画面との対話をブロックします"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:56
+#: src/app/navigation-patterns/form-sheet-screen.tsx:59
 msgid "キャンセル"
 msgstr "キャンセル"
 
-#: src/app/navigation-patterns/modal-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:71
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 msgstr "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 
@@ -101,11 +101,11 @@ msgstr "この画面はモーダル表示スタイルで表示されています
 #~ msgid "これは {0}で表示されたフォームのデモです。{1}"
 #~ msgstr "これは {0}で表示されたフォームのデモです。{1}"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:86
+#: src/app/navigation-patterns/form-sheet-screen.tsx:92
 msgid "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
 msgstr "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:91
+#: src/app/navigation-patterns/form-sheet-screen.tsx:97
 msgid "これはモーダルで表示されたフォームのデモです。"
 msgstr "これはモーダルで表示されたフォームのデモです。"
 
@@ -126,16 +126,16 @@ msgstr "ダーク"
 msgid "テーマ"
 msgstr "テーマ"
 
-#: src/app/navigation-patterns/modal-screen.tsx:66
+#: src/app/navigation-patterns/modal-screen.tsx:68
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
-#: src/app/navigation-patterns/_layout.tsx:22
+#: src/app/_layout.tsx:42
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
-#: src/app/navigation-patterns/_layout.tsx:34
+#: src/app/_layout.tsx:54
 msgid "フォームシートサンプル"
 msgstr "フォームシートサンプル"
 
@@ -147,12 +147,12 @@ msgstr "フォームシートの例"
 msgid "フォームシートを開く"
 msgstr "フォームシートを開く"
 
-#: src/app/navigation-patterns/_layout.tsx:47
+#: src/app/_layout.tsx:67
 msgid "フォームシート画面"
 msgstr "フォームシート画面"
 
 #: src/app/navigation-patterns/index.tsx:12
-#: src/app/navigation-patterns/form-sheet-screen.tsx:78
+#: src/app/navigation-patterns/form-sheet-screen.tsx:84
 msgid "フォームシート表示"
 msgstr "フォームシート表示"
 
@@ -164,35 +164,36 @@ msgstr "フォームシート表示サンプル"
 msgid "フォームシート表示について："
 msgstr "フォームシート表示について："
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:174
+#: src/app/navigation-patterns/form-sheet-screen.tsx:180
 msgid "フォームを送信"
 msgstr "フォームを送信"
 
+#: src/app/_layout.tsx:37
 #: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "ホーム"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:118
+#: src/app/navigation-patterns/form-sheet-screen.tsx:124
 msgid "メールアドレス"
 msgstr "メールアドレス"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:131
+#: src/app/navigation-patterns/form-sheet-screen.tsx:137
 msgid "メールアドレスを入力"
 msgstr "メールアドレスを入力"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:140
+#: src/app/navigation-patterns/form-sheet-screen.tsx:146
 msgid "メッセージ"
 msgstr "メッセージ"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:153
+#: src/app/navigation-patterns/form-sheet-screen.tsx:159
 msgid "メッセージを入力"
 msgstr "メッセージを入力"
 
-#: src/app/navigation-patterns/_layout.tsx:28
+#: src/app/_layout.tsx:48
 msgid "モーダルサンプル"
 msgstr "モーダルサンプル"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:80
+#: src/app/navigation-patterns/form-sheet-screen.tsx:86
 msgid "モーダルフォーム（Android）"
 msgstr "モーダルフォーム（Android）"
 
@@ -200,8 +201,8 @@ msgstr "モーダルフォーム（Android）"
 msgid "モーダルを開く"
 msgstr "モーダルを開く"
 
+#: src/app/_layout.tsx:60
 #: src/app/navigation-patterns/modal-screen.tsx:21
-#: src/app/navigation-patterns/_layout.tsx:40
 msgid "モーダル画面"
 msgstr "モーダル画面"
 
@@ -229,16 +230,16 @@ msgstr "下のボタンをタップしてフォームシート表示で画面を
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:98
+#: src/app/navigation-patterns/form-sheet-screen.tsx:104
 msgid "名前"
 msgstr "名前"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:111
+#: src/app/navigation-patterns/form-sheet-screen.tsx:117
 msgid "名前を入力"
 msgstr "名前を入力"
 
-#: src/app/navigation-patterns/modal-screen.tsx:88
-#: src/app/navigation-patterns/form-sheet-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:90
+#: src/app/navigation-patterns/form-sheet-screen.tsx:75
 msgid "完了"
 msgstr "完了"
 
