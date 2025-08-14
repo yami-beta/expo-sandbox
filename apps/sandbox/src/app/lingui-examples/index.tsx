@@ -7,6 +7,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/plural-examples",
       text: <Trans>Pluralマクロの使い方</Trans>,
     },
+    {
+      href: "/lingui-examples/select-examples",
+      text: <Trans>Selectマクロの使い方</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
