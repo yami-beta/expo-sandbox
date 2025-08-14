@@ -69,6 +69,18 @@ function RootLayoutContent() {
             sheetGrabberVisible: true,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/index"
+          options={{
+            title: t`Lingui学習サンプル`,
+          }}
+        />
+        <Stack.Screen
+          name="lingui-examples/plural-examples"
+          options={{
+            title: t`Pluralコンポーネント`,
+          }}
+        />
       </Stack>
     </>
   );
