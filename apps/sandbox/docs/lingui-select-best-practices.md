@@ -237,11 +237,13 @@ const pronoun = select(gender, {
 ## 参照ソース
 
 ### ICU公式ドキュメント
+
 - [ICU MessageFormat - Formatting Messages](https://unicode-org.github.io/icu/userguide/format_parse/messages/)
   - `select`は「固定されたキーワードのセットを通じてサブメッセージを選択する」機能として説明
   - 主な例として性別（gender）による選択が示されている
 
 ### 業界のベストプラクティス
+
 - [Lokalise - Guide to ICU message format](https://lokalise.com/blog/complete-guide-to-icu-message-format/)
   - 敬語レベルの実装に`select`を使用する例を紹介
   - 「ICUには組み込みの敬語レベルサポートはない」と明記
@@ -250,9 +252,9 @@ const pronoun = select(gender, {
   - `select`の実践的な応用例を解説
 
 ### 言語学的背景
+
 - [T-V distinction](https://en.wikipedia.org/wiki/T%E2%80%93V_distinction)
   - ヨーロッパ言語における敬称の区別（tu/vous、du/Sie等）
-  
 - 日本語・韓国語の敬語体系に関する資料
   - これらの言語では文法レベルで敬語が組み込まれている
   - 実装上は`select`を使って対応するのが一般的
