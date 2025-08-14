@@ -5,6 +5,7 @@ on:
     paths:
       - 'apps/sandbox/src/**/*.tsx'
       - 'apps/sandbox/src/**/*.ts'
+      - 'apps/sandbox/src/**/*.po'
 
 jobs:
   lingui-check:
