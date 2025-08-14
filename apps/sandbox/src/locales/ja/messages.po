@@ -13,6 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/app/lingui-examples/plural-examples.tsx:342
+msgid "_0、_1など正確な値のマッチングが可能"
+msgstr "_0、_1など正確な値のマッチングが可能"
+
+#: src/app/lingui-examples/plural-examples.tsx:230
+msgid "_0で値が0の場合の特別処理"
+msgstr "_0で値が0の場合の特別処理"
+
+#: src/app/lingui-examples/test-plural.tsx:23
+#~ msgid "{0, plural, 0 {ゼロです（文字列変換後）} one {1つです} other {#個です}}"
+#~ msgstr "{0, plural, 0 {ゼロです（文字列変換後）} one {1つです} other {#個です}}"
+
 #: src/app/navigation-patterns/form-sheet-screen.tsx:77
 #~ msgid "{0, select, ios {フォームシート表示} android {モーダルフォーム（Android）} other {モーダルフォーム}}"
 #~ msgstr "{0, select, ios {フォームシート表示} android {モーダルフォーム（Android）} other {モーダルフォーム}}"
@@ -20,6 +32,66 @@ msgstr ""
 #: src/app/navigation-patterns/form-sheet-screen.tsx:77
 #~ msgid "{0}"
 #~ msgstr "{0}"
+
+#: src/app/lingui-examples/test-plural.tsx:9
+#~ msgid "{count, plural, 0 {ゼロです（'0'キー）} one {1つです} other {#個です}}"
+#~ msgstr "{count, plural, 0 {ゼロです（'0'キー）} one {1つです} other {#個です}}"
+
+#: src/app/lingui-examples/test-plural.tsx:16
+#~ msgid "{count, plural, zero {ゼロです（zeroキー）} one {1つです} other {#個です}}"
+#~ msgstr "{count, plural, zero {ゼロです（zeroキー）} one {1つです} other {#個です}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:175
+msgid "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
+msgstr "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:150
+#~ msgid "{fileCount, plural, zero {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
+#~ msgstr "{fileCount, plural, zero {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:138
+msgid "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
+msgstr "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:112
+#~ msgid "{itemCount, plural, zero {アイテムがありません} one {1件のアイテム} other {#件のアイテム}}"
+#~ msgstr "{itemCount, plural, zero {アイテムがありません} one {1件のアイテム} other {#件のアイテム}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:222
+msgid "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
+msgstr "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:197
+#~ msgid "{notificationCount, plural, zero {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
+#~ msgstr "{notificationCount, plural, zero {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:25
+#~ msgid "{taskCount, plural, _0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+#~ msgstr "{taskCount, plural, _0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:33
+msgid "{taskCount, plural, =0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+msgstr "{taskCount, plural, =0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:32
+#~ msgid "{taskCount, plural, 0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+#~ msgstr "{taskCount, plural, 0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:36
+#~ msgid "{taskCount, plural, one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+#~ msgstr "{taskCount, plural, one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:32
+#~ msgid "{taskCount, plural, zero {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+#~ msgstr "{taskCount, plural, zero {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:303
+msgid "{userName}さんには{friendCount, plural, =0 {友達がいません} one {友達が1人います} other {友達が#人います}}"
+msgstr "{userName}さんには{friendCount, plural, =0 {友達がいません} one {友達が1人います} other {友達が#人います}}"
+
+#: src/app/lingui-examples/plural-examples.tsx:235
+#~ msgid "{userName}さんには{friendCount, plural, zero {友達がいません} one {友達が1人います} other {友達が#人います}}"
+#~ msgstr "{userName}さんには{friendCount, plural, zero {友達がいません} one {友達が1人います} other {友達が#人います}}"
 
 #: src/app/navigation-patterns/form-sheet.tsx:50
 msgid ""
@@ -48,6 +120,10 @@ msgstr ""
 "\n"
 "【共通】\n"
 "• 下へのスワイプジェスチャーで閉じることができます"
+
+#: src/app/lingui-examples/plural-examples.tsx:345
+msgid "#記号: カウント数値を表示する場所"
+msgstr "#記号: カウント数値を表示する場所"
 
 #: src/app/navigation-patterns/form-sheet.tsx:50
 #~ msgid ""
@@ -85,9 +161,102 @@ msgstr ""
 "• 下へのスワイプジェスチャーで閉じることができます\n"
 "• 親画面との対話をブロックします"
 
+#: src/app/lingui-examples/plural-examples.tsx:262
+#~ msgid "CLDR Pluralルールに基づく処理"
+#~ msgstr "CLDR Pluralルールに基づく処理"
+
+#: src/app/lingui-examples/plural-examples.tsx:349
+msgid "CLDRルールによる言語の違い"
+msgstr "CLDRルールによる言語の違い"
+
+#: src/app/lingui-examples/plural-examples.tsx:259
+#~ msgid "JSX内で直接使用可能"
+#~ msgstr "JSX内で直接使用可能"
+
+#: src/app/_layout.tsx:75
+#: src/app/(tabs)/index.tsx:12
+msgid "Lingui学習サンプル"
+msgstr "Lingui学習サンプル"
+
+#: src/app/lingui-examples/plural-examples.tsx:145
+msgid "one、otherの形式を使用（日本語はotherのみ）"
+msgstr "one、otherの形式を使用（日本語はotherのみ）"
+
+#: src/app/_layout.tsx:81
+msgid "Pluralコンポーネント"
+msgstr "Pluralコンポーネント"
+
+#: src/app/lingui-examples/plural-examples.tsx:326
+msgid "Pluralコンポーネント vs pluralマクロ"
+msgstr "Pluralコンポーネント vs pluralマクロ"
+
+#: src/app/lingui-examples/plural-examples.tsx:264
+#~ msgid "Pluralコンポーネント: JSX内で直接使用"
+#~ msgstr "Pluralコンポーネント: JSX内で直接使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:330
+msgid "Pluralコンポーネント: JSX要素を返す（React要素内で使用）"
+msgstr "Pluralコンポーネント: JSX要素を返す（React要素内で使用）"
+
+#: src/app/lingui-examples/plural-examples.tsx:170
+#~ msgid "Pluralコンポーネントでzero形式を使用"
+#~ msgstr "Pluralコンポーネントでzero形式を使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:120
+msgid "Pluralコンポーネントの基本使用例"
+msgstr "Pluralコンポーネントの基本使用例"
+
+#: src/app/lingui-examples/plural-examples.tsx:256
+#~ msgid "Pluralコンポーネントの特徴"
+#~ msgstr "Pluralコンポーネントの特徴"
+
+#: src/app/lingui-examples/plural-examples.tsx:267
+#~ msgid "pluralマクロ: 文字列として取得（プロパティなどで使用）"
+#~ msgstr "pluralマクロ: 文字列として取得（プロパティなどで使用）"
+
+#: src/app/lingui-examples/plural-examples.tsx:336
+msgid "pluralマクロ: 文字列を返す（文字列プロパティで使用）"
+msgstr "pluralマクロ: 文字列を返す（文字列プロパティで使用）"
+
+#: src/app/lingui-examples/plural-examples.tsx:242
+msgid "pluralマクロで文字列プロパティに対応"
+msgstr "pluralマクロで文字列プロパティに対応"
+
+#: src/app/lingui-examples/index.tsx:8
+msgid "Pluralマクロの使い方"
+msgstr "Pluralマクロの使い方"
+
+#: src/app/lingui-examples/plural-examples.tsx:180
+#~ msgid "pluralマクロを使用した例"
+#~ msgstr "pluralマクロを使用した例"
+
+#: src/app/lingui-examples/plural-examples.tsx:266
+msgid "TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用"
+msgstr "TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:314
+msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
+msgstr "TransコンポーネントとPluralコンポーネントの組み合わせ"
+
+#: src/app/lingui-examples/plural-examples.tsx:208
+#~ msgid "useLinguiフックとpluralマクロの組み合わせ"
+#~ msgstr "useLinguiフックとpluralマクロの組み合わせ"
+
+#: src/app/lingui-examples/plural-examples.tsx:120
+#~ msgid "zero、one、otherの形式を使用"
+#~ msgstr "zero、one、otherの形式を使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:264
+#~ msgid "zero、one、other形式をサポート"
+#~ msgstr "zero、one、other形式をサポート"
+
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 msgid "キャンセル"
 msgstr "キャンセル"
+
+#: src/app/lingui-examples/plural-examples.tsx:162
+msgid "クリア"
+msgstr "クリア"
 
 #: src/app/navigation-patterns/modal-screen.tsx:69
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
@@ -117,9 +286,21 @@ msgstr "これはモーダル表示です"
 msgid "システム設定に従う"
 msgstr "システム設定に従う"
 
+#: src/app/lingui-examples/plural-examples.tsx:205
+#~ msgid "ゼロの場合の特別なメッセージ表示"
+#~ msgstr "ゼロの場合の特別なメッセージ表示"
+
 #: src/app/(tabs)/settings/theme.tsx:12
 msgid "ダーク"
 msgstr "ダーク"
+
+#: src/app/lingui-examples/plural-examples.tsx:35
+#~ msgid "タスクはありません。新しいタスクを追加してください"
+#~ msgstr "タスクはありません。新しいタスクを追加してください"
+
+#: src/app/lingui-examples/plural-examples.tsx:238
+msgid "タスク入力フィールド"
+msgstr "タスク入力フィールド"
 
 #: src/app/(tabs)/settings/index.tsx:11
 #: src/app/(tabs)/settings/_layout.tsx:20
@@ -134,6 +315,14 @@ msgstr "デモコンテンツ"
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
+
+#: src/app/lingui-examples/plural-examples.tsx:170
+msgid "ファイルを追加"
+msgstr "ファイルを追加"
+
+#: src/app/lingui-examples/plural-examples.tsx:153
+msgid "ファイル選択"
+msgstr "ファイル選択"
 
 #: src/app/_layout.tsx:54
 msgid "フォームシートサンプル"
@@ -230,6 +419,14 @@ msgstr "下のボタンをタップしてフォームシート表示で画面を
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
 
+#: src/app/lingui-examples/plural-examples.tsx:339
+msgid "両方ともCLDR Pluralルールに基づく処理"
+msgstr "両方ともCLDR Pluralルールに基づく処理"
+
+#: src/app/lingui-examples/plural-examples.tsx:281
+msgid "友達の数（名前付き）"
+msgstr "友達の数（名前付き）"
+
 #: src/app/navigation-patterns/form-sheet-screen.tsx:98
 msgid "名前"
 msgstr "名前"
@@ -238,23 +435,91 @@ msgstr "名前"
 msgid "名前を入力"
 msgstr "名前を入力"
 
+#: src/app/lingui-examples/plural-examples.tsx:116
+msgid "基本的なアイテムカウンター"
+msgstr "基本的なアイテムカウンター"
+
+#: src/app/lingui-examples/plural-examples.tsx:285
+msgid "変数を含む複数形処理"
+msgstr "変数を含む複数形処理"
+
+#: src/app/lingui-examples/plural-examples.tsx:322
+msgid "学習ポイント"
+msgstr "学習ポイント"
+
 #: src/app/navigation-patterns/modal-screen.tsx:88
 #: src/app/navigation-patterns/form-sheet-screen.tsx:69
 msgid "完了"
 msgstr "完了"
 
+#: src/app/lingui-examples/plural-examples.tsx:183
+msgid "実際のファイル選択UIでの使用例"
+msgstr "実際のファイル選択UIでの使用例"
+
+#: src/app/lingui-examples/plural-examples.tsx:211
+msgid "新着"
+msgstr "新着"
+
+#: src/app/lingui-examples/plural-examples.tsx:203
+msgid "既読"
+msgstr "既読"
+
+#: src/app/lingui-examples/plural-examples.tsx:352
+msgid "日本語: otherのみ（すべての数で同じ形式）"
+msgstr "日本語: otherのみ（すべての数で同じ形式）"
+
+#: src/app/lingui-examples/plural-examples.tsx:274
+#~ msgid "日本語: 通常otherのみ使用（複数形の区別なし）"
+#~ msgstr "日本語: 通常otherのみ使用（複数形の区別なし）"
+
+#: src/app/lingui-examples/plural-examples.tsx:195
+msgid "正確な値のマッチング（_0）を使用"
+msgstr "正確な値のマッチング（_0）を使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:271
+msgid "注: pluralマクロでは数値リテラル（0, 1など）で正確な値のマッチングが可能"
+msgstr "注: pluralマクロでは数値リテラル（0, 1など）で正確な値のマッチングが可能"
+
+#: src/app/lingui-examples/plural-examples.tsx:271
+#~ msgid "注: pluralマクロは正確な値のマッチング（=0）をサポートしていないため、条件分岐を使用"
+#~ msgstr "注: pluralマクロは正確な値のマッチング（=0）をサポートしていないため、条件分岐を使用"
+
+#: src/app/lingui-examples/plural-examples.tsx:358
+msgid "注: zeroカテゴリーは限られた言語のみ"
+msgstr "注: zeroカテゴリーは限られた言語のみ"
+
 #: src/app/navigation-patterns/form-sheet.tsx:73
 #~ msgid "注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして 表示されます。"
 #~ msgstr "注意：フォームシート表示はiOS固有です。Androidでは通常のモーダルとして 表示されます。"
+
+#: src/app/lingui-examples/plural-examples.tsx:355
+msgid "英語: one（1の場合）とother（0, 2以上）"
+msgstr "英語: one（1の場合）とother（0, 2以上）"
+
+#: src/app/lingui-examples/plural-examples.tsx:277
+#~ msgid "英語: one（単数）とother（複数）を使い分け"
+#~ msgstr "英語: one（単数）とother（複数）を使い分け"
 
 #: src/app/(tabs)/settings/index.tsx:15
 #~ msgid "言語"
 #~ msgstr "言語"
 
+#: src/app/lingui-examples/plural-examples.tsx:271
+#~ msgid "言語による違い"
+#~ msgstr "言語による違い"
+
 #: src/app/(tabs)/_layout.tsx:38
 #: src/app/(tabs)/settings/_layout.tsx:19
 msgid "設定"
 msgstr "設定"
+
+#: src/app/lingui-examples/plural-examples.tsx:191
+msgid "通知メッセージ"
+msgstr "通知メッセージ"
+
+#: src/app/lingui-examples/plural-examples.tsx:157
+msgid "選択されたファイル数の表示"
+msgstr "選択されたファイル数の表示"
 
 #: src/app/navigation-patterns/modal-screen.tsx:35
 msgid "閉じる"
