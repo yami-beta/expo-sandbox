@@ -18,11 +18,6 @@ export default function SelectExamples() {
   const [gender, setGender] = useState<"male" | "female" | "other">("other");
   const userName = "田中";
 
-  // 敬語レベル
-  const [formalityLevel, setFormalityLevel] = useState<
-    "formal" | "casual" | "standard"
-  >("standard");
-
   // 対象者（単数/複数）
   const [audience, setAudience] = useState<"singular" | "plural">("singular");
 
@@ -222,74 +217,6 @@ export default function SelectExamples() {
           <Text style={styles.description}>
             <Trans>
               日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります
-            </Trans>
-          </Text>
-        </View>
-      </View>
-
-      {/* 敬語レベル */}
-      <View style={styles.section}>
-        <Text style={styles.title}>
-          <Trans>敬語レベルの切り替え（日本語特有）</Trans>
-        </Text>
-        <View style={styles.example}>
-          <Text style={styles.label}>
-            <Trans>敬語レベルを選択</Trans>
-          </Text>
-          <View style={styles.controls}>
-            <Pressable
-              style={[
-                styles.button,
-                formalityLevel === "formal" && styles.buttonSelected,
-              ]}
-              onPress={() => setFormalityLevel("formal")}
-            >
-              <Text style={styles.buttonText}>
-                <Trans>丁寧</Trans>
-              </Text>
-            </Pressable>
-            <Pressable
-              style={[
-                styles.button,
-                formalityLevel === "casual" && styles.buttonSelected,
-              ]}
-              onPress={() => setFormalityLevel("casual")}
-            >
-              <Text style={styles.buttonText}>
-                <Trans>カジュアル</Trans>
-              </Text>
-            </Pressable>
-            <Pressable
-              style={[
-                styles.button,
-                formalityLevel === "standard" && styles.buttonSelected,
-              ]}
-              onPress={() => setFormalityLevel("standard")}
-            >
-              <Text style={styles.buttonText}>
-                <Trans>標準</Trans>
-              </Text>
-            </Pressable>
-          </View>
-          <Text style={styles.result}>
-            <Select
-              value={formalityLevel}
-              _formal="お問い合わせいただきありがとうございます"
-              _casual="問い合わせありがとう！"
-              other="お問い合わせありがとうございます"
-            />
-          </Text>
-          <Text style={styles.result}>
-            <Select
-              value={formalityLevel}
-              _formal="恐れ入りますが、もう一度お試しください"
-              _casual="もう一回やってみて"
-              other="もう一度お試しください"
-            />
-          </Text>
-          <Text style={styles.description}>
-            <Trans>
-              実際のアプリでは文脈や関係性から自動的に敬語レベルを決定すべきです（手動選択ではなく）
             </Trans>
           </Text>
         </View>

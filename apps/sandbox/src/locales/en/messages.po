@@ -21,11 +21,11 @@ msgstr "Supports exact value matching like _0, _1"
 msgid "_0で値が0の場合の特別処理"
 msgstr "Special handling for value 0 with _0"
 
-#: src/app/lingui-examples/select-examples.tsx:332
+#: src/app/lingui-examples/select-examples.tsx:259
 msgid "{audience, select, singular {あなたへのお知らせ} plural {皆様へのお知らせ} other {お知らせ}}"
 msgstr "{audience, select, singular {Notice for you} plural {Notice for everyone} other {Notice}}"
 
-#: src/app/lingui-examples/select-examples.tsx:340
+#: src/app/lingui-examples/select-examples.tsx:267
 msgid "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 msgstr "{audience, select, singular {Thank you for using} plural {Thank you all for using} other {Thank you}}"
 
@@ -33,15 +33,7 @@ msgstr "{audience, select, singular {Thank you for using} plural {Thank you all 
 msgid "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
 msgstr "{fileCount, plural, =0 {No files selected} one {1 file selected} other {# files selected}}"
 
-#: src/app/lingui-examples/select-examples.tsx:275
-msgid "{formalityLevel, select, formal {お問い合わせいただきありがとうございます} casual {問い合わせありがとう！} other {お問い合わせありがとうございます}}"
-msgstr "{formalityLevel, select, formal {Thank you for your inquiry} casual {Thanks for asking!} other {Thank you for contacting us}}"
-
-#: src/app/lingui-examples/select-examples.tsx:283
-msgid "{formalityLevel, select, formal {恐れ入りますが、もう一度お試しください} casual {もう一回やってみて} other {もう一度お試しください}}"
-msgstr "{formalityLevel, select, formal {We apologize, but please try again} casual {Try again!} other {Please try again}}"
-
-#: src/app/lingui-examples/select-examples.tsx:215
+#: src/app/lingui-examples/select-examples.tsx:210
 msgid "{gender, select, male {彼はオンラインです} female {彼女はオンラインです} other {オンラインです}}"
 msgstr "{gender, select, male {He is online} female {She is online} other {They are online}}"
 
@@ -53,15 +45,15 @@ msgstr "{itemCount, plural, one {1 item} other {# items}}"
 msgid "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
 msgstr "{notificationCount, plural, =0 {No new notifications} one {1 new notification} other {# new notifications}}"
 
-#: src/app/lingui-examples/select-examples.tsx:425
+#: src/app/lingui-examples/select-examples.tsx:352
 msgid "{possessive, select, my {私のプロフィール} your {あなたのプロフィール} his {彼のプロフィール} her {彼女のプロフィール} their {その人のプロフィール} other {プロフィール}}"
 msgstr "{possessive, select, my {My profile} your {Your profile} his {His profile} her {Her profile} their {Their profile} other {Profile}}"
 
-#: src/app/lingui-examples/select-examples.tsx:45
+#: src/app/lingui-examples/select-examples.tsx:40
 msgid "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 msgstr "{possessive, select, my {Enter my profile} your {Enter your profile} his {Enter his profile} her {Enter her profile} their {Enter their profile} other {Enter profile}}"
 
-#: src/app/lingui-examples/select-examples.tsx:504
+#: src/app/lingui-examples/select-examples.tsx:431
 msgid "{subject, select, i {私がタスクを完了しました} you {あなたがタスクを完了しました} he {彼がタスクを完了しました} she {彼女がタスクを完了しました} they {彼らがタスクを完了しました} other {タスクを完了しました}}"
 msgstr "{subject, select, i {I completed the task} you {You completed the task} he {He completed the task} she {She completed the task} they {They completed the task} other {Task completed}}"
 
@@ -69,7 +61,7 @@ msgstr "{subject, select, i {I completed the task} you {You completed the task} 
 msgid "{taskCount, plural, =0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
 msgstr "{taskCount, plural, =0 {No tasks. Please add a new task} one {1 task remaining} other {# tasks remaining}}"
 
-#: src/app/lingui-examples/select-examples.tsx:204
+#: src/app/lingui-examples/select-examples.tsx:199
 msgid "{userName}さんが{gender, select, male {彼のメッセージを送信しました} female {彼女のメッセージを送信しました} other {メッセージを送信しました}}"
 msgstr "{userName} {gender, select, male {sent his message} female {sent her message} other {sent a message}}"
 
@@ -77,7 +69,7 @@ msgstr "{userName} {gender, select, male {sent his message} female {sent her mes
 msgid "{userName}さんには{friendCount, plural, =0 {友達がいません} one {友達が1人います} other {友達が#人います}}"
 msgstr "{userName} has {friendCount, plural, =0 {no friends} one {1 friend} other {# friends}}"
 
-#: src/app/lingui-examples/select-examples.tsx:596
+#: src/app/lingui-examples/select-examples.tsx:523
 msgid "{userStatus, select, online {オンライン} offline {オフライン} away {離席中} busy {取り込み中} other {不明}}"
 msgstr "{userStatus, select, online {Online} offline {Offline} away {Away} busy {Busy} other {Unknown}}"
 
@@ -137,11 +129,11 @@ msgstr ""
 "• Can be closed with a downward swipe gesture\n"
 "• Blocks interaction with the parent screen"
 
-#: src/app/lingui-examples/select-examples.tsx:150
+#: src/app/lingui-examples/select-examples.tsx:145
 msgid "✅ 適切な使用例（文法的変化）"
 msgstr "✅ Proper Use Cases (Grammatical Variations)"
 
-#: src/app/lingui-examples/select-examples.tsx:525
+#: src/app/lingui-examples/select-examples.tsx:452
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ Improper Use Cases (Anti-patterns)"
 
@@ -149,7 +141,7 @@ msgstr "❌ Improper Use Cases (Anti-patterns)"
 msgid "CLDRルールによる言語の違い"
 msgstr "Language differences by CLDR rules"
 
-#: src/app/lingui-examples/select-examples.tsx:637
+#: src/app/lingui-examples/select-examples.tsx:564
 msgid "ICU MessageFormatの仕様に基づいて設計されています"
 msgstr "Designed based on ICU MessageFormat specification"
 
@@ -190,15 +182,15 @@ msgstr "String properties with plural macro"
 msgid "Pluralマクロの使い方"
 msgstr "How to Use Plural Macro"
 
-#: src/app/lingui-examples/select-examples.tsx:656
+#: src/app/lingui-examples/select-examples.tsx:583
 msgid "Select vs select"
 msgstr "Select vs select"
 
-#: src/app/lingui-examples/select-examples.tsx:660
+#: src/app/lingui-examples/select-examples.tsx:587
 msgid "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "Select component: Returns JSX element (@lingui/react/macro)"
 
-#: src/app/lingui-examples/select-examples.tsx:665
+#: src/app/lingui-examples/select-examples.tsx:592
 msgid "selectマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "select macro: Returns string (@lingui/core/macro)"
 
@@ -206,15 +198,15 @@ msgstr "select macro: Returns string (@lingui/core/macro)"
 msgid "Selectマクロの使い方"
 msgstr "How to use Select macro"
 
-#: src/app/lingui-examples/select-examples.tsx:634
+#: src/app/lingui-examples/select-examples.tsx:561
 msgid "Selectマクロの設計思想"
 msgstr "Select Macro Design Philosophy"
 
-#: src/app/lingui-examples/select-examples.tsx:153
+#: src/app/lingui-examples/select-examples.tsx:148
 msgid "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 msgstr "Select macro is designed to handle grammatical variations in natural language"
 
-#: src/app/lingui-examples/select-examples.tsx:436
+#: src/app/lingui-examples/select-examples.tsx:363
 msgid "TextInputのplaceholderには文字列が必要なため、selectマクロを使用"
 msgstr "Using select macro since TextInput placeholder requires a string"
 
@@ -226,27 +218,23 @@ msgstr "Using plural macro since TextInput placeholder only accepts strings"
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "Combination of Trans and Plural components"
 
-#: src/app/lingui-examples/select-examples.tsx:469
+#: src/app/lingui-examples/select-examples.tsx:396
 msgid "あなた"
 msgstr "You"
 
-#: src/app/lingui-examples/select-examples.tsx:382
+#: src/app/lingui-examples/select-examples.tsx:309
 msgid "あなたの"
 msgstr "Your"
 
-#: src/app/lingui-examples/select-examples.tsx:563
-#: src/app/lingui-examples/select-examples.tsx:613
+#: src/app/lingui-examples/select-examples.tsx:490
+#: src/app/lingui-examples/select-examples.tsx:540
 msgid "オフライン"
 msgstr "Offline"
 
-#: src/app/lingui-examples/select-examples.tsx:552
-#: src/app/lingui-examples/select-examples.tsx:612
+#: src/app/lingui-examples/select-examples.tsx:479
+#: src/app/lingui-examples/select-examples.tsx:539
 msgid "オンライン"
 msgstr "Online"
-
-#: src/app/lingui-examples/select-examples.tsx:259
-msgid "カジュアル"
-msgstr "Casual"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 msgid "キャンセル"
@@ -280,15 +268,15 @@ msgstr "This is a Modal Display"
 msgid "システム設定に従う"
 msgstr "Follow system settings"
 
-#: src/app/lingui-examples/select-examples.tsx:541
+#: src/app/lingui-examples/select-examples.tsx:468
 msgid "ステータスを選択"
 msgstr "Select status"
 
-#: src/app/lingui-examples/select-examples.tsx:415
+#: src/app/lingui-examples/select-examples.tsx:342
 msgid "その人の"
 msgstr "Their"
 
-#: src/app/lingui-examples/select-examples.tsx:199
+#: src/app/lingui-examples/select-examples.tsx:194
 msgid "その他"
 msgstr "Other"
 
@@ -405,21 +393,17 @@ msgstr "Modal Display Sample"
 msgid "モーダル表示について："
 msgstr "About Modal Display:"
 
-#: src/app/lingui-examples/select-examples.tsx:537
+#: src/app/lingui-examples/select-examples.tsx:464
 msgid "ユーザーステータス（誤った実装）"
 msgstr "User Status (Incorrect Implementation)"
 
-#: src/app/lingui-examples/select-examples.tsx:166
+#: src/app/lingui-examples/select-examples.tsx:161
 msgid "ユーザーの性別を選択"
 msgstr "Select user gender"
 
 #: src/app/(tabs)/settings/theme.tsx:11
 msgid "ライト"
 msgstr "Light"
-
-#: src/app/lingui-examples/select-examples.tsx:248
-msgid "丁寧"
-msgstr "Formal"
 
 #: src/app/navigation-patterns/form-sheet.tsx:24
 msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
@@ -433,23 +417,23 @@ msgstr "Tap the button below to open a screen in modal display."
 msgid "両方ともCLDR Pluralルールに基づく処理"
 msgstr "Both based on CLDR Plural rules"
 
-#: src/app/lingui-examples/select-examples.tsx:450
+#: src/app/lingui-examples/select-examples.tsx:377
 msgid "主語を選択"
 msgstr "Select subject"
 
-#: src/app/lingui-examples/select-examples.tsx:528
+#: src/app/lingui-examples/select-examples.tsx:455
 msgid "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 msgstr "The following are technical states, and using Select macro is inappropriate"
 
-#: src/app/lingui-examples/select-examples.tsx:316
+#: src/app/lingui-examples/select-examples.tsx:243
 msgid "個人"
 msgstr "Individual"
 
-#: src/app/lingui-examples/select-examples.tsx:446
+#: src/app/lingui-examples/select-examples.tsx:373
 msgid "動作主体による文章変化"
 msgstr "Sentence variation by subject"
 
-#: src/app/lingui-examples/select-examples.tsx:348
+#: src/app/lingui-examples/select-examples.tsx:275
 msgid "単数/複数の対象者によって、日本語でも表現が変わります"
 msgstr "Expression changes in Japanese depending on singular/plural audience"
 
@@ -457,8 +441,8 @@ msgstr "Expression changes in Japanese depending on singular/plural audience"
 msgid "友達の数（名前付き）"
 msgstr "Number of Friends (with name)"
 
-#: src/app/lingui-examples/select-examples.tsx:585
-#: src/app/lingui-examples/select-examples.tsx:615
+#: src/app/lingui-examples/select-examples.tsx:512
+#: src/app/lingui-examples/select-examples.tsx:542
 msgid "取り込み中"
 msgstr "Busy"
 
@@ -478,11 +462,11 @@ msgstr "Basic Item Counter"
 msgid "変数を含む複数形処理"
 msgstr "Plural handling with variables"
 
-#: src/app/lingui-examples/select-examples.tsx:188
+#: src/app/lingui-examples/select-examples.tsx:183
 msgid "女性"
 msgstr "Female"
 
-#: src/app/lingui-examples/select-examples.tsx:630
+#: src/app/lingui-examples/select-examples.tsx:557
 #: src/app/lingui-examples/plural-examples.tsx:322
 msgid "学習ポイント"
 msgstr "Learning Points"
@@ -492,79 +476,67 @@ msgstr "Learning Points"
 msgid "完了"
 msgstr "Done"
 
-#: src/app/lingui-examples/select-examples.tsx:291
-msgid "実際のアプリでは文脈や関係性から自動的に敬語レベルを決定すべきです（手動選択ではなく）"
-msgstr "In real apps, formality level should be determined automatically from context and relationships (not manual selection)"
-
 #: src/app/lingui-examples/plural-examples.tsx:182
 msgid "実際のファイル選択UIでの使用例"
 msgstr "Usage example in actual file selection UI"
 
-#: src/app/lingui-examples/select-examples.tsx:301
+#: src/app/lingui-examples/select-examples.tsx:228
 msgid "対象者による表現の変化"
 msgstr "Expression variation by audience"
 
-#: src/app/lingui-examples/select-examples.tsx:305
+#: src/app/lingui-examples/select-examples.tsx:232
 msgid "対象者を選択"
 msgstr "Select audience"
 
-#: src/app/lingui-examples/select-examples.tsx:477
+#: src/app/lingui-examples/select-examples.tsx:404
 msgid "彼"
 msgstr "He"
 
-#: src/app/lingui-examples/select-examples.tsx:393
+#: src/app/lingui-examples/select-examples.tsx:320
 msgid "彼の"
 msgstr "His"
 
-#: src/app/lingui-examples/select-examples.tsx:499
+#: src/app/lingui-examples/select-examples.tsx:426
 msgid "彼ら"
 msgstr "They"
 
-#: src/app/lingui-examples/select-examples.tsx:488
+#: src/app/lingui-examples/select-examples.tsx:415
 msgid "彼女"
 msgstr "She"
 
-#: src/app/lingui-examples/select-examples.tsx:404
+#: src/app/lingui-examples/select-examples.tsx:331
 msgid "彼女の"
 msgstr "Her"
 
-#: src/app/lingui-examples/select-examples.tsx:652
+#: src/app/lingui-examples/select-examples.tsx:579
 msgid "必ずotherケースを含める必要があります"
 msgstr "Must include an 'other' case"
 
-#: src/app/lingui-examples/select-examples.tsx:162
+#: src/app/lingui-examples/select-examples.tsx:157
 msgid "性別による代名詞と動詞の変化"
 msgstr "Pronoun and verb variation by gender"
 
-#: src/app/lingui-examples/select-examples.tsx:356
+#: src/app/lingui-examples/select-examples.tsx:283
 msgid "所有格の表現（selectマクロ使用）"
 msgstr "Possessive expression (using select macro)"
 
-#: src/app/lingui-examples/select-examples.tsx:360
+#: src/app/lingui-examples/select-examples.tsx:287
 msgid "所有者を選択"
 msgstr "Select owner"
 
-#: src/app/lingui-examples/select-examples.tsx:682
+#: src/app/lingui-examples/select-examples.tsx:609
 msgid "技術的/ビジネス的な状態か？ → YES: 通常の条件分岐を使用"
 msgstr "Technical/business state? → YES: Use regular conditional branching"
 
-#: src/app/lingui-examples/select-examples.tsx:619
+#: src/app/lingui-examples/select-examples.tsx:546
 msgid "技術的な状態は文法的変化ではないため、個別のメッセージキーを使用すべきです。 これにより翻訳者が各状態を独立して翻訳でき、保守性も向上します。"
 msgstr "Technical states are not grammatical variations, so individual message keys should be used. This allows translators to translate each state independently and improves maintainability."
 
-#: src/app/lingui-examples/select-examples.tsx:647
+#: src/app/lingui-examples/select-examples.tsx:574
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "Should not be used for technical states or business logic"
 
-#: src/app/lingui-examples/select-examples.tsx:233
-msgid "敬語レベルの切り替え（日本語特有）"
-msgstr "Formality level switching (Japanese specific)"
-
-#: src/app/lingui-examples/select-examples.tsx:237
-msgid "敬語レベルを選択"
-msgstr "Select formality level"
-
-#: src/app/lingui-examples/select-examples.tsx:678
+#: src/app/lingui-examples/select-examples.tsx:605
 msgid "文法的変化が必要か？ → YES: Selectマクロを使用"
 msgstr "Grammatical variation needed? → YES: Use Select macro"
 
@@ -580,17 +552,13 @@ msgstr "Read"
 msgid "日本語: otherのみ（すべての数で同じ形式）"
 msgstr "Japanese: only other (same form for all numbers)"
 
-#: src/app/lingui-examples/select-examples.tsx:223
+#: src/app/lingui-examples/select-examples.tsx:218
 msgid "日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります"
 msgstr "Pronoun omission is common in Japanese, but there are clear differences in English"
 
-#: src/app/lingui-examples/select-examples.tsx:515
+#: src/app/lingui-examples/select-examples.tsx:442
 msgid "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 msgstr "Japanese has less verb conjugation, but English verbs change depending on the subject"
-
-#: src/app/lingui-examples/select-examples.tsx:270
-msgid "標準"
-msgstr "Standard"
 
 #: src/app/lingui-examples/plural-examples.tsx:194
 msgid "正確な値のマッチング（_0）を使用"
@@ -604,27 +572,27 @@ msgstr "Note: plural macro supports exact value matching with numeric literals (
 msgid "注: zeroカテゴリーは限られた言語のみ"
 msgstr "Note: zero category is for limited languages only"
 
-#: src/app/lingui-examples/select-examples.tsx:669
+#: src/app/lingui-examples/select-examples.tsx:596
 msgid "特定のケースはアンダースコアで始める（_male、_female等）"
 msgstr "Specific cases start with underscore (_male, _female, etc.)"
 
-#: src/app/lingui-examples/select-examples.tsx:177
+#: src/app/lingui-examples/select-examples.tsx:172
 msgid "男性"
 msgstr "Male"
 
-#: src/app/lingui-examples/select-examples.tsx:458
+#: src/app/lingui-examples/select-examples.tsx:385
 msgid "私"
 msgstr "I"
 
-#: src/app/lingui-examples/select-examples.tsx:371
+#: src/app/lingui-examples/select-examples.tsx:298
 msgid "私の"
 msgstr "My"
 
-#: src/app/lingui-examples/select-examples.tsx:688
+#: src/app/lingui-examples/select-examples.tsx:615
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 msgstr "Do translators need to translate independently? → YES: Use individual message keys"
 
-#: src/app/lingui-examples/select-examples.tsx:641
+#: src/app/lingui-examples/select-examples.tsx:568
 msgid "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 msgstr "It is designed to handle grammatical variations in natural language (gender, number, case changes, etc.)"
 
@@ -632,7 +600,7 @@ msgstr "It is designed to handle grammatical variations in natural language (gen
 msgid "英語: one（1の場合）とother（0, 2以上）"
 msgstr "English: one (for 1) and other (for 0, 2+)"
 
-#: src/app/lingui-examples/select-examples.tsx:327
+#: src/app/lingui-examples/select-examples.tsx:254
 msgid "複数"
 msgstr "Plural"
 
@@ -645,7 +613,7 @@ msgstr "Settings"
 msgid "通知メッセージ"
 msgstr "Notification Messages"
 
-#: src/app/lingui-examples/select-examples.tsx:675
+#: src/app/lingui-examples/select-examples.tsx:602
 msgid "適切な使用判断基準"
 msgstr "Appropriate usage criteria"
 
@@ -657,7 +625,7 @@ msgstr "Display of selected file count"
 msgid "閉じる"
 msgstr "Close"
 
-#: src/app/lingui-examples/select-examples.tsx:574
-#: src/app/lingui-examples/select-examples.tsx:614
+#: src/app/lingui-examples/select-examples.tsx:501
+#: src/app/lingui-examples/select-examples.tsx:541
 msgid "離席中"
 msgstr "Away"

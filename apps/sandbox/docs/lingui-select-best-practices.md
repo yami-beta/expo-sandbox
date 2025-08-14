@@ -10,13 +10,17 @@
 
 ### ICU MessageFormatとは
 
-ICU (International Components for Unicode) MessageFormat は、国際化されたメッセージを作成するための標準仕様です。`select` 構文は、言語の文法的な違いを吸収するために設計されています。
+ICU (International Components for Unicode) MessageFormat は、国際化されたメッセージを作成するための標準仕様です。`select` 構文は、「固定されたキーワードのセットを通じてサブメッセージを選択する」ための機能として設計されています。
 
-### 本来の用途
+### ICU公式ドキュメントで明示されている用途
 
-- **性別による代名詞の変化**（he/she/they）
+- **性別による代名詞の変化**（he/she/they）- 最も一般的な使用例として文書化
 - **文法的な性**（masculine/feminine/neuter）
-- **敬語レベル**（formal/informal）
+
+### 業界標準プラクティスとしての応用
+
+ICUには組み込みサポートはありませんが、以下の用途での`select`使用は業界で広く受け入れられています：
+
 - **単数/複数の対象者**による表現の変化
 - **格変化**（主格、所有格、目的格など）
 
@@ -44,40 +48,7 @@ import { Select } from "@lingui/react/macro";
 />
 ```
 
-### 2. 敬語レベル（日本語特有）
-
-```jsx
-// ✅ 良い例：言語の敬語体系
-<Select
-  value={formalityLevel}
-  _formal="お問い合わせいただきありがとうございます"
-  _casual="問い合わせありがとう！"
-  other="お問い合わせありがとうございます"
-/>
-```
-
-**実装上の注意点**：
-敬語レベルは文法的変化として`Select`マクロの適切な使用例ですが、実際のアプリケーションでは以下の点に注意してください：
-
-- **自動決定が推奨**：ユーザーが手動で選択するのではなく、文脈から自動的に決定すべきです
-  - カスタマーサポート画面 → 常に`formal`
-  - 社内ツール → `standard`
-  - カジュアルなSNSアプリ → `casual`
-
-- **関係性による決定**：
-
-  ```jsx
-  // より現実的な実装
-  const formalityLevel = determineFormality({
-    context: "customer-support", // または 'internal', 'social'
-    userRelationship: relationship,
-    culturalContext: locale,
-  });
-  ```
-
-- **一貫性の確保**：アプリ全体で敬語レベルを統一することが重要です
-
-### 3. 対象者による表現
+### 2. 対象者による表現
 
 ```jsx
 // ✅ 良い例：単数/複数による文法的変化
@@ -262,3 +233,26 @@ const pronoun = select(gender, {
 ## まとめ
 
 `Select` マクロは強力な機能ですが、その設計意図を理解して使用することが重要です。自然言語の文法的変化には積極的に使用し、技術的な状態やビジネスロジックには通常のi18n パターンを使用することで、保守性が高く、翻訳しやすいコードを実現できます。
+
+## 参照ソース
+
+### ICU公式ドキュメント
+- [ICU MessageFormat - Formatting Messages](https://unicode-org.github.io/icu/userguide/format_parse/messages/)
+  - `select`は「固定されたキーワードのセットを通じてサブメッセージを選択する」機能として説明
+  - 主な例として性別（gender）による選択が示されている
+
+### 業界のベストプラクティス
+- [Lokalise - Guide to ICU message format](https://lokalise.com/blog/complete-guide-to-icu-message-format/)
+  - 敬語レベルの実装に`select`を使用する例を紹介
+  - 「ICUには組み込みの敬語レベルサポートはない」と明記
+
+- [Phrase - A Practical Guide to the ICU Message Format](https://phrase.com/blog/posts/guide-to-the-icu-message-format/)
+  - `select`の実践的な応用例を解説
+
+### 言語学的背景
+- [T-V distinction](https://en.wikipedia.org/wiki/T%E2%80%93V_distinction)
+  - ヨーロッパ言語における敬称の区別（tu/vous、du/Sie等）
+  
+- 日本語・韓国語の敬語体系に関する資料
+  - これらの言語では文法レベルで敬語が組み込まれている
+  - 実装上は`select`を使って対応するのが一般的
