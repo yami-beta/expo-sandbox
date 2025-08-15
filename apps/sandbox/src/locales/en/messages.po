@@ -263,6 +263,10 @@ msgstr "SelectOrdinal (Ordinal)"
 msgid "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "SelectOrdinal component: Returns JSX element (@lingui/react/macro)"
 
+#: src/app/_layout.tsx:93
+msgid "SelectOrdinalマクロ"
+msgstr "SelectOrdinal Macro"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:515
 msgid "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "selectOrdinal macro: Returns string (@lingui/core/macro)"
@@ -282,6 +286,10 @@ msgstr "selectOrdinal macro returns a string, so it can be used with string prop
 #: src/app/lingui-examples/select-examples.tsx:587
 msgid "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "Select component: Returns JSX element (@lingui/react/macro)"
+
+#: src/app/_layout.tsx:87
+msgid "Selectマクロ"
+msgstr "Select Macro"
 
 #: src/app/lingui-examples/select-examples.tsx:592
 msgid "selectマクロ: 文字列を返す（@lingui/core/macro）"

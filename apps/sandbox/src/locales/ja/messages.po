@@ -263,6 +263,10 @@ msgstr "SelectOrdinal（序数）"
 msgid "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 
+#: src/app/_layout.tsx:93
+msgid "SelectOrdinalマクロ"
+msgstr "SelectOrdinalマクロ"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:515
 msgid "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
@@ -282,6 +286,10 @@ msgstr "selectOrdinalマクロは文字列を返すため、文字列プロパ�
 #: src/app/lingui-examples/select-examples.tsx:587
 msgid "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
+
+#: src/app/_layout.tsx:87
+msgid "Selectマクロ"
+msgstr "Selectマクロ"
 
 #: src/app/lingui-examples/select-examples.tsx:592
 msgid "selectマクロ: 文字列を返す（@lingui/core/macro）"

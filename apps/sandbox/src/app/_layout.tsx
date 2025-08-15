@@ -81,6 +81,18 @@ function RootLayoutContent() {
             title: t`Pluralコンポーネント`,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/select-examples"
+          options={{
+            title: t`Selectマクロ`,
+          }}
+        />
+        <Stack.Screen
+          name="lingui-examples/selectordinal-examples"
+          options={{
+            title: t`SelectOrdinalマクロ`,
+          }}
+        />
       </Stack>
     </>
   );
