@@ -99,19 +99,19 @@
   - [x] 順位、階層、レベルの表示
   - [x] 進捗ステップの表示（第1段階、第2段階など）
 
-### フェーズ10: ワークフロー最適化（10日目）【優先度：高】
-- [ ] CI/CDへの統合
-  - [ ] GitHub Actionsでlingui:extractチェックの自動化
-  - [ ] PRでの翻訳チェックワークフロー
-  - [ ] mainブランチでの整合性チェック
-- [ ] pre-commitフックの設定
-  - [ ] huskyまたはlint-stagedの導入
-  - [ ] コミット前のlingui:extract自動実行
-  - [ ] 翻訳ファイルの差分チェック
-- [ ] npm scriptsの最適化
-  - [ ] 翻訳関連コマンドの整理
-  - [ ] CLAUDE.mdへのベストプラクティス追記
-  - [ ] 開発者向けドキュメントの更新
+### フェーズ10: ワークフロー最適化（10日目）【優先度：高】✅
+- [x] CI/CDへの統合
+  - [x] GitHub Actionsでlingui:extractチェックの自動化
+  - [x] PRでの翻訳チェックワークフロー
+  - [x] mainブランチでの整合性チェック
+- [x] ~~pre-commitフックの設定~~ → 開発フローの自由度を優先して設定しない
+  - [x] ~~huskyまたはlint-stagedの導入~~
+  - [x] ~~コミット前のlingui:extract自動実行~~
+  - [x] ~~翻訳ファイルの差分チェック~~
+- [x] ワークフローの最適化
+  - [x] ~~翻訳関連コマンドの整理~~ → 既存コマンドで十分
+  - [x] CLAUDE.mdへのベストプラクティス追記
+  - [x] 開発者向けドキュメントの作成（docs/lingui/workflow.md）
 
 ### フェーズ11: フォーマット機能（11日目）【優先度：中】
 - [ ] 日付・時刻のローカライズ
@@ -518,7 +518,7 @@ import "@formatjs/intl-pluralrules/locale-data/en"; // 英語のlocale data
   - 技術的状態を`Select`で実装した場合の問題点を実例で示す
   - 正しい実装方法（個別のメッセージキー、条件分岐）との比較
 - **ドキュメント作成**：
-  - `docs/lingui-select-best-practices.md`を作成
+  - `docs/lingui/select-best-practices.md`を作成
   - 適切な使用例と不適切な使用例を明確に文書化
   - ICU MessageFormatの設計思想を記録
 - **重要な学習ポイント**：
@@ -557,6 +557,34 @@ import "@formatjs/intl-pluralrules/locale-data/en"; // 英語のlocale data
   - 60個の新規メッセージを追加・翻訳
   - すべての英語翻訳を完了（計203メッセージ）
   - lint/typecheckすべてパス
+
+### フェーズ10完了時のメモ（2025-08-15）
+- **GitHub Actions改善内容**：
+  - `lingui-check.yml`: mainブランチへのpush時もチェック追加、エラー出力を詳細化
+  - ~~`ci.yml`: lingui-extractジョブを追加して並列実行~~ → 重複のため削除（2025-08-15追記）
+  - エラーメッセージをより分かりやすく改善（コマンド例、差分表示）
+- **pre-commitフックを設定しない理由**：
+  - 開発者によってコミット頻度が異なる
+  - 高頻度でコミットする開発スタイルの場合、待ち時間が発生
+  - 開発フローの自由度を優先
+- **npm scripts追加を見送った理由**：
+  - 既存の`lingui:extract`コマンドで十分機能的
+  - 冗長なスクリプトは混乱を招く可能性
+  - シンプルな構成を維持
+- **ドキュメント整備**：
+  - CLAUDE.md: 翻訳ワークフローのベストプラクティスを追記
+  - docs/lingui/workflow.md: 開発者向けの詳細なガイドを作成
+  - CIエラー時の対処法を明文化
+- **成果**：
+  - UIテキスト変更時の翻訳漏れを自動検出
+  - 開発者が翻訳ワークフローを理解しやすい環境構築
+  - CI/CDによる品質保証の強化
+- **GitHub Actions整理（2025-08-15追記）**：
+  - `ci.yml`から`lingui-extract`ジョブを削除（重複解消）
+  - `lingui-check.yml`を翻訳専門ワークフローとして維持
+  - 役割分担を明確化：
+    - `ci.yml`: ESLint、Prettier、TypeScriptチェック
+    - `lingui-check.yml`: 翻訳の整合性チェック（ソースコード変更時のみ）
 
 ### 計画見直しと今後の方針（2025-08-15）
 - **フェーズ1-9の完了状況**：
