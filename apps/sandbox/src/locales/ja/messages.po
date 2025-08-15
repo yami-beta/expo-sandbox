@@ -24,9 +24,9 @@ msgstr "_0で値が0の場合の特別処理"
 #. placeholder {0}: 1
 #. placeholder {0}: 2
 #. placeholder {0}: 3
-#: src/app/lingui-examples/selectordinal-examples.tsx:461
-#: src/app/lingui-examples/selectordinal-examples.tsx:470
-#: src/app/lingui-examples/selectordinal-examples.tsx:479
+#: src/app/lingui-examples/selectordinal-examples.tsx:423
+#: src/app/lingui-examples/selectordinal-examples.tsx:432
+#: src/app/lingui-examples/selectordinal-examples.tsx:441
 msgid "{0, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
 msgstr "{0, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
 
@@ -54,15 +54,15 @@ msgstr "{gender, select, male {彼はオンラインです} female {彼女はオ
 msgid "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
 msgstr "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:323
+#: src/app/lingui-examples/selectordinal-examples.tsx:289
 msgid "{level, selectordinal, one {レベル#} two {レベル#} few {レベル#} other {レベル#}}"
 msgstr "{level, selectordinal, one {レベル#} two {レベル#} few {レベル#} other {レベル#}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:295
+#: src/app/lingui-examples/selectordinal-examples.tsx:261
 msgid "{level, selectordinal, one {第#階層} two {第#階層} few {第#階層} other {第#階層}}"
 msgstr "{level, selectordinal, one {第#階層} two {第#階層} few {第#階層} other {第#階層}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:309
+#: src/app/lingui-examples/selectordinal-examples.tsx:275
 msgid "{level, selectordinal, one {第#階層のディレクトリ} two {第#階層のディレクトリ} few {第#階層のディレクトリ} other {第#階層のディレクトリ}}"
 msgstr "{level, selectordinal, one {第#階層のディレクトリ} two {第#階層のディレクトリ} few {第#階層のディレクトリ} other {第#階層のディレクトリ}}"
 
@@ -70,7 +70,7 @@ msgstr "{level, selectordinal, one {第#階層のディレクトリ} two {第#�
 msgid "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
 msgstr "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:379
+#: src/app/lingui-examples/selectordinal-examples.tsx:343
 msgid "{position, selectordinal, one {#番目の要素を選択中} two {#番目の要素を選択中} few {#番目の要素を選択中} other {#番目の要素を選択中}}"
 msgstr "{position, selectordinal, one {#番目の要素を選択中} two {#番目の要素を選択中} few {#番目の要素を選択中} other {#番目の要素を選択中}}"
 
@@ -82,15 +82,7 @@ msgstr "{possessive, select, my {私のプロフィール} your {あなたのプ
 msgid "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 msgstr "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:190
-msgid "{rank, selectordinal, one {#st place} two {#nd place} few {#rd place} other {#th place}}"
-msgstr "{rank, selectordinal, one {#st place} two {#nd place} few {#rd place} other {#th place}}"
-
-#: src/app/lingui-examples/selectordinal-examples.tsx:176
-msgid "{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
-msgstr "{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
-
-#: src/app/lingui-examples/selectordinal-examples.tsx:237
+#: src/app/lingui-examples/selectordinal-examples.tsx:205
 msgid "{step, selectordinal, one {第#段階: 準備} two {第#段階: 実行} few {第#段階: 確認} other {第#段階: 完了確認}}"
 msgstr "{step, selectordinal, one {第#段階: 準備} two {第#段階: 実行} few {第#段階: 確認} other {第#段階: 完了確認}}"
 
@@ -146,7 +138,7 @@ msgstr ""
 msgid "#記号: カウント数値を表示する場所"
 msgstr "#記号: カウント数値を表示する場所"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:544
+#: src/app/lingui-examples/selectordinal-examples.tsx:501
 msgid "#記号: 実際の数値を表示する場所を指定"
 msgstr "#記号: 実際の数値を表示する場所を指定"
 
@@ -182,15 +174,15 @@ msgstr "✅ 適切な使用例（文法的変化）"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ 不適切な使用例（アンチパターン）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:493
+#: src/app/lingui-examples/selectordinal-examples.tsx:455
 msgid "1個のアイテム"
 msgstr "1個のアイテム"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:496
+#: src/app/lingui-examples/selectordinal-examples.tsx:458
 msgid "2個のアイテム"
 msgstr "2個のアイテム"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:499
+#: src/app/lingui-examples/selectordinal-examples.tsx:461
 msgid "3個のアイテム"
 msgstr "3個のアイテム"
 
@@ -211,11 +203,11 @@ msgstr "Lingui学習サンプル"
 msgid "one、otherの形式を使用（日本語はotherのみ）"
 msgstr "one、otherの形式を使用（日本語はotherのみ）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:509
+#: src/app/lingui-examples/selectordinal-examples.tsx:471
 msgid "Plural: 数量を表現（1個、2個、one item, two items）"
 msgstr "Plural: 数量を表現（1個、2個、one item, two items）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:490
+#: src/app/lingui-examples/selectordinal-examples.tsx:452
 msgid "Plural（基数）"
 msgstr "Plural（基数）"
 
@@ -251,27 +243,27 @@ msgstr "Pluralマクロの使い方"
 msgid "Select vs select"
 msgstr "Select vs select"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:449
+#: src/app/lingui-examples/selectordinal-examples.tsx:411
 msgid "SelectOrdinal vs Plural の違い"
 msgstr "SelectOrdinal vs Plural の違い"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:548
+#: src/app/lingui-examples/selectordinal-examples.tsx:505
 msgid "SelectOrdinal vs selectOrdinal"
 msgstr "SelectOrdinal vs selectOrdinal"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:504
+#: src/app/lingui-examples/selectordinal-examples.tsx:466
 msgid "SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）"
 msgstr "SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:458
+#: src/app/lingui-examples/selectordinal-examples.tsx:420
 msgid "SelectOrdinal（序数）"
 msgstr "SelectOrdinal（序数）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:552
+#: src/app/lingui-examples/selectordinal-examples.tsx:509
 msgid "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:558
+#: src/app/lingui-examples/selectordinal-examples.tsx:515
 msgid "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 
@@ -279,11 +271,11 @@ msgstr "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgid "SelectOrdinalマクロの使い方"
 msgstr "SelectOrdinalマクロの使い方"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:523
+#: src/app/lingui-examples/selectordinal-examples.tsx:483
 msgid "SelectOrdinalマクロの特徴"
 msgstr "SelectOrdinalマクロの特徴"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:439
+#: src/app/lingui-examples/selectordinal-examples.tsx:401
 msgid "selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます"
 msgstr "selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます"
 
@@ -307,7 +299,7 @@ msgstr "Selectマクロの設計思想"
 msgid "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 msgstr "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:402
+#: src/app/lingui-examples/selectordinal-examples.tsx:364
 msgid "TextInputのplaceholderなど文字列が必要な場合"
 msgstr "TextInputのplaceholderなど文字列が必要な場合"
 
@@ -331,7 +323,7 @@ msgstr "あなた"
 msgid "あなたの"
 msgstr "あなたの"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:426
+#: src/app/lingui-examples/selectordinal-examples.tsx:388
 msgid "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 msgstr "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 
@@ -340,7 +332,7 @@ msgstr "エレベーターは{floor, selectordinal, one {第#階} two {第#階} 
 msgid "オフライン"
 msgstr "オフライン"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:158
+#: src/app/lingui-examples/selectordinal-examples.tsx:155
 msgid "おめでとうございます！あなたは{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}です"
 msgstr "おめでとうございます！あなたは{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}です"
 
@@ -365,7 +357,7 @@ msgstr "このモーダルにはフォーム、画像、インタラクティブ
 msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
 msgstr "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:366
+#: src/app/lingui-examples/selectordinal-examples.tsx:330
 msgid "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 msgstr "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 
@@ -389,7 +381,7 @@ msgstr "システム設定に従う"
 msgid "ステータスを選択"
 msgstr "ステータスを選択"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:577
+#: src/app/lingui-examples/selectordinal-examples.tsx:531
 msgid "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 msgstr "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 
@@ -409,7 +401,7 @@ msgstr "ダーク"
 msgid "タスク入力フィールド"
 msgstr "タスク入力フィールド"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:259
+#: src/app/lingui-examples/selectordinal-examples.tsx:227
 msgid "チュートリアルやウィザードでの段階表示に適しています"
 msgstr "チュートリアルやウィザードでの段階表示に適しています"
 
@@ -427,7 +419,7 @@ msgstr "デモコンテンツ"
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:334
+#: src/app/lingui-examples/selectordinal-examples.tsx:300
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
 msgstr "ファイルシステムや組織構造の階層表現に使用できます"
 
@@ -472,11 +464,11 @@ msgstr "フォームシート表示について："
 msgid "フォームを送信"
 msgstr "フォームを送信"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:306
+#: src/app/lingui-examples/selectordinal-examples.tsx:272
 msgid "フォルダ構造"
 msgstr "フォルダ構造"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:215
+#: src/app/lingui-examples/selectordinal-examples.tsx:183
 msgid "プロセスや手順の段階表示"
 msgstr "プロセスや手順の段階表示"
 
@@ -542,7 +534,7 @@ msgstr "ユーザーの性別を選択"
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:573
+#: src/app/lingui-examples/selectordinal-examples.tsx:527
 msgid "ランキング・順位表示（1位、2位、1st, 2nd）"
 msgstr "ランキング・順位表示（1位、2位、1st, 2nd）"
 
@@ -550,15 +542,15 @@ msgstr "ランキング・順位表示（1位、2位、1st, 2nd）"
 msgid "ランキング表示"
 msgstr "ランキング表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:388
+#: src/app/lingui-examples/selectordinal-examples.tsx:352
 msgid "リストやキューでの順番表示に適しています"
 msgstr "リストやキューでの順番表示に適しています"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:348
+#: src/app/lingui-examples/selectordinal-examples.tsx:312
 msgid "リスト内での位置や順番"
 msgstr "リスト内での位置や順番"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:281
+#: src/app/lingui-examples/selectordinal-examples.tsx:247
 msgid "上へ"
 msgstr "上へ"
 
@@ -570,7 +562,7 @@ msgstr "下のボタンをタップしてフォームシート表示で画面を
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:290
+#: src/app/lingui-examples/selectordinal-examples.tsx:256
 msgid "下へ"
 msgstr "下へ"
 
@@ -586,7 +578,7 @@ msgstr "主語を選択"
 msgid "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 msgstr "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:570
+#: src/app/lingui-examples/selectordinal-examples.tsx:524
 msgid "使用例"
 msgstr "使用例"
 
@@ -594,7 +586,7 @@ msgstr "使用例"
 msgid "個人"
 msgstr "個人"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:223
+#: src/app/lingui-examples/selectordinal-examples.tsx:191
 msgid "前へ"
 msgstr "前へ"
 
@@ -615,7 +607,7 @@ msgstr "友達の数（名前付き）"
 msgid "取り込み中"
 msgstr "取り込み中"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:453
+#: src/app/lingui-examples/selectordinal-examples.tsx:415
 msgid "同じ数値での表現の違い"
 msgstr "同じ数値での表現の違い"
 
@@ -639,7 +631,7 @@ msgstr "変数を含む複数形処理"
 msgid "女性"
 msgstr "女性"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:519
+#: src/app/lingui-examples/selectordinal-examples.tsx:479
 #: src/app/lingui-examples/select-examples.tsx:557
 #: src/app/lingui-examples/plural-examples.tsx:322
 msgid "学習ポイント"
@@ -662,7 +654,7 @@ msgstr "対象者による表現の変化"
 msgid "対象者を選択"
 msgstr "対象者を選択"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:527
+#: src/app/lingui-examples/selectordinal-examples.tsx:486
 msgid "序数（順序を表す数）の表現に特化したマクロです"
 msgstr "序数（順序を表す数）の表現に特化したマクロです"
 
@@ -714,11 +706,11 @@ msgstr "技術的な状態は文法的変化ではないため、個別のメッ
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "技術的な状態やビジネスロジックには使用すべきではありません"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:398
+#: src/app/lingui-examples/selectordinal-examples.tsx:360
 msgid "文字列プロパティでの使用（selectOrdinalマクロ）"
 msgstr "文字列プロパティでの使用（selectOrdinalマクロ）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:564
+#: src/app/lingui-examples/selectordinal-examples.tsx:520
 msgid "文字列プロパティにはselectOrdinalマクロを使用"
 msgstr "文字列プロパティにはselectOrdinalマクロを使用"
 
@@ -734,15 +726,11 @@ msgstr "新着"
 msgid "既読"
 msgstr "既読"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:173
-msgid "日本語"
-msgstr "日本語"
-
 #: src/app/lingui-examples/plural-examples.tsx:352
 msgid "日本語: otherのみ（すべての数で同じ形式）"
 msgstr "日本語: otherのみ（すべての数で同じ形式）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:539
+#: src/app/lingui-examples/selectordinal-examples.tsx:496
 msgid "日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）"
 msgstr "日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）"
 
@@ -754,11 +742,11 @@ msgstr "日本語では代名詞の省略が一般的ですが、英語では明
 msgid "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 msgstr "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:320
+#: src/app/lingui-examples/selectordinal-examples.tsx:286
 msgid "権限レベル"
 msgstr "権限レベル"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:232
+#: src/app/lingui-examples/selectordinal-examples.tsx:200
 msgid "次へ"
 msgstr "次へ"
 
@@ -778,7 +766,7 @@ msgstr "注: zeroカテゴリーは限られた言語のみ"
 msgid "特定のケースはアンダースコアで始める（_male、_female等）"
 msgstr "特定のケースはアンダースコアで始める（_male、_female等）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:246
+#: src/app/lingui-examples/selectordinal-examples.tsx:214
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 
@@ -798,7 +786,7 @@ msgstr "私の"
 msgid "競技や成績での順位表示"
 msgstr "競技や成績での順位表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:273
+#: src/app/lingui-examples/selectordinal-examples.tsx:239
 msgid "組織図やディレクトリ構造での階層表示"
 msgstr "組織図やディレクトリ構造での階層表示"
 
@@ -810,11 +798,7 @@ msgstr "翻訳者が独立して翻訳する必要があるか？ → YES: 個�
 msgid "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 msgstr "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:187
-msgid "英語"
-msgstr "英語"
-
-#: src/app/lingui-examples/selectordinal-examples.tsx:533
+#: src/app/lingui-examples/selectordinal-examples.tsx:490
 msgid "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
 msgstr "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
 
@@ -822,7 +806,7 @@ msgstr "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
 msgid "英語: one（1の場合）とother（0, 2以上）"
 msgstr "英語: one（1の場合）とother（0, 2以上）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:201
+#: src/app/lingui-examples/selectordinal-examples.tsx:168
 msgid "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 msgstr "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 
@@ -839,7 +823,7 @@ msgstr "設定"
 msgid "通知メッセージ"
 msgstr "通知メッセージ"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:211
+#: src/app/lingui-examples/selectordinal-examples.tsx:179
 msgid "進捗ステップ"
 msgstr "進捗ステップ"
 
@@ -855,11 +839,11 @@ msgstr "選択されたファイル数の表示"
 msgid "閉じる"
 msgstr "閉じる"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:269
+#: src/app/lingui-examples/selectordinal-examples.tsx:235
 msgid "階層・レベル表示"
 msgstr "階層・レベル表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:583
+#: src/app/lingui-examples/selectordinal-examples.tsx:537
 msgid "階層・レベル表示（第1階層、レベル2、1st level, 2nd level）"
 msgstr "階層・レベル表示（第1階層、レベル2、1st level, 2nd level）"
 
@@ -868,10 +852,10 @@ msgstr "階層・レベル表示（第1階層、レベル2、1st level, 2nd leve
 msgid "離席中"
 msgstr "離席中"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:344
+#: src/app/lingui-examples/selectordinal-examples.tsx:308
 msgid "順位・順番表示"
 msgstr "順位・順番表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:588
+#: src/app/lingui-examples/selectordinal-examples.tsx:542
 msgid "順番・位置表示（1番目、2番目、#1, #2）"
 msgstr "順番・位置表示（1番目、2番目、#1, #2）"
