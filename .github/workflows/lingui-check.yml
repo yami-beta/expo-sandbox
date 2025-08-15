@@ -1,6 +1,13 @@
 name: Lingui Check
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/sandbox/src/**/*.tsx'
+      - 'apps/sandbox/src/**/*.ts'
+      - 'apps/sandbox/src/**/*.po'
   pull_request:
     paths:
       - 'apps/sandbox/src/**/*.tsx'
@@ -25,12 +32,25 @@ jobs:
       - name: Check for uncommitted changes
         run: |
           if [[ -n $(git status --porcelain) ]]; then
-            echo "Error: lingui extract produced changes. Please run 'pnpm -C apps/sandbox lingui:extract' and commit the changes."
+            echo "::error::Lingui extract produced changes. Translation files are not up to date."
             echo ""
-            echo "Changed files:"
+            echo "### ❌ Translation files are out of sync"
+            echo ""
+            echo "Please run the following command and commit the changes:"
+            echo "\`\`\`bash"
+            echo "pnpm -C apps/sandbox lingui:extract"
+            echo "\`\`\`"
+            echo ""
+            echo "### 📝 Changed files:"
+            echo "\`\`\`"
             git status --porcelain
+            echo "\`\`\`"
             echo ""
-            echo "Diff:"
-            git diff
+            echo "### 🔍 Detailed changes:"
+            echo "\`\`\`diff"
+            git diff --color=never
+            echo "\`\`\`"
             exit 1
+          else
+            echo "✅ All translation files are up to date"
           fi
