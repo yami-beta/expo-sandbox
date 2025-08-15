@@ -14,7 +14,7 @@
     "format": "prettier . --write",
     "generate-types": "expo customize tsconfig.json",
     "typecheck": "tsc --noEmit",
-    "lingui:extract": "lingui extract"
+    "lingui:extract": "lingui extract --clean"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
