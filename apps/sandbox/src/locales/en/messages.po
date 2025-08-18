@@ -174,6 +174,10 @@ msgstr "✅ Proper Use Cases (Grammatical Variations)"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ Improper Use Cases (Anti-patterns)"
 
+#: src/app/lingui-examples/format-examples.tsx:146
+msgid "12時間表記"
+msgstr "12-hour format"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:455
 msgid "1個のアイテム"
 msgstr "1 item"
@@ -307,6 +311,10 @@ msgstr "Select Macro Design Philosophy"
 msgid "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 msgstr "Select macro is designed to handle grammatical variations in natural language"
 
+#: src/app/lingui-examples/format-examples.tsx:217
+msgid "TextInputでの使用例"
+msgstr "TextInput usage example"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:364
 msgid "TextInputのplaceholderなど文字列が必要な場合"
 msgstr "When a string is required such as TextInput placeholder"
@@ -331,6 +339,10 @@ msgstr "You"
 msgid "あなたの"
 msgstr "Your"
 
+#: src/app/lingui-examples/format-examples.tsx:320
+msgid "インタラクティブな例"
+msgstr "Interactive examples"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:388
 msgid "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 msgstr "The elevator has arrived at {floor, selectordinal, one {the #st floor} two {the #nd floor} few {the #rd floor} other {the #th floor}}"
@@ -348,6 +360,10 @@ msgstr "Congratulations! You are in {rank, selectordinal, one {#st place} two {#
 #: src/app/lingui-examples/select-examples.tsx:539
 msgid "オンライン"
 msgstr "Online"
+
+#: src/app/lingui-examples/format-examples.tsx:111
+msgid "カスタム（年と月のみ）"
+msgstr "Custom (year and month only)"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 msgid "キャンセル"
@@ -380,6 +396,10 @@ msgstr "This is a form demo displayed in a modal."
 #: src/app/navigation-patterns/modal-screen.tsx:42
 msgid "これはモーダル表示です"
 msgstr "This is a Modal Display"
+
+#: src/app/lingui-examples/format-examples.tsx:207
+msgid "コンパクト表記"
+msgstr "Compact notation"
 
 #: src/app/(tabs)/settings/theme.tsx:10
 msgid "システム設定に従う"
@@ -418,6 +438,10 @@ msgstr "Suitable for step display in tutorials and wizards"
 msgid "テーマ"
 msgstr "Theme"
 
+#: src/app/lingui-examples/format-examples.tsx:235
+msgid "デフォルト通貨（ロケール依存）"
+msgstr "Default currency (locale-dependent)"
+
 #: src/app/navigation-patterns/modal-screen.tsx:66
 msgid "デモコンテンツ"
 msgstr "Demo Content"
@@ -426,6 +450,10 @@ msgstr "Demo Content"
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
+
+#: src/app/lingui-examples/format-examples.tsx:198
+msgid "パーセンテージ"
+msgstr "Percentage"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:300
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
@@ -538,6 +566,10 @@ msgstr "User Status (Incorrect Implementation)"
 msgid "ユーザーの性別を選択"
 msgstr "Select user gender"
 
+#: src/app/lingui-examples/format-examples.tsx:262
+msgid "ユーロ"
+msgstr "Euro"
+
 #: src/app/(tabs)/settings/theme.tsx:11
 msgid "ライト"
 msgstr "Light"
@@ -594,6 +626,10 @@ msgstr "Usage Examples"
 msgid "個人"
 msgstr "Individual"
 
+#: src/app/lingui-examples/format-examples.tsx:308
+msgid "分の相対表示"
+msgstr "Relative time in minutes"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:191
 msgid "前へ"
 msgstr "Previous"
@@ -631,9 +667,17 @@ msgstr "Enter name"
 msgid "基本的なアイテムカウンター"
 msgstr "Basic Item Counter"
 
+#: src/app/lingui-examples/format-examples.tsx:171
+msgid "基本的な数値（桁区切り）"
+msgstr "Basic number (with digit separators)"
+
 #: src/app/lingui-examples/plural-examples.tsx:285
 msgid "変数を含む複数形処理"
 msgstr "Plural handling with variables"
+
+#: src/app/lingui-examples/format-examples.tsx:334
+msgid "大きな数値のフォーマット"
+msgstr "Large number formatting"
 
 #: src/app/lingui-examples/select-examples.tsx:183
 msgid "女性"
@@ -650,6 +694,10 @@ msgstr "Learning Points"
 msgid "完了"
 msgstr "Done"
 
+#: src/app/lingui-examples/format-examples.tsx:81
+msgid "完全な日付"
+msgstr "Full date"
+
 #: src/app/lingui-examples/plural-examples.tsx:182
 msgid "実際のファイル選択UIでの使用例"
 msgstr "Usage example in actual file selection UI"
@@ -661,6 +709,10 @@ msgstr "Expression variation by audience"
 #: src/app/lingui-examples/select-examples.tsx:232
 msgid "対象者を選択"
 msgstr "Select audience"
+
+#: src/app/lingui-examples/format-examples.tsx:189
+msgid "小数点以下2桁まで"
+msgstr "Up to 2 decimal places"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:486
 msgid "序数（順序を表す数）の表現に特化したマクロです"
@@ -714,6 +766,23 @@ msgstr "Technical states are not grammatical variations, so individual message k
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "Should not be used for technical states or business logic"
 
+#: src/app/lingui-examples/format-examples.tsx:166
+msgid "数値フォーマット"
+msgstr "Number Format"
+
+#. placeholder {0}: formatters.number.decimal(123456)
+#: src/app/lingui-examples/format-examples.tsx:221
+msgid "数値を入力: {0}"
+msgstr "Enter a number: {0}"
+
+#: src/app/lingui-examples/format-examples.tsx:180
+msgid "整数のみ"
+msgstr "Integer only"
+
+#: src/app/lingui-examples/format-examples.tsx:244
+msgid "整数表示"
+msgstr "Integer display"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:360
 msgid "文字列プロパティでの使用（selectOrdinalマクロ）"
 msgstr "Usage with string properties (selectOrdinal macro)"
@@ -734,6 +803,22 @@ msgstr "New"
 msgid "既読"
 msgstr "Read"
 
+#: src/app/lingui-examples/index.tsx:20
+msgid "日付・数値フォーマット"
+msgstr "Date & Number Format"
+
+#: src/app/lingui-examples/format-examples.tsx:155
+msgid "日付と時刻"
+msgstr "Date and time"
+
+#: src/app/lingui-examples/format-examples.tsx:287
+msgid "日付の相対表示"
+msgstr "Relative date display"
+
+#: src/app/lingui-examples/format-examples.tsx:76
+msgid "日付フォーマット"
+msgstr "Date Format"
+
 #: src/app/lingui-examples/plural-examples.tsx:352
 msgid "日本語: otherのみ（すべての数で同じ形式）"
 msgstr "Japanese: only other (same form for all numbers)"
@@ -749,6 +834,26 @@ msgstr "Pronoun omission is common in Japanese, but there are clear differences 
 #: src/app/lingui-examples/select-examples.tsx:442
 msgid "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 msgstr "Japanese has less verb conjugation, but English verbs change depending on the subject"
+
+#: src/app/lingui-examples/format-examples.tsx:130
+msgid "時刻（24時間表記）"
+msgstr "Time (24-hour format)"
+
+#: src/app/lingui-examples/format-examples.tsx:137
+msgid "時刻と秒"
+msgstr "Time with seconds"
+
+#: src/app/lingui-examples/format-examples.tsx:125
+msgid "時刻フォーマット"
+msgstr "Time Format"
+
+#: src/app/lingui-examples/format-examples.tsx:298
+msgid "時間の相対表示"
+msgstr "Relative time in hours"
+
+#: src/app/lingui-examples/format-examples.tsx:102
+msgid "月と日のみ"
+msgstr "Month and day only"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:286
 msgid "権限レベル"
@@ -778,9 +883,21 @@ msgstr "Specific cases start with underscore (_male, _female, etc.)"
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "Currently processing {step, selectordinal, one {Step #} two {Step #} few {Step #} other {Step #}}"
 
+#: src/app/lingui-examples/format-examples.tsx:325
+msgid "現在時刻（リアルタイム）"
+msgstr "Current time (real-time)"
+
 #: src/app/lingui-examples/select-examples.tsx:172
 msgid "男性"
 msgstr "Male"
+
+#: src/app/lingui-examples/format-examples.tsx:282
+msgid "相対時間フォーマット（簡易版）"
+msgstr "Relative Time Format (Simple Version)"
+
+#: src/app/lingui-examples/format-examples.tsx:95
+msgid "短い形式"
+msgstr "Short format"
 
 #: src/app/lingui-examples/select-examples.tsx:385
 msgid "私"
@@ -794,6 +911,10 @@ msgstr "My"
 msgid "競技や成績での順位表示"
 msgstr "Ranking display for competitions and results"
 
+#: src/app/lingui-examples/format-examples.tsx:253
+msgid "米ドル"
+msgstr "US Dollar"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:239
 msgid "組織図やディレクトリ構造での階層表示"
 msgstr "Hierarchy display in org charts and directory structures"
@@ -805,6 +926,10 @@ msgstr "Do translators need to translate independently? → YES: Use individual 
 #: src/app/lingui-examples/select-examples.tsx:568
 msgid "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 msgstr "It is designed to handle grammatical variations in natural language (gender, number, case changes, etc.)"
+
+#: src/app/lingui-examples/format-examples.tsx:271
+msgid "英ポンド"
+msgstr "British Pound"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:490
 msgid "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
@@ -831,6 +956,10 @@ msgstr "Settings"
 msgid "通知メッセージ"
 msgstr "Notification Messages"
 
+#: src/app/lingui-examples/format-examples.tsx:230
+msgid "通貨フォーマット"
+msgstr "Currency Format"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:179
 msgid "進捗ステップ"
 msgstr "Progress Steps"
@@ -842,6 +971,10 @@ msgstr "Appropriate usage criteria"
 #: src/app/lingui-examples/plural-examples.tsx:156
 msgid "選択されたファイル数の表示"
 msgstr "Display of selected file count"
+
+#: src/app/lingui-examples/format-examples.tsx:88
+msgid "長い形式（曜日付き）"
+msgstr "Long format (with day of week)"
 
 #: src/app/navigation-patterns/modal-screen.tsx:35
 msgid "閉じる"

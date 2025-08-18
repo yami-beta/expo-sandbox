@@ -4,6 +4,9 @@ import "@formatjs/intl-locale/polyfill-force";
 import "@formatjs/intl-pluralrules/polyfill-force";
 import "@formatjs/intl-pluralrules/locale-data/ja"; // 日本語のlocale data
 import "@formatjs/intl-pluralrules/locale-data/en"; // 英語のlocale data
+import "@formatjs/intl-relativetimeformat/polyfill-force";
+import "@formatjs/intl-relativetimeformat/locale-data/ja"; // 日本語のlocale data
+import "@formatjs/intl-relativetimeformat/locale-data/en"; // 英語のlocale data
 
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
