@@ -1,5 +1,4 @@
-import { Trans } from "@lingui/react/macro";
-import { useLingui } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { ScrollView, View, Text, TextInput, StyleSheet } from "react-native";
 import { useState } from "react";
 import { useThemeContext } from "../../theme/ThemeContext";
