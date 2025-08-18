@@ -172,10 +172,11 @@ function getCurrencyForLocale(locale: string): string {
 // 相対時間フォーマット（Intl.RelativeTimeFormat使用）
 export const createRelativeTimeFormat = (i18n: I18n) => {
   // RelativeTimeFormatインスタンスを作成
-  const getFormatter = () => new Intl.RelativeTimeFormat(i18n.locale, {
-    numeric: "auto",
-    style: "long",
-  });
+  const getFormatter = () =>
+    new Intl.RelativeTimeFormat(i18n.locale, {
+      numeric: "auto",
+      style: "long",
+    });
 
   return {
     // 今日、昨日、明日、X日前/後を返す

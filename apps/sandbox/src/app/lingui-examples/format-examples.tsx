@@ -284,8 +284,8 @@ export default function FormatExamples() {
             <Trans>分の相対表示</Trans>
           </Text>
           <Text style={[styles.value, { color: theme.colors.text }]}>
-            {formatters.relativeTime.formatRelativeMinutes(thirtyMinutesAgo)}{" "}
-            / {formatters.relativeTime.formatRelativeMinutes(sampleDate)}
+            {formatters.relativeTime.formatRelativeMinutes(thirtyMinutesAgo)} /{" "}
+            {formatters.relativeTime.formatRelativeMinutes(sampleDate)}
           </Text>
         </View>
       </View>
