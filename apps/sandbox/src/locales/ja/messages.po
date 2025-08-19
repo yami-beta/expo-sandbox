@@ -162,13 +162,33 @@ msgstr "• 「閉じる」ボタンをタップ"
 msgid "• 99件を超える場合は「99+」と表示"
 msgstr "• 99件を超える場合は「99+」と表示"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:449
+msgid "• ECサイトのカテゴリナビゲーション"
+msgstr "• ECサイトのカテゴリナビゲーション"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:342
 msgid "• Pluralマクロで通知数の適切な表示"
 msgstr "• Pluralマクロで通知数の適切な表示"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:431
+msgid "• クリック可能な各階層へのジャンプ機能"
+msgstr "• クリック可能な各階層へのジャンプ機能"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:452
+msgid "• ドキュメントサイトの階層表示"
+msgstr "• ドキュメントサイトの階層表示"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:434
+msgid "• パスが長い場合の省略表示（...）"
+msgstr "• パスが長い場合の省略表示（...）"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:348
 msgid "• バッジタイプ（数値/テキスト/ドット）の切り替え"
 msgstr "• バッジタイプ（数値/テキスト/ドット）の切り替え"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:455
+msgid "• ファイルシステムのパス表示"
+msgstr "• ファイルシステムのパス表示"
 
 #: src/app/navigation-patterns/modal-screen.tsx:57
 msgid "• 上から下へスワイプ（iOS）"
@@ -178,9 +198,17 @@ msgstr "• 上から下へスワイプ（iOS）"
 msgid "• 動的なタブラベルの更新"
 msgstr "• 動的なタブラベルの更新"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:437
+msgid "• 区切り文字のカスタマイズ"
+msgstr "• 区切り文字のカスタマイズ"
+
 #: src/app/navigation-patterns/modal-screen.tsx:60
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• 戻るジェスチャーを使用（Android）"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:440
+msgid "• 現在位置の視覚的な強調"
+msgstr "• 現在位置の視覚的な強調"
 
 #: src/app/navigation-patterns/modal.tsx:48
 msgid ""
@@ -193,6 +221,14 @@ msgstr ""
 "• 下から上へアニメーションします\n"
 "• 下へのスワイプジェスチャーで閉じることができます\n"
 "• 親画面との対話をブロックします"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:458
+msgid "• 管理画面の階層メニュー"
+msgstr "• 管理画面の階層メニュー"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:428
+msgid "• 階層的なナビゲーションパスの管理"
+msgstr "• 階層的なナビゲーションパスの管理"
 
 #: src/app/lingui-examples/select-examples.tsx:145
 msgid "✅ 適切な使用例（文法的変化）"
@@ -389,9 +425,17 @@ msgstr "おめでとうございます！あなたは{rank, selectordinal, one {
 msgid "オンライン"
 msgstr "オンライン"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:138
+msgid "お問い合わせ"
+msgstr "お問い合わせ"
+
 #: src/app/lingui-examples/format-examples.tsx:77
 msgid "カスタム（年と月のみ）"
 msgstr "カスタム（年と月のみ）"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:252
+msgid "カテゴリを選択:"
+msgstr "カテゴリを選択:"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 msgid "キャンセル"
@@ -425,9 +469,29 @@ msgstr "これはモーダルで表示されたフォームのデモです。"
 msgid "これはモーダル表示です"
 msgstr "これはモーダル表示です"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:131
+msgid "コンサルティング"
+msgstr "コンサルティング"
+
 #: src/app/lingui-examples/format-examples.tsx:175
 msgid "コンパクト表記"
 msgstr "コンパクト表記"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
+msgid "サービス"
+msgstr "サービス"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:276
+msgid "サブカテゴリを選択:"
+msgstr "サブカテゴリを選択:"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:120
+msgid "サポート"
+msgstr "サポート"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:360
+msgid "シェブロン (›)"
+msgstr "シェブロン (›)"
 
 #: src/app/(tabs)/settings/theme.tsx:10
 msgid "システム設定に従う"
@@ -444,6 +508,10 @@ msgstr "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2�
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:253
 msgid "すべてリセット"
 msgstr "すべてリセット"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:356
+msgid "スラッシュ (/)"
+msgstr "スラッシュ (/)"
 
 #: src/app/lingui-examples/select-examples.tsx:342
 msgid "その人の"
@@ -492,14 +560,30 @@ msgstr "デフォルト通貨（ロケール依存）"
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:136
+msgid "ドキュメント"
+msgstr "ドキュメント"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:293
 msgid "ドットバッジを表示"
 msgstr "ドットバッジを表示"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:133
+msgid "トレーニング"
+msgstr "トレーニング"
 
 #: src/app/_layout.tsx:45
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:247
+msgid "ナビゲーション操作"
+msgstr "ナビゲーション操作"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:143
+msgid "ニュース"
+msgstr "ニュース"
 
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
@@ -508,6 +592,12 @@ msgstr "パーセンテージ"
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
 msgid "バッジ表示オプション"
 msgstr "バッジ表示オプション"
+
+#: src/app/_layout.tsx:114
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
+#: src/app/lingui-examples/index.tsx:28
+msgid "パンくずリスト"
+msgstr "パンくずリスト"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:300
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
@@ -586,6 +676,7 @@ msgstr "プロフィールタブの通知:"
 #: src/app/_layout.tsx:40
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:116
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:312
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:102
 #: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "ホーム"
@@ -601,6 +692,10 @@ msgstr "ホーム (99+)"
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:163
 msgid "ホームタブの通知:"
 msgstr "ホームタブの通知:"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:340
+msgid "ホームに戻る"
+msgstr "ホームに戻る"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:118
 msgid "メールアドレス"
@@ -659,6 +754,10 @@ msgstr "ユーザーの性別を選択"
 msgid "ユーロ"
 msgstr "ユーロ"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:137
+msgid "よくある質問"
+msgstr "よくある質問"
+
 #: src/app/(tabs)/settings/theme.tsx:11
 msgid "ライト"
 msgstr "ライト"
@@ -707,13 +806,30 @@ msgstr "主語を選択"
 msgid "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 msgstr "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:121
+msgid "会社情報"
+msgstr "会社情報"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:141
+msgid "会社概要"
+msgstr "会社概要"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:524
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:446
 msgid "使用例"
 msgstr "使用例"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:316
+msgid "例: 製品詳細ページ"
+msgstr "例: 製品詳細ページ"
 
 #: src/app/lingui-examples/select-examples.tsx:243
 msgid "個人"
 msgstr "個人"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:394
+msgid "最大表示数:"
+msgstr "最大表示数:"
 
 #: src/app/lingui-examples/format-examples.tsx:283
 msgid "分の相対表示"
@@ -726,6 +842,10 @@ msgstr "前へ"
 #: src/app/lingui-examples/select-examples.tsx:373
 msgid "動作主体による文章変化"
 msgstr "動作主体による文章変化"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:351
+msgid "区切り文字:"
+msgstr "区切り文字:"
 
 #: src/app/lingui-examples/select-examples.tsx:275
 msgid "単数/複数の対象者によって、日本語でも表現が変わります"
@@ -788,6 +908,7 @@ msgid "完全な日付"
 msgstr "完全な日付"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:339
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:425
 msgid "実装のポイント"
 msgstr "実装のポイント"
 
@@ -862,6 +983,10 @@ msgstr "技術的な状態は文法的変化ではないため、個別のメッ
 #: src/app/lingui-examples/select-examples.tsx:574
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "技術的な状態やビジネスロジックには使用すべきではありません"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:142
+msgid "採用情報"
+msgstr "採用情報"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:265
 msgid "数値バッジを表示"
@@ -953,6 +1078,10 @@ msgstr "時刻フォーマット"
 msgid "時間の相対表示"
 msgstr "時間の相対表示"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:128
+msgid "書籍"
+msgstr "書籍"
+
 #: src/app/lingui-examples/format-examples.tsx:68
 msgid "月と日のみ"
 msgstr "月と日のみ"
@@ -985,6 +1114,10 @@ msgstr "特定のケースはアンダースコアで始める（_male、_female
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:231
+msgid "現在のパス"
+msgstr "現在のパス"
+
 #: src/app/lingui-examples/format-examples.tsx:300
 msgid "現在時刻（リアルタイム）"
 msgstr "現在時刻（リアルタイム）"
@@ -996,6 +1129,10 @@ msgstr "男性"
 #: src/app/lingui-examples/format-examples.tsx:257
 msgid "相対時間フォーマット（簡易版）"
 msgstr "相対時間フォーマット（簡易版）"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:355
+msgid "矢印 (>)"
+msgstr "矢印 (>)"
 
 #: src/app/lingui-examples/format-examples.tsx:59
 msgid "短い形式"
@@ -1045,6 +1182,18 @@ msgstr "英語: one（1の場合）とother（0, 2以上）"
 msgid "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 msgstr "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:127
+msgid "衣料品"
+msgstr "衣料品"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:346
+msgid "表示オプション"
+msgstr "表示オプション"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:118
+msgid "製品"
+msgstr "製品"
+
 #: src/app/lingui-examples/select-examples.tsx:254
 msgid "複数"
 msgstr "複数"
@@ -1067,6 +1216,14 @@ msgstr "設定 (99+)"
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:191
 msgid "設定タブの通知:"
 msgstr "設定タブの通知:"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:302
+msgid "詳細ページ名を入力:"
+msgstr "詳細ページ名を入力:"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:328
+msgid "追加"
+msgstr "追加"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
 msgid "通知カウントの管理"
@@ -1100,6 +1257,10 @@ msgstr "長い形式（曜日付き）"
 msgid "閉じる"
 msgstr "閉じる"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:132
+msgid "開発"
+msgstr "開発"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:235
 msgid "階層・レベル表示"
 msgstr "階層・レベル表示"
@@ -1112,6 +1273,10 @@ msgstr "階層・レベル表示（第1階層、レベル2、1st level, 2nd leve
 #: src/app/lingui-examples/select-examples.tsx:541
 msgid "離席中"
 msgstr "離席中"
+
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:126
+msgid "電子機器"
+msgstr "電子機器"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:308
 msgid "順位・順番表示"

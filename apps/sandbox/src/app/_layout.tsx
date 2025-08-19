@@ -108,6 +108,12 @@ function RootLayoutContent() {
             title: t`タブバーの動的機能`,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/navigation-breadcrumb-examples"
+          options={{
+            title: t`パンくずリスト`,
+          }}
+        />
       </Stack>
     </>
   );
