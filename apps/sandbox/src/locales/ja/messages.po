@@ -50,6 +50,10 @@ msgstr "{floor, selectordinal, one {第#階に移動} two {第#階に移動} few
 msgid "{gender, select, male {彼はオンラインです} female {彼女はオンラインです} other {オンラインです}}"
 msgstr "{gender, select, male {彼はオンラインです} female {彼女はオンラインです} other {オンラインです}}"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:360
+msgid "{homeNotifications, plural, =0 {ホームタブに新着通知はありません} one {ホームタブに # 件の新着通知} other {ホームタブに # 件の新着通知}}"
+msgstr "{homeNotifications, plural, =0 {ホームタブに新着通知はありません} one {ホームタブに # 件の新着通知} other {ホームタブに # 件の新着通知}}"
+
 #: src/app/lingui-examples/plural-examples.tsx:137
 msgid "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
 msgstr "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
@@ -81,6 +85,14 @@ msgstr "{possessive, select, my {私のプロフィール} your {あなたのプ
 #: src/app/lingui-examples/select-examples.tsx:40
 msgid "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 msgstr "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:376
+msgid "{profileNotifications, plural, =0 {プロフィールタブに更新はありません} one {プロフィールタブに # 件の更新} other {プロフィールタブに # 件の更新}}"
+msgstr "{profileNotifications, plural, =0 {プロフィールタブに更新はありません} one {プロフィールタブに # 件の更新} other {プロフィールタブに # 件の更新}}"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:368
+msgid "{settingsNotifications, plural, =0 {設定タブに未読メッセージはありません} one {設定タブに # 件の未読メッセージ} other {設定タブに # 件の未読メッセージ}}"
+msgstr "{settingsNotifications, plural, =0 {設定タブに未読メッセージはありません} one {設定タブに # 件の未読メッセージ} other {設定タブに # 件の未読メッセージ}}"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:205
 msgid "{step, selectordinal, one {第#段階: 準備} two {第#段階: 実行} few {第#段階: 確認} other {第#段階: 完了確認}}"
@@ -146,9 +158,25 @@ msgstr "#記号: 実際の数値を表示する場所を指定"
 msgid "• 「閉じる」ボタンをタップ"
 msgstr "• 「閉じる」ボタンをタップ"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:345
+msgid "• 99件を超える場合は「99+」と表示"
+msgstr "• 99件を超える場合は「99+」と表示"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:342
+msgid "• Pluralマクロで通知数の適切な表示"
+msgstr "• Pluralマクロで通知数の適切な表示"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:348
+msgid "• バッジタイプ（数値/テキスト/ドット）の切り替え"
+msgstr "• バッジタイプ（数値/テキスト/ドット）の切り替え"
+
 #: src/app/navigation-patterns/modal-screen.tsx:57
 msgid "• 上から下へスワイプ（iOS）"
 msgstr "• 上から下へスワイプ（iOS）"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:351
+msgid "• 動的なタブラベルの更新"
+msgstr "• 動的なタブラベルの更新"
 
 #: src/app/navigation-patterns/modal-screen.tsx:60
 msgid "• 戻るジェスチャーを使用（Android）"
@@ -413,6 +441,10 @@ msgstr "ステータスを選択"
 msgid "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 msgstr "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:253
+msgid "すべてリセット"
+msgstr "すべてリセット"
+
 #: src/app/lingui-examples/select-examples.tsx:342
 msgid "その人の"
 msgstr "その人の"
@@ -429,6 +461,16 @@ msgstr "ダーク"
 msgid "タスク入力フィールド"
 msgstr "タスク入力フィールド"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:307
+msgid "タブバーのプレビュー"
+msgstr "タブバーのプレビュー"
+
+#: src/app/_layout.tsx:108
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:153
+#: src/app/lingui-examples/index.tsx:24
+msgid "タブバーの動的機能"
+msgstr "タブバーの動的機能"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:227
 msgid "チュートリアルやウィザードでの段階表示に適しています"
 msgstr "チュートリアルやウィザードでの段階表示に適しています"
@@ -438,6 +480,10 @@ msgstr "チュートリアルやウィザードでの段階表示に適してい
 msgid "テーマ"
 msgstr "テーマ"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:279
+msgid "テキストバッジを表示"
+msgstr "テキストバッジを表示"
+
 #: src/app/lingui-examples/format-examples.tsx:210
 msgid "デフォルト通貨（ロケール依存）"
 msgstr "デフォルト通貨（ロケール依存）"
@@ -445,6 +491,10 @@ msgstr "デフォルト通貨（ロケール依存）"
 #: src/app/navigation-patterns/modal-screen.tsx:66
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:293
+msgid "ドットバッジを表示"
+msgstr "ドットバッジを表示"
 
 #: src/app/_layout.tsx:45
 #: src/app/(tabs)/index.tsx:8
@@ -454,6 +504,10 @@ msgstr "ナビゲーションパターン"
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
 msgstr "パーセンテージ"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
+msgid "バッジ表示オプション"
+msgstr "バッジ表示オプション"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:300
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
@@ -466,6 +520,10 @@ msgstr "ファイルを追加"
 #: src/app/lingui-examples/plural-examples.tsx:152
 msgid "ファイル選択"
 msgstr "ファイル選択"
+
+#: src/app/_layout.tsx:102
+msgid "フォーマット機能"
+msgstr "フォーマット機能"
 
 #: src/app/_layout.tsx:57
 msgid "フォームシートサンプル"
@@ -508,10 +566,41 @@ msgstr "フォルダ構造"
 msgid "プロセスや手順の段階表示"
 msgstr "プロセスや手順の段階表示"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:130
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:328
+msgid "プロフィール"
+msgstr "プロフィール"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:133
+msgid "プロフィール ({count, plural, one {# 件} other {# 件}})"
+msgstr "プロフィール ({count, plural, one {# 件} other {# 件}})"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:132
+msgid "プロフィール (99+)"
+msgstr "プロフィール (99+)"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:219
+msgid "プロフィールタブの通知:"
+msgstr "プロフィールタブの通知:"
+
 #: src/app/_layout.tsx:40
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:116
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:312
 #: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "ホーム"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:119
+msgid "ホーム ({count, plural, one {# 件} other {# 件}})"
+msgstr "ホーム ({count, plural, one {# 件} other {# 件}})"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:118
+msgid "ホーム (99+)"
+msgstr "ホーム (99+)"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:163
+msgid "ホームタブの通知:"
+msgstr "ホームタブの通知:"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:118
 msgid "メールアドレス"
@@ -698,9 +787,17 @@ msgstr "完了"
 msgid "完全な日付"
 msgstr "完全な日付"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:339
+msgid "実装のポイント"
+msgstr "実装のポイント"
+
 #: src/app/lingui-examples/plural-examples.tsx:182
 msgid "実際のファイル選択UIでの使用例"
 msgstr "実際のファイル選択UIでの使用例"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:357
+msgid "実際の使用例"
+msgstr "実際の使用例"
 
 #: src/app/lingui-examples/select-examples.tsx:228
 msgid "対象者による表現の変化"
@@ -766,6 +863,10 @@ msgstr "技術的な状態は文法的変化ではないため、個別のメッ
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "技術的な状態やビジネスロジックには使用すべきではありません"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:265
+msgid "数値バッジを表示"
+msgstr "数値バッジを表示"
+
 #: src/app/lingui-examples/format-examples.tsx:134
 msgid "数値フォーマット"
 msgstr "数値フォーマット"
@@ -796,6 +897,7 @@ msgid "文法的変化が必要か？ → YES: Selectマクロを使用"
 msgstr "文法的変化が必要か？ → YES: Selectマクロを使用"
 
 #: src/app/lingui-examples/plural-examples.tsx:210
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:45
 msgid "新着"
 msgstr "新着"
 
@@ -947,10 +1049,28 @@ msgstr "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本
 msgid "複数"
 msgstr "複数"
 
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
 #: src/app/(tabs)/_layout.tsx:38
 #: src/app/(tabs)/settings/_layout.tsx:19
 msgid "設定"
 msgstr "設定"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:126
+msgid "設定 ({count, plural, one {# 件} other {# 件}})"
+msgstr "設定 ({count, plural, one {# 件} other {# 件}})"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:125
+msgid "設定 (99+)"
+msgstr "設定 (99+)"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:191
+msgid "設定タブの通知:"
+msgstr "設定タブの通知:"
+
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
+msgid "通知カウントの管理"
+msgstr "通知カウントの管理"
 
 #: src/app/lingui-examples/plural-examples.tsx:190
 msgid "通知メッセージ"
