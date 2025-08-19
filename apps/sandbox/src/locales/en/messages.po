@@ -38,6 +38,14 @@ msgstr "{audience, select, singular {Notice for you} plural {Notice for everyone
 msgid "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 msgstr "{audience, select, singular {Thank you for using} plural {Thank you all for using} other {Thank you}}"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:470
+msgid "{deleteCount, plural, one {1件のアイテムを削除しますか？} other {#件のアイテムを削除しますか？}}"
+msgstr "{deleteCount, plural, one {Delete 1 item?} other {Delete # items?}}"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:295
+msgid "{deleteCount}件のアイテムを削除しました"
+msgstr "Deleted {deleteCount} item(s)"
+
 #: src/app/lingui-examples/plural-examples.tsx:174
 msgid "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
 msgstr "{fileCount, plural, =0 {No files selected} one {1 file selected} other {# files selected}}"
@@ -117,6 +125,11 @@ msgstr "{userName} has {friendCount, plural, =0 {no friends} one {1 friend} othe
 #: src/app/lingui-examples/select-examples.tsx:523
 msgid "{userStatus, select, online {オンライン} offline {オフライン} away {離席中} busy {取り込み中} other {不明}}"
 msgstr "{userStatus, select, online {Online} offline {Offline} away {Away} busy {Busy} other {Unknown}}"
+
+#. placeholder {0}: actionSheetOptions[index]?.label
+#: src/app/lingui-examples/modal-dialog-examples.tsx:309
+msgid "「{0}」を選択しました"
+msgstr "Selected \"{0}\""
 
 #: src/app/navigation-patterns/form-sheet.tsx:50
 msgid ""
@@ -267,6 +280,11 @@ msgstr "Designed based on ICU MessageFormat specification"
 msgid "Lingui学習サンプル"
 msgstr "Lingui Learning Examples"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:83
+#: src/app/lingui-examples/modal-dialog-examples.tsx:320
+msgid "OK"
+msgstr "OK"
+
 #: src/app/lingui-examples/plural-examples.tsx:144
 msgid "one、otherの形式を使用（日本語はotherのみ）"
 msgstr "Uses one, other forms (Japanese uses only other)"
@@ -306,6 +324,10 @@ msgstr "String properties with plural macro"
 #: src/app/lingui-examples/index.tsx:8
 msgid "Pluralマクロの使い方"
 msgstr "How to Use Plural Macro"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:447
+msgid "React Native Alertを表示"
+msgstr "Show React Native Alert"
 
 #: src/app/lingui-examples/select-examples.tsx:583
 msgid "Select vs select"
@@ -395,6 +417,14 @@ msgstr "Using plural macro since TextInput placeholder only accepts strings"
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "Combination of Trans and Plural components"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:386
+msgid "アクションシート"
+msgstr "Action Sheet"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:393
+msgid "アクションシートを表示"
+msgstr "Show Action Sheet"
+
 #: src/app/lingui-examples/select-examples.tsx:396
 msgid "あなた"
 msgstr "You"
@@ -406,6 +436,11 @@ msgstr "Your"
 #: src/app/lingui-examples/format-examples.tsx:295
 msgid "インタラクティブな例"
 msgstr "Interactive examples"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:420
+#: src/app/lingui-examples/modal-dialog-examples.tsx:503
+msgid "エラー"
+msgstr "Error"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:388
 msgid "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
@@ -429,15 +464,26 @@ msgstr "Online"
 msgid "お問い合わせ"
 msgstr "Contact"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:513
+msgid "お知らせ"
+msgstr "Notice"
+
 #: src/app/lingui-examples/format-examples.tsx:77
 msgid "カスタム（年と月のみ）"
 msgstr "Custom (year and month only)"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:401
+msgid "カスタムモーダル"
+msgstr "Custom Modal"
 
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:252
 msgid "カテゴリを選択:"
 msgstr "Select category:"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
+#: src/app/lingui-examples/modal-dialog-examples.tsx:67
+#: src/app/lingui-examples/modal-dialog-examples.tsx:175
+#: src/app/lingui-examples/modal-dialog-examples.tsx:316
 msgid "キャンセル"
 msgstr "Cancel"
 
@@ -456,6 +502,10 @@ msgstr "This screen is displayed in modal presentation style. You can close it i
 #: src/app/lingui-examples/selectordinal-examples.tsx:330
 msgid "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 msgstr "This item is {position, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:314
+msgid "これはReact Native標準のAlertです"
+msgstr "This is React Native's standard Alert"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:86
 msgid "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
@@ -584,6 +634,15 @@ msgstr "Navigation Operations"
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:143
 msgid "ニュース"
 msgstr "News"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:314
+#: src/app/lingui-examples/modal-dialog-examples.tsx:440
+msgid "ネイティブアラート"
+msgstr "Native Alert"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:321
+msgid "ネイティブアラートでOKが押されました"
+msgstr "OK was pressed in native alert"
 
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
@@ -717,6 +776,11 @@ msgstr "Enter message"
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:333
+#: src/app/lingui-examples/index.tsx:32
+msgid "モーダルダイアログ"
+msgstr "Modal Dialogs"
+
 #: src/app/navigation-patterns/form-sheet-screen.tsx:80
 msgid "モーダルフォーム（Android）"
 msgstr "Modal Form (Android)"
@@ -761,6 +825,10 @@ msgstr "FAQ"
 #: src/app/(tabs)/settings/theme.tsx:11
 msgid "ライト"
 msgstr "Light"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:302
+msgid "ライブラリから選択"
+msgstr "Choose from Library"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:527
 msgid "ランキング・順位表示（1位、2位、1st, 2nd）"
@@ -831,9 +899,33 @@ msgstr "Individual"
 msgid "最大表示数:"
 msgstr "Max display count:"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:458
+msgid "最後のアクション:"
+msgstr "Last action:"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:301
+msgid "写真を撮る"
+msgstr "Take Photo"
+
 #: src/app/lingui-examples/format-examples.tsx:283
 msgid "分の相対表示"
 msgstr "Relative time in minutes"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:303
+msgid "削除"
+msgstr "Delete"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:347
+msgid "削除アイテム数:"
+msgstr "Number of items to delete:"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:469
+msgid "削除の確認"
+msgstr "Delete Confirmation"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:378
+msgid "削除確認ダイアログを表示"
+msgstr "Show Delete Confirmation Dialog"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:191
 msgid "前へ"
@@ -964,6 +1056,15 @@ msgstr "Must include an 'other' case"
 msgid "性別による代名詞と動詞の変化"
 msgstr "Pronoun and verb variation by gender"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:431
+msgid "情報"
+msgstr "Info"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:409
+#: src/app/lingui-examples/modal-dialog-examples.tsx:493
+msgid "成功"
+msgstr "Success"
+
 #: src/app/lingui-examples/select-examples.tsx:283
 msgid "所有格の表現（selectマクロ使用）"
 msgstr "Possessive expression (using select macro)"
@@ -987,6 +1088,14 @@ msgstr "Should not be used for technical states or business logic"
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:142
 msgid "採用情報"
 msgstr "Careers"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:494
+msgid "操作が正常に完了しました"
+msgstr "Operation completed successfully"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:504
+msgid "操作中にエラーが発生しました"
+msgstr "An error occurred during the operation"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:265
 msgid "数値バッジを表示"
@@ -1020,6 +1129,10 @@ msgstr "Use selectOrdinal macro for string properties"
 #: src/app/lingui-examples/select-examples.tsx:605
 msgid "文法的変化が必要か？ → YES: Selectマクロを使用"
 msgstr "Grammatical variation needed? → YES: Use Select macro"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:514
+msgid "新しいアップデートが利用可能です"
+msgstr "A new update is available"
 
 #: src/app/lingui-examples/plural-examples.tsx:210
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:45
@@ -1126,6 +1239,10 @@ msgstr "Current time (real-time)"
 msgid "男性"
 msgstr "Male"
 
+#: src/app/lingui-examples/modal-dialog-examples.tsx:482
+msgid "画像の選択"
+msgstr "Select Image"
+
 #: src/app/lingui-examples/format-examples.tsx:257
 msgid "相対時間フォーマット（簡易版）"
 msgstr "Relative Time Format (Simple Version)"
@@ -1137,6 +1254,14 @@ msgstr "Arrow (>)"
 #: src/app/lingui-examples/format-examples.tsx:59
 msgid "短い形式"
 msgstr "Short format"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:343
+msgid "確認ダイアログ"
+msgstr "Confirmation Dialog"
+
+#: src/app/lingui-examples/modal-dialog-examples.tsx:336
+msgid "確認ダイアログ、アクションシート、カスタムモーダルの例"
+msgstr "Examples of confirmation dialogs, action sheets, and custom modals"
 
 #: src/app/lingui-examples/select-examples.tsx:385
 msgid "私"
@@ -1254,6 +1379,7 @@ msgid "長い形式（曜日付き）"
 msgstr "Long format (with day of week)"
 
 #: src/app/navigation-patterns/modal-screen.tsx:35
+#: src/app/lingui-examples/modal-dialog-examples.tsx:266
 msgid "閉じる"
 msgstr "Close"
 

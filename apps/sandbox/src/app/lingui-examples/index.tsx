@@ -27,6 +27,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/navigation-breadcrumb-examples",
       text: <Trans>パンくずリスト</Trans>,
     },
+    {
+      href: "/lingui-examples/modal-dialog-examples",
+      text: <Trans>モーダルダイアログ</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
