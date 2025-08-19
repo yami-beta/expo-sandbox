@@ -38,11 +38,11 @@ msgstr "{audience, select, singular {あなたへのお知らせ} plural {皆様
 msgid "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 msgstr "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:471
+#: src/app/lingui-examples/modal-dialog-examples.tsx:470
 msgid "{deleteCount, plural, one {1件のアイテムを削除しますか？} other {#件のアイテムを削除しますか？}}"
 msgstr "{deleteCount, plural, one {1件のアイテムを削除しますか？} other {#件のアイテムを削除しますか？}}"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:298
+#: src/app/lingui-examples/modal-dialog-examples.tsx:295
 msgid "{deleteCount}件のアイテムを削除しました"
 msgstr "{deleteCount}件のアイテムを削除しました"
 
@@ -127,7 +127,7 @@ msgid "{userStatus, select, online {オンライン} offline {オフライン} a
 msgstr "{userStatus, select, online {オンライン} offline {オフライン} away {離席中} busy {取り込み中} other {不明}}"
 
 #. placeholder {0}: actionSheetOptions[index]?.label
-#: src/app/lingui-examples/modal-dialog-examples.tsx:312
+#: src/app/lingui-examples/modal-dialog-examples.tsx:309
 msgid "「{0}」を選択しました"
 msgstr "「{0}」を選択しました"
 
@@ -281,7 +281,7 @@ msgid "Lingui学習サンプル"
 msgstr "Lingui学習サンプル"
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:83
-#: src/app/lingui-examples/modal-dialog-examples.tsx:326
+#: src/app/lingui-examples/modal-dialog-examples.tsx:320
 msgid "OK"
 msgstr "OK"
 
@@ -325,7 +325,7 @@ msgstr "pluralマクロで文字列プロパティに対応"
 msgid "Pluralマクロの使い方"
 msgstr "Pluralマクロの使い方"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:448
+#: src/app/lingui-examples/modal-dialog-examples.tsx:447
 msgid "React Native Alertを表示"
 msgstr "React Native Alertを表示"
 
@@ -417,11 +417,11 @@ msgstr "TextInputのplaceholderは文字列のみ受け付けるため、plural�
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "TransコンポーネントとPluralコンポーネントの組み合わせ"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:387
+#: src/app/lingui-examples/modal-dialog-examples.tsx:386
 msgid "アクションシート"
 msgstr "アクションシート"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:394
+#: src/app/lingui-examples/modal-dialog-examples.tsx:393
 msgid "アクションシートを表示"
 msgstr "アクションシートを表示"
 
@@ -437,8 +437,8 @@ msgstr "あなたの"
 msgid "インタラクティブな例"
 msgstr "インタラクティブな例"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:421
-#: src/app/lingui-examples/modal-dialog-examples.tsx:504
+#: src/app/lingui-examples/modal-dialog-examples.tsx:420
+#: src/app/lingui-examples/modal-dialog-examples.tsx:503
 msgid "エラー"
 msgstr "エラー"
 
@@ -464,7 +464,7 @@ msgstr "オンライン"
 msgid "お問い合わせ"
 msgstr "お問い合わせ"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:514
+#: src/app/lingui-examples/modal-dialog-examples.tsx:513
 msgid "お知らせ"
 msgstr "お知らせ"
 
@@ -472,7 +472,7 @@ msgstr "お知らせ"
 msgid "カスタム（年と月のみ）"
 msgstr "カスタム（年と月のみ）"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:402
+#: src/app/lingui-examples/modal-dialog-examples.tsx:401
 msgid "カスタムモーダル"
 msgstr "カスタムモーダル"
 
@@ -482,8 +482,8 @@ msgstr "カテゴリを選択:"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 #: src/app/lingui-examples/modal-dialog-examples.tsx:67
-#: src/app/lingui-examples/modal-dialog-examples.tsx:179
-#: src/app/lingui-examples/modal-dialog-examples.tsx:322
+#: src/app/lingui-examples/modal-dialog-examples.tsx:175
+#: src/app/lingui-examples/modal-dialog-examples.tsx:316
 msgid "キャンセル"
 msgstr "キャンセル"
 
@@ -503,7 +503,7 @@ msgstr "この画面はモーダル表示スタイルで表示されています
 msgid "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 msgstr "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:319
+#: src/app/lingui-examples/modal-dialog-examples.tsx:314
 msgid "これはReact Native標準のAlertです"
 msgstr "これはReact Native標準のAlertです"
 
@@ -635,12 +635,12 @@ msgstr "ナビゲーション操作"
 msgid "ニュース"
 msgstr "ニュース"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:318
-#: src/app/lingui-examples/modal-dialog-examples.tsx:441
+#: src/app/lingui-examples/modal-dialog-examples.tsx:314
+#: src/app/lingui-examples/modal-dialog-examples.tsx:440
 msgid "ネイティブアラート"
 msgstr "ネイティブアラート"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:327
+#: src/app/lingui-examples/modal-dialog-examples.tsx:321
 msgid "ネイティブアラートでOKが押されました"
 msgstr "ネイティブアラートでOKが押されました"
 
@@ -776,7 +776,7 @@ msgstr "メッセージを入力"
 msgid "モーダルサンプル"
 msgstr "モーダルサンプル"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:340
+#: src/app/lingui-examples/modal-dialog-examples.tsx:333
 #: src/app/lingui-examples/index.tsx:32
 msgid "モーダルダイアログ"
 msgstr "モーダルダイアログ"
@@ -826,7 +826,7 @@ msgstr "よくある質問"
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:305
+#: src/app/lingui-examples/modal-dialog-examples.tsx:302
 msgid "ライブラリから選択"
 msgstr "ライブラリから選択"
 
@@ -899,11 +899,11 @@ msgstr "個人"
 msgid "最大表示数:"
 msgstr "最大表示数:"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:459
+#: src/app/lingui-examples/modal-dialog-examples.tsx:458
 msgid "最後のアクション:"
 msgstr "最後のアクション:"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:304
+#: src/app/lingui-examples/modal-dialog-examples.tsx:301
 msgid "写真を撮る"
 msgstr "写真を撮る"
 
@@ -911,19 +911,19 @@ msgstr "写真を撮る"
 msgid "分の相対表示"
 msgstr "分の相対表示"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:306
+#: src/app/lingui-examples/modal-dialog-examples.tsx:303
 msgid "削除"
 msgstr "削除"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:354
+#: src/app/lingui-examples/modal-dialog-examples.tsx:347
 msgid "削除アイテム数:"
 msgstr "削除アイテム数:"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:470
+#: src/app/lingui-examples/modal-dialog-examples.tsx:469
 msgid "削除の確認"
 msgstr "削除の確認"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:379
+#: src/app/lingui-examples/modal-dialog-examples.tsx:378
 msgid "削除確認ダイアログを表示"
 msgstr "削除確認ダイアログを表示"
 
@@ -1056,12 +1056,12 @@ msgstr "必ずotherケースを含める必要があります"
 msgid "性別による代名詞と動詞の変化"
 msgstr "性別による代名詞と動詞の変化"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:432
+#: src/app/lingui-examples/modal-dialog-examples.tsx:431
 msgid "情報"
 msgstr "情報"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:410
-#: src/app/lingui-examples/modal-dialog-examples.tsx:494
+#: src/app/lingui-examples/modal-dialog-examples.tsx:409
+#: src/app/lingui-examples/modal-dialog-examples.tsx:493
 msgid "成功"
 msgstr "成功"
 
@@ -1089,11 +1089,11 @@ msgstr "技術的な状態やビジネスロジックには使用すべきでは
 msgid "採用情報"
 msgstr "採用情報"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:495
+#: src/app/lingui-examples/modal-dialog-examples.tsx:494
 msgid "操作が正常に完了しました"
 msgstr "操作が正常に完了しました"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:505
+#: src/app/lingui-examples/modal-dialog-examples.tsx:504
 msgid "操作中にエラーが発生しました"
 msgstr "操作中にエラーが発生しました"
 
@@ -1130,7 +1130,7 @@ msgstr "文字列プロパティにはselectOrdinalマクロを使用"
 msgid "文法的変化が必要か？ → YES: Selectマクロを使用"
 msgstr "文法的変化が必要か？ → YES: Selectマクロを使用"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:515
+#: src/app/lingui-examples/modal-dialog-examples.tsx:514
 msgid "新しいアップデートが利用可能です"
 msgstr "新しいアップデートが利用可能です"
 
@@ -1239,7 +1239,7 @@ msgstr "現在時刻（リアルタイム）"
 msgid "男性"
 msgstr "男性"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:483
+#: src/app/lingui-examples/modal-dialog-examples.tsx:482
 msgid "画像の選択"
 msgstr "画像の選択"
 
@@ -1255,11 +1255,11 @@ msgstr "矢印 (>)"
 msgid "短い形式"
 msgstr "短い形式"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:350
+#: src/app/lingui-examples/modal-dialog-examples.tsx:343
 msgid "確認ダイアログ"
 msgstr "確認ダイアログ"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:343
+#: src/app/lingui-examples/modal-dialog-examples.tsx:336
 msgid "確認ダイアログ、アクションシート、カスタムモーダルの例"
 msgstr "確認ダイアログ、アクションシート、カスタムモーダルの例"
 
@@ -1379,7 +1379,7 @@ msgid "長い形式（曜日付き）"
 msgstr "長い形式（曜日付き）"
 
 #: src/app/navigation-patterns/modal-screen.tsx:35
-#: src/app/lingui-examples/modal-dialog-examples.tsx:269
+#: src/app/lingui-examples/modal-dialog-examples.tsx:266
 msgid "閉じる"
 msgstr "閉じる"
 
