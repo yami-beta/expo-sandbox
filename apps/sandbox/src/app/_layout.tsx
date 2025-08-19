@@ -96,6 +96,18 @@ function RootLayoutContent() {
             title: t`SelectOrdinalマクロ`,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/format-examples"
+          options={{
+            title: t`フォーマット機能`,
+          }}
+        />
+        <Stack.Screen
+          name="lingui-examples/navigation-tabbar-examples"
+          options={{
+            title: t`タブバーの動的機能`,
+          }}
+        />
       </Stack>
     </>
   );
