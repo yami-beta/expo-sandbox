@@ -114,6 +114,24 @@ function RootLayoutContent() {
             title: t`パンくずリスト`,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/modal-dialog-examples"
+          options={{
+            title: t`モーダルダイアログ`,
+          }}
+        />
+        <Stack.Screen
+          name="lingui-examples/dynamic-content-examples"
+          options={{
+            title: t`動的コンテンツの翻訳`,
+          }}
+        />
+        <Stack.Screen
+          name="lingui-examples/error-handling-examples"
+          options={{
+            title: t`エラーハンドリング`,
+          }}
+        />
       </Stack>
     </>
   );

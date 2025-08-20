@@ -46,6 +46,10 @@ msgstr "{deleteCount, plural, one {Delete 1 item?} other {Delete # items?}}"
 msgid "{deleteCount}件のアイテムを削除しました"
 msgstr "Deleted {deleteCount} item(s)"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:59
+msgid "{field}は必須項目です"
+msgstr "{field} is required"
+
 #: src/app/lingui-examples/plural-examples.tsx:174
 msgid "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
 msgstr "{fileCount, plural, =0 {No files selected} one {1 file selected} other {# files selected}}"
@@ -146,7 +150,7 @@ msgid ""
 "【共通】\n"
 "• 下へのスワイプジェスチャーで閉じることができます"
 msgstr ""
-"• Can be closed with a downward swipe gesture【iOS】\n"
+"【iOS】\n"
 "• Smaller modal that doesn't cover the entire screen\n"
 "• Shows parent screen in background\n"
 "• Ideal for forms and focused tasks\n"
@@ -230,7 +234,7 @@ msgid ""
 "• 下へのスワイプジェスチャーで閉じることができます\n"
 "• 親画面との対話をブロックします"
 msgstr ""
-"• Blocks interaction with parent screen• Covers the entire screen\n"
+"• Covers the entire screen\n"
 "• Animates from bottom to top\n"
 "• Can be closed with a downward swipe gesture\n"
 "• Blocks interaction with the parent screen"
@@ -255,9 +259,17 @@ msgstr "❌ Improper Use Cases (Anti-patterns)"
 msgid "1. APIステータスの翻訳"
 msgstr "1. API Status Translation"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:116
+msgid "1. エラーコード管理"
+msgstr "1. Error Code Management"
+
 #: src/app/lingui-examples/format-examples.tsx:114
 msgid "12時間表記"
 msgstr "12-hour format"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:321
+msgid "18-120"
+msgstr "18-120"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:455
 msgid "1個のアイテム"
@@ -267,9 +279,17 @@ msgstr "1 item"
 msgid "2. カテゴリー/タグの翻訳"
 msgstr "2. Category/Tag Translation"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:270
+msgid "2. フォームバリデーション"
+msgstr "2. Form Validation"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:458
 msgid "2個のアイテム"
 msgstr "2 items"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:407
+msgid "3. APIエラーハンドリング"
+msgstr "3. API Error Handling"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:294
 msgid "3. フォールバック戦略"
@@ -279,9 +299,41 @@ msgstr "3. Fallback Strategy"
 msgid "3個のアイテム"
 msgstr "3 items"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:398
+msgid "401 Unauthorized"
+msgstr "401 Unauthorized"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:397
+msgid "404 Not Found"
+msgstr "404 Not Found"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:399
+msgid "408 Timeout"
+msgstr "408 Timeout"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:400
+msgid "500 Server Error"
+msgstr "500 Server Error"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:401
+msgid "503 Service Unavailable"
+msgstr "503 Service Unavailable"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:304
+msgid "8文字以上"
+msgstr "8+ characters"
+
 #: src/app/lingui-examples/plural-examples.tsx:349
 msgid "CLDRルールによる言語の違い"
 msgstr "Language differences by CLDR rules"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:286
+msgid "example@email.com"
+msgstr "example@email.com"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:410
+msgid "HTTPステータスコードに応じたエラー処理とリトライ機能"
+msgstr "Error handling and retry functionality based on HTTP status codes"
 
 #: src/app/lingui-examples/select-examples.tsx:564
 msgid "ICU MessageFormatの仕様に基づいて設計されています"
@@ -458,6 +510,29 @@ msgstr "Interactive examples"
 msgid "エラー"
 msgstr "Error"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:85
+#: src/app/lingui-examples/error-handling-examples.tsx:448
+msgid "エラーが発生しました"
+msgstr "An error occurred"
+
+#. placeholder {0}: error.code
+#: src/app/lingui-examples/error-handling-examples.tsx:450
+msgid "エラーコード: {0}"
+msgstr "Error code: {0}"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:119
+msgid "エラーコードから適切な翻訳メッセージを生成します"
+msgstr "Generate appropriate translated messages from error codes"
+
+#: src/app/_layout.tsx:132
+#: src/app/lingui-examples/index.tsx:40
+msgid "エラーハンドリング"
+msgstr "Error Handling"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:141
+msgid "エラーメッセージ:"
+msgstr "Error message:"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:388
 msgid "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 msgstr "The elevator has arrived at {floor, selectordinal, one {the #st floor} two {the #nd floor} few {the #rd floor} other {the #th floor}}"
@@ -519,6 +594,10 @@ msgstr "This page demonstrates how to properly translate dynamic values retrieve
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 msgstr "This modal can contain any content such as forms, images, interactive elements, and more."
 
+#: src/app/lingui-examples/error-handling-examples.tsx:456
+msgid "このリソースにアクセスする権限がありません"
+msgstr "You do not have permission to access this resource"
+
 #: src/app/navigation-patterns/modal-screen.tsx:46
 msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
 msgstr "This screen is displayed in modal presentation style. You can close it in the following ways:"
@@ -526,6 +605,10 @@ msgstr "This screen is displayed in modal presentation style. You can close it i
 #: src/app/lingui-examples/selectordinal-examples.tsx:330
 msgid "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 msgstr "This item is {position, selectordinal, one {#st} two {#nd} few {#rd} other {#th}}"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:59
+msgid "この項目は必須です"
+msgstr "This field is required"
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:314
 msgid "これはReact Native標準のAlertです"
@@ -551,6 +634,22 @@ msgstr "Consulting"
 msgid "コンパクト表記"
 msgstr "Compact notation"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:109
+msgid "サーバーエラー"
+msgstr "Server Error"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:77
+msgid "サーバーエラーが発生しました"
+msgstr "A server error occurred"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:459
+msgid "サーバーからの応答がありませんでした。もう一度お試しください"
+msgstr "There was no response from the server. Please try again"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:464
+msgid "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
+msgstr "A problem occurred on the server. Please wait a while and try again"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 msgid "サービス"
 msgstr "Services"
@@ -567,6 +666,10 @@ msgstr "Support"
 msgid "シェブロン (›)"
 msgstr "Chevron (›)"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:79
+msgid "システムエラーが発生しました"
+msgstr "A system error occurred"
+
 #: src/app/(tabs)/settings/theme.tsx:10
 msgid "システム設定に従う"
 msgstr "Follow system settings"
@@ -578,6 +681,10 @@ msgstr "Select status"
 #: src/app/lingui-examples/selectordinal-examples.tsx:531
 msgid "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 msgstr "Step/Stage display (Stage 1, Stage 2, Step 1, Step 2)"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:83
+msgid "ストレージの空き容量が不足しています"
+msgstr "Insufficient storage space"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:253
 msgid "すべてリセット"
@@ -616,6 +723,10 @@ msgstr "Dynamic Tab Bar Features"
 #: src/app/lingui-examples/selectordinal-examples.tsx:227
 msgid "チュートリアルやウィザードでの段階表示に適しています"
 msgstr "Suitable for step display in tutorials and wizards"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:385
+msgid "データの取得に成功しました"
+msgstr "Data retrieved successfully"
 
 #: src/app/(tabs)/settings/index.tsx:11
 #: src/app/(tabs)/settings/_layout.tsx:20
@@ -672,13 +783,44 @@ msgstr "Native Alert"
 msgid "ネイティブアラートでOKが押されました"
 msgstr "OK was pressed in native alert"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:105
 #: src/app/lingui-examples/dynamic-content-examples.tsx:160
 msgid "ネットワークエラー"
 msgstr "Network Error"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:69
+msgid "ネットワークエラーが発生しました"
+msgstr "A network error occurred"
+
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
 msgstr "Percentage"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:297
+msgid "パスワード"
+msgstr "Password"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:194
+msgid "パスワードは8文字以上必要です"
+msgstr "Password must be at least 8 characters"
+
+#. placeholder {0}: value ?? 8
+#: src/app/lingui-examples/error-handling-examples.tsx:63
+msgid "パスワードは最低{0}文字以上必要です"
+msgstr "Password must be at least {0} characters"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:65
+#: src/app/lingui-examples/error-handling-examples.tsx:197
+msgid "パスワードは大文字、小文字、数字を含む必要があります"
+msgstr "Password must contain uppercase letters, lowercase letters, and numbers"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:191
+msgid "パスワードは必須です"
+msgstr "Password is required"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:101
+msgid "パスワード長エラー"
+msgstr "Password Length Error"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
 msgid "バッジ表示オプション"
@@ -709,6 +851,10 @@ msgstr "File Selection"
 #: src/app/_layout.tsx:102
 msgid "フォーマット機能"
 msgstr "Format Features"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:263
+msgid "フォームが正常に送信されました"
+msgstr "Form submitted successfully"
 
 #: src/app/_layout.tsx:57
 msgid "フォームシートサンプル"
@@ -797,12 +943,22 @@ msgid "ホームに戻る"
 msgstr "Return to Home"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:118
+#: src/app/lingui-examples/error-handling-examples.tsx:92
+#: src/app/lingui-examples/error-handling-examples.tsx:279
 msgid "メールアドレス"
 msgstr "Email Address"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:182
+msgid "メールアドレスは必須です"
+msgstr "Email address is required"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:131
 msgid "メールアドレスを入力"
 msgstr "Enter email address"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:97
+msgid "メール形式エラー"
+msgstr "Email Format Error"
 
 #: src/app/navigation-patterns/form-sheet-screen.tsx:140
 msgid "メッセージ"
@@ -816,6 +972,7 @@ msgstr "Enter message"
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
 
+#: src/app/_layout.tsx:120
 #: src/app/lingui-examples/modal-dialog-examples.tsx:333
 #: src/app/lingui-examples/index.tsx:32
 msgid "モーダルダイアログ"
@@ -882,6 +1039,14 @@ msgstr "Ranking/Position display (1st place, 2nd place, 1st, 2nd)"
 msgid "ランキング表示"
 msgstr "Ranking Display"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:273
+msgid "リアルタイムバリデーションと複数エラーの管理"
+msgstr "Real-time validation and multiple error management"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:71
+msgid "リクエストがタイムアウトしました"
+msgstr "Request timed out"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:352
 msgid "リストやキューでの順番表示に適しています"
 msgstr "Suitable for displaying order in lists and queues"
@@ -889,6 +1054,10 @@ msgstr "Suitable for displaying order in lists and queues"
 #: src/app/lingui-examples/selectordinal-examples.tsx:312
 msgid "リスト内での位置や順番"
 msgstr "Position or order within a list"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:73
+msgid "リソースが見つかりません"
+msgstr "Resource not found"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:247
 msgid "上へ"
@@ -943,6 +1112,15 @@ msgstr "Pending"
 msgid "個人"
 msgstr "Individual"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:67
+msgid "値は範囲外です"
+msgstr "Value is out of range"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:154
+#: src/app/lingui-examples/error-handling-examples.tsx:472
+msgid "再試行"
+msgstr "Retry"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:394
 msgid "最大表示数:"
 msgstr "Max display count:"
@@ -991,6 +1169,7 @@ msgstr "Previous"
 msgid "動作主体による文章変化"
 msgstr "Sentence variation by subject"
 
+#: src/app/_layout.tsx:126
 #: src/app/lingui-examples/index.tsx:36
 msgid "動的コンテンツの翻訳"
 msgstr "Dynamic Content Translation"
@@ -1093,6 +1272,18 @@ msgstr "Select audience"
 msgid "小数点以下2桁まで"
 msgstr "Up to 2 decimal places"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:314
+msgid "年齢"
+msgstr "Age"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:210
+msgid "年齢は18歳から120歳の間で入力してください"
+msgstr "Please enter an age between 18 and 120"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:203
+msgid "年齢は必須です"
+msgstr "Age is required"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:486
 msgid "序数（順序を表す数）の表現に特化したマクロです"
 msgstr "A macro specialized for expressing ordinal numbers (numbers representing order)"
@@ -1121,6 +1312,10 @@ msgstr "Her"
 msgid "必ずotherケースを含める必要があります"
 msgstr "Must include an 'other' case"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:93
+msgid "必須フィールドエラー"
+msgstr "Required Field Error"
+
 #: src/app/lingui-examples/select-examples.tsx:157
 msgid "性別による代名詞と動詞の変化"
 msgstr "Pronoun and verb variation by gender"
@@ -1131,8 +1326,14 @@ msgstr "Info"
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:409
 #: src/app/lingui-examples/modal-dialog-examples.tsx:493
+#: src/app/lingui-examples/error-handling-examples.tsx:263
+#: src/app/lingui-examples/error-handling-examples.tsx:385
 msgid "成功"
 msgstr "Success"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:432
+msgid "成功リクエスト"
+msgstr "Success Request"
 
 #: src/app/lingui-examples/select-examples.tsx:283
 msgid "所有格の表現（selectマクロ使用）"
@@ -1271,6 +1472,19 @@ msgstr "Books"
 #: src/app/lingui-examples/format-examples.tsx:68
 msgid "月と日のみ"
 msgstr "Month and day only"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:61
+#: src/app/lingui-examples/error-handling-examples.tsx:185
+msgid "有効なメールアドレスを入力してください"
+msgstr "Please enter a valid email address"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:207
+msgid "有効な数値を入力してください"
+msgstr "Please enter a valid number"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:81
+msgid "権限がありません"
+msgstr "Permission denied"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:286
 msgid "権限レベル"
@@ -1412,6 +1626,10 @@ msgstr "Products"
 msgid "複数"
 msgstr "Plural"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:453
+msgid "要求されたリソースが見つかりません"
+msgstr "The requested resource was not found"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
 #: src/app/(tabs)/_layout.tsx:38
@@ -1439,9 +1657,21 @@ msgstr "Try: status.active, status.inactive, error.network"
 msgid "詳細ページ名を入力:"
 msgstr "Enter detail page name:"
 
+#: src/app/lingui-examples/error-handling-examples.tsx:75
+msgid "認証が必要です"
+msgstr "Authentication required"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:440
+msgid "読み込み中..."
+msgstr "Loading..."
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:328
 msgid "追加"
 msgstr "Add"
+
+#: src/app/lingui-examples/error-handling-examples.tsx:329
+msgid "送信"
+msgstr "Submit"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
 msgid "通知カウントの管理"
