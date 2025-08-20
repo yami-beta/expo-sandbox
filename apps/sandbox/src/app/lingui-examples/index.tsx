@@ -35,6 +35,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/dynamic-content-examples",
       text: <Trans>動的コンテンツの翻訳</Trans>,
     },
+    {
+      href: "/lingui-examples/error-handling-examples",
+      text: <Trans>エラーハンドリング</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
