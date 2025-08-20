@@ -132,6 +132,12 @@ function RootLayoutContent() {
             title: t`エラーハンドリング`,
           }}
         />
+        <Stack.Screen
+          name="lingui-examples/notification-alert-examples"
+          options={{
+            title: t`通知とアラート`,
+          }}
+        />
       </Stack>
     </>
   );
