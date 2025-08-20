@@ -31,6 +31,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/modal-dialog-examples",
       text: <Trans>モーダルダイアログ</Trans>,
     },
+    {
+      href: "/lingui-examples/dynamic-content-examples",
+      text: <Trans>動的コンテンツの翻訳</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;

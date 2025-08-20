@@ -251,6 +251,10 @@ msgstr "✅ Proper Use Cases (Grammatical Variations)"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ Improper Use Cases (Anti-patterns)"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:218
+msgid "1. APIステータスの翻訳"
+msgstr "1. API Status Translation"
+
 #: src/app/lingui-examples/format-examples.tsx:114
 msgid "12時間表記"
 msgstr "12-hour format"
@@ -259,9 +263,17 @@ msgstr "12-hour format"
 msgid "1個のアイテム"
 msgstr "1 item"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:283
+msgid "2. カテゴリー/タグの翻訳"
+msgstr "2. Category/Tag Translation"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:458
 msgid "2個のアイテム"
 msgstr "2 items"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:294
+msgid "3. フォールバック戦略"
+msgstr "3. Fallback Strategy"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:461
 msgid "3個のアイテム"
@@ -425,6 +437,10 @@ msgstr "Action Sheet"
 msgid "アクションシートを表示"
 msgstr "Show Action Sheet"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:158
+msgid "アクティブ"
+msgstr "Active"
+
 #: src/app/lingui-examples/select-examples.tsx:396
 msgid "あなた"
 msgstr "You"
@@ -476,6 +492,10 @@ msgstr "Custom (year and month only)"
 msgid "カスタムモーダル"
 msgstr "Custom Modal"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:118
+msgid "カテゴリー選択:"
+msgstr "Select Category:"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:252
 msgid "カテゴリを選択:"
 msgstr "Select category:"
@@ -490,6 +510,10 @@ msgstr "Cancel"
 #: src/app/lingui-examples/plural-examples.tsx:161
 msgid "クリア"
 msgstr "Clear"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:301
+msgid "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
+msgstr "This page demonstrates how to properly translate dynamic values retrieved from API responses or databases."
 
 #: src/app/navigation-patterns/modal-screen.tsx:69
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
@@ -602,6 +626,10 @@ msgstr "Theme"
 msgid "テキストバッジを表示"
 msgstr "Show text badge"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:103
+msgid "テクノロジー"
+msgstr "Technology"
+
 #: src/app/lingui-examples/format-examples.tsx:210
 msgid "デフォルト通貨（ロケール依存）"
 msgstr "Default currency (locale-dependent)"
@@ -644,6 +672,10 @@ msgstr "Native Alert"
 msgid "ネイティブアラートでOKが押されました"
 msgstr "OK was pressed in native alert"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:160
+msgid "ネットワークエラー"
+msgstr "Network Error"
+
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
 msgstr "Percentage"
@@ -657,6 +689,10 @@ msgstr "Badge Display Options"
 #: src/app/lingui-examples/index.tsx:28
 msgid "パンくずリスト"
 msgstr "Breadcrumb Navigation"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:107
+msgid "ビジネス"
+msgstr "Business"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:300
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
@@ -706,6 +742,10 @@ msgstr "About Form Sheet Display:"
 #: src/app/navigation-patterns/form-sheet-screen.tsx:174
 msgid "フォームを送信"
 msgstr "Submit Form"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:174
+msgid "フォールバック戦略のデモ"
+msgstr "Fallback Strategy Demo"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:272
 msgid "フォルダ構造"
@@ -826,6 +866,10 @@ msgstr "FAQ"
 msgid "ライト"
 msgstr "Light"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:105
+msgid "ライフスタイル"
+msgstr "Lifestyle"
+
 #: src/app/lingui-examples/modal-dialog-examples.tsx:302
 msgid "ライブラリから選択"
 msgstr "Choose from Library"
@@ -891,6 +935,10 @@ msgstr "Usage Examples"
 msgid "例: 製品詳細ページ"
 msgstr "e.g., Product Detail Page"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:59
+msgid "保留中"
+msgstr "Pending"
+
 #: src/app/lingui-examples/select-examples.tsx:243
 msgid "個人"
 msgstr "Individual"
@@ -906,6 +954,14 @@ msgstr "Last action:"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:301
 msgid "写真を撮る"
 msgstr "Take Photo"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:223
+msgid "処理ステータス:"
+msgstr "Processing Status:"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:61
+msgid "処理中"
+msgstr "Processing"
 
 #: src/app/lingui-examples/format-examples.tsx:283
 msgid "分の相対表示"
@@ -934,6 +990,14 @@ msgstr "Previous"
 #: src/app/lingui-examples/select-examples.tsx:373
 msgid "動作主体による文章変化"
 msgstr "Sentence variation by subject"
+
+#: src/app/lingui-examples/index.tsx:36
+msgid "動的コンテンツの翻訳"
+msgstr "Dynamic Content Translation"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:212
+msgid "動的コンテンツの翻訳パターン"
+msgstr "Dynamic Content Translation Patterns"
 
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:351
 msgid "区切り文字:"
@@ -980,6 +1044,10 @@ msgstr "Plural handling with variables"
 msgid "大きな数値のフォーマット"
 msgstr "Large number formatting"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:65
+msgid "失敗"
+msgstr "Failed"
+
 #: src/app/lingui-examples/select-examples.tsx:183
 msgid "女性"
 msgstr "Female"
@@ -992,6 +1060,7 @@ msgstr "Learning Points"
 
 #: src/app/navigation-patterns/modal-screen.tsx:88
 #: src/app/navigation-patterns/form-sheet-screen.tsx:69
+#: src/app/lingui-examples/dynamic-content-examples.tsx:63
 msgid "完了"
 msgstr "Done"
 
@@ -1139,6 +1208,10 @@ msgstr "A new update is available"
 msgid "新着"
 msgstr "New"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:72
+msgid "新規注文"
+msgstr "New Order"
+
 #: src/app/lingui-examples/plural-examples.tsx:202
 msgid "既読"
 msgstr "Read"
@@ -1219,6 +1292,10 @@ msgstr "Note: plural macro supports exact value matching with numeric literals (
 msgid "注: zeroカテゴリーは限られた言語のみ"
 msgstr "Note: zero category is for limited languages only"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:252
+msgid "注文ステータス:"
+msgstr "Order Status:"
+
 #: src/app/lingui-examples/select-examples.tsx:596
 msgid "特定のケースはアンダースコアで始める（_male、_female等）"
 msgstr "Specific cases start with underscore (_male, _female, etc.)"
@@ -1242,6 +1319,10 @@ msgstr "Male"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:482
 msgid "画像の選択"
 msgstr "Select Image"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:74
+msgid "発送済み"
+msgstr "Shipped"
 
 #: src/app/lingui-examples/format-examples.tsx:257
 msgid "相対時間フォーマット（簡易版）"
@@ -1282,6 +1363,14 @@ msgstr "US Dollar"
 #: src/app/lingui-examples/selectordinal-examples.tsx:239
 msgid "組織図やディレクトリ構造での階層表示"
 msgstr "Hierarchy display in org charts and directory structures"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:187
+msgid "結果:"
+msgstr "Result:"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:180
+msgid "翻訳キーを入力"
+msgstr "Enter translation key"
 
 #: src/app/lingui-examples/select-examples.tsx:615
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
@@ -1342,6 +1431,10 @@ msgstr "Settings (99+)"
 msgid "設定タブの通知:"
 msgstr "Settings tab notifications:"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:183
+msgid "試してみる: status.active, status.inactive, error.network"
+msgstr "Try: status.active, status.inactive, error.network"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:302
 msgid "詳細ページ名を入力:"
 msgstr "Enter detail page name:"
@@ -1374,6 +1467,14 @@ msgstr "Appropriate usage criteria"
 msgid "選択されたファイル数の表示"
 msgstr "Display of selected file count"
 
+#: src/app/lingui-examples/dynamic-content-examples.tsx:142
+msgid "選択中:"
+msgstr "Selected:"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:76
+msgid "配達完了"
+msgstr "Delivered"
+
 #: src/app/lingui-examples/format-examples.tsx:50
 msgid "長い形式（曜日付き）"
 msgstr "Long format (with day of week)"
@@ -1403,6 +1504,10 @@ msgstr "Away"
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:126
 msgid "電子機器"
 msgstr "Electronics"
+
+#: src/app/lingui-examples/dynamic-content-examples.tsx:159
+msgid "非アクティブ"
+msgstr "Inactive"
 
 #: src/app/lingui-examples/selectordinal-examples.tsx:308
 msgid "順位・順番表示"
