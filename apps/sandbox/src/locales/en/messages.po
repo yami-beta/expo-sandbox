@@ -21,6 +21,11 @@ msgstr "Supports exact value matching like _0, _1"
 msgid "_0で値が0の場合の特別処理"
 msgstr "Special handling for value 0 with _0"
 
+#. placeholder {0}: data.count
+#: src/app/lingui-examples/notification-alert-examples.tsx:89
+msgid "{0, plural, one {# 件の新しいメッセージがあります} other {# 件の新しいメッセージがあります}}"
+msgstr "{0, plural, one {You have # new message} other {You have # new messages}}"
+
 #. placeholder {0}: 1
 #. placeholder {0}: 2
 #. placeholder {0}: 3
@@ -29,6 +34,21 @@ msgstr "Special handling for value 0 with _0"
 #: src/app/lingui-examples/selectordinal-examples.tsx:441
 msgid "{0, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
 msgstr "{0, selectordinal, one {#st place} two {#nd place} few {#rd place} other {#th place}}"
+
+#. placeholder {0}: data.userName
+#: src/app/lingui-examples/notification-alert-examples.tsx:96
+msgid "{0}があなたをフォローしました"
+msgstr "{0} followed you"
+
+#. placeholder {0}: data.userName
+#: src/app/lingui-examples/notification-alert-examples.tsx:70
+msgid "{0}からのメッセージ"
+msgstr "Message from {0}"
+
+#. placeholder {0}: toast.action
+#: src/app/lingui-examples/notification-alert-examples.tsx:443
+msgid "{0}を実行しました"
+msgstr "{0} was executed"
 
 #: src/app/lingui-examples/select-examples.tsx:259
 msgid "{audience, select, singular {あなたへのお知らせ} plural {皆様へのお知らせ} other {お知らせ}}"
@@ -481,6 +501,10 @@ msgstr "Using plural macro since TextInput placeholder only accepts strings"
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "Combination of Trans and Plural components"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:442
+msgid "アクション"
+msgstr "Action"
+
 #: src/app/lingui-examples/modal-dialog-examples.tsx:386
 msgid "アクションシート"
 msgstr "Action Sheet"
@@ -501,15 +525,42 @@ msgstr "You"
 msgid "あなたの"
 msgstr "Your"
 
+#. placeholder {0}: data.itemName
+#: src/app/lingui-examples/notification-alert-examples.tsx:100
+msgid "あなたの{0}がいいねされました"
+msgstr "Your {0} was liked"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:101
+msgid "あなたの投稿がいいねされました"
+msgstr "Your post was liked"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:103
+msgid "アプリの更新が利用可能です"
+msgstr "App update available"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:382
+msgid "アプリ内通知（トースト）"
+msgstr "In-app Notifications (Toast)"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:75
+msgid "いいねを受け取りました"
+msgstr "You received a like"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:318
+msgid "いいね通知"
+msgstr "Like Notification"
+
 #: src/app/lingui-examples/format-examples.tsx:295
 msgid "インタラクティブな例"
 msgstr "Interactive examples"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:406
 #: src/app/lingui-examples/modal-dialog-examples.tsx:420
 #: src/app/lingui-examples/modal-dialog-examples.tsx:503
 msgid "エラー"
 msgstr "Error"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:135
 #: src/app/lingui-examples/error-handling-examples.tsx:85
 #: src/app/lingui-examples/error-handling-examples.tsx:448
 msgid "エラーが発生しました"
@@ -575,6 +626,14 @@ msgstr "Select Category:"
 msgid "カテゴリを選択:"
 msgstr "Select category:"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:478
+msgid "カメラ"
+msgstr "Camera"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:166
+msgid "カメラへのアクセス"
+msgstr "Camera Access"
+
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
 #: src/app/lingui-examples/modal-dialog-examples.tsx:67
 #: src/app/lingui-examples/modal-dialog-examples.tsx:175
@@ -585,6 +644,14 @@ msgstr "Cancel"
 #: src/app/lingui-examples/plural-examples.tsx:161
 msgid "クリア"
 msgstr "Clear"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:172
+msgid "このアプリは写真撮影のためにカメラへのアクセスが必要です"
+msgstr "This app needs camera access to take photos"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:173
+msgid "このアプリは近くの場所を表示するために位置情報が必要です"
+msgstr "This app needs location access to show nearby places"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:301
 msgid "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
@@ -666,13 +733,26 @@ msgstr "Support"
 msgid "シェブロン (›)"
 msgstr "Chevron (›)"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:459
+msgid "システムアラート"
+msgstr "System Alerts"
+
 #: src/app/lingui-examples/error-handling-examples.tsx:79
 msgid "システムエラーが発生しました"
 msgstr "A system error occurred"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:517
+msgid "システム制限"
+msgstr "System Restrictions"
+
 #: src/app/(tabs)/settings/theme.tsx:10
 msgid "システム設定に従う"
 msgstr "Follow system settings"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:77
+#: src/app/lingui-examples/notification-alert-examples.tsx:326
+msgid "システム通知"
+msgstr "System Notification"
 
 #: src/app/lingui-examples/select-examples.tsx:468
 msgid "ステータスを選択"
@@ -685,6 +765,18 @@ msgstr "Step/Stage display (Stage 1, Stage 2, Step 1, Step 2)"
 #: src/app/lingui-examples/error-handling-examples.tsx:83
 msgid "ストレージの空き容量が不足しています"
 msgstr "Insufficient storage space"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:525
+msgid "ストレージ不足"
+msgstr "Storage Low"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:204
+msgid "ストレージ容量不足"
+msgstr "Storage Space Low"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:373
+msgid "すべてクリア"
+msgstr "Clear All"
 
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:253
 msgid "すべてリセット"
@@ -710,6 +802,10 @@ msgstr "Dark"
 msgid "タスク入力フィールド"
 msgstr "Task Input Field"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:105
+msgid "タップして詳細を確認"
+msgstr "Tap to view details"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:307
 msgid "タブバーのプレビュー"
 msgstr "Tab Bar Preview"
@@ -728,6 +824,10 @@ msgstr "Suitable for step display in tutorials and wizards"
 msgid "データの取得に成功しました"
 msgstr "Data retrieved successfully"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:209
+msgid "データ使用量が制限に近づいています。Wi-Fi接続を推奨します"
+msgstr "Data usage is approaching limit. Wi-Fi connection recommended"
+
 #: src/app/(tabs)/settings/index.tsx:11
 #: src/app/(tabs)/settings/_layout.tsx:20
 msgid "テーマ"
@@ -740,6 +840,10 @@ msgstr "Show text badge"
 #: src/app/lingui-examples/dynamic-content-examples.tsx:103
 msgid "テクノロジー"
 msgstr "Technology"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:205
+msgid "デバイスのストレージ容量が不足しています。不要なファイルを削除してください"
+msgstr "Device storage is low. Please delete unnecessary files"
 
 #: src/app/lingui-examples/format-examples.tsx:210
 msgid "デフォルト通貨（ロケール依存）"
@@ -792,6 +896,11 @@ msgstr "Network Error"
 msgid "ネットワークエラーが発生しました"
 msgstr "A network error occurred"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:208
+#: src/app/lingui-examples/notification-alert-examples.tsx:533
+msgid "ネットワーク制限"
+msgstr "Network Restrictions"
+
 #: src/app/lingui-examples/format-examples.tsx:166
 msgid "パーセンテージ"
 msgstr "Percentage"
@@ -825,6 +934,18 @@ msgstr "Password Length Error"
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
 msgid "バッジ表示オプション"
 msgstr "Badge Display Options"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:541
+msgid "バッテリー低下"
+msgstr "Battery Low"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:213
+msgid "バッテリー残量が20%以下です。充電してください"
+msgstr "Battery is below 20%. Please charge"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:212
+msgid "バッテリー残量低下"
+msgstr "Battery Level Low"
 
 #: src/app/_layout.tsx:114
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
@@ -897,6 +1018,14 @@ msgstr "Fallback Strategy Demo"
 msgid "フォルダ構造"
 msgstr "Folder Structure"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:310
+msgid "フォロー通知"
+msgstr "Follow Notification"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:252
+msgid "プッシュ通知のシミュレーション"
+msgstr "Push Notification Simulation"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:183
 msgid "プロセスや手順の段階表示"
 msgstr "Stage display for processes and procedures"
@@ -968,6 +1097,14 @@ msgstr "Message"
 msgid "メッセージを入力"
 msgstr "Enter message"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:93
+msgid "メッセージを確認してください"
+msgstr "Please check your messages"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:302
+msgid "メッセージ通知"
+msgstr "Message Notification"
+
 #: src/app/_layout.tsx:51
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
@@ -1010,6 +1147,14 @@ msgstr "User Status (Incorrect Implementation)"
 #: src/app/lingui-examples/select-examples.tsx:161
 msgid "ユーザーの性別を選択"
 msgstr "Select user gender"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:257
+msgid "ユーザー名"
+msgstr "Username"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:266
+msgid "ユーザー名を入力"
+msgstr "Enter username"
 
 #: src/app/lingui-examples/format-examples.tsx:237
 msgid "ユーロ"
@@ -1095,6 +1240,14 @@ msgstr "Company Info"
 msgid "会社概要"
 msgstr "About Us"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:494
+msgid "位置情報"
+msgstr "Location"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:167
+msgid "位置情報へのアクセス"
+msgstr "Location Access"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:524
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:446
 msgid "使用例"
@@ -1116,6 +1269,10 @@ msgstr "Individual"
 msgid "値は範囲外です"
 msgstr "Value is out of range"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:144
+msgid "元に戻す"
+msgstr "Undo"
+
 #: src/app/lingui-examples/error-handling-examples.tsx:154
 #: src/app/lingui-examples/error-handling-examples.tsx:472
 msgid "再試行"
@@ -1128,6 +1285,10 @@ msgstr "Max display count:"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:458
 msgid "最後のアクション:"
 msgstr "Last action:"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:120
+msgid "写真"
+msgstr "Photo"
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:301
 msgid "写真を撮る"
@@ -1308,6 +1469,10 @@ msgstr "She"
 msgid "彼女の"
 msgstr "Her"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:220
+msgid "後で"
+msgstr "Later"
+
 #: src/app/lingui-examples/select-examples.tsx:579
 msgid "必ずotherケースを含める必要があります"
 msgstr "Must include an 'other' case"
@@ -1324,6 +1489,12 @@ msgstr "Pronoun and verb variation by gender"
 msgid "情報"
 msgstr "Info"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:414
+msgid "情報（アクション付き）"
+msgstr "Info (with action)"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:192
+#: src/app/lingui-examples/notification-alert-examples.tsx:398
 #: src/app/lingui-examples/modal-dialog-examples.tsx:409
 #: src/app/lingui-examples/modal-dialog-examples.tsx:493
 #: src/app/lingui-examples/error-handling-examples.tsx:263
@@ -1359,6 +1530,7 @@ msgstr "Should not be used for technical states or business logic"
 msgid "採用情報"
 msgstr "Careers"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:134
 #: src/app/lingui-examples/modal-dialog-examples.tsx:494
 msgid "操作が正常に完了しました"
 msgstr "Operation completed successfully"
@@ -1403,6 +1575,18 @@ msgstr "Grammatical variation needed? → YES: Use Select macro"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:514
 msgid "新しいアップデートが利用可能です"
 msgstr "A new update is available"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:73
+msgid "新しいフォロワー"
+msgstr "New Follower"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:71
+msgid "新しいメッセージ"
+msgstr "New Message"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:136
+msgid "新しい情報があります"
+msgstr "New information available"
 
 #: src/app/lingui-examples/plural-examples.tsx:210
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:45
@@ -1486,6 +1670,14 @@ msgstr "Please enter a valid number"
 msgid "権限がありません"
 msgstr "Permission denied"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:192
+msgid "権限が許可されました"
+msgstr "Permission granted"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:463
+msgid "権限リクエスト"
+msgstr "Permission Requests"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:286
 msgid "権限レベル"
 msgstr "Permission Level"
@@ -1505,6 +1697,10 @@ msgstr "Note: plural macro supports exact value matching with numeric literals (
 #: src/app/lingui-examples/plural-examples.tsx:358
 msgid "注: zeroカテゴリーは限られた言語のみ"
 msgstr "Note: zero category is for limited languages only"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:137
+msgid "注意が必要です"
+msgstr "Attention required"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:252
 msgid "注文ステータス:"
@@ -1590,6 +1786,10 @@ msgstr "Enter translation key"
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 msgstr "Do translators need to translate independently? → YES: Use individual message keys"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:387
+msgid "自動的に消去"
+msgstr "Auto dismiss"
+
 #: src/app/lingui-examples/select-examples.tsx:568
 msgid "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 msgstr "It is designed to handle grammatical variations in natural language (gender, number, case changes, etc.)"
@@ -1630,6 +1830,7 @@ msgstr "Plural"
 msgid "要求されたリソースが見つかりません"
 msgstr "The requested resource was not found"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:226
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
 #: src/app/(tabs)/_layout.tsx:38
@@ -1649,6 +1850,22 @@ msgstr "Settings (99+)"
 msgid "設定タブの通知:"
 msgstr "Settings tab notifications:"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:224
+msgid "設定を開く"
+msgstr "Open Settings"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:226
+msgid "設定画面を開きます（シミュレーション）"
+msgstr "Opening settings screen (simulation)"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:189
+msgid "許可"
+msgstr "Allow"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:182
+msgid "許可しない"
+msgstr "Don't Allow"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:183
 msgid "試してみる: status.active, status.inactive, error.network"
 msgstr "Try: status.active, status.inactive, error.network"
@@ -1665,6 +1882,14 @@ msgstr "Authentication required"
 msgid "読み込み中..."
 msgstr "Loading..."
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:97
+msgid "誰かがあなたをフォローしました"
+msgstr "Someone followed you"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:422
+msgid "警告"
+msgstr "Warning"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:328
 msgid "追加"
 msgstr "Add"
@@ -1673,13 +1898,31 @@ msgstr "Add"
 msgid "送信"
 msgstr "Submit"
 
+#: src/app/lingui-examples/notification-alert-examples.tsx:79
+#: src/app/lingui-examples/notification-alert-examples.tsx:510
+msgid "通知"
+msgstr "Notification"
+
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
 msgid "通知カウントの管理"
 msgstr "Notification Count Management"
 
+#: src/app/_layout.tsx:138
+#: src/app/lingui-examples/index.tsx:44
+msgid "通知とアラート"
+msgstr "Notifications and Alerts"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:168
+msgid "通知の送信"
+msgstr "Send Notifications"
+
 #: src/app/lingui-examples/plural-examples.tsx:190
 msgid "通知メッセージ"
 msgstr "Notification Messages"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:273
+msgid "通知数"
+msgstr "Notification Count"
 
 #: src/app/lingui-examples/format-examples.tsx:205
 msgid "通貨フォーマット"
@@ -1704,6 +1947,10 @@ msgstr "Selected:"
 #: src/app/lingui-examples/dynamic-content-examples.tsx:76
 msgid "配達完了"
 msgstr "Delivered"
+
+#: src/app/lingui-examples/notification-alert-examples.tsx:174
+msgid "重要な更新やメッセージを受け取るために通知を有効にしてください"
+msgstr "Please enable notifications to receive important updates and messages"
 
 #: src/app/lingui-examples/format-examples.tsx:50
 msgid "長い形式（曜日付き）"

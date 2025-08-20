@@ -39,6 +39,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/error-handling-examples",
       text: <Trans>エラーハンドリング</Trans>,
     },
+    {
+      href: "/lingui-examples/notification-alert-examples",
+      text: <Trans>通知とアラート</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
