@@ -21,6 +21,12 @@ msgstr "Supports exact value matching like _0, _1"
 msgid "_0で値が0の場合の特別処理"
 msgstr "Special handling for value 0 with _0"
 
+#: src/app/performance/index.tsx:36
+#: src/app/performance/index.tsx:57
+#: src/app/performance/index.tsx:78
+msgid "（近日実装予定）"
+msgstr "(Coming Soon)"
+
 #. placeholder {0}: data.count
 #: src/app/lingui-examples/notification-alert-examples.tsx:89
 msgid "{0, plural, one {# 件の新しいメッセージがあります} other {# 件の新しいメッセージがあります}}"
@@ -359,10 +365,22 @@ msgstr "Error handling and retry functionality based on HTTP status codes"
 msgid "ICU MessageFormatの仕様に基づいて設計されています"
 msgstr "Designed based on ICU MessageFormat specification"
 
+#: src/app/performance/index.tsx:13
+msgid "Linguiを使用したReact Nativeアプリケーションのパフォーマンス最適化テクニックを学習します。"
+msgstr "Learn performance optimization techniques for React Native applications using Lingui."
+
 #: src/app/_layout.tsx:78
 #: src/app/(tabs)/index.tsx:12
 msgid "Lingui学習サンプル"
 msgstr "Lingui Learning Examples"
+
+#: src/app/performance/index.tsx:97
+msgid "Metro Transformerの利点"
+msgstr "Benefits of Metro Transformer"
+
+#: src/app/performance/index.tsx:45
+msgid "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
+msgstr "Implement lazy translation patterns using the msg macro and conditional message loading patterns."
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:83
 #: src/app/lingui-examples/modal-dialog-examples.tsx:320
@@ -412,6 +430,14 @@ msgstr "How to Use Plural Macro"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:447
 msgid "React Native Alertを表示"
 msgstr "Show React Native Alert"
+
+#: src/app/performance/index.tsx:84
+msgid "React Nativeでの制限事項"
+msgstr "React Native Limitations"
+
+#: src/app/performance/index.tsx:87
+msgid "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
+msgstr "Unlike the Web, React Native has limitations on language-specific dynamic imports (code splitting). Therefore, it's important to focus on message-level optimization."
 
 #: src/app/lingui-examples/select-examples.tsx:583
 msgid "Select vs select"
@@ -500,6 +526,10 @@ msgstr "Using plural macro since TextInput placeholder only accepts strings"
 #: src/app/lingui-examples/plural-examples.tsx:314
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "Combination of Trans and Plural components"
+
+#: src/app/performance/index.tsx:66
+msgid "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
+msgstr "Introduces translation memoization using useMemo and useCallback, and list display optimization techniques."
 
 #: src/app/lingui-examples/notification-alert-examples.tsx:442
 msgid "アクション"
@@ -652,6 +682,10 @@ msgstr "This app needs camera access to take photos"
 #: src/app/lingui-examples/notification-alert-examples.tsx:173
 msgid "このアプリは近くの場所を表示するために位置情報が必要です"
 msgstr "This app needs location access to show nearby places"
+
+#: src/app/performance/index.tsx:100
+msgid "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
+msgstr "This project uses Metro Transformer, allowing direct import of .po files without a compilation step."
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:301
 msgid "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
@@ -947,11 +981,20 @@ msgstr "Battery is below 20%. Please charge"
 msgid "バッテリー残量低下"
 msgstr "Battery Level Low"
 
+#: src/app/performance/index.tsx:10
+#: src/app/lingui-examples/index.tsx:48
+msgid "パフォーマンス最適化"
+msgstr "Performance Optimization"
+
 #: src/app/_layout.tsx:114
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
 #: src/app/lingui-examples/index.tsx:28
 msgid "パンくずリスト"
 msgstr "Breadcrumb Navigation"
+
+#: src/app/performance/index.tsx:21
+msgid "バンドル分析"
+msgstr "Bundle Analysis"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:107
 msgid "ビジネス"
@@ -1285,6 +1328,10 @@ msgstr "Max display count:"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:458
 msgid "最後のアクション:"
 msgstr "Last action:"
+
+#: src/app/performance/index.tsx:63
+msgid "最適化サンプル"
+msgstr "Optimization Examples"
 
 #: src/app/lingui-examples/notification-alert-examples.tsx:120
 msgid "写真"
@@ -1782,6 +1829,10 @@ msgstr "Result:"
 msgid "翻訳キーを入力"
 msgstr "Enter translation key"
 
+#: src/app/performance/index.tsx:24
+msgid "翻訳ファイルのサイズと使用状況を分析し、バンドルサイズ最適化の機会を特定します。"
+msgstr "Analyze translation file size and usage to identify bundle size optimization opportunities."
+
 #: src/app/lingui-examples/select-examples.tsx:615
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 msgstr "Do translators need to translate independently? → YES: Use individual message keys"
@@ -1931,6 +1982,10 @@ msgstr "Currency Format"
 #: src/app/lingui-examples/selectordinal-examples.tsx:179
 msgid "進捗ステップ"
 msgstr "Progress Steps"
+
+#: src/app/performance/index.tsx:42
+msgid "遅延翻訳パターン"
+msgstr "Lazy Translation Patterns"
 
 #: src/app/lingui-examples/select-examples.tsx:602
 msgid "適切な使用判断基準"

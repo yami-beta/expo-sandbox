@@ -43,6 +43,10 @@ export default function LinguiExamples() {
       href: "/lingui-examples/notification-alert-examples",
       text: <Trans>通知とアラート</Trans>,
     },
+    {
+      href: "/performance",
+      text: <Trans>パフォーマンス最適化</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
