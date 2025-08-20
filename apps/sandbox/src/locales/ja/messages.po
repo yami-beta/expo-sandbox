@@ -21,9 +21,8 @@ msgstr "_0、_1など正確な値のマッチングが可能"
 msgid "_0で値が0の場合の特別処理"
 msgstr "_0で値が0の場合の特別処理"
 
-#: src/app/performance/index.tsx:36
-#: src/app/performance/index.tsx:57
-#: src/app/performance/index.tsx:78
+#: src/app/performance/index.tsx:37
+#: src/app/performance/index.tsx:58
 msgid "（近日実装予定）"
 msgstr "（近日実装予定）"
 
@@ -374,11 +373,11 @@ msgstr "Linguiを使用したReact Nativeアプリケーションのパフォー
 msgid "Lingui学習サンプル"
 msgstr "Lingui学習サンプル"
 
-#: src/app/performance/index.tsx:97
+#: src/app/performance/index.tsx:77
 msgid "Metro Transformerの利点"
 msgstr "Metro Transformerの利点"
 
-#: src/app/performance/index.tsx:45
+#: src/app/performance/index.tsx:25
 msgid "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
 msgstr "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
 
@@ -431,11 +430,11 @@ msgstr "Pluralマクロの使い方"
 msgid "React Native Alertを表示"
 msgstr "React Native Alertを表示"
 
-#: src/app/performance/index.tsx:84
+#: src/app/performance/index.tsx:64
 msgid "React Nativeでの制限事項"
 msgstr "React Nativeでの制限事項"
 
-#: src/app/performance/index.tsx:87
+#: src/app/performance/index.tsx:67
 msgid "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
 msgstr "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
 
@@ -527,7 +526,7 @@ msgstr "TextInputのplaceholderは文字列のみ受け付けるため、plural�
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "TransコンポーネントとPluralコンポーネントの組み合わせ"
 
-#: src/app/performance/index.tsx:66
+#: src/app/performance/index.tsx:46
 msgid "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
 msgstr "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
 
@@ -683,7 +682,7 @@ msgstr "このアプリは写真撮影のためにカメラへのアクセスが
 msgid "このアプリは近くの場所を表示するために位置情報が必要です"
 msgstr "このアプリは近くの場所を表示するために位置情報が必要です"
 
-#: src/app/performance/index.tsx:100
+#: src/app/performance/index.tsx:80
 msgid "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
 msgstr "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
 
@@ -991,10 +990,6 @@ msgstr "パフォーマンス最適化"
 #: src/app/lingui-examples/index.tsx:28
 msgid "パンくずリスト"
 msgstr "パンくずリスト"
-
-#: src/app/performance/index.tsx:21
-msgid "バンドル分析"
-msgstr "バンドル分析"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:107
 msgid "ビジネス"
@@ -1329,7 +1324,7 @@ msgstr "最大表示数:"
 msgid "最後のアクション:"
 msgstr "最後のアクション:"
 
-#: src/app/performance/index.tsx:63
+#: src/app/performance/index.tsx:43
 msgid "最適化サンプル"
 msgstr "最適化サンプル"
 
@@ -1829,10 +1824,6 @@ msgstr "結果:"
 msgid "翻訳キーを入力"
 msgstr "翻訳キーを入力"
 
-#: src/app/performance/index.tsx:24
-msgid "翻訳ファイルのサイズと使用状況を分析し、バンドルサイズ最適化の機会を特定します。"
-msgstr "翻訳ファイルのサイズと使用状況を分析し、バンドルサイズ最適化の機会を特定します。"
-
 #: src/app/lingui-examples/select-examples.tsx:615
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 msgstr "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
@@ -1983,7 +1974,7 @@ msgstr "通貨フォーマット"
 msgid "進捗ステップ"
 msgstr "進捗ステップ"
 
-#: src/app/performance/index.tsx:42
+#: src/app/performance/index.tsx:22
 msgid "遅延翻訳パターン"
 msgstr "遅延翻訳パターン"
 

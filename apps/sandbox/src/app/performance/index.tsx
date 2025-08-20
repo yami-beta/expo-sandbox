@@ -1,5 +1,5 @@
 import { Trans } from "@lingui/react/macro";
-// import { Link } from "expo-router"; // TODO: 実装後に有効化
+import { Link } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function PerformanceScreen() {
@@ -16,26 +16,6 @@ export default function PerformanceScreen() {
           </Trans>
         </Text>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            <Trans>バンドル分析</Trans>
-          </Text>
-          <Text style={styles.sectionDescription}>
-            <Trans>
-              翻訳ファイルのサイズと使用状況を分析し、バンドルサイズ最適化の機会を特定します。
-            </Trans>
-          </Text>
-          {/* TODO: 実装後にコメントを解除
-          <Link href="/performance/bundle-analysis" style={styles.link}>
-            <Text style={styles.linkText}>
-              <Trans>バンドル分析ツールを開く →</Trans>
-            </Text>
-          </Link>
-          */}
-          <Text style={styles.comingSoon}>
-            <Trans>（近日実装予定）</Trans>
-          </Text>
-        </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
