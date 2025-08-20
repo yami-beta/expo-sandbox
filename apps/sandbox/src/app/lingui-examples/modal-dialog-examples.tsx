@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import { useThemeContext } from "../../theme/ThemeContext";
-import { Trans, Plural, useLingui } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { plural } from "@lingui/core/macro";
 
 // 確認ダイアログコンポーネント
