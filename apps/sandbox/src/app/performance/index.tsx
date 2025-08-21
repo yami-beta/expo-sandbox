@@ -16,7 +16,6 @@ export default function PerformanceScreen() {
           </Trans>
         </Text>
 
-
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
             <Trans>遅延翻訳パターン</Trans>
@@ -26,16 +25,11 @@ export default function PerformanceScreen() {
               msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。
             </Trans>
           </Text>
-          {/* TODO: 実装後にコメントを解除
           <Link href="/performance/lazy-translation" style={styles.link}>
             <Text style={styles.linkText}>
               <Trans>遅延翻訳の例を見る →</Trans>
             </Text>
           </Link>
-          */}
-          <Text style={styles.comingSoon}>
-            <Trans>（近日実装予定）</Trans>
-          </Text>
         </View>
 
         <View style={styles.section}>
@@ -47,16 +41,11 @@ export default function PerformanceScreen() {
               useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。
             </Trans>
           </Text>
-          {/* TODO: 実装後にコメントを解除
           <Link href="/performance/optimization" style={styles.link}>
             <Text style={styles.linkText}>
               <Trans>最適化サンプルを見る →</Trans>
             </Text>
           </Link>
-          */}
-          <Text style={styles.comingSoon}>
-            <Trans>（近日実装予定）</Trans>
-          </Text>
         </View>
 
         <View style={styles.infoBox}>
