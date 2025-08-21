@@ -41,8 +41,8 @@ const NonMemoizedItem = ({ item, index }: { item: string; index: number }) => {
   );
 };
 
-// ヘッダーコンポーネント（メモ化して再レンダリングを防止）
-const HeaderSection = memo(function HeaderSection({
+// ヘッダーコンポーネント（memo化を解除しても、FlatListの最適化によりフォーカスは保持される）
+const HeaderSection = ({
   searchQuery,
   setSearchQuery,
   useMemoization,
@@ -63,7 +63,7 @@ const HeaderSection = memo(function HeaderSection({
   };
   setRenderCount: (value: number) => void;
   renderCount: number;
-}) {
+}) => {
   const { t } = useLingui();
 
   return (
@@ -151,7 +151,7 @@ const HeaderSection = memo(function HeaderSection({
       </View>
     </View>
   );
-});
+};
 
 export default function OptimizationScreen() {
   const { t } = useLingui();
