@@ -307,7 +307,7 @@ msgstr "📚 How Lingui's Lazy Loading Works"
 msgid "1. APIステータスの翻訳"
 msgstr "1. API Status Translation"
 
-#: src/app/performance/optimization.tsx:231
+#: src/app/performance/optimization.tsx:242
 msgid "1. useMemoで翻訳結果と計算結果をキャッシュ"
 msgstr "1. Cache translation results and calculations with useMemo"
 
@@ -315,7 +315,7 @@ msgstr "1. Cache translation results and calculations with useMemo"
 msgid "1. エラーコード管理"
 msgstr "1. Error Code Management"
 
-#: src/app/performance/lazy-translation.tsx:195
+#: src/app/performance/lazy-translation.tsx:197
 msgid "1. 選択肢やマッピングを定数として定義できる"
 msgstr "1. Define choices and mappings as constants"
 
@@ -331,11 +331,11 @@ msgstr "18-120"
 msgid "1個のアイテム"
 msgstr "1 item"
 
-#: src/app/performance/lazy-translation.tsx:198
+#: src/app/performance/lazy-translation.tsx:200
 msgid "2. TypeScriptの型安全性を保てる"
 msgstr "2. Maintain TypeScript type safety"
 
-#: src/app/performance/optimization.tsx:234
+#: src/app/performance/optimization.tsx:245
 msgid "2. useCallbackでコールバック関数を安定化"
 msgstr "2. Stabilize callback functions with useCallback"
 
@@ -355,7 +355,7 @@ msgstr "2 items"
 msgid "3. APIエラーハンドリング"
 msgstr "3. API Error Handling"
 
-#: src/app/performance/optimization.tsx:237
+#: src/app/performance/optimization.tsx:248
 msgid "3. React.memoでコンポーネントの再レンダリングを防止"
 msgstr "3. Prevent component re-rendering with React.memo"
 
@@ -363,7 +363,7 @@ msgstr "3. Prevent component re-rendering with React.memo"
 msgid "3. フォールバック戦略"
 msgstr "3. Fallback Strategy"
 
-#: src/app/performance/lazy-translation.tsx:201
+#: src/app/performance/lazy-translation.tsx:203
 msgid "3. 翻訳が必要な時だけ実行される（遅延評価）"
 msgstr "3. Executed only when translation is needed (lazy evaluation)"
 
@@ -371,11 +371,11 @@ msgstr "3. Executed only when translation is needed (lazy evaluation)"
 msgid "3個のアイテム"
 msgstr "3 items"
 
-#: src/app/performance/optimization.tsx:240
+#: src/app/performance/optimization.tsx:251
 msgid "4. FlatListの最適化オプションを活用"
 msgstr "4. Utilize FlatList optimization options"
 
-#: src/app/performance/lazy-translation.tsx:204
+#: src/app/performance/lazy-translation.tsx:206
 msgid "4. コードの可読性と保守性が向上する"
 msgstr "4. Improve code readability and maintainability"
 
@@ -403,7 +403,7 @@ msgstr "503 Service Unavailable"
 msgid "8文字以上"
 msgstr "8+ characters"
 
-#: src/app/performance/lazy-translation.tsx:154
+#: src/app/performance/lazy-translation.tsx:156
 msgid "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 msgstr "Map status codes from API responses to predefined translation messages."
 
@@ -415,7 +415,7 @@ msgstr "Language differences by CLDR rules"
 msgid "example@email.com"
 msgstr "example@email.com"
 
-#: src/app/performance/optimization.tsx:137
+#: src/app/performance/optimization.tsx:147
 msgid "FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。"
 msgstr "Efficiently display large amounts of items by combining FlatList with memoization."
 
@@ -444,7 +444,7 @@ msgstr "Benefits of Metro Transformer"
 msgid "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 msgstr "The msg macro doesn't execute translation but returns a MessageDescriptor (an object containing information needed for translation). The actual translation is deferred until i18n._() is called."
 
-#: src/app/performance/lazy-translation.tsx:192
+#: src/app/performance/lazy-translation.tsx:194
 msgid "msgマクロを使うメリット"
 msgstr "Benefits of using msg macro"
 
@@ -601,7 +601,7 @@ msgstr "Using plural macro since TextInput placeholder only accepts strings"
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "Combination of Trans and Plural components"
 
-#: src/app/performance/optimization.tsx:65
+#: src/app/performance/optimization.tsx:75
 msgid "useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。"
 msgstr "Demonstrate translation optimization patterns using useMemo, useCallback, and React.memo."
 
@@ -614,8 +614,8 @@ msgid "Webと異なり、React Nativeでは動的インポートができない�
 msgstr "Unlike Web, React Native doesn't support dynamic imports, so all translation files are included in the bundle from the start. Therefore, there's no bundle size reduction benefit."
 
 #. placeholder {0}: index + 1
-#: src/app/performance/optimization.tsx:20
-#: src/app/performance/optimization.tsx:33
+#: src/app/performance/optimization.tsx:25
+#: src/app/performance/optimization.tsx:38
 msgid "アイテム {0}: {item}"
 msgstr "Item {0}: {item}"
 
@@ -744,13 +744,13 @@ msgstr "Custom (year and month only)"
 msgid "カスタムモーダル"
 msgstr "Custom Modal"
 
-#: src/app/performance/optimization.tsx:156
-#: src/app/performance/optimization.tsx:180
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:191
 msgid "カテゴリー"
-msgstr ""
+msgstr "Category"
 
 #. placeholder {0}: statistics.categories
-#: src/app/performance/optimization.tsx:126
+#: src/app/performance/optimization.tsx:136
 msgid "カテゴリー: {0}件"
 msgstr "Categories: {0}"
 
@@ -857,14 +857,14 @@ msgstr "There was no response from the server. Please try again"
 msgid "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 msgstr "A problem occurred on the server. Please wait a while and try again"
 
-#: src/app/performance/optimization.tsx:156
-#: src/app/performance/optimization.tsx:177
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:188
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 msgid "サービス"
 msgstr "Services"
 
 #. placeholder {0}: statistics.services
-#: src/app/performance/optimization.tsx:123
+#: src/app/performance/optimization.tsx:133
 msgid "サービス: {0}件"
 msgstr "Services: {0}"
 
@@ -1265,15 +1265,15 @@ msgstr "Please check your messages"
 msgid "メッセージ通知"
 msgstr "Message Notification"
 
-#: src/app/performance/optimization.tsx:89
+#: src/app/performance/optimization.tsx:99
 msgid "メモ化: 有効"
 msgstr "Memoization: Enabled"
 
-#: src/app/performance/optimization.tsx:91
+#: src/app/performance/optimization.tsx:101
 msgid "メモ化: 無効"
 msgstr "Memoization: Disabled"
 
-#: src/app/performance/optimization.tsx:96
+#: src/app/performance/optimization.tsx:106
 msgid "メモ化を無効にすると、検索時の再レンダリングが増加します"
 msgstr "Disabling memoization increases re-rendering during search"
 
@@ -1437,7 +1437,7 @@ msgstr "e.g., Product Detail Page"
 msgid "例1: 国選択ドロップダウン"
 msgstr "Example 1: Country Selection Dropdown"
 
-#: src/app/performance/lazy-translation.tsx:151
+#: src/app/performance/lazy-translation.tsx:153
 msgid "例2: ステータス表示システム"
 msgstr "Example 2: Status Display System"
 
@@ -1470,11 +1470,11 @@ msgstr "Max display count:"
 msgid "最後のアクション:"
 msgstr "Last action:"
 
-#: src/app/performance/optimization.tsx:134
+#: src/app/performance/optimization.tsx:144
 msgid "最適化されたリスト表示"
 msgstr "Optimized List Display"
 
-#: src/app/performance/optimization.tsx:62
+#: src/app/performance/optimization.tsx:72
 #: src/app/performance/index.tsx:37
 msgid "最適化サンプル"
 msgstr "Optimization Examples"
@@ -1483,11 +1483,11 @@ msgstr "Optimization Examples"
 msgid "最適化サンプルを見る →"
 msgstr "View Optimization Examples →"
 
-#: src/app/performance/optimization.tsx:228
+#: src/app/performance/optimization.tsx:239
 msgid "最適化のポイント"
 msgstr "Optimization Points"
 
-#: src/app/performance/optimization.tsx:73
+#: src/app/performance/optimization.tsx:83
 msgid "最適化の有効/無効"
 msgstr "Enable/Disable Optimization"
 
@@ -1567,7 +1567,7 @@ msgid "取り込み中"
 msgstr "Busy"
 
 #. placeholder {0}: statistics.total
-#: src/app/performance/optimization.tsx:117
+#: src/app/performance/optimization.tsx:127
 msgid "合計: {0}件"
 msgstr "Total: {0}"
 
@@ -1583,13 +1583,13 @@ msgstr "Name"
 msgid "名前を入力"
 msgstr "Enter name"
 
-#: src/app/performance/optimization.tsx:156
-#: src/app/performance/optimization.tsx:174
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:185
 msgid "商品"
 msgstr "Product"
 
 #. placeholder {0}: statistics.products
-#: src/app/performance/optimization.tsx:120
+#: src/app/performance/optimization.tsx:130
 msgid "商品: {0}件"
 msgstr "Products: {0}"
 
@@ -1897,11 +1897,11 @@ msgstr "Please enter a valid email address"
 msgid "有効な数値を入力してください"
 msgstr "Please enter a valid number"
 
-#: src/app/performance/optimization.tsx:109
+#: src/app/performance/optimization.tsx:119
 msgid "検索キーワードを入力..."
 msgstr "Enter search keyword..."
 
-#: src/app/performance/optimization.tsx:105
+#: src/app/performance/optimization.tsx:115
 msgid "検索フィルター"
 msgstr "Search Filter"
 
@@ -1953,7 +1953,7 @@ msgstr "Specific cases start with underscore (_male, _female, etc.)"
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "Currently processing {step, selectordinal, one {Step #} two {Step #} few {Step #} other {Step #}}"
 
-#: src/app/performance/lazy-translation.tsx:183
+#: src/app/performance/lazy-translation.tsx:185
 msgid "現在のステータス:"
 msgstr "Current Status:"
 
@@ -2192,7 +2192,7 @@ msgstr "Appropriate usage criteria"
 msgid "選択されたファイル数の表示"
 msgstr "Display of selected file count"
 
-#: src/app/performance/lazy-translation.tsx:141
+#: src/app/performance/lazy-translation.tsx:143
 msgid "選択された国:"
 msgstr "Selected Country:"
 
