@@ -211,6 +211,10 @@ msgstr "• Pluralマクロで通知数の適切な表示"
 msgid "• クリック可能な各階層へのジャンプ機能"
 msgstr "• クリック可能な各階層へのジャンプ機能"
 
+#: src/app/performance/lazy-translation.tsx:102
+msgid "• タブやモーダルの遅延初期化"
+msgstr "• タブやモーダルの遅延初期化"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:452
 msgid "• ドキュメントサイトの階層表示"
 msgstr "• ドキュメントサイトの階層表示"
@@ -227,6 +231,10 @@ msgstr "• バッジタイプ（数値/テキスト/ドット）の切り替え
 msgid "• ファイルシステムのパス表示"
 msgstr "• ファイルシステムのパス表示"
 
+#: src/app/performance/lazy-translation.tsx:99
+msgid "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
+msgstr "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
+
 #: src/app/navigation-patterns/modal-screen.tsx:57
 msgid "• 上から下へスワイプ（iOS）"
 msgstr "• 上から下へスワイプ（iOS）"
@@ -239,9 +247,17 @@ msgstr "• 動的なタブラベルの更新"
 msgid "• 区切り文字のカスタマイズ"
 msgstr "• 区切り文字のカスタマイズ"
 
+#: src/app/performance/lazy-translation.tsx:96
+msgid "• 大量データの初期化コスト削減"
+msgstr "• 大量データの初期化コスト削減"
+
 #: src/app/navigation-patterns/modal-screen.tsx:60
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• 戻るジェスチャーを使用（Android）"
+
+#: src/app/performance/lazy-translation.tsx:93
+msgid "• 条件付き翻訳（使わないメッセージを翻訳しない）"
+msgstr "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:440
 msgid "• 現在位置の視覚的な強調"
@@ -267,6 +283,14 @@ msgstr "• 管理画面の階層メニュー"
 msgid "• 階層的なナビゲーションパスの管理"
 msgstr "• 階層的なナビゲーションパスの管理"
 
+#: src/app/performance/lazy-translation.tsx:71
+msgid "⚠️ React Nativeでの制限事項"
+msgstr "⚠️ React Nativeでの制限事項"
+
+#: src/app/performance/lazy-translation.tsx:90
+msgid "✅ 実際に効果があるケース"
+msgstr "✅ 実際に効果があるケース"
+
 #: src/app/lingui-examples/select-examples.tsx:145
 msgid "✅ 適切な使用例（文法的変化）"
 msgstr "✅ 適切な使用例（文法的変化）"
@@ -275,13 +299,25 @@ msgstr "✅ 適切な使用例（文法的変化）"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ 不適切な使用例（アンチパターン）"
 
+#: src/app/performance/lazy-translation.tsx:48
+msgid "📚 Linguiの遅延ロードの仕組み"
+msgstr "📚 Linguiの遅延ロードの仕組み"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:218
 msgid "1. APIステータスの翻訳"
 msgstr "1. APIステータスの翻訳"
 
+#: src/app/performance/optimization.tsx:242
+msgid "1. useMemoで翻訳結果と計算結果をキャッシュ"
+msgstr "1. useMemoで翻訳結果と計算結果をキャッシュ"
+
 #: src/app/lingui-examples/error-handling-examples.tsx:116
 msgid "1. エラーコード管理"
 msgstr "1. エラーコード管理"
+
+#: src/app/performance/lazy-translation.tsx:197
+msgid "1. 選択肢やマッピングを定数として定義できる"
+msgstr "1. 選択肢やマッピングを定数として定義できる"
 
 #: src/app/lingui-examples/format-examples.tsx:114
 msgid "12時間表記"
@@ -294,6 +330,14 @@ msgstr "18-120"
 #: src/app/lingui-examples/selectordinal-examples.tsx:455
 msgid "1個のアイテム"
 msgstr "1個のアイテム"
+
+#: src/app/performance/lazy-translation.tsx:200
+msgid "2. TypeScriptの型安全性を保てる"
+msgstr "2. TypeScriptの型安全性を保てる"
+
+#: src/app/performance/optimization.tsx:245
+msgid "2. useCallbackでコールバック関数を安定化"
+msgstr "2. useCallbackでコールバック関数を安定化"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:283
 msgid "2. カテゴリー/タグの翻訳"
@@ -311,13 +355,29 @@ msgstr "2個のアイテム"
 msgid "3. APIエラーハンドリング"
 msgstr "3. APIエラーハンドリング"
 
+#: src/app/performance/optimization.tsx:248
+msgid "3. React.memoでコンポーネントの再レンダリングを防止"
+msgstr "3. React.memoでコンポーネントの再レンダリングを防止"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:294
 msgid "3. フォールバック戦略"
 msgstr "3. フォールバック戦略"
 
+#: src/app/performance/lazy-translation.tsx:203
+msgid "3. 翻訳が必要な時だけ実行される（遅延評価）"
+msgstr "3. 翻訳が必要な時だけ実行される（遅延評価）"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:461
 msgid "3個のアイテム"
 msgstr "3個のアイテム"
+
+#: src/app/performance/optimization.tsx:251
+msgid "4. FlatListの最適化オプションを活用"
+msgstr "4. FlatListの最適化オプションを活用"
+
+#: src/app/performance/lazy-translation.tsx:206
+msgid "4. コードの可読性と保守性が向上する"
+msgstr "4. コードの可読性と保守性が向上する"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:398
 msgid "401 Unauthorized"
@@ -343,6 +403,10 @@ msgstr "503 Service Unavailable"
 msgid "8文字以上"
 msgstr "8文字以上"
 
+#: src/app/performance/lazy-translation.tsx:156
+msgid "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
+msgstr "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
+
 #: src/app/lingui-examples/plural-examples.tsx:349
 msgid "CLDRルールによる言語の違い"
 msgstr "CLDRルールによる言語の違い"
@@ -350,6 +414,10 @@ msgstr "CLDRルールによる言語の違い"
 #: src/app/lingui-examples/error-handling-examples.tsx:286
 msgid "example@email.com"
 msgstr "example@email.com"
+
+#: src/app/performance/optimization.tsx:147
+msgid "FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。"
+msgstr "FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:410
 msgid "HTTPステータスコードに応じたエラー処理とリトライ機能"
@@ -359,10 +427,34 @@ msgstr "HTTPステータスコードに応じたエラー処理とリトライ�
 msgid "ICU MessageFormatの仕様に基づいて設計されています"
 msgstr "ICU MessageFormatの仕様に基づいて設計されています"
 
+#: src/app/performance/index.tsx:13
+msgid "Linguiを使用したReact Nativeアプリケーションのパフォーマンス最適化テクニックを学習します。"
+msgstr "Linguiを使用したReact Nativeアプリケーションのパフォーマンス最適化テクニックを学習します。"
+
 #: src/app/_layout.tsx:78
 #: src/app/(tabs)/index.tsx:12
 msgid "Lingui学習サンプル"
 msgstr "Lingui学習サンプル"
+
+#: src/app/performance/index.tsx:66
+msgid "Metro Transformerの利点"
+msgstr "Metro Transformerの利点"
+
+#: src/app/performance/lazy-translation.tsx:51
+msgid "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
+msgstr "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
+
+#: src/app/performance/lazy-translation.tsx:194
+msgid "msgマクロを使うメリット"
+msgstr "msgマクロを使うメリット"
+
+#: src/app/performance/index.tsx:24
+msgid "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
+msgstr "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
+
+#: src/app/performance/lazy-translation.tsx:39
+msgid "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
+msgstr "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 
 #: src/app/lingui-examples/modal-dialog-examples.tsx:83
 #: src/app/lingui-examples/modal-dialog-examples.tsx:320
@@ -412,6 +504,14 @@ msgstr "Pluralマクロの使い方"
 #: src/app/lingui-examples/modal-dialog-examples.tsx:447
 msgid "React Native Alertを表示"
 msgstr "React Native Alertを表示"
+
+#: src/app/performance/index.tsx:53
+msgid "React Nativeでの制限事項"
+msgstr "React Nativeでの制限事項"
+
+#: src/app/performance/index.tsx:56
+msgid "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
+msgstr "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
 
 #: src/app/lingui-examples/select-examples.tsx:583
 msgid "Select vs select"
@@ -501,6 +601,24 @@ msgstr "TextInputのplaceholderは文字列のみ受け付けるため、plural�
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "TransコンポーネントとPluralコンポーネントの組み合わせ"
 
+#: src/app/performance/optimization.tsx:75
+msgid "useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。"
+msgstr "useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。"
+
+#: src/app/performance/index.tsx:40
+msgid "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
+msgstr "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
+
+#: src/app/performance/lazy-translation.tsx:74
+msgid "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
+msgstr "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
+
+#. placeholder {0}: index + 1
+#: src/app/performance/optimization.tsx:25
+#: src/app/performance/optimization.tsx:38
+msgid "アイテム {0}: {item}"
+msgstr "アイテム {0}: {item}"
+
 #: src/app/lingui-examples/notification-alert-examples.tsx:442
 msgid "アクション"
 msgstr "アクション"
@@ -542,6 +660,10 @@ msgstr "アプリの更新が利用可能です"
 msgid "アプリ内通知（トースト）"
 msgstr "アプリ内通知（トースト）"
 
+#: src/app/performance/lazy-translation.tsx:9
+msgid "アメリカ"
+msgstr "アメリカ"
+
 #: src/app/lingui-examples/notification-alert-examples.tsx:75
 msgid "いいねを受け取りました"
 msgstr "いいねを受け取りました"
@@ -549,6 +671,10 @@ msgstr "いいねを受け取りました"
 #: src/app/lingui-examples/notification-alert-examples.tsx:318
 msgid "いいね通知"
 msgstr "いいね通知"
+
+#: src/app/performance/lazy-translation.tsx:10
+msgid "イギリス"
+msgstr "イギリス"
 
 #: src/app/lingui-examples/format-examples.tsx:295
 msgid "インタラクティブな例"
@@ -618,6 +744,16 @@ msgstr "カスタム（年と月のみ）"
 msgid "カスタムモーダル"
 msgstr "カスタムモーダル"
 
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:191
+msgid "カテゴリー"
+msgstr "カテゴリー"
+
+#. placeholder {0}: statistics.categories
+#: src/app/performance/optimization.tsx:136
+msgid "カテゴリー: {0}件"
+msgstr "カテゴリー: {0}件"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:118
 msgid "カテゴリー選択:"
 msgstr "カテゴリー選択:"
@@ -652,6 +788,10 @@ msgstr "このアプリは写真撮影のためにカメラへのアクセスが
 #: src/app/lingui-examples/notification-alert-examples.tsx:173
 msgid "このアプリは近くの場所を表示するために位置情報が必要です"
 msgstr "このアプリは近くの場所を表示するために位置情報が必要です"
+
+#: src/app/performance/index.tsx:69
+msgid "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
+msgstr "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:301
 msgid "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
@@ -717,9 +857,16 @@ msgstr "サーバーからの応答がありませんでした。もう一度お
 msgid "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 msgstr "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:188
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 msgid "サービス"
 msgstr "サービス"
+
+#. placeholder {0}: statistics.services
+#: src/app/performance/optimization.tsx:133
+msgid "サービス: {0}件"
+msgstr "サービス: {0}件"
 
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:276
 msgid "サブカテゴリを選択:"
@@ -853,6 +1000,10 @@ msgstr "デフォルト通貨（ロケール依存）"
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
+#: src/app/performance/lazy-translation.tsx:12
+msgid "ドイツ"
+msgstr "ドイツ"
+
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:136
 msgid "ドキュメント"
 msgstr "ドキュメント"
@@ -947,6 +1098,11 @@ msgstr "バッテリー残量が20%以下です。充電してください"
 msgid "バッテリー残量低下"
 msgstr "バッテリー残量低下"
 
+#: src/app/performance/index.tsx:10
+#: src/app/lingui-examples/index.tsx:48
+msgid "パフォーマンス最適化"
+msgstr "パフォーマンス最適化"
+
 #: src/app/_layout.tsx:114
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
 #: src/app/lingui-examples/index.tsx:28
@@ -1026,6 +1182,10 @@ msgstr "フォロー通知"
 msgid "プッシュ通知のシミュレーション"
 msgstr "プッシュ通知のシミュレーション"
 
+#: src/app/performance/lazy-translation.tsx:11
+msgid "フランス"
+msgstr "フランス"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:183
 msgid "プロセスや手順の段階表示"
 msgstr "プロセスや手順の段階表示"
@@ -1104,6 +1264,18 @@ msgstr "メッセージを確認してください"
 #: src/app/lingui-examples/notification-alert-examples.tsx:302
 msgid "メッセージ通知"
 msgstr "メッセージ通知"
+
+#: src/app/performance/optimization.tsx:99
+msgid "メモ化: 有効"
+msgstr "メモ化: 有効"
+
+#: src/app/performance/optimization.tsx:101
+msgid "メモ化: 無効"
+msgstr "メモ化: 無効"
+
+#: src/app/performance/optimization.tsx:106
+msgid "メモ化を無効にすると、検索時の再レンダリングが増加します"
+msgstr "メモ化を無効にすると、検索時の再レンダリングが増加します"
 
 #: src/app/_layout.tsx:51
 msgid "モーダルサンプル"
@@ -1224,6 +1396,10 @@ msgstr "下へ"
 msgid "両方ともCLDR Pluralルールに基づく処理"
 msgstr "両方ともCLDR Pluralルールに基づく処理"
 
+#: src/app/performance/lazy-translation.tsx:81
+msgid "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
+msgstr "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
+
 #: src/app/lingui-examples/select-examples.tsx:377
 msgid "主語を選択"
 msgstr "主語を選択"
@@ -1257,6 +1433,14 @@ msgstr "使用例"
 msgid "例: 製品詳細ページ"
 msgstr "例: 製品詳細ページ"
 
+#: src/app/performance/lazy-translation.tsx:109
+msgid "例1: 国選択ドロップダウン"
+msgstr "例1: 国選択ドロップダウン"
+
+#: src/app/performance/lazy-translation.tsx:153
+msgid "例2: ステータス表示システム"
+msgstr "例2: ステータス表示システム"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:59
 msgid "保留中"
 msgstr "保留中"
@@ -1286,6 +1470,27 @@ msgstr "最大表示数:"
 msgid "最後のアクション:"
 msgstr "最後のアクション:"
 
+#: src/app/performance/optimization.tsx:144
+msgid "最適化されたリスト表示"
+msgstr "最適化されたリスト表示"
+
+#: src/app/performance/optimization.tsx:72
+#: src/app/performance/index.tsx:37
+msgid "最適化サンプル"
+msgstr "最適化サンプル"
+
+#: src/app/performance/index.tsx:46
+msgid "最適化サンプルを見る →"
+msgstr "最適化サンプルを見る →"
+
+#: src/app/performance/optimization.tsx:239
+msgid "最適化のポイント"
+msgstr "最適化のポイント"
+
+#: src/app/performance/optimization.tsx:83
+msgid "最適化の有効/無効"
+msgstr "最適化の有効/無効"
+
 #: src/app/lingui-examples/notification-alert-examples.tsx:120
 msgid "写真"
 msgstr "写真"
@@ -1298,9 +1503,14 @@ msgstr "写真を撮る"
 msgid "処理ステータス:"
 msgstr "処理ステータス:"
 
+#: src/app/performance/lazy-translation.tsx:18
 #: src/app/lingui-examples/dynamic-content-examples.tsx:61
 msgid "処理中"
 msgstr "処理中"
+
+#: src/app/performance/lazy-translation.tsx:17
+msgid "処理待ち"
+msgstr "処理待ち"
 
 #: src/app/lingui-examples/format-examples.tsx:283
 msgid "分の相対表示"
@@ -1356,6 +1566,11 @@ msgstr "友達の数（名前付き）"
 msgid "取り込み中"
 msgstr "取り込み中"
 
+#. placeholder {0}: statistics.total
+#: src/app/performance/optimization.tsx:127
+msgid "合計: {0}件"
+msgstr "合計: {0}件"
+
 #: src/app/lingui-examples/selectordinal-examples.tsx:415
 msgid "同じ数値での表現の違い"
 msgstr "同じ数値での表現の違い"
@@ -1367,6 +1582,16 @@ msgstr "名前"
 #: src/app/navigation-patterns/form-sheet-screen.tsx:111
 msgid "名前を入力"
 msgstr "名前を入力"
+
+#: src/app/performance/optimization.tsx:167
+#: src/app/performance/optimization.tsx:185
+msgid "商品"
+msgstr "商品"
+
+#. placeholder {0}: statistics.products
+#: src/app/performance/optimization.tsx:130
+msgid "商品: {0}件"
+msgstr "商品: {0}件"
 
 #: src/app/lingui-examples/plural-examples.tsx:115
 msgid "基本的なアイテムカウンター"
@@ -1384,6 +1609,7 @@ msgstr "変数を含む複数形処理"
 msgid "大きな数値のフォーマット"
 msgstr "大きな数値のフォーマット"
 
+#: src/app/performance/lazy-translation.tsx:20
 #: src/app/lingui-examples/dynamic-content-examples.tsx:65
 msgid "失敗"
 msgstr "失敗"
@@ -1398,6 +1624,7 @@ msgstr "女性"
 msgid "学習ポイント"
 msgstr "学習ポイント"
 
+#: src/app/performance/lazy-translation.tsx:19
 #: src/app/navigation-patterns/modal-screen.tsx:88
 #: src/app/navigation-patterns/form-sheet-screen.tsx:69
 #: src/app/lingui-examples/dynamic-content-examples.tsx:63
@@ -1617,6 +1844,10 @@ msgstr "日付の相対表示"
 msgid "日付フォーマット"
 msgstr "日付フォーマット"
 
+#: src/app/performance/lazy-translation.tsx:8
+msgid "日本"
+msgstr "日本"
+
 #: src/app/lingui-examples/plural-examples.tsx:352
 msgid "日本語: otherのみ（すべての数で同じ形式）"
 msgstr "日本語: otherのみ（すべての数で同じ形式）"
@@ -1666,6 +1897,14 @@ msgstr "有効なメールアドレスを入力してください"
 msgid "有効な数値を入力してください"
 msgstr "有効な数値を入力してください"
 
+#: src/app/performance/optimization.tsx:119
+msgid "検索キーワードを入力..."
+msgstr "検索キーワードを入力..."
+
+#: src/app/performance/optimization.tsx:115
+msgid "検索フィルター"
+msgstr "検索フィルター"
+
 #: src/app/lingui-examples/error-handling-examples.tsx:81
 msgid "権限がありません"
 msgstr "権限がありません"
@@ -1713,6 +1952,10 @@ msgstr "特定のケースはアンダースコアで始める（_male、_female
 #: src/app/lingui-examples/selectordinal-examples.tsx:214
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
+
+#: src/app/performance/lazy-translation.tsx:185
+msgid "現在のステータス:"
+msgstr "現在のステータス:"
 
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:231
 msgid "現在のパス"
@@ -1932,6 +2175,15 @@ msgstr "通貨フォーマット"
 msgid "進捗ステップ"
 msgstr "進捗ステップ"
 
+#: src/app/performance/index.tsx:30
+msgid "遅延翻訳の例を見る →"
+msgstr "遅延翻訳の例を見る →"
+
+#: src/app/performance/lazy-translation.tsx:36
+#: src/app/performance/index.tsx:21
+msgid "遅延翻訳パターン"
+msgstr "遅延翻訳パターン"
+
 #: src/app/lingui-examples/select-examples.tsx:602
 msgid "適切な使用判断基準"
 msgstr "適切な使用判断基準"
@@ -1940,9 +2192,17 @@ msgstr "適切な使用判断基準"
 msgid "選択されたファイル数の表示"
 msgstr "選択されたファイル数の表示"
 
+#: src/app/performance/lazy-translation.tsx:143
+msgid "選択された国:"
+msgstr "選択された国:"
+
 #: src/app/lingui-examples/dynamic-content-examples.tsx:142
 msgid "選択中:"
 msgstr "選択中:"
+
+#: src/app/performance/lazy-translation.tsx:112
+msgid "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
+msgstr "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 
 #: src/app/lingui-examples/dynamic-content-examples.tsx:76
 msgid "配達完了"
