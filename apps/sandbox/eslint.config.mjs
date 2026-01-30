@@ -1,9 +1,8 @@
 // https://docs.expo.dev/guides/using-eslint/
-import tseslint from "typescript-eslint";
-// import { defineConfig } from "eslint/config";
+import { defineConfig } from "eslint/config";
 import expoConfig from "eslint-config-expo/flat.js";
 
-export default tseslint.config(
+export default defineConfig([
   expoConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -19,11 +18,4 @@ export default tseslint.config(
   {
     ignores: ["dist/*"],
   },
-);
-
-// export default defineConfig([
-//   expoConfig,
-//   {
-//     ignores: ["dist/*"],
-//   },
-// ]);
+]);
