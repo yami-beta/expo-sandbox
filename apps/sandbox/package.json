@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
-    "@formatjs/intl-locale": "^4.2.13",
-    "@formatjs/intl-pluralrules": "^5.4.6",
-    "@formatjs/intl-relativetimeformat": "^11.4.13",
+    "@formatjs/intl-locale": "^5.2.1",
+    "@formatjs/intl-pluralrules": "^6.2.2",
+    "@formatjs/intl-relativetimeformat": "^12.2.2",
     "@lingui/core": "^5.9.1",
     "@lingui/macro": "^5.9.1",
     "@lingui/react": "^5.9.1",

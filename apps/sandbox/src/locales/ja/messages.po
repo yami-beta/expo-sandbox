@@ -680,15 +680,15 @@ msgstr "イギリス"
 msgid "インタラクティブな例"
 msgstr "インタラクティブな例"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:406
 #: src/app/lingui-examples/modal-dialog-examples.tsx:420
 #: src/app/lingui-examples/modal-dialog-examples.tsx:503
+#: src/app/lingui-examples/notification-alert-examples.tsx:406
 msgid "エラー"
 msgstr "エラー"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:135
 #: src/app/lingui-examples/error-handling-examples.tsx:85
 #: src/app/lingui-examples/error-handling-examples.tsx:448
+#: src/app/lingui-examples/notification-alert-examples.tsx:135
 msgid "エラーが発生しました"
 msgstr "エラーが発生しました"
 
@@ -770,10 +770,10 @@ msgstr "カメラ"
 msgid "カメラへのアクセス"
 msgstr "カメラへのアクセス"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:56
 #: src/app/lingui-examples/modal-dialog-examples.tsx:67
 #: src/app/lingui-examples/modal-dialog-examples.tsx:175
 #: src/app/lingui-examples/modal-dialog-examples.tsx:316
+#: src/app/navigation-patterns/form-sheet-screen.tsx:56
 msgid "キャンセル"
 msgstr "キャンセル"
 
@@ -857,9 +857,9 @@ msgstr "サーバーからの応答がありませんでした。もう一度お
 msgid "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 msgstr "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 #: src/app/performance/optimization.tsx:167
 #: src/app/performance/optimization.tsx:188
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 msgid "サービス"
 msgstr "サービス"
 
@@ -958,8 +958,8 @@ msgid "タブバーのプレビュー"
 msgstr "タブバーのプレビュー"
 
 #: src/app/_layout.tsx:108
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:153
 #: src/app/lingui-examples/index.tsx:24
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:153
 msgid "タブバーの動的機能"
 msgstr "タブバーの動的機能"
 
@@ -975,8 +975,8 @@ msgstr "データの取得に成功しました"
 msgid "データ使用量が制限に近づいています。Wi-Fi接続を推奨します"
 msgstr "データ使用量が制限に近づいています。Wi-Fi接続を推奨します"
 
-#: src/app/(tabs)/settings/index.tsx:11
 #: src/app/(tabs)/settings/_layout.tsx:20
+#: src/app/(tabs)/settings/index.tsx:11
 msgid "テーマ"
 msgstr "テーマ"
 
@@ -1038,8 +1038,8 @@ msgstr "ネイティブアラート"
 msgid "ネイティブアラートでOKが押されました"
 msgstr "ネイティブアラートでOKが押されました"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:105
 #: src/app/lingui-examples/dynamic-content-examples.tsx:160
+#: src/app/lingui-examples/error-handling-examples.tsx:105
 msgid "ネットワークエラー"
 msgstr "ネットワークエラー"
 
@@ -1098,14 +1098,14 @@ msgstr "バッテリー残量が20%以下です。充電してください"
 msgid "バッテリー残量低下"
 msgstr "バッテリー残量低下"
 
-#: src/app/performance/index.tsx:10
 #: src/app/lingui-examples/index.tsx:48
+#: src/app/performance/index.tsx:10
 msgid "パフォーマンス最適化"
 msgstr "パフォーマンス最適化"
 
 #: src/app/_layout.tsx:114
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
 #: src/app/lingui-examples/index.tsx:28
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
 msgid "パンくずリスト"
 msgstr "パンくずリスト"
 
@@ -1149,8 +1149,8 @@ msgstr "フォームシートを開く"
 msgid "フォームシート画面"
 msgstr "フォームシート画面"
 
-#: src/app/navigation-patterns/index.tsx:12
 #: src/app/navigation-patterns/form-sheet-screen.tsx:78
+#: src/app/navigation-patterns/index.tsx:12
 msgid "フォームシート表示"
 msgstr "フォームシート表示"
 
@@ -1208,10 +1208,10 @@ msgid "プロフィールタブの通知:"
 msgstr "プロフィールタブの通知:"
 
 #: src/app/_layout.tsx:40
+#: src/app/(tabs)/_layout.tsx:29
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:102
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:116
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:312
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:102
-#: src/app/(tabs)/_layout.tsx:29
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -1231,9 +1231,9 @@ msgstr "ホームタブの通知:"
 msgid "ホームに戻る"
 msgstr "ホームに戻る"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:118
 #: src/app/lingui-examples/error-handling-examples.tsx:92
 #: src/app/lingui-examples/error-handling-examples.tsx:279
+#: src/app/navigation-patterns/form-sheet-screen.tsx:118
 msgid "メールアドレス"
 msgstr "メールアドレス"
 
@@ -1282,8 +1282,8 @@ msgid "モーダルサンプル"
 msgstr "モーダルサンプル"
 
 #: src/app/_layout.tsx:120
-#: src/app/lingui-examples/modal-dialog-examples.tsx:333
 #: src/app/lingui-examples/index.tsx:32
+#: src/app/lingui-examples/modal-dialog-examples.tsx:333
 msgid "モーダルダイアログ"
 msgstr "モーダルダイアログ"
 
@@ -1424,8 +1424,8 @@ msgstr "位置情報"
 msgid "位置情報へのアクセス"
 msgstr "位置情報へのアクセス"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:524
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:446
+#: src/app/lingui-examples/selectordinal-examples.tsx:524
 msgid "使用例"
 msgstr "使用例"
 
@@ -1474,8 +1474,8 @@ msgstr "最後のアクション:"
 msgid "最適化されたリスト表示"
 msgstr "最適化されたリスト表示"
 
-#: src/app/performance/optimization.tsx:72
 #: src/app/performance/index.tsx:37
+#: src/app/performance/optimization.tsx:72
 msgid "最適化サンプル"
 msgstr "最適化サンプル"
 
@@ -1503,8 +1503,8 @@ msgstr "写真を撮る"
 msgid "処理ステータス:"
 msgstr "処理ステータス:"
 
-#: src/app/performance/lazy-translation.tsx:18
 #: src/app/lingui-examples/dynamic-content-examples.tsx:61
+#: src/app/performance/lazy-translation.tsx:18
 msgid "処理中"
 msgstr "処理中"
 
@@ -1609,8 +1609,8 @@ msgstr "変数を含む複数形処理"
 msgid "大きな数値のフォーマット"
 msgstr "大きな数値のフォーマット"
 
-#: src/app/performance/lazy-translation.tsx:20
 #: src/app/lingui-examples/dynamic-content-examples.tsx:65
+#: src/app/performance/lazy-translation.tsx:20
 msgid "失敗"
 msgstr "失敗"
 
@@ -1618,16 +1618,16 @@ msgstr "失敗"
 msgid "女性"
 msgstr "女性"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:479
-#: src/app/lingui-examples/select-examples.tsx:557
 #: src/app/lingui-examples/plural-examples.tsx:322
+#: src/app/lingui-examples/select-examples.tsx:557
+#: src/app/lingui-examples/selectordinal-examples.tsx:479
 msgid "学習ポイント"
 msgstr "学習ポイント"
 
-#: src/app/performance/lazy-translation.tsx:19
-#: src/app/navigation-patterns/modal-screen.tsx:88
-#: src/app/navigation-patterns/form-sheet-screen.tsx:69
 #: src/app/lingui-examples/dynamic-content-examples.tsx:63
+#: src/app/navigation-patterns/form-sheet-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:88
+#: src/app/performance/lazy-translation.tsx:19
 msgid "完了"
 msgstr "完了"
 
@@ -1635,8 +1635,8 @@ msgstr "完了"
 msgid "完全な日付"
 msgstr "完全な日付"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:339
 #: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:425
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:339
 msgid "実装のポイント"
 msgstr "実装のポイント"
 
@@ -1720,12 +1720,12 @@ msgstr "情報"
 msgid "情報（アクション付き）"
 msgstr "情報（アクション付き）"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:192
-#: src/app/lingui-examples/notification-alert-examples.tsx:398
-#: src/app/lingui-examples/modal-dialog-examples.tsx:409
-#: src/app/lingui-examples/modal-dialog-examples.tsx:493
 #: src/app/lingui-examples/error-handling-examples.tsx:263
 #: src/app/lingui-examples/error-handling-examples.tsx:385
+#: src/app/lingui-examples/modal-dialog-examples.tsx:409
+#: src/app/lingui-examples/modal-dialog-examples.tsx:493
+#: src/app/lingui-examples/notification-alert-examples.tsx:192
+#: src/app/lingui-examples/notification-alert-examples.tsx:398
 msgid "成功"
 msgstr "成功"
 
@@ -1757,8 +1757,8 @@ msgstr "技術的な状態やビジネスロジックには使用すべきでは
 msgid "採用情報"
 msgstr "採用情報"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:134
 #: src/app/lingui-examples/modal-dialog-examples.tsx:494
+#: src/app/lingui-examples/notification-alert-examples.tsx:134
 msgid "操作が正常に完了しました"
 msgstr "操作が正常に完了しました"
 
@@ -1815,8 +1815,8 @@ msgstr "新しいメッセージ"
 msgid "新しい情報があります"
 msgstr "新しい情報があります"
 
-#: src/app/lingui-examples/plural-examples.tsx:210
 #: src/app/lingui-examples/navigation-tabbar-examples.tsx:45
+#: src/app/lingui-examples/plural-examples.tsx:210
 msgid "新着"
 msgstr "新着"
 
@@ -2073,11 +2073,11 @@ msgstr "複数"
 msgid "要求されたリソースが見つかりません"
 msgstr "要求されたリソースが見つかりません"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:226
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
 #: src/app/(tabs)/_layout.tsx:38
 #: src/app/(tabs)/settings/_layout.tsx:19
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
+#: src/app/lingui-examples/notification-alert-examples.tsx:226
 msgid "設定"
 msgstr "設定"
 
@@ -2179,8 +2179,8 @@ msgstr "進捗ステップ"
 msgid "遅延翻訳の例を見る →"
 msgstr "遅延翻訳の例を見る →"
 
-#: src/app/performance/lazy-translation.tsx:36
 #: src/app/performance/index.tsx:21
+#: src/app/performance/lazy-translation.tsx:36
 msgid "遅延翻訳パターン"
 msgstr "遅延翻訳パターン"
 
@@ -2216,8 +2216,8 @@ msgstr "重要な更新やメッセージを受け取るために通知を有効
 msgid "長い形式（曜日付き）"
 msgstr "長い形式（曜日付き）"
 
-#: src/app/navigation-patterns/modal-screen.tsx:35
 #: src/app/lingui-examples/modal-dialog-examples.tsx:266
+#: src/app/navigation-patterns/modal-screen.tsx:35
 msgid "閉じる"
 msgstr "閉じる"
 
