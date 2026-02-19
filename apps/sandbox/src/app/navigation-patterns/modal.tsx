@@ -12,9 +12,7 @@ export default function ModalSample() {
   };
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
-    >
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.content}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
           <Trans>モーダル表示サンプル</Trans>
@@ -28,9 +26,7 @@ export default function ModalSample() {
           style={({ pressed }) => [
             styles.button,
             {
-              backgroundColor: pressed
-                ? theme.colors.border
-                : theme.colors.primary,
+              backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
             },
           ]}
           onPress={openModal}
@@ -47,8 +43,7 @@ export default function ModalSample() {
           <Text style={[styles.infoText, { color: theme.colors.text }]}>
             <Trans>
               • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
-              下へのスワイプジェスチャーで閉じることができます{"\n"}•
-              親画面との対話をブロックします
+              下へのスワイプジェスチャーで閉じることができます{"\n"}• 親画面との対話をブロックします
             </Trans>
           </Text>
         </View>

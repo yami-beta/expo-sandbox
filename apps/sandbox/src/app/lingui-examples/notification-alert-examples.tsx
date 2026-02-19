@@ -53,9 +53,7 @@ export default function NotificationAlertExamples() {
   const [autoHide, setAutoHide] = useState(true);
 
   // セクション3: システムアラート
-  const [permissionRequests, setPermissionRequests] = useState<
-    Record<PermissionType, boolean>
-  >({
+  const [permissionRequests, setPermissionRequests] = useState<Record<PermissionType, boolean>>({
     camera: false,
     location: false,
     notification: false,
@@ -66,9 +64,7 @@ export default function NotificationAlertExamples() {
     const { type, data } = notification;
     switch (type) {
       case "message":
-        return data?.userName
-          ? t`${data.userName}からのメッセージ`
-          : t`新しいメッセージ`;
+        return data?.userName ? t`${data.userName}からのメッセージ` : t`新しいメッセージ`;
       case "follow":
         return t`新しいフォロワー`;
       case "like":
@@ -243,9 +239,7 @@ export default function NotificationAlertExamples() {
   };
 
   return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
-    >
+    <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
       {/* セクション1: プッシュ通知のシミュレーション */}
       <View style={styles.section}>
         <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>
@@ -257,10 +251,7 @@ export default function NotificationAlertExamples() {
             <Trans>ユーザー名</Trans>
           </Text>
           <TextInput
-            style={[
-              styles.input,
-              { color: theme.colors.text, borderColor: theme.colors.border },
-            ]}
+            style={[styles.input, { color: theme.colors.text, borderColor: theme.colors.border }]}
             value={userName}
             onChangeText={setUserName}
             placeholder={t`ユーザー名を入力`}
@@ -275,9 +266,7 @@ export default function NotificationAlertExamples() {
           <View style={styles.counterContainer}>
             <TouchableOpacity
               style={styles.counterButton}
-              onPress={() =>
-                setNotificationCount(Math.max(0, notificationCount - 1))
-              }
+              onPress={() => setNotificationCount(Math.max(0, notificationCount - 1))}
             >
               <Text style={styles.counterButtonText}>-</Text>
             </TouchableOpacity>
@@ -333,25 +322,12 @@ export default function NotificationAlertExamples() {
             {notifications.slice(0, 3).map((notification) => (
               <View
                 key={notification.id}
-                style={[
-                  styles.notificationItem,
-                  { backgroundColor: theme.colors.card },
-                ]}
+                style={[styles.notificationItem, { backgroundColor: theme.colors.card }]}
               >
-                <Text
-                  style={[
-                    styles.notificationTitle,
-                    { color: theme.colors.text },
-                  ]}
-                >
+                <Text style={[styles.notificationTitle, { color: theme.colors.text }]}>
                   {notification.title}
                 </Text>
-                <Text
-                  style={[
-                    styles.notificationBody,
-                    { color: theme.colors.text + "CC" },
-                  ]}
-                >
+                <Text style={[styles.notificationBody, { color: theme.colors.text + "CC" }]}>
                   {notification.body}
                 </Text>
               </View>
@@ -360,16 +336,8 @@ export default function NotificationAlertExamples() {
         )}
 
         {notifications.length > 0 && (
-          <TouchableOpacity
-            style={styles.clearButton}
-            onPress={() => setNotifications([])}
-          >
-            <Text
-              style={[
-                styles.clearButtonText,
-                { color: theme.colors.notification },
-              ]}
-            >
+          <TouchableOpacity style={styles.clearButton} onPress={() => setNotifications([])}>
+            <Text style={[styles.clearButtonText, { color: theme.colors.notification }]}>
               <Trans>すべてクリア</Trans>
             </Text>
           </TouchableOpacity>
@@ -438,10 +406,7 @@ export default function NotificationAlertExamples() {
                 <TouchableOpacity
                   style={styles.toastAction}
                   onPress={() => {
-                    Alert.alert(
-                      t`アクション`,
-                      t`${toast.action}を実行しました`,
-                    );
+                    Alert.alert(t`アクション`, t`${toast.action}を実行しました`);
                     removeToast(toast.id);
                   }}
                 >
@@ -467,9 +432,7 @@ export default function NotificationAlertExamples() {
             style={[
               styles.button,
               {
-                backgroundColor: permissionRequests.camera
-                  ? "#4CAF50"
-                  : theme.colors.primary,
+                backgroundColor: permissionRequests.camera ? "#4CAF50" : theme.colors.primary,
               },
             ]}
             onPress={() => requestPermission("camera")}
@@ -483,9 +446,7 @@ export default function NotificationAlertExamples() {
             style={[
               styles.button,
               {
-                backgroundColor: permissionRequests.location
-                  ? "#4CAF50"
-                  : theme.colors.primary,
+                backgroundColor: permissionRequests.location ? "#4CAF50" : theme.colors.primary,
               },
             ]}
             onPress={() => requestPermission("location")}
@@ -499,9 +460,7 @@ export default function NotificationAlertExamples() {
             style={[
               styles.button,
               {
-                backgroundColor: permissionRequests.notification
-                  ? "#4CAF50"
-                  : theme.colors.primary,
+                backgroundColor: permissionRequests.notification ? "#4CAF50" : theme.colors.primary,
               },
             ]}
             onPress={() => requestPermission("notification")}

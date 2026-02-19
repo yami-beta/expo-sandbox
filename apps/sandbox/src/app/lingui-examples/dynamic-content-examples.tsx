@@ -1,13 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from "react-native";
 
 // 型定義
 type ApiStatus = "pending" | "processing" | "completed" | "failed";
@@ -15,13 +8,7 @@ type OrderStatus = "new" | "shipped" | "delivered";
 type Category = "technology" | "lifestyle" | "business";
 
 // ステータスバッジコンポーネント
-function StatusBadge({
-  status,
-  type,
-}: {
-  status: string;
-  type: "api" | "order";
-}) {
+function StatusBadge({ status, type }: { status: string; type: "api" | "order" }) {
   const { t } = useLingui();
 
   const getStatusColor = () => {
@@ -121,10 +108,7 @@ function CategorySelector({
         {categories.map((cat) => (
           <TouchableOpacity
             key={cat}
-            style={[
-              styles.categoryButton,
-              category === cat && styles.categoryButtonActive,
-            ]}
+            style={[styles.categoryButton, category === cat && styles.categoryButtonActive]}
             onPress={() => onCategoryChange(cat)}
           >
             <Text
@@ -197,12 +181,7 @@ export default function DynamicContentExamples() {
   const [orderStatus, setOrderStatus] = useState<OrderStatus>("new");
   const [category, setCategory] = useState<Category>("technology");
 
-  const apiStatuses: ApiStatus[] = [
-    "pending",
-    "processing",
-    "completed",
-    "failed",
-  ];
+  const apiStatuses: ApiStatus[] = ["pending", "processing", "completed", "failed"];
   const orderStatuses: OrderStatus[] = ["new", "shipped", "delivered"];
 
   return (
@@ -228,17 +207,11 @@ export default function DynamicContentExamples() {
               {apiStatuses.map((status) => (
                 <TouchableOpacity
                   key={status}
-                  style={[
-                    styles.button,
-                    apiStatus === status && styles.buttonActive,
-                  ]}
+                  style={[styles.button, apiStatus === status && styles.buttonActive]}
                   onPress={() => setApiStatus(status)}
                 >
                   <Text
-                    style={[
-                      styles.buttonText,
-                      apiStatus === status && styles.buttonTextActive,
-                    ]}
+                    style={[styles.buttonText, apiStatus === status && styles.buttonTextActive]}
                   >
                     {status}
                   </Text>
@@ -257,17 +230,11 @@ export default function DynamicContentExamples() {
               {orderStatuses.map((status) => (
                 <TouchableOpacity
                   key={status}
-                  style={[
-                    styles.button,
-                    orderStatus === status && styles.buttonActive,
-                  ]}
+                  style={[styles.button, orderStatus === status && styles.buttonActive]}
                   onPress={() => setOrderStatus(status)}
                 >
                   <Text
-                    style={[
-                      styles.buttonText,
-                      orderStatus === status && styles.buttonTextActive,
-                    ]}
+                    style={[styles.buttonText, orderStatus === status && styles.buttonTextActive]}
                   >
                     {status}
                   </Text>
@@ -282,10 +249,7 @@ export default function DynamicContentExamples() {
           <Text style={styles.sectionTitle}>
             <Trans>2. カテゴリー/タグの翻訳</Trans>
           </Text>
-          <CategorySelector
-            category={category}
-            onCategoryChange={setCategory}
-          />
+          <CategorySelector category={category} onCategoryChange={setCategory} />
         </View>
 
         {/* セクション3: フォールバック戦略 */}

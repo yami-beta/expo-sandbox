@@ -23,8 +23,8 @@ jobs:
       - name: Run ESLint
         run: pnpm -C apps/sandbox lint:expo
 
-      - name: Check Prettier formatting
-        run: pnpm -C apps/sandbox lint:prettier
+      - name: Check formatting
+        run: pnpm -C apps/sandbox lint:format
 
   typecheck:
     name: Type Check

@@ -1,29 +1,14 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { useState, useMemo, useCallback, memo } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Pressable,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList, Pressable, TextInput } from "react-native";
 
 // メモ化されたリストアイテムコンポーネント
-const ListItem = memo(function ListItem({
-  item,
-  index,
-}: {
-  item: string;
-  index: number;
-}) {
+const ListItem = memo(function ListItem({ item, index }: { item: string; index: number }) {
   const { t } = useLingui();
 
   return (
     <View style={styles.listItem}>
-      <Text style={styles.listItemText}>
-        {t`アイテム ${index + 1}: ${item}`}
-      </Text>
+      <Text style={styles.listItemText}>{t`アイテム ${index + 1}: ${item}`}</Text>
     </View>
   );
 });
@@ -34,9 +19,7 @@ const NonMemoizedItem = ({ item, index }: { item: string; index: number }) => {
 
   return (
     <View style={styles.listItem}>
-      <Text style={styles.listItemText}>
-        {t`アイテム ${index + 1}: ${item}`}
-      </Text>
+      <Text style={styles.listItemText}>{t`アイテム ${index + 1}: ${item}`}</Text>
     </View>
   );
 };
@@ -72,9 +55,7 @@ const HeaderSection = ({
         <Trans>最適化サンプル</Trans>
       </Text>
       <Text style={styles.description}>
-        <Trans>
-          useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。
-        </Trans>
+        <Trans>useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。</Trans>
       </Text>
 
       {/* 最適化の切り替え */}
@@ -89,23 +70,12 @@ const HeaderSection = ({
             setRenderCount(renderCount + 1);
           }}
         >
-          <Text
-            style={[
-              styles.buttonText,
-              useMemoization && styles.buttonTextActive,
-            ]}
-          >
-            {useMemoization ? (
-              <Trans>メモ化: 有効</Trans>
-            ) : (
-              <Trans>メモ化: 無効</Trans>
-            )}
+          <Text style={[styles.buttonText, useMemoization && styles.buttonTextActive]}>
+            {useMemoization ? <Trans>メモ化: 有効</Trans> : <Trans>メモ化: 無効</Trans>}
           </Text>
         </Pressable>
         <Text style={styles.hint}>
-          <Trans>
-            メモ化を無効にすると、検索時の再レンダリングが増加します
-          </Trans>
+          <Trans>メモ化を無効にすると、検索時の再レンダリングが増加します</Trans>
         </Text>
       </View>
 
@@ -144,9 +114,7 @@ const HeaderSection = ({
           <Trans>最適化されたリスト表示</Trans>
         </Text>
         <Text style={styles.sectionDescription}>
-          <Trans>
-            FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。
-          </Trans>
+          <Trans>FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。</Trans>
         </Text>
       </View>
     </View>
@@ -163,8 +131,7 @@ export default function OptimizationScreen() {
   const allItems = useMemo(
     () =>
       Array.from({ length: 100 }, (_, i) => {
-        const type =
-          i % 3 === 0 ? t`商品` : i % 3 === 1 ? t`サービス` : t`カテゴリー`;
+        const type = i % 3 === 0 ? t`商品` : i % 3 === 1 ? t`サービス` : t`カテゴリー`;
         return `${type} ${i + 1}`;
       }),
     [t],
@@ -173,32 +140,21 @@ export default function OptimizationScreen() {
   // メモ化された検索結果
   const filteredItems = useMemo(() => {
     if (!searchQuery) return allItems;
-    return allItems.filter((item) =>
-      item.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
+    return allItems.filter((item) => item.toLowerCase().includes(searchQuery.toLowerCase()));
   }, [allItems, searchQuery]);
 
   // メモ化された統計情報
   const statistics = useMemo(() => {
     const total = filteredItems.length;
-    const products = filteredItems.filter((item) =>
-      item.includes(t`商品`),
-    ).length;
-    const services = filteredItems.filter((item) =>
-      item.includes(t`サービス`),
-    ).length;
-    const categories = filteredItems.filter((item) =>
-      item.includes(t`カテゴリー`),
-    ).length;
+    const products = filteredItems.filter((item) => item.includes(t`商品`)).length;
+    const services = filteredItems.filter((item) => item.includes(t`サービス`)).length;
+    const categories = filteredItems.filter((item) => item.includes(t`カテゴリー`)).length;
 
     return { total, products, services, categories };
   }, [filteredItems, t]);
 
   // メモ化されたkeyExtractor
-  const keyExtractor = useCallback(
-    (item: string, index: number) => `${item}-${index}`,
-    [],
-  );
+  const keyExtractor = useCallback((item: string, index: number) => `${item}-${index}`, []);
 
   // メモ化されたrenderItem
   const renderItem = useCallback(

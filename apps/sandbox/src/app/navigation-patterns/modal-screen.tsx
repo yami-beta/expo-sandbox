@@ -29,9 +29,7 @@ export default function ModalScreen() {
           ]}
           onPress={closeModal}
         >
-          <Text
-            style={[styles.closeButtonText, { color: theme.colors.primary }]}
-          >
+          <Text style={[styles.closeButtonText, { color: theme.colors.primary }]}>
             <Trans>閉じる</Trans>
           </Text>
         </Pressable>
@@ -44,8 +42,7 @@ export default function ModalScreen() {
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
           <Trans>
-            この画面はモーダル表示スタイルで表示されています。
-            以下の方法で閉じることができます：
+            この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます：
           </Trans>
         </Text>
 
@@ -77,9 +74,7 @@ export default function ModalScreen() {
           style={({ pressed }) => [
             styles.primaryButton,
             {
-              backgroundColor: pressed
-                ? theme.colors.border
-                : theme.colors.primary,
+              backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
             },
           ]}
           onPress={closeModal}

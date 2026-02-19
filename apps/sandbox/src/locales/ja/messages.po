@@ -13,56 +13,56 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/lingui-examples/plural-examples.tsx:342
+#: src/app/lingui-examples/plural-examples.tsx:304
 msgid "_0、_1など正確な値のマッチングが可能"
 msgstr "_0、_1など正確な値のマッチングが可能"
 
-#: src/app/lingui-examples/plural-examples.tsx:229
+#: src/app/lingui-examples/plural-examples.tsx:206
 msgid "_0で値が0の場合の特別処理"
 msgstr "_0で値が0の場合の特別処理"
 
 #. placeholder {0}: data.count
-#: src/app/lingui-examples/notification-alert-examples.tsx:89
+#: src/app/lingui-examples/notification-alert-examples.tsx:85
 msgid "{0, plural, one {# 件の新しいメッセージがあります} other {# 件の新しいメッセージがあります}}"
 msgstr "{0, plural, one {# 件の新しいメッセージがあります} other {# 件の新しいメッセージがあります}}"
 
 #. placeholder {0}: 1
 #. placeholder {0}: 2
 #. placeholder {0}: 3
-#: src/app/lingui-examples/selectordinal-examples.tsx:423
-#: src/app/lingui-examples/selectordinal-examples.tsx:432
-#: src/app/lingui-examples/selectordinal-examples.tsx:441
+#: src/app/lingui-examples/selectordinal-examples.tsx:368
+#: src/app/lingui-examples/selectordinal-examples.tsx:371
+#: src/app/lingui-examples/selectordinal-examples.tsx:374
 msgid "{0, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
 msgstr "{0, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}"
 
 #. placeholder {0}: data.userName
-#: src/app/lingui-examples/notification-alert-examples.tsx:96
+#: src/app/lingui-examples/notification-alert-examples.tsx:92
 msgid "{0}があなたをフォローしました"
 msgstr "{0}があなたをフォローしました"
 
 #. placeholder {0}: data.userName
-#: src/app/lingui-examples/notification-alert-examples.tsx:70
+#: src/app/lingui-examples/notification-alert-examples.tsx:67
 msgid "{0}からのメッセージ"
 msgstr "{0}からのメッセージ"
 
 #. placeholder {0}: toast.action
-#: src/app/lingui-examples/notification-alert-examples.tsx:443
+#: src/app/lingui-examples/notification-alert-examples.tsx:409
 msgid "{0}を実行しました"
 msgstr "{0}を実行しました"
 
-#: src/app/lingui-examples/select-examples.tsx:259
+#: src/app/lingui-examples/select-examples.tsx:227
 msgid "{audience, select, singular {あなたへのお知らせ} plural {皆様へのお知らせ} other {お知らせ}}"
 msgstr "{audience, select, singular {あなたへのお知らせ} plural {皆様へのお知らせ} other {お知らせ}}"
 
-#: src/app/lingui-examples/select-examples.tsx:267
+#: src/app/lingui-examples/select-examples.tsx:235
 msgid "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 msgstr "{audience, select, singular {ご利用ありがとうございます} plural {ご利用いただきありがとうございます} other {ありがとうございます}}"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:470
+#: src/app/lingui-examples/modal-dialog-examples.tsx:380
 msgid "{deleteCount, plural, one {1件のアイテムを削除しますか？} other {#件のアイテムを削除しますか？}}"
 msgstr "{deleteCount, plural, one {1件のアイテムを削除しますか？} other {#件のアイテムを削除しますか？}}"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:295
+#: src/app/lingui-examples/modal-dialog-examples.tsx:223
 msgid "{deleteCount}件のアイテムを削除しました"
 msgstr "{deleteCount}件のアイテムを削除しました"
 
@@ -70,92 +70,92 @@ msgstr "{deleteCount}件のアイテムを削除しました"
 msgid "{field}は必須項目です"
 msgstr "{field}は必須項目です"
 
-#: src/app/lingui-examples/plural-examples.tsx:174
+#: src/app/lingui-examples/plural-examples.tsx:157
 msgid "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
 msgstr "{fileCount, plural, =0 {ファイルが選択されていません} one {1つのファイルが選択されています} other {#個のファイルが選択されています}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:31
+#: src/app/lingui-examples/selectordinal-examples.tsx:24
 msgid "{floor, selectordinal, one {第#階に移動} two {第#階に移動} few {第#階に移動} other {第#階に移動}}"
 msgstr "{floor, selectordinal, one {第#階に移動} two {第#階に移動} few {第#階に移動} other {第#階に移動}}"
 
-#: src/app/lingui-examples/select-examples.tsx:210
+#: src/app/lingui-examples/select-examples.tsx:186
 msgid "{gender, select, male {彼はオンラインです} female {彼女はオンラインです} other {オンラインです}}"
 msgstr "{gender, select, male {彼はオンラインです} female {彼女はオンラインです} other {オンラインです}}"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:360
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:307
 msgid "{homeNotifications, plural, =0 {ホームタブに新着通知はありません} one {ホームタブに # 件の新着通知} other {ホームタブに # 件の新着通知}}"
 msgstr "{homeNotifications, plural, =0 {ホームタブに新着通知はありません} one {ホームタブに # 件の新着通知} other {ホームタブに # 件の新着通知}}"
 
-#: src/app/lingui-examples/plural-examples.tsx:137
+#: src/app/lingui-examples/plural-examples.tsx:127
 msgid "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
 msgstr "{itemCount, plural, one {1件のアイテム} other {#件のアイテム}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:289
+#: src/app/lingui-examples/selectordinal-examples.tsx:260
 msgid "{level, selectordinal, one {レベル#} two {レベル#} few {レベル#} other {レベル#}}"
 msgstr "{level, selectordinal, one {レベル#} two {レベル#} few {レベル#} other {レベル#}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:261
+#: src/app/lingui-examples/selectordinal-examples.tsx:232
 msgid "{level, selectordinal, one {第#階層} two {第#階層} few {第#階層} other {第#階層}}"
 msgstr "{level, selectordinal, one {第#階層} two {第#階層} few {第#階層} other {第#階層}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:275
+#: src/app/lingui-examples/selectordinal-examples.tsx:246
 msgid "{level, selectordinal, one {第#階層のディレクトリ} two {第#階層のディレクトリ} few {第#階層のディレクトリ} other {第#階層のディレクトリ}}"
 msgstr "{level, selectordinal, one {第#階層のディレクトリ} two {第#階層のディレクトリ} few {第#階層のディレクトリ} other {第#階層のディレクトリ}}"
 
-#: src/app/lingui-examples/plural-examples.tsx:221
+#: src/app/lingui-examples/plural-examples.tsx:198
 msgid "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
 msgstr "{notificationCount, plural, =0 {新しい通知はありません} one {1件の新着通知} other {#件の新着通知}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:343
+#: src/app/lingui-examples/selectordinal-examples.tsx:302
 msgid "{position, selectordinal, one {#番目の要素を選択中} two {#番目の要素を選択中} few {#番目の要素を選択中} other {#番目の要素を選択中}}"
 msgstr "{position, selectordinal, one {#番目の要素を選択中} two {#番目の要素を選択中} few {#番目の要素を選択中} other {#番目の要素を選択中}}"
 
-#: src/app/lingui-examples/select-examples.tsx:352
+#: src/app/lingui-examples/select-examples.tsx:305
 msgid "{possessive, select, my {私のプロフィール} your {あなたのプロフィール} his {彼のプロフィール} her {彼女のプロフィール} their {その人のプロフィール} other {プロフィール}}"
 msgstr "{possessive, select, my {私のプロフィール} your {あなたのプロフィール} his {彼のプロフィール} her {彼女のプロフィール} their {その人のプロフィール} other {プロフィール}}"
 
-#: src/app/lingui-examples/select-examples.tsx:40
+#: src/app/lingui-examples/select-examples.tsx:27
 msgid "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 msgstr "{possessive, select, my {私のプロフィールを入力} your {あなたのプロフィールを入力} his {彼のプロフィールを入力} her {彼女のプロフィールを入力} their {その人のプロフィールを入力} other {プロフィールを入力}}"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:376
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:323
 msgid "{profileNotifications, plural, =0 {プロフィールタブに更新はありません} one {プロフィールタブに # 件の更新} other {プロフィールタブに # 件の更新}}"
 msgstr "{profileNotifications, plural, =0 {プロフィールタブに更新はありません} one {プロフィールタブに # 件の更新} other {プロフィールタブに # 件の更新}}"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:368
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:315
 msgid "{settingsNotifications, plural, =0 {設定タブに未読メッセージはありません} one {設定タブに # 件の未読メッセージ} other {設定タブに # 件の未読メッセージ}}"
 msgstr "{settingsNotifications, plural, =0 {設定タブに未読メッセージはありません} one {設定タブに # 件の未読メッセージ} other {設定タブに # 件の未読メッセージ}}"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:205
+#: src/app/lingui-examples/selectordinal-examples.tsx:182
 msgid "{step, selectordinal, one {第#段階: 準備} two {第#段階: 実行} few {第#段階: 確認} other {第#段階: 完了確認}}"
 msgstr "{step, selectordinal, one {第#段階: 準備} two {第#段階: 実行} few {第#段階: 確認} other {第#段階: 完了確認}}"
 
-#: src/app/lingui-examples/select-examples.tsx:431
+#: src/app/lingui-examples/select-examples.tsx:373
 msgid "{subject, select, i {私がタスクを完了しました} you {あなたがタスクを完了しました} he {彼がタスクを完了しました} she {彼女がタスクを完了しました} they {彼らがタスクを完了しました} other {タスクを完了しました}}"
 msgstr "{subject, select, i {私がタスクを完了しました} you {あなたがタスクを完了しました} he {彼がタスクを完了しました} she {彼女がタスクを完了しました} they {彼らがタスクを完了しました} other {タスクを完了しました}}"
 
-#: src/app/lingui-examples/plural-examples.tsx:32
+#: src/app/lingui-examples/plural-examples.tsx:25
 msgid "{taskCount, plural, =0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
 msgstr "{taskCount, plural, =0 {タスクはありません。新しいタスクを追加してください} one {あと1つのタスクがあります} other {あと#個のタスクがあります}}"
 
-#: src/app/lingui-examples/select-examples.tsx:199
+#: src/app/lingui-examples/select-examples.tsx:175
 msgid "{userName}さんが{gender, select, male {彼のメッセージを送信しました} female {彼女のメッセージを送信しました} other {メッセージを送信しました}}"
 msgstr "{userName}さんが{gender, select, male {彼のメッセージを送信しました} female {彼女のメッセージを送信しました} other {メッセージを送信しました}}"
 
-#: src/app/lingui-examples/plural-examples.tsx:303
+#: src/app/lingui-examples/plural-examples.tsx:269
 msgid "{userName}さんには{friendCount, plural, =0 {友達がいません} one {友達が1人います} other {友達が#人います}}"
 msgstr "{userName}さんには{friendCount, plural, =0 {友達がいません} one {友達が1人います} other {友達が#人います}}"
 
-#: src/app/lingui-examples/select-examples.tsx:523
+#: src/app/lingui-examples/select-examples.tsx:447
 msgid "{userStatus, select, online {オンライン} offline {オフライン} away {離席中} busy {取り込み中} other {不明}}"
 msgstr "{userStatus, select, online {オンライン} offline {オフライン} away {離席中} busy {取り込み中} other {不明}}"
 
 #. placeholder {0}: actionSheetOptions[index]?.label
-#: src/app/lingui-examples/modal-dialog-examples.tsx:309
+#: src/app/lingui-examples/modal-dialog-examples.tsx:237
 msgid "「{0}」を選択しました"
 msgstr "「{0}」を選択しました"
 
-#: src/app/navigation-patterns/form-sheet.tsx:50
+#: src/app/navigation-patterns/form-sheet.tsx:44
 msgid ""
 "【iOS】\n"
 "• 画面全体を覆わない小さめのモーダル\n"
@@ -183,87 +183,87 @@ msgstr ""
 "【共通】\n"
 "• 下へのスワイプジェスチャーで閉じることができます"
 
-#: src/app/lingui-examples/plural-examples.tsx:345
+#: src/app/lingui-examples/plural-examples.tsx:307
 msgid "#記号: カウント数値を表示する場所"
 msgstr "#記号: カウント数値を表示する場所"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:501
+#: src/app/lingui-examples/selectordinal-examples.tsx:420
 msgid "#記号: 実際の数値を表示する場所を指定"
 msgstr "#記号: 実際の数値を表示する場所を指定"
 
-#: src/app/navigation-patterns/modal-screen.tsx:54
+#: src/app/navigation-patterns/modal-screen.tsx:51
 msgid "• 「閉じる」ボタンをタップ"
 msgstr "• 「閉じる」ボタンをタップ"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:345
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:292
 msgid "• 99件を超える場合は「99+」と表示"
 msgstr "• 99件を超える場合は「99+」と表示"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:449
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:407
 msgid "• ECサイトのカテゴリナビゲーション"
 msgstr "• ECサイトのカテゴリナビゲーション"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:342
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:289
 msgid "• Pluralマクロで通知数の適切な表示"
 msgstr "• Pluralマクロで通知数の適切な表示"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:431
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:389
 msgid "• クリック可能な各階層へのジャンプ機能"
 msgstr "• クリック可能な各階層へのジャンプ機能"
 
-#: src/app/performance/lazy-translation.tsx:102
+#: src/app/performance/lazy-translation.tsx:100
 msgid "• タブやモーダルの遅延初期化"
 msgstr "• タブやモーダルの遅延初期化"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:452
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:410
 msgid "• ドキュメントサイトの階層表示"
 msgstr "• ドキュメントサイトの階層表示"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:434
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:392
 msgid "• パスが長い場合の省略表示（...）"
 msgstr "• パスが長い場合の省略表示（...）"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:348
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:295
 msgid "• バッジタイプ（数値/テキスト/ドット）の切り替え"
 msgstr "• バッジタイプ（数値/テキスト/ドット）の切り替え"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:455
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:413
 msgid "• ファイルシステムのパス表示"
 msgstr "• ファイルシステムのパス表示"
 
-#: src/app/performance/lazy-translation.tsx:99
+#: src/app/performance/lazy-translation.tsx:97
 msgid "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
 msgstr "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
 
-#: src/app/navigation-patterns/modal-screen.tsx:57
+#: src/app/navigation-patterns/modal-screen.tsx:54
 msgid "• 上から下へスワイプ（iOS）"
 msgstr "• 上から下へスワイプ（iOS）"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:351
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:298
 msgid "• 動的なタブラベルの更新"
 msgstr "• 動的なタブラベルの更新"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:437
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:395
 msgid "• 区切り文字のカスタマイズ"
 msgstr "• 区切り文字のカスタマイズ"
 
-#: src/app/performance/lazy-translation.tsx:96
+#: src/app/performance/lazy-translation.tsx:94
 msgid "• 大量データの初期化コスト削減"
 msgstr "• 大量データの初期化コスト削減"
 
-#: src/app/navigation-patterns/modal-screen.tsx:60
+#: src/app/navigation-patterns/modal-screen.tsx:57
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• 戻るジェスチャーを使用（Android）"
 
-#: src/app/performance/lazy-translation.tsx:93
+#: src/app/performance/lazy-translation.tsx:91
 msgid "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 msgstr "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:440
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:398
 msgid "• 現在位置の視覚的な強調"
 msgstr "• 現在位置の視覚的な強調"
 
-#: src/app/navigation-patterns/modal.tsx:48
+#: src/app/navigation-patterns/modal.tsx:44
 msgid ""
 "• 画面全体を覆います\n"
 "• 下から上へアニメーションします\n"
@@ -275,11 +275,11 @@ msgstr ""
 "• 下へのスワイプジェスチャーで閉じることができます\n"
 "• 親画面との対話をブロックします"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:458
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:416
 msgid "• 管理画面の階層メニュー"
 msgstr "• 管理画面の階層メニュー"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:428
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:386
 msgid "• 階層的なナビゲーションパスの管理"
 msgstr "• 階層的なナビゲーションパスの管理"
 
@@ -287,15 +287,15 @@ msgstr "• 階層的なナビゲーションパスの管理"
 msgid "⚠️ React Nativeでの制限事項"
 msgstr "⚠️ React Nativeでの制限事項"
 
-#: src/app/performance/lazy-translation.tsx:90
+#: src/app/performance/lazy-translation.tsx:88
 msgid "✅ 実際に効果があるケース"
 msgstr "✅ 実際に効果があるケース"
 
-#: src/app/lingui-examples/select-examples.tsx:145
+#: src/app/lingui-examples/select-examples.tsx:132
 msgid "✅ 適切な使用例（文法的変化）"
 msgstr "✅ 適切な使用例（文法的変化）"
 
-#: src/app/lingui-examples/select-examples.tsx:452
+#: src/app/lingui-examples/select-examples.tsx:392
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ 不適切な使用例（アンチパターン）"
 
@@ -303,11 +303,11 @@ msgstr "❌ 不適切な使用例（アンチパターン）"
 msgid "📚 Linguiの遅延ロードの仕組み"
 msgstr "📚 Linguiの遅延ロードの仕組み"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:218
+#: src/app/lingui-examples/dynamic-content-examples.tsx:197
 msgid "1. APIステータスの翻訳"
 msgstr "1. APIステータスの翻訳"
 
-#: src/app/performance/optimization.tsx:242
+#: src/app/performance/optimization.tsx:198
 msgid "1. useMemoで翻訳結果と計算結果をキャッシュ"
 msgstr "1. useMemoで翻訳結果と計算結果をキャッシュ"
 
@@ -315,7 +315,7 @@ msgstr "1. useMemoで翻訳結果と計算結果をキャッシュ"
 msgid "1. エラーコード管理"
 msgstr "1. エラーコード管理"
 
-#: src/app/performance/lazy-translation.tsx:197
+#: src/app/performance/lazy-translation.tsx:187
 msgid "1. 選択肢やマッピングを定数として定義できる"
 msgstr "1. 選択肢やマッピングを定数として定義できる"
 
@@ -323,107 +323,107 @@ msgstr "1. 選択肢やマッピングを定数として定義できる"
 msgid "12時間表記"
 msgstr "12時間表記"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:321
+#: src/app/lingui-examples/error-handling-examples.tsx:307
 msgid "18-120"
 msgstr "18-120"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:455
+#: src/app/lingui-examples/selectordinal-examples.tsx:382
 msgid "1個のアイテム"
 msgstr "1個のアイテム"
 
-#: src/app/performance/lazy-translation.tsx:200
+#: src/app/performance/lazy-translation.tsx:190
 msgid "2. TypeScriptの型安全性を保てる"
 msgstr "2. TypeScriptの型安全性を保てる"
 
-#: src/app/performance/optimization.tsx:245
+#: src/app/performance/optimization.tsx:201
 msgid "2. useCallbackでコールバック関数を安定化"
 msgstr "2. useCallbackでコールバック関数を安定化"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:283
+#: src/app/lingui-examples/dynamic-content-examples.tsx:250
 msgid "2. カテゴリー/タグの翻訳"
 msgstr "2. カテゴリー/タグの翻訳"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:270
+#: src/app/lingui-examples/error-handling-examples.tsx:260
 msgid "2. フォームバリデーション"
 msgstr "2. フォームバリデーション"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:458
+#: src/app/lingui-examples/selectordinal-examples.tsx:385
 msgid "2個のアイテム"
 msgstr "2個のアイテム"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:407
+#: src/app/lingui-examples/error-handling-examples.tsx:393
 msgid "3. APIエラーハンドリング"
 msgstr "3. APIエラーハンドリング"
 
-#: src/app/performance/optimization.tsx:248
+#: src/app/performance/optimization.tsx:204
 msgid "3. React.memoでコンポーネントの再レンダリングを防止"
 msgstr "3. React.memoでコンポーネントの再レンダリングを防止"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:294
+#: src/app/lingui-examples/dynamic-content-examples.tsx:258
 msgid "3. フォールバック戦略"
 msgstr "3. フォールバック戦略"
 
-#: src/app/performance/lazy-translation.tsx:203
+#: src/app/performance/lazy-translation.tsx:193
 msgid "3. 翻訳が必要な時だけ実行される（遅延評価）"
 msgstr "3. 翻訳が必要な時だけ実行される（遅延評価）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:461
+#: src/app/lingui-examples/selectordinal-examples.tsx:388
 msgid "3個のアイテム"
 msgstr "3個のアイテム"
 
-#: src/app/performance/optimization.tsx:251
+#: src/app/performance/optimization.tsx:207
 msgid "4. FlatListの最適化オプションを活用"
 msgstr "4. FlatListの最適化オプションを活用"
 
-#: src/app/performance/lazy-translation.tsx:206
+#: src/app/performance/lazy-translation.tsx:196
 msgid "4. コードの可読性と保守性が向上する"
 msgstr "4. コードの可読性と保守性が向上する"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:398
+#: src/app/lingui-examples/error-handling-examples.tsx:384
 msgid "401 Unauthorized"
 msgstr "401 Unauthorized"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:397
+#: src/app/lingui-examples/error-handling-examples.tsx:383
 msgid "404 Not Found"
 msgstr "404 Not Found"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:399
+#: src/app/lingui-examples/error-handling-examples.tsx:385
 msgid "408 Timeout"
 msgstr "408 Timeout"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:400
+#: src/app/lingui-examples/error-handling-examples.tsx:386
 msgid "500 Server Error"
 msgstr "500 Server Error"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:401
+#: src/app/lingui-examples/error-handling-examples.tsx:387
 msgid "503 Service Unavailable"
 msgstr "503 Service Unavailable"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:304
+#: src/app/lingui-examples/error-handling-examples.tsx:292
 msgid "8文字以上"
 msgstr "8文字以上"
 
-#: src/app/performance/lazy-translation.tsx:156
+#: src/app/performance/lazy-translation.tsx:150
 msgid "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 msgstr "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 
-#: src/app/lingui-examples/plural-examples.tsx:349
+#: src/app/lingui-examples/plural-examples.tsx:311
 msgid "CLDRルールによる言語の違い"
 msgstr "CLDRルールによる言語の違い"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:286
+#: src/app/lingui-examples/error-handling-examples.tsx:276
 msgid "example@email.com"
 msgstr "example@email.com"
 
-#: src/app/performance/optimization.tsx:147
+#: src/app/performance/optimization.tsx:117
 msgid "FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。"
 msgstr "FlatListとメモ化を組み合わせて、大量のアイテムを効率的に表示します。"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:410
+#: src/app/lingui-examples/error-handling-examples.tsx:396
 msgid "HTTPステータスコードに応じたエラー処理とリトライ機能"
 msgstr "HTTPステータスコードに応じたエラー処理とリトライ機能"
 
-#: src/app/lingui-examples/select-examples.tsx:564
+#: src/app/lingui-examples/select-examples.tsx:486
 msgid "ICU MessageFormatの仕様に基づいて設計されています"
 msgstr "ICU MessageFormatの仕様に基づいて設計されています"
 
@@ -431,7 +431,7 @@ msgstr "ICU MessageFormatの仕様に基づいて設計されています"
 msgid "Linguiを使用したReact Nativeアプリケーションのパフォーマンス最適化テクニックを学習します。"
 msgstr "Linguiを使用したReact Nativeアプリケーションのパフォーマンス最適化テクニックを学習します。"
 
-#: src/app/_layout.tsx:78
+#: src/app/_layout.tsx:75
 #: src/app/(tabs)/index.tsx:12
 msgid "Lingui学習サンプル"
 msgstr "Lingui学習サンプル"
@@ -444,7 +444,7 @@ msgstr "Metro Transformerの利点"
 msgid "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 msgstr "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 
-#: src/app/performance/lazy-translation.tsx:194
+#: src/app/performance/lazy-translation.tsx:184
 msgid "msgマクロを使うメリット"
 msgstr "msgマクロを使うメリット"
 
@@ -456,44 +456,44 @@ msgstr "msgマクロを使用した遅延翻訳や、条件付きメッセージ
 msgid "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 msgstr "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:83
-#: src/app/lingui-examples/modal-dialog-examples.tsx:320
+#: src/app/lingui-examples/modal-dialog-examples.tsx:55
+#: src/app/lingui-examples/modal-dialog-examples.tsx:248
 msgid "OK"
 msgstr "OK"
 
-#: src/app/lingui-examples/plural-examples.tsx:144
+#: src/app/lingui-examples/plural-examples.tsx:130
 msgid "one、otherの形式を使用（日本語はotherのみ）"
 msgstr "one、otherの形式を使用（日本語はotherのみ）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:471
+#: src/app/lingui-examples/selectordinal-examples.tsx:396
 msgid "Plural: 数量を表現（1個、2個、one item, two items）"
 msgstr "Plural: 数量を表現（1個、2個、one item, two items）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:452
+#: src/app/lingui-examples/selectordinal-examples.tsx:379
 msgid "Plural（基数）"
 msgstr "Plural（基数）"
 
-#: src/app/_layout.tsx:84
+#: src/app/_layout.tsx:81
 msgid "Pluralコンポーネント"
 msgstr "Pluralコンポーネント"
 
-#: src/app/lingui-examples/plural-examples.tsx:326
+#: src/app/lingui-examples/plural-examples.tsx:292
 msgid "Pluralコンポーネント vs pluralマクロ"
 msgstr "Pluralコンポーネント vs pluralマクロ"
 
-#: src/app/lingui-examples/plural-examples.tsx:330
+#: src/app/lingui-examples/plural-examples.tsx:295
 msgid "Pluralコンポーネント: JSX要素を返す（React要素内で使用）"
 msgstr "Pluralコンポーネント: JSX要素を返す（React要素内で使用）"
 
-#: src/app/lingui-examples/plural-examples.tsx:119
+#: src/app/lingui-examples/plural-examples.tsx:112
 msgid "Pluralコンポーネントの基本使用例"
 msgstr "Pluralコンポーネントの基本使用例"
 
-#: src/app/lingui-examples/plural-examples.tsx:336
+#: src/app/lingui-examples/plural-examples.tsx:298
 msgid "pluralマクロ: 文字列を返す（文字列プロパティで使用）"
 msgstr "pluralマクロ: 文字列を返す（文字列プロパティで使用）"
 
-#: src/app/lingui-examples/plural-examples.tsx:241
+#: src/app/lingui-examples/plural-examples.tsx:218
 msgid "pluralマクロで文字列プロパティに対応"
 msgstr "pluralマクロで文字列プロパティに対応"
 
@@ -501,7 +501,7 @@ msgstr "pluralマクロで文字列プロパティに対応"
 msgid "Pluralマクロの使い方"
 msgstr "Pluralマクロの使い方"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:447
+#: src/app/lingui-examples/modal-dialog-examples.tsx:361
 msgid "React Native Alertを表示"
 msgstr "React Native Alertを表示"
 
@@ -513,35 +513,35 @@ msgstr "React Nativeでの制限事項"
 msgid "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
 msgstr "React Nativeでは、Webと異なり言語別の動的インポート（コードスプリッティング）に制限があります。 そのため、メッセージレベルでの最適化に注力することが重要です。"
 
-#: src/app/lingui-examples/select-examples.tsx:583
+#: src/app/lingui-examples/select-examples.tsx:499
 msgid "Select vs select"
 msgstr "Select vs select"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:411
+#: src/app/lingui-examples/selectordinal-examples.tsx:356
 msgid "SelectOrdinal vs Plural の違い"
 msgstr "SelectOrdinal vs Plural の違い"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:505
+#: src/app/lingui-examples/selectordinal-examples.tsx:424
 msgid "SelectOrdinal vs selectOrdinal"
 msgstr "SelectOrdinal vs selectOrdinal"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:466
+#: src/app/lingui-examples/selectordinal-examples.tsx:393
 msgid "SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）"
 msgstr "SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:420
+#: src/app/lingui-examples/selectordinal-examples.tsx:365
 msgid "SelectOrdinal（序数）"
 msgstr "SelectOrdinal（序数）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:509
+#: src/app/lingui-examples/selectordinal-examples.tsx:427
 msgid "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）"
 
-#: src/app/_layout.tsx:96
+#: src/app/_layout.tsx:93
 msgid "SelectOrdinalマクロ"
 msgstr "SelectOrdinalマクロ"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:515
+#: src/app/lingui-examples/selectordinal-examples.tsx:430
 msgid "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 
@@ -549,23 +549,23 @@ msgstr "selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）"
 msgid "SelectOrdinalマクロの使い方"
 msgstr "SelectOrdinalマクロの使い方"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:483
+#: src/app/lingui-examples/selectordinal-examples.tsx:408
 msgid "SelectOrdinalマクロの特徴"
 msgstr "SelectOrdinalマクロの特徴"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:401
+#: src/app/lingui-examples/selectordinal-examples.tsx:348
 msgid "selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます"
 msgstr "selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます"
 
-#: src/app/lingui-examples/select-examples.tsx:587
+#: src/app/lingui-examples/select-examples.tsx:502
 msgid "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
 msgstr "Selectコンポーネント: JSX要素を返す（@lingui/react/macro）"
 
-#: src/app/_layout.tsx:90
+#: src/app/_layout.tsx:87
 msgid "Selectマクロ"
 msgstr "Selectマクロ"
 
-#: src/app/lingui-examples/select-examples.tsx:592
+#: src/app/lingui-examples/select-examples.tsx:505
 msgid "selectマクロ: 文字列を返す（@lingui/core/macro）"
 msgstr "selectマクロ: 文字列を返す（@lingui/core/macro）"
 
@@ -573,35 +573,35 @@ msgstr "selectマクロ: 文字列を返す（@lingui/core/macro）"
 msgid "Selectマクロの使い方"
 msgstr "Selectマクロの使い方"
 
-#: src/app/lingui-examples/select-examples.tsx:561
+#: src/app/lingui-examples/select-examples.tsx:483
 msgid "Selectマクロの設計思想"
 msgstr "Selectマクロの設計思想"
 
-#: src/app/lingui-examples/select-examples.tsx:148
+#: src/app/lingui-examples/select-examples.tsx:135
 msgid "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 msgstr "Selectマクロは自然言語の文法的変化を扱うために設計されています"
 
-#: src/app/lingui-examples/format-examples.tsx:185
+#: src/app/lingui-examples/format-examples.tsx:184
 msgid "TextInputでの使用例"
 msgstr "TextInputでの使用例"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:364
+#: src/app/lingui-examples/selectordinal-examples.tsx:323
 msgid "TextInputのplaceholderなど文字列が必要な場合"
 msgstr "TextInputのplaceholderなど文字列が必要な場合"
 
-#: src/app/lingui-examples/select-examples.tsx:363
+#: src/app/lingui-examples/select-examples.tsx:316
 msgid "TextInputのplaceholderには文字列が必要なため、selectマクロを使用"
 msgstr "TextInputのplaceholderには文字列が必要なため、selectマクロを使用"
 
-#: src/app/lingui-examples/plural-examples.tsx:265
+#: src/app/lingui-examples/plural-examples.tsx:239
 msgid "TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用"
 msgstr "TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用"
 
-#: src/app/lingui-examples/plural-examples.tsx:314
+#: src/app/lingui-examples/plural-examples.tsx:280
 msgid "TransコンポーネントとPluralコンポーネントの組み合わせ"
 msgstr "TransコンポーネントとPluralコンポーネントの組み合わせ"
 
-#: src/app/performance/optimization.tsx:75
+#: src/app/performance/optimization.tsx:58
 msgid "useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。"
 msgstr "useMemo、useCallback、React.memoを使用した翻訳の最適化パターンを実演します。"
 
@@ -614,49 +614,49 @@ msgid "Webと異なり、React Nativeでは動的インポートができない�
 msgstr "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
 
 #. placeholder {0}: index + 1
-#: src/app/performance/optimization.tsx:25
-#: src/app/performance/optimization.tsx:38
+#: src/app/performance/optimization.tsx:11
+#: src/app/performance/optimization.tsx:22
 msgid "アイテム {0}: {item}"
 msgstr "アイテム {0}: {item}"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:442
+#: src/app/lingui-examples/notification-alert-examples.tsx:409
 msgid "アクション"
 msgstr "アクション"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:386
+#: src/app/lingui-examples/modal-dialog-examples.tsx:306
 msgid "アクションシート"
 msgstr "アクションシート"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:393
+#: src/app/lingui-examples/modal-dialog-examples.tsx:313
 msgid "アクションシートを表示"
 msgstr "アクションシートを表示"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:158
+#: src/app/lingui-examples/dynamic-content-examples.tsx:142
 msgid "アクティブ"
 msgstr "アクティブ"
 
-#: src/app/lingui-examples/select-examples.tsx:396
+#: src/app/lingui-examples/select-examples.tsx:344
 msgid "あなた"
 msgstr "あなた"
 
-#: src/app/lingui-examples/select-examples.tsx:309
+#: src/app/lingui-examples/select-examples.tsx:271
 msgid "あなたの"
 msgstr "あなたの"
 
 #. placeholder {0}: data.itemName
-#: src/app/lingui-examples/notification-alert-examples.tsx:100
+#: src/app/lingui-examples/notification-alert-examples.tsx:96
 msgid "あなたの{0}がいいねされました"
 msgstr "あなたの{0}がいいねされました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:101
+#: src/app/lingui-examples/notification-alert-examples.tsx:97
 msgid "あなたの投稿がいいねされました"
 msgstr "あなたの投稿がいいねされました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:103
+#: src/app/lingui-examples/notification-alert-examples.tsx:99
 msgid "アプリの更新が利用可能です"
 msgstr "アプリの更新が利用可能です"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:382
+#: src/app/lingui-examples/notification-alert-examples.tsx:350
 msgid "アプリ内通知（トースト）"
 msgstr "アプリ内通知（トースト）"
 
@@ -664,11 +664,11 @@ msgstr "アプリ内通知（トースト）"
 msgid "アメリカ"
 msgstr "アメリカ"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:75
+#: src/app/lingui-examples/notification-alert-examples.tsx:71
 msgid "いいねを受け取りました"
 msgstr "いいねを受け取りました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:318
+#: src/app/lingui-examples/notification-alert-examples.tsx:307
 msgid "いいね通知"
 msgstr "いいね通知"
 
@@ -676,24 +676,24 @@ msgstr "いいね通知"
 msgid "イギリス"
 msgstr "イギリス"
 
-#: src/app/lingui-examples/format-examples.tsx:295
+#: src/app/lingui-examples/format-examples.tsx:294
 msgid "インタラクティブな例"
 msgstr "インタラクティブな例"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:420
-#: src/app/lingui-examples/modal-dialog-examples.tsx:503
-#: src/app/lingui-examples/notification-alert-examples.tsx:406
+#: src/app/lingui-examples/modal-dialog-examples.tsx:337
+#: src/app/lingui-examples/modal-dialog-examples.tsx:413
+#: src/app/lingui-examples/notification-alert-examples.tsx:374
 msgid "エラー"
 msgstr "エラー"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:85
-#: src/app/lingui-examples/error-handling-examples.tsx:448
-#: src/app/lingui-examples/notification-alert-examples.tsx:135
+#: src/app/lingui-examples/error-handling-examples.tsx:434
+#: src/app/lingui-examples/notification-alert-examples.tsx:131
 msgid "エラーが発生しました"
 msgstr "エラーが発生しました"
 
 #. placeholder {0}: error.code
-#: src/app/lingui-examples/error-handling-examples.tsx:450
+#: src/app/lingui-examples/error-handling-examples.tsx:436
 msgid "エラーコード: {0}"
 msgstr "エラーコード: {0}"
 
@@ -701,38 +701,38 @@ msgstr "エラーコード: {0}"
 msgid "エラーコードから適切な翻訳メッセージを生成します"
 msgstr "エラーコードから適切な翻訳メッセージを生成します"
 
-#: src/app/_layout.tsx:132
+#: src/app/_layout.tsx:129
 #: src/app/lingui-examples/index.tsx:40
 msgid "エラーハンドリング"
 msgstr "エラーハンドリング"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:141
+#: src/app/lingui-examples/error-handling-examples.tsx:138
 msgid "エラーメッセージ:"
 msgstr "エラーメッセージ:"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:388
+#: src/app/lingui-examples/selectordinal-examples.tsx:341
 msgid "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 msgstr "エレベーターは{floor, selectordinal, one {第#階} two {第#階} few {第#階} other {第#階}}に到着しました"
 
-#: src/app/lingui-examples/select-examples.tsx:490
-#: src/app/lingui-examples/select-examples.tsx:540
+#: src/app/lingui-examples/select-examples.tsx:422
+#: src/app/lingui-examples/select-examples.tsx:462
 msgid "オフライン"
 msgstr "オフライン"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:155
+#: src/app/lingui-examples/selectordinal-examples.tsx:145
 msgid "おめでとうございます！あなたは{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}です"
 msgstr "おめでとうございます！あなたは{rank, selectordinal, one {第#位} two {第#位} few {第#位} other {第#位}}です"
 
-#: src/app/lingui-examples/select-examples.tsx:479
-#: src/app/lingui-examples/select-examples.tsx:539
+#: src/app/lingui-examples/select-examples.tsx:414
+#: src/app/lingui-examples/select-examples.tsx:461
 msgid "オンライン"
 msgstr "オンライン"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:138
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:116
 msgid "お問い合わせ"
 msgstr "お問い合わせ"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:513
+#: src/app/lingui-examples/modal-dialog-examples.tsx:423
 msgid "お知らせ"
 msgstr "お知らせ"
 
@@ -740,52 +740,52 @@ msgstr "お知らせ"
 msgid "カスタム（年と月のみ）"
 msgstr "カスタム（年と月のみ）"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:401
+#: src/app/lingui-examples/modal-dialog-examples.tsx:321
 msgid "カスタムモーダル"
 msgstr "カスタムモーダル"
 
-#: src/app/performance/optimization.tsx:167
-#: src/app/performance/optimization.tsx:191
+#: src/app/performance/optimization.tsx:134
+#: src/app/performance/optimization.tsx:151
 msgid "カテゴリー"
 msgstr "カテゴリー"
 
 #. placeholder {0}: statistics.categories
-#: src/app/performance/optimization.tsx:136
+#: src/app/performance/optimization.tsx:106
 msgid "カテゴリー: {0}件"
 msgstr "カテゴリー: {0}件"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:118
+#: src/app/lingui-examples/dynamic-content-examples.tsx:105
 msgid "カテゴリー選択:"
 msgstr "カテゴリー選択:"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:252
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:228
 msgid "カテゴリを選択:"
 msgstr "カテゴリを選択:"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:478
+#: src/app/lingui-examples/notification-alert-examples.tsx:441
 msgid "カメラ"
 msgstr "カメラ"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:166
+#: src/app/lingui-examples/notification-alert-examples.tsx:162
 msgid "カメラへのアクセス"
 msgstr "カメラへのアクセス"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:67
-#: src/app/lingui-examples/modal-dialog-examples.tsx:175
-#: src/app/lingui-examples/modal-dialog-examples.tsx:316
-#: src/app/navigation-patterns/form-sheet-screen.tsx:56
+#: src/app/lingui-examples/modal-dialog-examples.tsx:41
+#: src/app/lingui-examples/modal-dialog-examples.tsx:126
+#: src/app/lingui-examples/modal-dialog-examples.tsx:244
+#: src/app/navigation-patterns/form-sheet-screen.tsx:38
 msgid "キャンセル"
 msgstr "キャンセル"
 
-#: src/app/lingui-examples/plural-examples.tsx:161
+#: src/app/lingui-examples/plural-examples.tsx:147
 msgid "クリア"
 msgstr "クリア"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:172
+#: src/app/lingui-examples/notification-alert-examples.tsx:168
 msgid "このアプリは写真撮影のためにカメラへのアクセスが必要です"
 msgstr "このアプリは写真撮影のためにカメラへのアクセスが必要です"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:173
+#: src/app/lingui-examples/notification-alert-examples.tsx:169
 msgid "このアプリは近くの場所を表示するために位置情報が必要です"
 msgstr "このアプリは近くの場所を表示するために位置情報が必要です"
 
@@ -793,23 +793,23 @@ msgstr "このアプリは近くの場所を表示するために位置情報が
 msgid "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
 msgstr "このプロジェクトではMetro Transformerを使用しているため、.poファイルを直接インポートでき、コンパイルステップが不要です。"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:301
+#: src/app/lingui-examples/dynamic-content-examples.tsx:265
 msgid "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
 msgstr "このページでは、APIレスポンスやデータベースから取得した動的な値を 適切に翻訳する方法を示しています。"
 
-#: src/app/navigation-patterns/modal-screen.tsx:69
+#: src/app/navigation-patterns/modal-screen.tsx:66
 msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 msgstr "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:456
+#: src/app/lingui-examples/error-handling-examples.tsx:442
 msgid "このリソースにアクセスする権限がありません"
 msgstr "このリソースにアクセスする権限がありません"
 
-#: src/app/navigation-patterns/modal-screen.tsx:46
+#: src/app/navigation-patterns/modal-screen.tsx:44
 msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
 msgstr "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:330
+#: src/app/lingui-examples/selectordinal-examples.tsx:295
 msgid "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 msgstr "この項目は{position, selectordinal, one {#番目} two {#番目} few {#番目} other {#番目}}です"
 
@@ -817,23 +817,23 @@ msgstr "この項目は{position, selectordinal, one {#番目} two {#番目} few
 msgid "この項目は必須です"
 msgstr "この項目は必須です"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:314
+#: src/app/lingui-examples/modal-dialog-examples.tsx:242
 msgid "これはReact Native標準のAlertです"
 msgstr "これはReact Native標準のAlertです"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:86
+#: src/app/navigation-patterns/form-sheet-screen.tsx:63
 msgid "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
 msgstr "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:91
+#: src/app/navigation-patterns/form-sheet-screen.tsx:68
 msgid "これはモーダルで表示されたフォームのデモです。"
 msgstr "これはモーダルで表示されたフォームのデモです。"
 
-#: src/app/navigation-patterns/modal-screen.tsx:42
+#: src/app/navigation-patterns/modal-screen.tsx:40
 msgid "これはモーダル表示です"
 msgstr "これはモーダル表示です"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:131
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:109
 msgid "コンサルティング"
 msgstr "コンサルティング"
 
@@ -849,38 +849,38 @@ msgstr "サーバーエラー"
 msgid "サーバーエラーが発生しました"
 msgstr "サーバーエラーが発生しました"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:459
+#: src/app/lingui-examples/error-handling-examples.tsx:445
 msgid "サーバーからの応答がありませんでした。もう一度お試しください"
 msgstr "サーバーからの応答がありませんでした。もう一度お試しください"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:464
+#: src/app/lingui-examples/error-handling-examples.tsx:448
 msgid "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 msgstr "サーバーで問題が発生しました。しばらくしてからもう一度お試しください"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
-#: src/app/performance/optimization.tsx:167
-#: src/app/performance/optimization.tsx:188
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:97
+#: src/app/performance/optimization.tsx:134
+#: src/app/performance/optimization.tsx:150
 msgid "サービス"
 msgstr "サービス"
 
 #. placeholder {0}: statistics.services
-#: src/app/performance/optimization.tsx:133
+#: src/app/performance/optimization.tsx:103
 msgid "サービス: {0}件"
 msgstr "サービス: {0}件"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:276
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:252
 msgid "サブカテゴリを選択:"
 msgstr "サブカテゴリを選択:"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:120
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:98
 msgid "サポート"
 msgstr "サポート"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:360
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:333
 msgid "シェブロン (›)"
 msgstr "シェブロン (›)"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:459
+#: src/app/lingui-examples/notification-alert-examples.tsx:424
 msgid "システムアラート"
 msgstr "システムアラート"
 
@@ -888,7 +888,7 @@ msgstr "システムアラート"
 msgid "システムエラーが発生しました"
 msgstr "システムエラーが発生しました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:517
+#: src/app/lingui-examples/notification-alert-examples.tsx:476
 msgid "システム制限"
 msgstr "システム制限"
 
@@ -896,16 +896,16 @@ msgstr "システム制限"
 msgid "システム設定に従う"
 msgstr "システム設定に従う"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:77
-#: src/app/lingui-examples/notification-alert-examples.tsx:326
+#: src/app/lingui-examples/notification-alert-examples.tsx:73
+#: src/app/lingui-examples/notification-alert-examples.tsx:315
 msgid "システム通知"
 msgstr "システム通知"
 
-#: src/app/lingui-examples/select-examples.tsx:468
+#: src/app/lingui-examples/select-examples.tsx:406
 msgid "ステータスを選択"
 msgstr "ステータスを選択"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:531
+#: src/app/lingui-examples/selectordinal-examples.tsx:443
 msgid "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 msgstr "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）"
 
@@ -913,31 +913,31 @@ msgstr "ステップ・段階表示（第1段階、第2段階、Step 1, Step 2�
 msgid "ストレージの空き容量が不足しています"
 msgstr "ストレージの空き容量が不足しています"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:525
+#: src/app/lingui-examples/notification-alert-examples.tsx:484
 msgid "ストレージ不足"
 msgstr "ストレージ不足"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:204
+#: src/app/lingui-examples/notification-alert-examples.tsx:200
 msgid "ストレージ容量不足"
 msgstr "ストレージ容量不足"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:373
+#: src/app/lingui-examples/notification-alert-examples.tsx:341
 msgid "すべてクリア"
 msgstr "すべてクリア"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:253
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:200
 msgid "すべてリセット"
 msgstr "すべてリセット"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:356
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:329
 msgid "スラッシュ (/)"
 msgstr "スラッシュ (/)"
 
-#: src/app/lingui-examples/select-examples.tsx:342
+#: src/app/lingui-examples/select-examples.tsx:295
 msgid "その人の"
 msgstr "その人の"
 
-#: src/app/lingui-examples/select-examples.tsx:194
+#: src/app/lingui-examples/select-examples.tsx:170
 msgid "その他"
 msgstr "その他"
 
@@ -945,58 +945,58 @@ msgstr "その他"
 msgid "ダーク"
 msgstr "ダーク"
 
-#: src/app/lingui-examples/plural-examples.tsx:237
+#: src/app/lingui-examples/plural-examples.tsx:214
 msgid "タスク入力フィールド"
 msgstr "タスク入力フィールド"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:105
+#: src/app/lingui-examples/notification-alert-examples.tsx:101
 msgid "タップして詳細を確認"
 msgstr "タップして詳細を確認"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:307
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:254
 msgid "タブバーのプレビュー"
 msgstr "タブバーのプレビュー"
 
-#: src/app/_layout.tsx:108
+#: src/app/_layout.tsx:105
 #: src/app/lingui-examples/index.tsx:24
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:153
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:127
 msgid "タブバーの動的機能"
 msgstr "タブバーの動的機能"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:227
+#: src/app/lingui-examples/selectordinal-examples.tsx:204
 msgid "チュートリアルやウィザードでの段階表示に適しています"
 msgstr "チュートリアルやウィザードでの段階表示に適しています"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:385
+#: src/app/lingui-examples/error-handling-examples.tsx:371
 msgid "データの取得に成功しました"
 msgstr "データの取得に成功しました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:209
+#: src/app/lingui-examples/notification-alert-examples.tsx:205
 msgid "データ使用量が制限に近づいています。Wi-Fi接続を推奨します"
 msgstr "データ使用量が制限に近づいています。Wi-Fi接続を推奨します"
 
 #: src/app/(tabs)/settings/_layout.tsx:20
-#: src/app/(tabs)/settings/index.tsx:11
+#: src/app/(tabs)/settings/index.tsx:8
 msgid "テーマ"
 msgstr "テーマ"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:279
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:226
 msgid "テキストバッジを表示"
 msgstr "テキストバッジを表示"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:103
+#: src/app/lingui-examples/dynamic-content-examples.tsx:90
 msgid "テクノロジー"
 msgstr "テクノロジー"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:205
+#: src/app/lingui-examples/notification-alert-examples.tsx:201
 msgid "デバイスのストレージ容量が不足しています。不要なファイルを削除してください"
 msgstr "デバイスのストレージ容量が不足しています。不要なファイルを削除してください"
 
-#: src/app/lingui-examples/format-examples.tsx:210
+#: src/app/lingui-examples/format-examples.tsx:209
 msgid "デフォルト通貨（ロケール依存）"
 msgstr "デフォルト通貨（ロケール依存）"
 
-#: src/app/navigation-patterns/modal-screen.tsx:66
+#: src/app/navigation-patterns/modal-screen.tsx:63
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
@@ -1004,41 +1004,41 @@ msgstr "デモコンテンツ"
 msgid "ドイツ"
 msgstr "ドイツ"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:136
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:114
 msgid "ドキュメント"
 msgstr "ドキュメント"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:293
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:240
 msgid "ドットバッジを表示"
 msgstr "ドットバッジを表示"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:133
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:111
 msgid "トレーニング"
 msgstr "トレーニング"
 
-#: src/app/_layout.tsx:45
+#: src/app/_layout.tsx:42
 #: src/app/(tabs)/index.tsx:8
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:247
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:223
 msgid "ナビゲーション操作"
 msgstr "ナビゲーション操作"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:143
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:121
 msgid "ニュース"
 msgstr "ニュース"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:314
-#: src/app/lingui-examples/modal-dialog-examples.tsx:440
+#: src/app/lingui-examples/modal-dialog-examples.tsx:242
+#: src/app/lingui-examples/modal-dialog-examples.tsx:354
 msgid "ネイティブアラート"
 msgstr "ネイティブアラート"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:321
+#: src/app/lingui-examples/modal-dialog-examples.tsx:249
 msgid "ネイティブアラートでOKが押されました"
 msgstr "ネイティブアラートでOKが押されました"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:160
+#: src/app/lingui-examples/dynamic-content-examples.tsx:144
 #: src/app/lingui-examples/error-handling-examples.tsx:105
 msgid "ネットワークエラー"
 msgstr "ネットワークエラー"
@@ -1047,8 +1047,8 @@ msgstr "ネットワークエラー"
 msgid "ネットワークエラーが発生しました"
 msgstr "ネットワークエラーが発生しました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:208
-#: src/app/lingui-examples/notification-alert-examples.tsx:533
+#: src/app/lingui-examples/notification-alert-examples.tsx:204
+#: src/app/lingui-examples/notification-alert-examples.tsx:492
 msgid "ネットワーク制限"
 msgstr "ネットワーク制限"
 
@@ -1056,11 +1056,11 @@ msgstr "ネットワーク制限"
 msgid "パーセンテージ"
 msgstr "パーセンテージ"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:297
+#: src/app/lingui-examples/error-handling-examples.tsx:285
 msgid "パスワード"
 msgstr "パスワード"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:194
+#: src/app/lingui-examples/error-handling-examples.tsx:190
 msgid "パスワードは8文字以上必要です"
 msgstr "パスワードは8文字以上必要です"
 
@@ -1070,11 +1070,11 @@ msgid "パスワードは最低{0}文字以上必要です"
 msgstr "パスワードは最低{0}文字以上必要です"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:65
-#: src/app/lingui-examples/error-handling-examples.tsx:197
+#: src/app/lingui-examples/error-handling-examples.tsx:193
 msgid "パスワードは大文字、小文字、数字を含む必要があります"
 msgstr "パスワードは大文字、小文字、数字を含む必要があります"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:191
+#: src/app/lingui-examples/error-handling-examples.tsx:187
 msgid "パスワードは必須です"
 msgstr "パスワードは必須です"
 
@@ -1082,19 +1082,19 @@ msgstr "パスワードは必須です"
 msgid "パスワード長エラー"
 msgstr "パスワード長エラー"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:206
 msgid "バッジ表示オプション"
 msgstr "バッジ表示オプション"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:541
+#: src/app/lingui-examples/notification-alert-examples.tsx:500
 msgid "バッテリー低下"
 msgstr "バッテリー低下"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:213
+#: src/app/lingui-examples/notification-alert-examples.tsx:209
 msgid "バッテリー残量が20%以下です。充電してください"
 msgstr "バッテリー残量が20%以下です。充電してください"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:212
+#: src/app/lingui-examples/notification-alert-examples.tsx:208
 msgid "バッテリー残量低下"
 msgstr "バッテリー残量低下"
 
@@ -1103,82 +1103,82 @@ msgstr "バッテリー残量低下"
 msgid "パフォーマンス最適化"
 msgstr "パフォーマンス最適化"
 
-#: src/app/_layout.tsx:114
+#: src/app/_layout.tsx:111
 #: src/app/lingui-examples/index.tsx:28
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:227
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:205
 msgid "パンくずリスト"
 msgstr "パンくずリスト"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:107
+#: src/app/lingui-examples/dynamic-content-examples.tsx:94
 msgid "ビジネス"
 msgstr "ビジネス"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:300
+#: src/app/lingui-examples/selectordinal-examples.tsx:271
 msgid "ファイルシステムや組織構造の階層表現に使用できます"
 msgstr "ファイルシステムや組織構造の階層表現に使用できます"
 
-#: src/app/lingui-examples/plural-examples.tsx:169
+#: src/app/lingui-examples/plural-examples.tsx:152
 msgid "ファイルを追加"
 msgstr "ファイルを追加"
 
-#: src/app/lingui-examples/plural-examples.tsx:152
+#: src/app/lingui-examples/plural-examples.tsx:138
 msgid "ファイル選択"
 msgstr "ファイル選択"
 
-#: src/app/_layout.tsx:102
+#: src/app/_layout.tsx:99
 msgid "フォーマット機能"
 msgstr "フォーマット機能"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:263
+#: src/app/lingui-examples/error-handling-examples.tsx:253
 msgid "フォームが正常に送信されました"
 msgstr "フォームが正常に送信されました"
 
-#: src/app/_layout.tsx:57
+#: src/app/_layout.tsx:54
 msgid "フォームシートサンプル"
 msgstr "フォームシートサンプル"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:43
+#: src/app/navigation-patterns/form-sheet-screen.tsx:30
 msgid "フォームシートの例"
 msgstr "フォームシートの例"
 
-#: src/app/navigation-patterns/form-sheet.tsx:41
+#: src/app/navigation-patterns/form-sheet.tsx:35
 msgid "フォームシートを開く"
 msgstr "フォームシートを開く"
 
-#: src/app/_layout.tsx:70
+#: src/app/_layout.tsx:67
 msgid "フォームシート画面"
 msgstr "フォームシート画面"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:78
+#: src/app/navigation-patterns/form-sheet-screen.tsx:55
 #: src/app/navigation-patterns/index.tsx:12
 msgid "フォームシート表示"
 msgstr "フォームシート表示"
 
-#: src/app/navigation-patterns/form-sheet.tsx:20
+#: src/app/navigation-patterns/form-sheet.tsx:18
 msgid "フォームシート表示サンプル"
 msgstr "フォームシート表示サンプル"
 
-#: src/app/navigation-patterns/form-sheet.tsx:47
+#: src/app/navigation-patterns/form-sheet.tsx:41
 msgid "フォームシート表示について："
 msgstr "フォームシート表示について："
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:174
+#: src/app/navigation-patterns/form-sheet-screen.tsx:149
 msgid "フォームを送信"
 msgstr "フォームを送信"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:174
+#: src/app/lingui-examples/dynamic-content-examples.tsx:158
 msgid "フォールバック戦略のデモ"
 msgstr "フォールバック戦略のデモ"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:272
+#: src/app/lingui-examples/selectordinal-examples.tsx:243
 msgid "フォルダ構造"
 msgstr "フォルダ構造"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:310
+#: src/app/lingui-examples/notification-alert-examples.tsx:299
 msgid "フォロー通知"
 msgstr "フォロー通知"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:252
+#: src/app/lingui-examples/notification-alert-examples.tsx:246
 msgid "プッシュ通知のシミュレーション"
 msgstr "プッシュ通知のシミュレーション"
 
@@ -1186,62 +1186,62 @@ msgstr "プッシュ通知のシミュレーション"
 msgid "フランス"
 msgstr "フランス"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:183
+#: src/app/lingui-examples/selectordinal-examples.tsx:166
 msgid "プロセスや手順の段階表示"
 msgstr "プロセスや手順の段階表示"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:130
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:328
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:104
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:275
 msgid "プロフィール"
 msgstr "プロフィール"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:133
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:107
 msgid "プロフィール ({count, plural, one {# 件} other {# 件}})"
 msgstr "プロフィール ({count, plural, one {# 件} other {# 件}})"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:132
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:106
 msgid "プロフィール (99+)"
 msgstr "プロフィール (99+)"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:219
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:177
 msgid "プロフィールタブの通知:"
 msgstr "プロフィールタブの通知:"
 
-#: src/app/_layout.tsx:40
+#: src/app/_layout.tsx:38
 #: src/app/(tabs)/_layout.tsx:29
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:102
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:116
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:312
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:82
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:90
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:259
 msgid "ホーム"
 msgstr "ホーム"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:119
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:93
 msgid "ホーム ({count, plural, one {# 件} other {# 件}})"
 msgstr "ホーム ({count, plural, one {# 件} other {# 件}})"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:118
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:92
 msgid "ホーム (99+)"
 msgstr "ホーム (99+)"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:163
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:137
 msgid "ホームタブの通知:"
 msgstr "ホームタブの通知:"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:340
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:313
 msgid "ホームに戻る"
 msgstr "ホームに戻る"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:92
-#: src/app/lingui-examples/error-handling-examples.tsx:279
-#: src/app/navigation-patterns/form-sheet-screen.tsx:118
+#: src/app/lingui-examples/error-handling-examples.tsx:269
+#: src/app/navigation-patterns/form-sheet-screen.tsx:95
 msgid "メールアドレス"
 msgstr "メールアドレス"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:182
+#: src/app/lingui-examples/error-handling-examples.tsx:178
 msgid "メールアドレスは必須です"
 msgstr "メールアドレスは必須です"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:131
+#: src/app/navigation-patterns/form-sheet-screen.tsx:108
 msgid "メールアドレスを入力"
 msgstr "メールアドレスを入力"
 
@@ -1249,53 +1249,53 @@ msgstr "メールアドレスを入力"
 msgid "メール形式エラー"
 msgstr "メール形式エラー"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:140
+#: src/app/navigation-patterns/form-sheet-screen.tsx:117
 msgid "メッセージ"
 msgstr "メッセージ"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:153
+#: src/app/navigation-patterns/form-sheet-screen.tsx:130
 msgid "メッセージを入力"
 msgstr "メッセージを入力"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:93
+#: src/app/lingui-examples/notification-alert-examples.tsx:89
 msgid "メッセージを確認してください"
 msgstr "メッセージを確認してください"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:302
+#: src/app/lingui-examples/notification-alert-examples.tsx:291
 msgid "メッセージ通知"
 msgstr "メッセージ通知"
 
-#: src/app/performance/optimization.tsx:99
+#: src/app/performance/optimization.tsx:74
 msgid "メモ化: 有効"
 msgstr "メモ化: 有効"
 
-#: src/app/performance/optimization.tsx:101
+#: src/app/performance/optimization.tsx:74
 msgid "メモ化: 無効"
 msgstr "メモ化: 無効"
 
-#: src/app/performance/optimization.tsx:106
+#: src/app/performance/optimization.tsx:78
 msgid "メモ化を無効にすると、検索時の再レンダリングが増加します"
 msgstr "メモ化を無効にすると、検索時の再レンダリングが増加します"
 
-#: src/app/_layout.tsx:51
+#: src/app/_layout.tsx:48
 msgid "モーダルサンプル"
 msgstr "モーダルサンプル"
 
-#: src/app/_layout.tsx:120
+#: src/app/_layout.tsx:117
 #: src/app/lingui-examples/index.tsx:32
-#: src/app/lingui-examples/modal-dialog-examples.tsx:333
+#: src/app/lingui-examples/modal-dialog-examples.tsx:261
 msgid "モーダルダイアログ"
 msgstr "モーダルダイアログ"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:80
+#: src/app/navigation-patterns/form-sheet-screen.tsx:57
 msgid "モーダルフォーム（Android）"
 msgstr "モーダルフォーム（Android）"
 
-#: src/app/navigation-patterns/modal.tsx:39
+#: src/app/navigation-patterns/modal.tsx:35
 msgid "モーダルを開く"
 msgstr "モーダルを開く"
 
-#: src/app/_layout.tsx:63
+#: src/app/_layout.tsx:60
 #: src/app/navigation-patterns/modal-screen.tsx:21
 msgid "モーダル画面"
 msgstr "モーダル画面"
@@ -1304,35 +1304,35 @@ msgstr "モーダル画面"
 msgid "モーダル表示"
 msgstr "モーダル表示"
 
-#: src/app/navigation-patterns/modal.tsx:20
+#: src/app/navigation-patterns/modal.tsx:18
 msgid "モーダル表示サンプル"
 msgstr "モーダル表示サンプル"
 
-#: src/app/navigation-patterns/modal.tsx:45
+#: src/app/navigation-patterns/modal.tsx:41
 msgid "モーダル表示について："
 msgstr "モーダル表示について："
 
-#: src/app/lingui-examples/select-examples.tsx:464
+#: src/app/lingui-examples/select-examples.tsx:402
 msgid "ユーザーステータス（誤った実装）"
 msgstr "ユーザーステータス（誤った実装）"
 
-#: src/app/lingui-examples/select-examples.tsx:161
+#: src/app/lingui-examples/select-examples.tsx:146
 msgid "ユーザーの性別を選択"
 msgstr "ユーザーの性別を選択"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:257
+#: src/app/lingui-examples/notification-alert-examples.tsx:251
 msgid "ユーザー名"
 msgstr "ユーザー名"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:266
+#: src/app/lingui-examples/notification-alert-examples.tsx:257
 msgid "ユーザー名を入力"
 msgstr "ユーザー名を入力"
 
-#: src/app/lingui-examples/format-examples.tsx:237
+#: src/app/lingui-examples/format-examples.tsx:236
 msgid "ユーロ"
 msgstr "ユーロ"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:137
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:115
 msgid "よくある質問"
 msgstr "よくある質問"
 
@@ -1340,23 +1340,23 @@ msgstr "よくある質問"
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:105
+#: src/app/lingui-examples/dynamic-content-examples.tsx:92
 msgid "ライフスタイル"
 msgstr "ライフスタイル"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:302
+#: src/app/lingui-examples/modal-dialog-examples.tsx:230
 msgid "ライブラリから選択"
 msgstr "ライブラリから選択"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:527
+#: src/app/lingui-examples/selectordinal-examples.tsx:440
 msgid "ランキング・順位表示（1位、2位、1st, 2nd）"
 msgstr "ランキング・順位表示（1位、2位、1st, 2nd）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:136
+#: src/app/lingui-examples/selectordinal-examples.tsx:129
 msgid "ランキング表示"
 msgstr "ランキング表示"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:273
+#: src/app/lingui-examples/error-handling-examples.tsx:263
 msgid "リアルタイムバリデーションと複数エラーの管理"
 msgstr "リアルタイムバリデーションと複数エラーの管理"
 
@@ -1364,11 +1364,11 @@ msgstr "リアルタイムバリデーションと複数エラーの管理"
 msgid "リクエストがタイムアウトしました"
 msgstr "リクエストがタイムアウトしました"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:352
+#: src/app/lingui-examples/selectordinal-examples.tsx:311
 msgid "リストやキューでの順番表示に適しています"
 msgstr "リストやキューでの順番表示に適しています"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:312
+#: src/app/lingui-examples/selectordinal-examples.tsx:283
 msgid "リスト内での位置や順番"
 msgstr "リスト内での位置や順番"
 
@@ -1376,23 +1376,23 @@ msgstr "リスト内での位置や順番"
 msgid "リソースが見つかりません"
 msgstr "リソースが見つかりません"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:247
+#: src/app/lingui-examples/selectordinal-examples.tsx:221
 msgid "上へ"
 msgstr "上へ"
 
-#: src/app/navigation-patterns/form-sheet.tsx:24
+#: src/app/navigation-patterns/form-sheet.tsx:22
 msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
 msgstr "下のボタンをタップしてフォームシート表示で画面を開きます。"
 
-#: src/app/navigation-patterns/modal.tsx:24
+#: src/app/navigation-patterns/modal.tsx:22
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:256
+#: src/app/lingui-examples/selectordinal-examples.tsx:227
 msgid "下へ"
 msgstr "下へ"
 
-#: src/app/lingui-examples/plural-examples.tsx:339
+#: src/app/lingui-examples/plural-examples.tsx:301
 msgid "両方ともCLDR Pluralルールに基づく処理"
 msgstr "両方ともCLDR Pluralルールに基づく処理"
 
@@ -1400,52 +1400,52 @@ msgstr "両方ともCLDR Pluralルールに基づく処理"
 msgid "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
 msgstr "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
 
-#: src/app/lingui-examples/select-examples.tsx:377
+#: src/app/lingui-examples/select-examples.tsx:328
 msgid "主語を選択"
 msgstr "主語を選択"
 
-#: src/app/lingui-examples/select-examples.tsx:455
+#: src/app/lingui-examples/select-examples.tsx:395
 msgid "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 msgstr "以下は技術的な状態であり、Selectマクロの使用は不適切です"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:121
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:99
 msgid "会社情報"
 msgstr "会社情報"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:141
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:119
 msgid "会社概要"
 msgstr "会社概要"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:494
+#: src/app/lingui-examples/notification-alert-examples.tsx:455
 msgid "位置情報"
 msgstr "位置情報"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:167
+#: src/app/lingui-examples/notification-alert-examples.tsx:163
 msgid "位置情報へのアクセス"
 msgstr "位置情報へのアクセス"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:446
-#: src/app/lingui-examples/selectordinal-examples.tsx:524
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:404
+#: src/app/lingui-examples/selectordinal-examples.tsx:437
 msgid "使用例"
 msgstr "使用例"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:316
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:292
 msgid "例: 製品詳細ページ"
 msgstr "例: 製品詳細ページ"
 
-#: src/app/performance/lazy-translation.tsx:109
+#: src/app/performance/lazy-translation.tsx:107
 msgid "例1: 国選択ドロップダウン"
 msgstr "例1: 国選択ドロップダウン"
 
-#: src/app/performance/lazy-translation.tsx:153
+#: src/app/performance/lazy-translation.tsx:147
 msgid "例2: ステータス表示システム"
 msgstr "例2: ステータス表示システム"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:59
+#: src/app/lingui-examples/dynamic-content-examples.tsx:46
 msgid "保留中"
 msgstr "保留中"
 
-#: src/app/lingui-examples/select-examples.tsx:243
+#: src/app/lingui-examples/select-examples.tsx:214
 msgid "個人"
 msgstr "個人"
 
@@ -1453,29 +1453,29 @@ msgstr "個人"
 msgid "値は範囲外です"
 msgstr "値は範囲外です"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:144
+#: src/app/lingui-examples/notification-alert-examples.tsx:140
 msgid "元に戻す"
 msgstr "元に戻す"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:154
-#: src/app/lingui-examples/error-handling-examples.tsx:472
+#: src/app/lingui-examples/error-handling-examples.tsx:150
+#: src/app/lingui-examples/error-handling-examples.tsx:454
 msgid "再試行"
 msgstr "再試行"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:394
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:362
 msgid "最大表示数:"
 msgstr "最大表示数:"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:458
+#: src/app/lingui-examples/modal-dialog-examples.tsx:370
 msgid "最後のアクション:"
 msgstr "最後のアクション:"
 
-#: src/app/performance/optimization.tsx:144
+#: src/app/performance/optimization.tsx:114
 msgid "最適化されたリスト表示"
 msgstr "最適化されたリスト表示"
 
 #: src/app/performance/index.tsx:37
-#: src/app/performance/optimization.tsx:72
+#: src/app/performance/optimization.tsx:55
 msgid "最適化サンプル"
 msgstr "最適化サンプル"
 
@@ -1483,27 +1483,27 @@ msgstr "最適化サンプル"
 msgid "最適化サンプルを見る →"
 msgstr "最適化サンプルを見る →"
 
-#: src/app/performance/optimization.tsx:239
+#: src/app/performance/optimization.tsx:195
 msgid "最適化のポイント"
 msgstr "最適化のポイント"
 
-#: src/app/performance/optimization.tsx:83
+#: src/app/performance/optimization.tsx:64
 msgid "最適化の有効/無効"
 msgstr "最適化の有効/無効"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:120
+#: src/app/lingui-examples/notification-alert-examples.tsx:116
 msgid "写真"
 msgstr "写真"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:301
+#: src/app/lingui-examples/modal-dialog-examples.tsx:229
 msgid "写真を撮る"
 msgstr "写真を撮る"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:223
+#: src/app/lingui-examples/dynamic-content-examples.tsx:202
 msgid "処理ステータス:"
 msgstr "処理ステータス:"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:61
+#: src/app/lingui-examples/dynamic-content-examples.tsx:48
 #: src/app/performance/lazy-translation.tsx:18
 msgid "処理中"
 msgstr "処理中"
@@ -1512,88 +1512,88 @@ msgstr "処理中"
 msgid "処理待ち"
 msgstr "処理待ち"
 
-#: src/app/lingui-examples/format-examples.tsx:283
+#: src/app/lingui-examples/format-examples.tsx:282
 msgid "分の相対表示"
 msgstr "分の相対表示"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:303
+#: src/app/lingui-examples/modal-dialog-examples.tsx:231
 msgid "削除"
 msgstr "削除"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:347
+#: src/app/lingui-examples/modal-dialog-examples.tsx:275
 msgid "削除アイテム数:"
 msgstr "削除アイテム数:"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:469
+#: src/app/lingui-examples/modal-dialog-examples.tsx:379
 msgid "削除の確認"
 msgstr "削除の確認"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:378
+#: src/app/lingui-examples/modal-dialog-examples.tsx:298
 msgid "削除確認ダイアログを表示"
 msgstr "削除確認ダイアログを表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:191
+#: src/app/lingui-examples/selectordinal-examples.tsx:171
 msgid "前へ"
 msgstr "前へ"
 
-#: src/app/lingui-examples/select-examples.tsx:373
+#: src/app/lingui-examples/select-examples.tsx:324
 msgid "動作主体による文章変化"
 msgstr "動作主体による文章変化"
 
-#: src/app/_layout.tsx:126
+#: src/app/_layout.tsx:123
 #: src/app/lingui-examples/index.tsx:36
 msgid "動的コンテンツの翻訳"
 msgstr "動的コンテンツの翻訳"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:212
+#: src/app/lingui-examples/dynamic-content-examples.tsx:191
 msgid "動的コンテンツの翻訳パターン"
 msgstr "動的コンテンツの翻訳パターン"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:351
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:324
 msgid "区切り文字:"
 msgstr "区切り文字:"
 
-#: src/app/lingui-examples/select-examples.tsx:275
+#: src/app/lingui-examples/select-examples.tsx:243
 msgid "単数/複数の対象者によって、日本語でも表現が変わります"
 msgstr "単数/複数の対象者によって、日本語でも表現が変わります"
 
-#: src/app/lingui-examples/plural-examples.tsx:281
+#: src/app/lingui-examples/plural-examples.tsx:250
 msgid "友達の数（名前付き）"
 msgstr "友達の数（名前付き）"
 
-#: src/app/lingui-examples/select-examples.tsx:512
-#: src/app/lingui-examples/select-examples.tsx:542
+#: src/app/lingui-examples/select-examples.tsx:438
+#: src/app/lingui-examples/select-examples.tsx:464
 msgid "取り込み中"
 msgstr "取り込み中"
 
 #. placeholder {0}: statistics.total
-#: src/app/performance/optimization.tsx:127
+#: src/app/performance/optimization.tsx:97
 msgid "合計: {0}件"
 msgstr "合計: {0}件"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:415
+#: src/app/lingui-examples/selectordinal-examples.tsx:360
 msgid "同じ数値での表現の違い"
 msgstr "同じ数値での表現の違い"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:98
+#: src/app/navigation-patterns/form-sheet-screen.tsx:75
 msgid "名前"
 msgstr "名前"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:111
+#: src/app/navigation-patterns/form-sheet-screen.tsx:88
 msgid "名前を入力"
 msgstr "名前を入力"
 
-#: src/app/performance/optimization.tsx:167
-#: src/app/performance/optimization.tsx:185
+#: src/app/performance/optimization.tsx:134
+#: src/app/performance/optimization.tsx:149
 msgid "商品"
 msgstr "商品"
 
 #. placeholder {0}: statistics.products
-#: src/app/performance/optimization.tsx:130
+#: src/app/performance/optimization.tsx:100
 msgid "商品: {0}件"
 msgstr "商品: {0}件"
 
-#: src/app/lingui-examples/plural-examples.tsx:115
+#: src/app/lingui-examples/plural-examples.tsx:108
 msgid "基本的なアイテムカウンター"
 msgstr "基本的なアイテムカウンター"
 
@@ -1601,32 +1601,32 @@ msgstr "基本的なアイテムカウンター"
 msgid "基本的な数値（桁区切り）"
 msgstr "基本的な数値（桁区切り）"
 
-#: src/app/lingui-examples/plural-examples.tsx:285
+#: src/app/lingui-examples/plural-examples.tsx:254
 msgid "変数を含む複数形処理"
 msgstr "変数を含む複数形処理"
 
-#: src/app/lingui-examples/format-examples.tsx:309
+#: src/app/lingui-examples/format-examples.tsx:308
 msgid "大きな数値のフォーマット"
 msgstr "大きな数値のフォーマット"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:65
+#: src/app/lingui-examples/dynamic-content-examples.tsx:52
 #: src/app/performance/lazy-translation.tsx:20
 msgid "失敗"
 msgstr "失敗"
 
-#: src/app/lingui-examples/select-examples.tsx:183
+#: src/app/lingui-examples/select-examples.tsx:162
 msgid "女性"
 msgstr "女性"
 
-#: src/app/lingui-examples/plural-examples.tsx:322
-#: src/app/lingui-examples/select-examples.tsx:557
-#: src/app/lingui-examples/selectordinal-examples.tsx:479
+#: src/app/lingui-examples/plural-examples.tsx:288
+#: src/app/lingui-examples/select-examples.tsx:479
+#: src/app/lingui-examples/selectordinal-examples.tsx:404
 msgid "学習ポイント"
 msgstr "学習ポイント"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:63
-#: src/app/navigation-patterns/form-sheet-screen.tsx:69
-#: src/app/navigation-patterns/modal-screen.tsx:88
+#: src/app/lingui-examples/dynamic-content-examples.tsx:50
+#: src/app/navigation-patterns/form-sheet-screen.tsx:46
+#: src/app/navigation-patterns/modal-screen.tsx:83
 #: src/app/performance/lazy-translation.tsx:19
 msgid "完了"
 msgstr "完了"
@@ -1635,24 +1635,24 @@ msgstr "完了"
 msgid "完全な日付"
 msgstr "完全な日付"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:425
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:339
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:383
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:286
 msgid "実装のポイント"
 msgstr "実装のポイント"
 
-#: src/app/lingui-examples/plural-examples.tsx:182
+#: src/app/lingui-examples/plural-examples.tsx:165
 msgid "実際のファイル選択UIでの使用例"
 msgstr "実際のファイル選択UIでの使用例"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:357
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:304
 msgid "実際の使用例"
 msgstr "実際の使用例"
 
-#: src/app/lingui-examples/select-examples.tsx:228
+#: src/app/lingui-examples/select-examples.tsx:202
 msgid "対象者による表現の変化"
 msgstr "対象者による表現の変化"
 
-#: src/app/lingui-examples/select-examples.tsx:232
+#: src/app/lingui-examples/select-examples.tsx:206
 msgid "対象者を選択"
 msgstr "対象者を選択"
 
@@ -1660,47 +1660,47 @@ msgstr "対象者を選択"
 msgid "小数点以下2桁まで"
 msgstr "小数点以下2桁まで"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:314
+#: src/app/lingui-examples/error-handling-examples.tsx:300
 msgid "年齢"
 msgstr "年齢"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:210
+#: src/app/lingui-examples/error-handling-examples.tsx:206
 msgid "年齢は18歳から120歳の間で入力してください"
 msgstr "年齢は18歳から120歳の間で入力してください"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:203
+#: src/app/lingui-examples/error-handling-examples.tsx:199
 msgid "年齢は必須です"
 msgstr "年齢は必須です"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:486
+#: src/app/lingui-examples/selectordinal-examples.tsx:411
 msgid "序数（順序を表す数）の表現に特化したマクロです"
 msgstr "序数（順序を表す数）の表現に特化したマクロです"
 
-#: src/app/lingui-examples/select-examples.tsx:404
+#: src/app/lingui-examples/select-examples.tsx:352
 msgid "彼"
 msgstr "彼"
 
-#: src/app/lingui-examples/select-examples.tsx:320
+#: src/app/lingui-examples/select-examples.tsx:279
 msgid "彼の"
 msgstr "彼の"
 
-#: src/app/lingui-examples/select-examples.tsx:426
+#: src/app/lingui-examples/select-examples.tsx:368
 msgid "彼ら"
 msgstr "彼ら"
 
-#: src/app/lingui-examples/select-examples.tsx:415
+#: src/app/lingui-examples/select-examples.tsx:360
 msgid "彼女"
 msgstr "彼女"
 
-#: src/app/lingui-examples/select-examples.tsx:331
+#: src/app/lingui-examples/select-examples.tsx:287
 msgid "彼女の"
 msgstr "彼女の"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:220
+#: src/app/lingui-examples/notification-alert-examples.tsx:216
 msgid "後で"
 msgstr "後で"
 
-#: src/app/lingui-examples/select-examples.tsx:579
+#: src/app/lingui-examples/select-examples.tsx:495
 msgid "必ずotherケースを含める必要があります"
 msgstr "必ずotherケースを含める必要があります"
 
@@ -1708,65 +1708,65 @@ msgstr "必ずotherケースを含める必要があります"
 msgid "必須フィールドエラー"
 msgstr "必須フィールドエラー"
 
-#: src/app/lingui-examples/select-examples.tsx:157
+#: src/app/lingui-examples/select-examples.tsx:142
 msgid "性別による代名詞と動詞の変化"
 msgstr "性別による代名詞と動詞の変化"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:431
+#: src/app/lingui-examples/modal-dialog-examples.tsx:345
 msgid "情報"
 msgstr "情報"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:414
+#: src/app/lingui-examples/notification-alert-examples.tsx:382
 msgid "情報（アクション付き）"
 msgstr "情報（アクション付き）"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:263
-#: src/app/lingui-examples/error-handling-examples.tsx:385
-#: src/app/lingui-examples/modal-dialog-examples.tsx:409
-#: src/app/lingui-examples/modal-dialog-examples.tsx:493
-#: src/app/lingui-examples/notification-alert-examples.tsx:192
-#: src/app/lingui-examples/notification-alert-examples.tsx:398
+#: src/app/lingui-examples/error-handling-examples.tsx:253
+#: src/app/lingui-examples/error-handling-examples.tsx:371
+#: src/app/lingui-examples/modal-dialog-examples.tsx:329
+#: src/app/lingui-examples/modal-dialog-examples.tsx:403
+#: src/app/lingui-examples/notification-alert-examples.tsx:188
+#: src/app/lingui-examples/notification-alert-examples.tsx:366
 msgid "成功"
 msgstr "成功"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:432
+#: src/app/lingui-examples/error-handling-examples.tsx:418
 msgid "成功リクエスト"
 msgstr "成功リクエスト"
 
-#: src/app/lingui-examples/select-examples.tsx:283
+#: src/app/lingui-examples/select-examples.tsx:251
 msgid "所有格の表現（selectマクロ使用）"
 msgstr "所有格の表現（selectマクロ使用）"
 
-#: src/app/lingui-examples/select-examples.tsx:287
+#: src/app/lingui-examples/select-examples.tsx:255
 msgid "所有者を選択"
 msgstr "所有者を選択"
 
-#: src/app/lingui-examples/select-examples.tsx:609
+#: src/app/lingui-examples/select-examples.tsx:518
 msgid "技術的/ビジネス的な状態か？ → YES: 通常の条件分岐を使用"
 msgstr "技術的/ビジネス的な状態か？ → YES: 通常の条件分岐を使用"
 
-#: src/app/lingui-examples/select-examples.tsx:546
+#: src/app/lingui-examples/select-examples.tsx:468
 msgid "技術的な状態は文法的変化ではないため、個別のメッセージキーを使用すべきです。 これにより翻訳者が各状態を独立して翻訳でき、保守性も向上します。"
 msgstr "技術的な状態は文法的変化ではないため、個別のメッセージキーを使用すべきです。 これにより翻訳者が各状態を独立して翻訳でき、保守性も向上します。"
 
-#: src/app/lingui-examples/select-examples.tsx:574
+#: src/app/lingui-examples/select-examples.tsx:492
 msgid "技術的な状態やビジネスロジックには使用すべきではありません"
 msgstr "技術的な状態やビジネスロジックには使用すべきではありません"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:142
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:120
 msgid "採用情報"
 msgstr "採用情報"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:494
-#: src/app/lingui-examples/notification-alert-examples.tsx:134
+#: src/app/lingui-examples/modal-dialog-examples.tsx:404
+#: src/app/lingui-examples/notification-alert-examples.tsx:130
 msgid "操作が正常に完了しました"
 msgstr "操作が正常に完了しました"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:504
+#: src/app/lingui-examples/modal-dialog-examples.tsx:414
 msgid "操作中にエラーが発生しました"
 msgstr "操作中にエラーが発生しました"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:265
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:212
 msgid "数値バッジを表示"
 msgstr "数値バッジを表示"
 
@@ -1775,7 +1775,7 @@ msgid "数値フォーマット"
 msgstr "数値フォーマット"
 
 #. placeholder {0}: formatters.number.decimal(123456)
-#: src/app/lingui-examples/format-examples.tsx:196
+#: src/app/lingui-examples/format-examples.tsx:195
 msgid "数値を入力: {0}"
 msgstr "数値を入力: {0}"
 
@@ -1783,48 +1783,48 @@ msgstr "数値を入力: {0}"
 msgid "整数のみ"
 msgstr "整数のみ"
 
-#: src/app/lingui-examples/format-examples.tsx:219
+#: src/app/lingui-examples/format-examples.tsx:218
 msgid "整数表示"
 msgstr "整数表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:360
+#: src/app/lingui-examples/selectordinal-examples.tsx:319
 msgid "文字列プロパティでの使用（selectOrdinalマクロ）"
 msgstr "文字列プロパティでの使用（selectOrdinalマクロ）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:520
+#: src/app/lingui-examples/selectordinal-examples.tsx:433
 msgid "文字列プロパティにはselectOrdinalマクロを使用"
 msgstr "文字列プロパティにはselectOrdinalマクロを使用"
 
-#: src/app/lingui-examples/select-examples.tsx:605
+#: src/app/lingui-examples/select-examples.tsx:515
 msgid "文法的変化が必要か？ → YES: Selectマクロを使用"
 msgstr "文法的変化が必要か？ → YES: Selectマクロを使用"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:514
+#: src/app/lingui-examples/modal-dialog-examples.tsx:424
 msgid "新しいアップデートが利用可能です"
 msgstr "新しいアップデートが利用可能です"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:73
+#: src/app/lingui-examples/notification-alert-examples.tsx:69
 msgid "新しいフォロワー"
 msgstr "新しいフォロワー"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:71
+#: src/app/lingui-examples/notification-alert-examples.tsx:67
 msgid "新しいメッセージ"
 msgstr "新しいメッセージ"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:136
+#: src/app/lingui-examples/notification-alert-examples.tsx:132
 msgid "新しい情報があります"
 msgstr "新しい情報があります"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:45
-#: src/app/lingui-examples/plural-examples.tsx:210
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:26
+#: src/app/lingui-examples/plural-examples.tsx:190
 msgid "新着"
 msgstr "新着"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:72
+#: src/app/lingui-examples/dynamic-content-examples.tsx:59
 msgid "新規注文"
 msgstr "新規注文"
 
-#: src/app/lingui-examples/plural-examples.tsx:202
+#: src/app/lingui-examples/plural-examples.tsx:182
 msgid "既読"
 msgstr "既読"
 
@@ -1836,7 +1836,7 @@ msgstr "日付・数値フォーマット"
 msgid "日付と時刻"
 msgstr "日付と時刻"
 
-#: src/app/lingui-examples/format-examples.tsx:262
+#: src/app/lingui-examples/format-examples.tsx:261
 msgid "日付の相対表示"
 msgstr "日付の相対表示"
 
@@ -1848,19 +1848,19 @@ msgstr "日付フォーマット"
 msgid "日本"
 msgstr "日本"
 
-#: src/app/lingui-examples/plural-examples.tsx:352
+#: src/app/lingui-examples/plural-examples.tsx:314
 msgid "日本語: otherのみ（すべての数で同じ形式）"
 msgstr "日本語: otherのみ（すべての数で同じ形式）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:496
+#: src/app/lingui-examples/selectordinal-examples.tsx:417
 msgid "日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）"
 msgstr "日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）"
 
-#: src/app/lingui-examples/select-examples.tsx:218
+#: src/app/lingui-examples/select-examples.tsx:194
 msgid "日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります"
 msgstr "日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります"
 
-#: src/app/lingui-examples/select-examples.tsx:442
+#: src/app/lingui-examples/select-examples.tsx:384
 msgid "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 msgstr "日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します"
 
@@ -1876,11 +1876,11 @@ msgstr "時刻と秒"
 msgid "時刻フォーマット"
 msgstr "時刻フォーマット"
 
-#: src/app/lingui-examples/format-examples.tsx:273
+#: src/app/lingui-examples/format-examples.tsx:272
 msgid "時間の相対表示"
 msgstr "時間の相対表示"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:128
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:106
 msgid "書籍"
 msgstr "書籍"
 
@@ -1889,19 +1889,19 @@ msgid "月と日のみ"
 msgstr "月と日のみ"
 
 #: src/app/lingui-examples/error-handling-examples.tsx:61
-#: src/app/lingui-examples/error-handling-examples.tsx:185
+#: src/app/lingui-examples/error-handling-examples.tsx:181
 msgid "有効なメールアドレスを入力してください"
 msgstr "有効なメールアドレスを入力してください"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:207
+#: src/app/lingui-examples/error-handling-examples.tsx:203
 msgid "有効な数値を入力してください"
 msgstr "有効な数値を入力してください"
 
-#: src/app/performance/optimization.tsx:119
+#: src/app/performance/optimization.tsx:89
 msgid "検索キーワードを入力..."
 msgstr "検索キーワードを入力..."
 
-#: src/app/performance/optimization.tsx:115
+#: src/app/performance/optimization.tsx:85
 msgid "検索フィルター"
 msgstr "検索フィルター"
 
@@ -1909,79 +1909,79 @@ msgstr "検索フィルター"
 msgid "権限がありません"
 msgstr "権限がありません"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:192
+#: src/app/lingui-examples/notification-alert-examples.tsx:188
 msgid "権限が許可されました"
 msgstr "権限が許可されました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:463
+#: src/app/lingui-examples/notification-alert-examples.tsx:428
 msgid "権限リクエスト"
 msgstr "権限リクエスト"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:286
+#: src/app/lingui-examples/selectordinal-examples.tsx:257
 msgid "権限レベル"
 msgstr "権限レベル"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:200
+#: src/app/lingui-examples/selectordinal-examples.tsx:177
 msgid "次へ"
 msgstr "次へ"
 
-#: src/app/lingui-examples/plural-examples.tsx:194
+#: src/app/lingui-examples/plural-examples.tsx:177
 msgid "正確な値のマッチング（_0）を使用"
 msgstr "正確な値のマッチング（_0）を使用"
 
-#: src/app/lingui-examples/plural-examples.tsx:270
+#: src/app/lingui-examples/plural-examples.tsx:242
 msgid "注: pluralマクロでは数値リテラル（0, 1など）で正確な値のマッチングが可能"
 msgstr "注: pluralマクロでは数値リテラル（0, 1など）で正確な値のマッチングが可能"
 
-#: src/app/lingui-examples/plural-examples.tsx:358
+#: src/app/lingui-examples/plural-examples.tsx:320
 msgid "注: zeroカテゴリーは限られた言語のみ"
 msgstr "注: zeroカテゴリーは限られた言語のみ"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:137
+#: src/app/lingui-examples/notification-alert-examples.tsx:133
 msgid "注意が必要です"
 msgstr "注意が必要です"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:252
+#: src/app/lingui-examples/dynamic-content-examples.tsx:225
 msgid "注文ステータス:"
 msgstr "注文ステータス:"
 
-#: src/app/lingui-examples/select-examples.tsx:596
+#: src/app/lingui-examples/select-examples.tsx:508
 msgid "特定のケースはアンダースコアで始める（_male、_female等）"
 msgstr "特定のケースはアンダースコアで始める（_male、_female等）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:214
+#: src/app/lingui-examples/selectordinal-examples.tsx:191
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 
-#: src/app/performance/lazy-translation.tsx:185
+#: src/app/performance/lazy-translation.tsx:176
 msgid "現在のステータス:"
 msgstr "現在のステータス:"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:231
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:209
 msgid "現在のパス"
 msgstr "現在のパス"
 
-#: src/app/lingui-examples/format-examples.tsx:300
+#: src/app/lingui-examples/format-examples.tsx:299
 msgid "現在時刻（リアルタイム）"
 msgstr "現在時刻（リアルタイム）"
 
-#: src/app/lingui-examples/select-examples.tsx:172
+#: src/app/lingui-examples/select-examples.tsx:154
 msgid "男性"
 msgstr "男性"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:482
+#: src/app/lingui-examples/modal-dialog-examples.tsx:392
 msgid "画像の選択"
 msgstr "画像の選択"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:74
+#: src/app/lingui-examples/dynamic-content-examples.tsx:61
 msgid "発送済み"
 msgstr "発送済み"
 
-#: src/app/lingui-examples/format-examples.tsx:257
+#: src/app/lingui-examples/format-examples.tsx:256
 msgid "相対時間フォーマット（簡易版）"
 msgstr "相対時間フォーマット（簡易版）"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:355
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:328
 msgid "矢印 (>)"
 msgstr "矢印 (>)"
 
@@ -1989,131 +1989,131 @@ msgstr "矢印 (>)"
 msgid "短い形式"
 msgstr "短い形式"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:343
+#: src/app/lingui-examples/modal-dialog-examples.tsx:271
 msgid "確認ダイアログ"
 msgstr "確認ダイアログ"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:336
+#: src/app/lingui-examples/modal-dialog-examples.tsx:264
 msgid "確認ダイアログ、アクションシート、カスタムモーダルの例"
 msgstr "確認ダイアログ、アクションシート、カスタムモーダルの例"
 
-#: src/app/lingui-examples/select-examples.tsx:385
+#: src/app/lingui-examples/select-examples.tsx:336
 msgid "私"
 msgstr "私"
 
-#: src/app/lingui-examples/select-examples.tsx:298
+#: src/app/lingui-examples/select-examples.tsx:263
 msgid "私の"
 msgstr "私の"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:140
+#: src/app/lingui-examples/selectordinal-examples.tsx:133
 msgid "競技や成績での順位表示"
 msgstr "競技や成績での順位表示"
 
-#: src/app/lingui-examples/format-examples.tsx:228
+#: src/app/lingui-examples/format-examples.tsx:227
 msgid "米ドル"
 msgstr "米ドル"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:239
+#: src/app/lingui-examples/selectordinal-examples.tsx:216
 msgid "組織図やディレクトリ構造での階層表示"
 msgstr "組織図やディレクトリ構造での階層表示"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:187
+#: src/app/lingui-examples/dynamic-content-examples.tsx:171
 msgid "結果:"
 msgstr "結果:"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:180
+#: src/app/lingui-examples/dynamic-content-examples.tsx:164
 msgid "翻訳キーを入力"
 msgstr "翻訳キーを入力"
 
-#: src/app/lingui-examples/select-examples.tsx:615
+#: src/app/lingui-examples/select-examples.tsx:522
 msgid "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 msgstr "翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:387
+#: src/app/lingui-examples/notification-alert-examples.tsx:355
 msgid "自動的に消去"
 msgstr "自動的に消去"
 
-#: src/app/lingui-examples/select-examples.tsx:568
+#: src/app/lingui-examples/select-examples.tsx:489
 msgid "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 msgstr "自然言語の文法的変化（性別、数、格変化など）を扱うためのものです"
 
-#: src/app/lingui-examples/format-examples.tsx:246
+#: src/app/lingui-examples/format-examples.tsx:245
 msgid "英ポンド"
 msgstr "英ポンド"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:490
+#: src/app/lingui-examples/selectordinal-examples.tsx:414
 msgid "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
 msgstr "英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類"
 
-#: src/app/lingui-examples/plural-examples.tsx:355
+#: src/app/lingui-examples/plural-examples.tsx:317
 msgid "英語: one（1の場合）とother（0, 2以上）"
 msgstr "英語: one（1の場合）とother（0, 2以上）"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:168
+#: src/app/lingui-examples/selectordinal-examples.tsx:152
 msgid "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 msgstr "英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:127
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:105
 msgid "衣料品"
 msgstr "衣料品"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:346
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:319
 msgid "表示オプション"
 msgstr "表示オプション"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:118
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:96
 msgid "製品"
 msgstr "製品"
 
-#: src/app/lingui-examples/select-examples.tsx:254
+#: src/app/lingui-examples/select-examples.tsx:222
 msgid "複数"
 msgstr "複数"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:453
+#: src/app/lingui-examples/error-handling-examples.tsx:439
 msgid "要求されたリソースが見つかりません"
 msgstr "要求されたリソースが見つかりません"
 
-#: src/app/(tabs)/_layout.tsx:38
+#: src/app/(tabs)/_layout.tsx:36
 #: src/app/(tabs)/settings/_layout.tsx:19
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:123
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:320
-#: src/app/lingui-examples/notification-alert-examples.tsx:226
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:97
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:267
+#: src/app/lingui-examples/notification-alert-examples.tsx:222
 msgid "設定"
 msgstr "設定"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:126
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:100
 msgid "設定 ({count, plural, one {# 件} other {# 件}})"
 msgstr "設定 ({count, plural, one {# 件} other {# 件}})"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:125
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:99
 msgid "設定 (99+)"
 msgstr "設定 (99+)"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:191
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
 msgid "設定タブの通知:"
 msgstr "設定タブの通知:"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:224
+#: src/app/lingui-examples/notification-alert-examples.tsx:220
 msgid "設定を開く"
 msgstr "設定を開く"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:226
+#: src/app/lingui-examples/notification-alert-examples.tsx:222
 msgid "設定画面を開きます（シミュレーション）"
 msgstr "設定画面を開きます（シミュレーション）"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:189
+#: src/app/lingui-examples/notification-alert-examples.tsx:185
 msgid "許可"
 msgstr "許可"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:182
+#: src/app/lingui-examples/notification-alert-examples.tsx:178
 msgid "許可しない"
 msgstr "許可しない"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:183
+#: src/app/lingui-examples/dynamic-content-examples.tsx:167
 msgid "試してみる: status.active, status.inactive, error.network"
 msgstr "試してみる: status.active, status.inactive, error.network"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:302
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:278
 msgid "詳細ページ名を入力:"
 msgstr "詳細ページ名を入力:"
 
@@ -2121,57 +2121,57 @@ msgstr "詳細ページ名を入力:"
 msgid "認証が必要です"
 msgstr "認証が必要です"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:440
+#: src/app/lingui-examples/error-handling-examples.tsx:426
 msgid "読み込み中..."
 msgstr "読み込み中..."
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:97
+#: src/app/lingui-examples/notification-alert-examples.tsx:93
 msgid "誰かがあなたをフォローしました"
 msgstr "誰かがあなたをフォローしました"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:422
+#: src/app/lingui-examples/notification-alert-examples.tsx:390
 msgid "警告"
 msgstr "警告"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:328
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:301
 msgid "追加"
 msgstr "追加"
 
-#: src/app/lingui-examples/error-handling-examples.tsx:329
+#: src/app/lingui-examples/error-handling-examples.tsx:315
 msgid "送信"
 msgstr "送信"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:79
-#: src/app/lingui-examples/notification-alert-examples.tsx:510
+#: src/app/lingui-examples/notification-alert-examples.tsx:75
+#: src/app/lingui-examples/notification-alert-examples.tsx:469
 msgid "通知"
 msgstr "通知"
 
-#: src/app/lingui-examples/navigation-tabbar-examples.tsx:157
+#: src/app/lingui-examples/navigation-tabbar-examples.tsx:131
 msgid "通知カウントの管理"
 msgstr "通知カウントの管理"
 
-#: src/app/_layout.tsx:138
+#: src/app/_layout.tsx:135
 #: src/app/lingui-examples/index.tsx:44
 msgid "通知とアラート"
 msgstr "通知とアラート"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:168
+#: src/app/lingui-examples/notification-alert-examples.tsx:164
 msgid "通知の送信"
 msgstr "通知の送信"
 
-#: src/app/lingui-examples/plural-examples.tsx:190
+#: src/app/lingui-examples/plural-examples.tsx:173
 msgid "通知メッセージ"
 msgstr "通知メッセージ"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:273
+#: src/app/lingui-examples/notification-alert-examples.tsx:264
 msgid "通知数"
 msgstr "通知数"
 
-#: src/app/lingui-examples/format-examples.tsx:205
+#: src/app/lingui-examples/format-examples.tsx:204
 msgid "通貨フォーマット"
 msgstr "通貨フォーマット"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:179
+#: src/app/lingui-examples/selectordinal-examples.tsx:162
 msgid "進捗ステップ"
 msgstr "進捗ステップ"
 
@@ -2184,31 +2184,31 @@ msgstr "遅延翻訳の例を見る →"
 msgid "遅延翻訳パターン"
 msgstr "遅延翻訳パターン"
 
-#: src/app/lingui-examples/select-examples.tsx:602
+#: src/app/lingui-examples/select-examples.tsx:512
 msgid "適切な使用判断基準"
 msgstr "適切な使用判断基準"
 
-#: src/app/lingui-examples/plural-examples.tsx:156
+#: src/app/lingui-examples/plural-examples.tsx:142
 msgid "選択されたファイル数の表示"
 msgstr "選択されたファイル数の表示"
 
-#: src/app/performance/lazy-translation.tsx:143
+#: src/app/performance/lazy-translation.tsx:139
 msgid "選択された国:"
 msgstr "選択された国:"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:142
+#: src/app/lingui-examples/dynamic-content-examples.tsx:126
 msgid "選択中:"
 msgstr "選択中:"
 
-#: src/app/performance/lazy-translation.tsx:112
+#: src/app/performance/lazy-translation.tsx:110
 msgid "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 msgstr "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:76
+#: src/app/lingui-examples/dynamic-content-examples.tsx:63
 msgid "配達完了"
 msgstr "配達完了"
 
-#: src/app/lingui-examples/notification-alert-examples.tsx:174
+#: src/app/lingui-examples/notification-alert-examples.tsx:170
 msgid "重要な更新やメッセージを受け取るために通知を有効にしてください"
 msgstr "重要な更新やメッセージを受け取るために通知を有効にしてください"
 
@@ -2216,40 +2216,40 @@ msgstr "重要な更新やメッセージを受け取るために通知を有効
 msgid "長い形式（曜日付き）"
 msgstr "長い形式（曜日付き）"
 
-#: src/app/lingui-examples/modal-dialog-examples.tsx:266
-#: src/app/navigation-patterns/modal-screen.tsx:35
+#: src/app/lingui-examples/modal-dialog-examples.tsx:194
+#: src/app/navigation-patterns/modal-screen.tsx:33
 msgid "閉じる"
 msgstr "閉じる"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:132
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:110
 msgid "開発"
 msgstr "開発"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:235
+#: src/app/lingui-examples/selectordinal-examples.tsx:212
 msgid "階層・レベル表示"
 msgstr "階層・レベル表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:537
+#: src/app/lingui-examples/selectordinal-examples.tsx:446
 msgid "階層・レベル表示（第1階層、レベル2、1st level, 2nd level）"
 msgstr "階層・レベル表示（第1階層、レベル2、1st level, 2nd level）"
 
-#: src/app/lingui-examples/select-examples.tsx:501
-#: src/app/lingui-examples/select-examples.tsx:541
+#: src/app/lingui-examples/select-examples.tsx:430
+#: src/app/lingui-examples/select-examples.tsx:463
 msgid "離席中"
 msgstr "離席中"
 
-#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:126
+#: src/app/lingui-examples/navigation-breadcrumb-examples.tsx:104
 msgid "電子機器"
 msgstr "電子機器"
 
-#: src/app/lingui-examples/dynamic-content-examples.tsx:159
+#: src/app/lingui-examples/dynamic-content-examples.tsx:143
 msgid "非アクティブ"
 msgstr "非アクティブ"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:308
+#: src/app/lingui-examples/selectordinal-examples.tsx:279
 msgid "順位・順番表示"
 msgstr "順位・順番表示"
 
-#: src/app/lingui-examples/selectordinal-examples.tsx:542
+#: src/app/lingui-examples/selectordinal-examples.tsx:449
 msgid "順番・位置表示（1番目、2番目、#1, #2）"
 msgstr "順番・位置表示（1番目、2番目、#1, #2）"

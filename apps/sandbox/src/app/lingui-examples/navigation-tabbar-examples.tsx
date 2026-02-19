@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Pressable,
-  Switch,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable, Switch } from "react-native";
 import { useState } from "react";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { Trans, Plural, useLingui } from "@lingui/react/macro";
@@ -23,24 +16,12 @@ const Badge = ({
   theme: Theme;
 }) => {
   if (type === "dot" && count > 0) {
-    return (
-      <View
-        style={[
-          styles.dotBadge,
-          { backgroundColor: theme.colors.notification },
-        ]}
-      />
-    );
+    return <View style={[styles.dotBadge, { backgroundColor: theme.colors.notification }]} />;
   }
 
   if (type === "text" && count > 0) {
     return (
-      <View
-        style={[
-          styles.textBadge,
-          { backgroundColor: theme.colors.notification },
-        ]}
-      >
+      <View style={[styles.textBadge, { backgroundColor: theme.colors.notification }]}>
         <Text style={styles.badgeText}>
           <Trans>新着</Trans>
         </Text>
@@ -51,12 +32,7 @@ const Badge = ({
   if (type === "numeric" && count > 0) {
     const displayCount = count > 99 ? "99+" : count.toString();
     return (
-      <View
-        style={[
-          styles.numericBadge,
-          { backgroundColor: theme.colors.notification },
-        ]}
-      >
+      <View style={[styles.numericBadge, { backgroundColor: theme.colors.notification }]}>
         <Text style={styles.badgeText}>{displayCount}</Text>
       </View>
     );
@@ -86,9 +62,7 @@ const TabItem = ({
   return (
     <View style={[styles.tabItem, { backgroundColor: theme.colors.card }]}>
       <View style={styles.tabContent}>
-        <Text style={[styles.tabLabel, { color: theme.colors.text }]}>
-          {dynamicLabel}
-        </Text>
+        <Text style={[styles.tabLabel, { color: theme.colors.text }]}>{dynamicLabel}</Text>
         {badgeType && <Badge count={count} type={badgeType} theme={theme} />}
       </View>
     </View>
@@ -164,22 +138,14 @@ export default function NavigationTabbarExamples() {
           </Text>
           <View style={styles.buttonGroup}>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.primary },
-              ]}
+              style={[styles.smallButton, { backgroundColor: theme.colors.primary }]}
               onPress={() => setHomeNotifications((prev) => prev + 1)}
             >
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.border },
-              ]}
-              onPress={() =>
-                setHomeNotifications((prev) => Math.max(0, prev - 1))
-              }
+              style={[styles.smallButton, { backgroundColor: theme.colors.border }]}
+              onPress={() => setHomeNotifications((prev) => Math.max(0, prev - 1))}
             >
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
@@ -192,22 +158,14 @@ export default function NavigationTabbarExamples() {
           </Text>
           <View style={styles.buttonGroup}>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.primary },
-              ]}
+              style={[styles.smallButton, { backgroundColor: theme.colors.primary }]}
               onPress={() => setSettingsNotifications((prev) => prev + 1)}
             >
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.border },
-              ]}
-              onPress={() =>
-                setSettingsNotifications((prev) => Math.max(0, prev - 1))
-              }
+              style={[styles.smallButton, { backgroundColor: theme.colors.border }]}
+              onPress={() => setSettingsNotifications((prev) => Math.max(0, prev - 1))}
             >
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
@@ -220,22 +178,14 @@ export default function NavigationTabbarExamples() {
           </Text>
           <View style={styles.buttonGroup}>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.primary },
-              ]}
+              style={[styles.smallButton, { backgroundColor: theme.colors.primary }]}
               onPress={() => setProfileNotifications((prev) => prev + 1)}
             >
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.smallButton,
-                { backgroundColor: theme.colors.border },
-              ]}
-              onPress={() =>
-                setProfileNotifications((prev) => Math.max(0, prev - 1))
-              }
+              style={[styles.smallButton, { backgroundColor: theme.colors.border }]}
+              onPress={() => setProfileNotifications((prev) => Math.max(0, prev - 1))}
             >
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
@@ -243,10 +193,7 @@ export default function NavigationTabbarExamples() {
         </View>
 
         <Pressable
-          style={[
-            styles.resetButton,
-            { backgroundColor: theme.colors.notification },
-          ]}
+          style={[styles.resetButton, { backgroundColor: theme.colors.notification }]}
           onPress={resetAllNotifications}
         >
           <Text style={styles.buttonText}>

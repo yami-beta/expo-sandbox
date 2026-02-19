@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Pressable,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable, TextInput } from "react-native";
 import { useState } from "react";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -45,9 +38,7 @@ const Breadcrumb = ({
     <View style={styles.breadcrumbContainer}>
       {displayItems.map((item, index) => {
         const actualIndex =
-          showEllipsis && index > 0
-            ? items.length - (displayItems.length - index)
-            : index;
+          showEllipsis && index > 0 ? items.length - (displayItems.length - index) : index;
         const isLast = actualIndex === items.length - 1;
         const isEllipsis = showEllipsis && index === 1;
 
@@ -55,20 +46,11 @@ const Breadcrumb = ({
           <View key={item.id} style={styles.breadcrumbItemContainer}>
             {isEllipsis && (
               <>
-                <Text style={[styles.ellipsis, { color: theme.colors.border }]}>
-                  ...
-                </Text>
-                <Text
-                  style={[styles.separator, { color: theme.colors.border }]}
-                >
-                  {separator}
-                </Text>
+                <Text style={[styles.ellipsis, { color: theme.colors.border }]}>...</Text>
+                <Text style={[styles.separator, { color: theme.colors.border }]}>{separator}</Text>
               </>
             )}
-            <Pressable
-              onPress={() => !isLast && onItemPress(actualIndex)}
-              disabled={isLast}
-            >
+            <Pressable onPress={() => !isLast && onItemPress(actualIndex)} disabled={isLast}>
               <Text
                 style={[
                   styles.breadcrumbItem,
@@ -82,9 +64,7 @@ const Breadcrumb = ({
               </Text>
             </Pressable>
             {!isLast && (
-              <Text style={[styles.separator, { color: theme.colors.border }]}>
-                {separator}
-              </Text>
+              <Text style={[styles.separator, { color: theme.colors.border }]}>{separator}</Text>
             )}
           </View>
         );
@@ -106,9 +86,7 @@ export default function NavigationBreadcrumbExamples() {
   const [customPath, setCustomPath] = useState("");
 
   // 区切り文字の選択
-  const [separatorType, setSeparatorType] = useState<
-    "arrow" | "slash" | "chevron"
-  >("arrow");
+  const [separatorType, setSeparatorType] = useState<"arrow" | "slash" | "chevron">("arrow");
 
   // 最大表示数
   const [maxDisplayItems, setMaxDisplayItems] = useState(4);
@@ -231,9 +209,7 @@ export default function NavigationBreadcrumbExamples() {
         <Trans>現在のパス</Trans>
       </Text>
 
-      <View
-        style={[styles.currentPathBox, { backgroundColor: theme.colors.card }]}
-      >
+      <View style={[styles.currentPathBox, { backgroundColor: theme.colors.card }]}>
         <Breadcrumb
           items={breadcrumbPath}
           onItemPress={handleBreadcrumbClick}
@@ -317,10 +293,7 @@ export default function NavigationBreadcrumbExamples() {
                 placeholderTextColor={theme.colors.border}
               />
               <Pressable
-                style={[
-                  styles.addButton,
-                  { backgroundColor: theme.colors.primary },
-                ]}
+                style={[styles.addButton, { backgroundColor: theme.colors.primary }]}
                 onPress={addDetailPage.bind(null, customPath)}
                 disabled={!customPath.trim()}
               >
@@ -366,9 +339,7 @@ export default function NavigationBreadcrumbExamples() {
                 styles.optionButton,
                 {
                   backgroundColor:
-                    separatorType === option.value
-                      ? theme.colors.primary
-                      : theme.colors.card,
+                    separatorType === option.value ? theme.colors.primary : theme.colors.card,
                 },
               ]}
               onPress={() => setSeparatorType(option.value)}
@@ -377,10 +348,7 @@ export default function NavigationBreadcrumbExamples() {
                 style={[
                   styles.optionText,
                   {
-                    color:
-                      separatorType === option.value
-                        ? "white"
-                        : theme.colors.text,
+                    color: separatorType === option.value ? "white" : theme.colors.text,
                   },
                 ]}
               >
@@ -395,25 +363,15 @@ export default function NavigationBreadcrumbExamples() {
         </Text>
         <View style={styles.counterRow}>
           <Pressable
-            style={[
-              styles.counterButton,
-              { backgroundColor: theme.colors.primary },
-            ]}
+            style={[styles.counterButton, { backgroundColor: theme.colors.primary }]}
             onPress={() => setMaxDisplayItems(Math.max(2, maxDisplayItems - 1))}
           >
             <Text style={styles.buttonText}>-</Text>
           </Pressable>
-          <Text style={[styles.counterValue, { color: theme.colors.text }]}>
-            {maxDisplayItems}
-          </Text>
+          <Text style={[styles.counterValue, { color: theme.colors.text }]}>{maxDisplayItems}</Text>
           <Pressable
-            style={[
-              styles.counterButton,
-              { backgroundColor: theme.colors.primary },
-            ]}
-            onPress={() =>
-              setMaxDisplayItems(Math.min(10, maxDisplayItems + 1))
-            }
+            style={[styles.counterButton, { backgroundColor: theme.colors.primary }]}
+            onPress={() => setMaxDisplayItems(Math.min(10, maxDisplayItems + 1))}
           >
             <Text style={styles.buttonText}>+</Text>
           </Pressable>

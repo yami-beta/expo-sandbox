@@ -78,9 +78,7 @@ const translated = i18n._(message); // 使用時に翻訳`}
             </Trans>
           </Text>
           <Text style={styles.warningSubText}>
-            <Trans>
-              主な価値：コードの整理、型安全性、翻訳タイミングの制御
-            </Trans>
+            <Trans>主な価値：コードの整理、型安全性、翻訳タイミングの制御</Trans>
           </Text>
         </View>
 
@@ -121,16 +119,14 @@ const translated = i18n._(message); // 使用時に翻訳`}
                 key={option.value}
                 style={[
                   styles.countryButton,
-                  selectedCountry === option.value &&
-                    styles.countryButtonActive,
+                  selectedCountry === option.value && styles.countryButtonActive,
                 ]}
                 onPress={() => setSelectedCountry(option.value)}
               >
                 <Text
                   style={[
                     styles.countryButtonText,
-                    selectedCountry === option.value &&
-                      styles.countryButtonTextActive,
+                    selectedCountry === option.value && styles.countryButtonTextActive,
                   ]}
                 >
                   {i18n._(option.label)}
@@ -141,9 +137,7 @@ const translated = i18n._(message); // 使用時に翻訳`}
 
           <Text style={styles.result}>
             <Trans>選択された国:</Trans>{" "}
-            {i18n._(
-              countryOptions.find((c) => c.value === selectedCountry)?.label!,
-            )}
+            {i18n._(countryOptions.find((c) => c.value === selectedCountry)?.label!)}
           </Text>
         </View>
 
@@ -162,10 +156,7 @@ const translated = i18n._(message); // 使用時に翻訳`}
             {statusList.map((status) => (
               <Pressable
                 key={status}
-                style={[
-                  styles.statusButton,
-                  currentStatus === status && styles.statusButtonActive,
-                ]}
+                style={[styles.statusButton, currentStatus === status && styles.statusButtonActive]}
                 onPress={() => setCurrentStatus(status)}
               >
                 <Text
@@ -182,8 +173,7 @@ const translated = i18n._(message); // 使用時に翻訳`}
 
           <View style={[styles.statusDisplay, styles[currentStatus]]}>
             <Text style={styles.statusText}>
-              <Trans>現在のステータス:</Trans>{" "}
-              {i18n._(statusMessages[currentStatus])}
+              <Trans>現在のステータス:</Trans> {i18n._(statusMessages[currentStatus])}
             </Text>
           </View>
         </View>
