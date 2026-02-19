@@ -1,8 +1,5 @@
 import { Trans } from "@lingui/react/macro";
-import {
-  LinkList,
-  type LinkItem,
-} from "../../../components/link-list/LinkList";
+import { LinkList, type LinkItem } from "../../../components/link-list/LinkList";
 
 export default function SettingsScreen() {
   const list = [

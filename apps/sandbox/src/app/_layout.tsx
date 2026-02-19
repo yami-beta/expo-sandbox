@@ -35,10 +35,7 @@ function RootLayoutContent() {
           headerShadowVisible: !theme.dark,
         }}
       >
-        <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false, title: t`ホーム` }}
-        />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: t`ホーム` }} />
         <Stack.Screen
           name="navigation-patterns/index"
           options={{

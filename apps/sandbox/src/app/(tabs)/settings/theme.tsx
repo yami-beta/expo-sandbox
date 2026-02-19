@@ -13,19 +13,14 @@ export default function ThemeScreen() {
   ];
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
-    >
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       {options.map((option) => (
         <Pressable
           key={option.value}
           style={[
             styles.option,
             {
-              backgroundColor:
-                mode === option.value
-                  ? theme.colors.primary
-                  : theme.colors.card,
+              backgroundColor: mode === option.value ? theme.colors.primary : theme.colors.card,
               borderColor: theme.colors.border,
             },
           ]}
@@ -35,12 +30,7 @@ export default function ThemeScreen() {
             style={[
               styles.optionText,
               {
-                color:
-                  mode === option.value
-                    ? theme.dark
-                      ? "#000"
-                      : "#fff"
-                    : theme.colors.text,
+                color: mode === option.value ? (theme.dark ? "#000" : "#fff") : theme.colors.text,
               },
             ]}
           >

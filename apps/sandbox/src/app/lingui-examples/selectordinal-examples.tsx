@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  StyleSheet,
-  TextInput,
-} from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet, TextInput } from "react-native";
 import { Trans, SelectOrdinal } from "@lingui/react/macro";
 import { selectOrdinal } from "@lingui/core/macro";
 import { useThemeContext } from "../../theme/ThemeContext";
@@ -140,10 +133,7 @@ export default function SelectOrdinalExamples() {
             <Trans>競技や成績での順位表示</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setRank(Math.max(1, rank - 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setRank(Math.max(1, rank - 1))}>
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{rank}</Text>
@@ -154,20 +144,13 @@ export default function SelectOrdinalExamples() {
           <Text style={styles.result}>
             <Trans>
               おめでとうございます！あなたは
-              <SelectOrdinal
-                value={rank}
-                one="第#位"
-                two="第#位"
-                few="第#位"
-                other="第#位"
-              />
+              <SelectOrdinal value={rank} one="第#位" two="第#位" few="第#位" other="第#位" />
               です
             </Trans>
           </Text>
           <Text style={styles.description}>
             <Trans>
-              英語では1st, 2nd, 3rd,
-              4th...と序数が変化しますが、日本語では「第〜位」で統一されます
+              英語では1st, 2nd, 3rd, 4th...と序数が変化しますが、日本語では「第〜位」で統一されます
             </Trans>
           </Text>
         </View>
@@ -183,19 +166,13 @@ export default function SelectOrdinalExamples() {
             <Trans>プロセスや手順の段階表示</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setStep(Math.max(1, step - 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setStep(Math.max(1, step - 1))}>
               <Text style={styles.buttonText}>
                 <Trans>前へ</Trans>
               </Text>
             </Pressable>
             <Text style={styles.counter}>{step}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setStep(Math.min(10, step + 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setStep(Math.min(10, step + 1))}>
               <Text style={styles.buttonText}>
                 <Trans>次へ</Trans>
               </Text>
@@ -239,19 +216,13 @@ export default function SelectOrdinalExamples() {
             <Trans>組織図やディレクトリ構造での階層表示</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setLevel(Math.max(1, level - 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setLevel(Math.max(1, level - 1))}>
               <Text style={styles.buttonText}>
                 <Trans>上へ</Trans>
               </Text>
             </Pressable>
             <Text style={styles.counter}>{level}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setLevel(level + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setLevel(level + 1)}>
               <Text style={styles.buttonText}>
                 <Trans>下へ</Trans>
               </Text>
@@ -312,30 +283,18 @@ export default function SelectOrdinalExamples() {
             <Trans>リスト内での位置や順番</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setPosition(Math.max(1, position - 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setPosition(Math.max(1, position - 1))}>
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{position}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setPosition(position + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setPosition(position + 1)}>
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
           </View>
           <Text style={styles.result}>
             <Trans>
               この項目は
-              <SelectOrdinal
-                value={position}
-                one="#番目"
-                two="#番目"
-                few="#番目"
-                other="#番目"
-              />
+              <SelectOrdinal value={position} one="#番目" two="#番目" few="#番目" other="#番目" />
               です
             </Trans>
           </Text>
@@ -364,17 +323,11 @@ export default function SelectOrdinalExamples() {
             <Trans>TextInputのplaceholderなど文字列が必要な場合</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setFloor(Math.max(1, floor - 1))}
-            >
+            <Pressable style={styles.button} onPress={() => setFloor(Math.max(1, floor - 1))}>
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{floor}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setFloor(floor + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setFloor(floor + 1)}>
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
           </View>
@@ -387,20 +340,12 @@ export default function SelectOrdinalExamples() {
           <Text style={styles.result}>
             <Trans>
               エレベーターは
-              <SelectOrdinal
-                value={floor}
-                one="第#階"
-                two="第#階"
-                few="第#階"
-                other="第#階"
-              />
+              <SelectOrdinal value={floor} one="第#階" two="第#階" few="第#階" other="第#階" />
               に到着しました
             </Trans>
           </Text>
           <Text style={styles.description}>
-            <Trans>
-              selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます
-            </Trans>
+            <Trans>selectOrdinalマクロは文字列を返すため、文字列プロパティで使用できます</Trans>
           </Text>
         </View>
       </View>
@@ -420,31 +365,13 @@ export default function SelectOrdinalExamples() {
                 <Trans>SelectOrdinal（序数）</Trans>
               </Text>
               <Text style={[styles.comparisonText, { marginBottom: 8 }]}>
-                <SelectOrdinal
-                  value={1}
-                  one="第#位"
-                  two="第#位"
-                  few="第#位"
-                  other="第#位"
-                />
+                <SelectOrdinal value={1} one="第#位" two="第#位" few="第#位" other="第#位" />
               </Text>
               <Text style={[styles.comparisonText, { marginBottom: 8 }]}>
-                <SelectOrdinal
-                  value={2}
-                  one="第#位"
-                  two="第#位"
-                  few="第#位"
-                  other="第#位"
-                />
+                <SelectOrdinal value={2} one="第#位" two="第#位" few="第#位" other="第#位" />
               </Text>
               <Text style={styles.comparisonText}>
-                <SelectOrdinal
-                  value={3}
-                  one="第#位"
-                  two="第#位"
-                  few="第#位"
-                  other="第#位"
-                />
+                <SelectOrdinal value={3} one="第#位" two="第#位" few="第#位" other="第#位" />
               </Text>
             </View>
             <View style={styles.comparisonItem}>
@@ -463,9 +390,7 @@ export default function SelectOrdinalExamples() {
             </View>
           </View>
           <Text style={[styles.description, { marginTop: 12 }]}>
-            <Trans>
-              SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）
-            </Trans>
+            <Trans>SelectOrdinal: 順序や順位を表現（1番目、2番目、1st, 2nd）</Trans>
           </Text>
           <Text style={styles.description}>
             <Trans>Plural: 数量を表現（1個、2個、one item, two items）</Trans>
@@ -486,16 +411,10 @@ export default function SelectOrdinalExamples() {
             • <Trans>序数（順序を表す数）の表現に特化したマクロです</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類
-            </Trans>
+            • <Trans>英語: one(1st), two(2nd), few(3rd), other(4th以降)で分類</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）
-            </Trans>
+            • <Trans>日本語: 通常すべてotherカテゴリー（第〜、〜番目で統一）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 16 }]}>
             • <Trans>#記号: 実際の数値を表示する場所を指定</Trans>
@@ -505,16 +424,10 @@ export default function SelectOrdinalExamples() {
             <Trans>SelectOrdinal vs selectOrdinal</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）
-            </Trans>
+            • <Trans>SelectOrdinalコンポーネント: JSX要素を返す（@lingui/react/macro）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）
-            </Trans>
+            • <Trans>selectOrdinalマクロ: 文字列を返す（@lingui/core/macro）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 16 }]}>
             • <Trans>文字列プロパティにはselectOrdinalマクロを使用</Trans>
@@ -527,16 +440,10 @@ export default function SelectOrdinalExamples() {
             • <Trans>ランキング・順位表示（1位、2位、1st, 2nd）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）
-            </Trans>
+            • <Trans>ステップ・段階表示（第1段階、第2段階、Step 1, Step 2）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              階層・レベル表示（第1階層、レベル2、1st level, 2nd level）
-            </Trans>
+            • <Trans>階層・レベル表示（第1階層、レベル2、1st level, 2nd level）</Trans>
           </Text>
           <Text style={styles.description}>
             • <Trans>順番・位置表示（1番目、2番目、#1, #2）</Trans>

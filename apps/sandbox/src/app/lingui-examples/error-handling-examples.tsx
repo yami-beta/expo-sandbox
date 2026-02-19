@@ -123,10 +123,7 @@ function ErrorCodeDemo() {
         {sampleErrors.map((error, index) => (
           <TouchableOpacity
             key={index}
-            style={[
-              styles.errorCard,
-              selectedError === error.info.code && styles.errorCardActive,
-            ]}
+            style={[styles.errorCard, selectedError === error.info.code && styles.errorCardActive]}
             onPress={() => setSelectedError(error.info.code)}
           >
             <Text style={styles.errorCodeLabel}>{error.info.code}</Text>
@@ -147,8 +144,7 @@ function ErrorCodeDemo() {
               },
             )}
           </Text>
-          {sampleErrors.find((e) => e.info.code === selectedError)?.info
-            .retryable && (
+          {sampleErrors.find((e) => e.info.code === selectedError)?.info.retryable && (
             <TouchableOpacity style={styles.retryButton}>
               <Text style={styles.retryButtonText}>
                 <Trans>再試行</Trans>
@@ -231,10 +227,7 @@ function FormValidationDemo() {
 
   const handleFieldBlur = (field: string) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    const error = validateField(
-      field,
-      formData[field as keyof typeof formData],
-    );
+    const error = validateField(field, formData[field as keyof typeof formData]);
     setErrors((prev) => ({
       ...prev,
       [field]: error || "",
@@ -246,10 +239,7 @@ function FormValidationDemo() {
     let hasError = false;
 
     Object.keys(formData).forEach((field) => {
-      const error = validateField(
-        field,
-        formData[field as keyof typeof formData],
-      );
+      const error = validateField(field, formData[field as keyof typeof formData]);
       if (error) {
         newErrors[field] = error;
         hasError = true;
@@ -287,9 +277,7 @@ function FormValidationDemo() {
             keyboardType="email-address"
             autoCapitalize="none"
           />
-          {errors.email && (
-            <Text style={styles.fieldError}>{errors.email}</Text>
-          )}
+          {errors.email && <Text style={styles.fieldError}>{errors.email}</Text>}
         </View>
 
         <View style={styles.formField}>
@@ -304,9 +292,7 @@ function FormValidationDemo() {
             placeholder={t`8文字以上`}
             secureTextEntry
           />
-          {errors.password && (
-            <Text style={styles.fieldError}>{errors.password}</Text>
-          )}
+          {errors.password && <Text style={styles.fieldError}>{errors.password}</Text>}
         </View>
 
         <View style={styles.formField}>
@@ -456,14 +442,10 @@ function ApiErrorDemo() {
               <Trans>このリソースにアクセスする権限がありません</Trans>
             )}
             {error.code === ERROR_CODES.TIMEOUT && (
-              <Trans>
-                サーバーからの応答がありませんでした。もう一度お試しください
-              </Trans>
+              <Trans>サーバーからの応答がありませんでした。もう一度お試しください</Trans>
             )}
             {error.code === ERROR_CODES.SERVER_ERROR && (
-              <Trans>
-                サーバーで問題が発生しました。しばらくしてからもう一度お試しください
-              </Trans>
+              <Trans>サーバーで問題が発生しました。しばらくしてからもう一度お試しください</Trans>
             )}
           </Text>
           {error.retryable && (

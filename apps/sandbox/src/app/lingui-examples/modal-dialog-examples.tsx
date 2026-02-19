@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Pressable,
-  Modal,
-  Alert,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable, Modal, Alert } from "react-native";
 import { useState } from "react";
 import { useThemeContext } from "../../theme/ThemeContext";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -29,41 +21,23 @@ const ConfirmDialog = ({
   theme: any;
 }) => {
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="fade"
-      onRequestClose={onCancel}
-    >
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onCancel}>
       <View style={styles.modalOverlay}>
-        <View
-          style={[
-            styles.dialogContainer,
-            { backgroundColor: theme.colors.card },
-          ]}
-        >
-          <Text style={[styles.dialogTitle, { color: theme.colors.text }]}>
-            {title}
-          </Text>
-          <Text style={[styles.dialogMessage, { color: theme.colors.text }]}>
-            {message}
-          </Text>
+        <View style={[styles.dialogContainer, { backgroundColor: theme.colors.card }]}>
+          <Text style={[styles.dialogTitle, { color: theme.colors.text }]}>{title}</Text>
+          <Text style={[styles.dialogMessage, { color: theme.colors.text }]}>{message}</Text>
           <View style={styles.dialogButtons}>
             <Pressable
               style={({ pressed }) => [
                 styles.dialogButton,
                 styles.cancelButton,
                 {
-                  backgroundColor: pressed
-                    ? theme.colors.border
-                    : theme.colors.background,
+                  backgroundColor: pressed ? theme.colors.border : theme.colors.background,
                 },
               ]}
               onPress={onCancel}
             >
-              <Text
-                style={[styles.dialogButtonText, { color: theme.colors.text }]}
-              >
+              <Text style={[styles.dialogButtonText, { color: theme.colors.text }]}>
                 <Trans>キャンセル</Trans>
               </Text>
             </Pressable>
@@ -72,9 +46,7 @@ const ConfirmDialog = ({
                 styles.dialogButton,
                 styles.confirmButton,
                 {
-                  backgroundColor: pressed
-                    ? theme.colors.border
-                    : theme.colors.primary,
+                  backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
                 },
               ]}
               onPress={onConfirm}
@@ -107,31 +79,17 @@ const ActionSheet = ({
   theme: any;
 }) => {
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={onCancel}
-    >
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onCancel}>
       <Pressable style={styles.modalOverlay} onPress={onCancel}>
-        <View
-          style={[
-            styles.actionSheetContainer,
-            { backgroundColor: theme.colors.card },
-          ]}
-        >
-          <Text style={[styles.actionSheetTitle, { color: theme.colors.text }]}>
-            {title}
-          </Text>
+        <View style={[styles.actionSheetContainer, { backgroundColor: theme.colors.card }]}>
+          <Text style={[styles.actionSheetTitle, { color: theme.colors.text }]}>{title}</Text>
           {options.map((option, index) => (
             <Pressable
               key={index}
               style={({ pressed }) => [
                 styles.actionSheetOption,
                 {
-                  backgroundColor: pressed
-                    ? theme.colors.border
-                    : "transparent",
+                  backgroundColor: pressed ? theme.colors.border : "transparent",
                 },
               ]}
               onPress={() => onSelect(index)}
@@ -140,9 +98,7 @@ const ActionSheet = ({
                 style={[
                   styles.actionSheetOptionText,
                   {
-                    color: option.destructive
-                      ? theme.colors.notification
-                      : theme.colors.primary,
+                    color: option.destructive ? theme.colors.notification : theme.colors.primary,
                   },
                 ]}
               >
@@ -150,12 +106,7 @@ const ActionSheet = ({
               </Text>
             </Pressable>
           ))}
-          <View
-            style={[
-              styles.actionSheetDivider,
-              { backgroundColor: theme.colors.border },
-            ]}
-          />
+          <View style={[styles.actionSheetDivider, { backgroundColor: theme.colors.border }]} />
           <Pressable
             style={({ pressed }) => [
               styles.actionSheetOption,
@@ -222,42 +173,19 @@ const CustomModal = ({
   };
 
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="fade"
-      onRequestClose={onClose}
-    >
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <View style={styles.modalOverlay}>
-        <View
-          style={[
-            styles.customModalContainer,
-            { backgroundColor: theme.colors.card },
-          ]}
-        >
-          <View
-            style={[
-              styles.customModalIcon,
-              { backgroundColor: getIconColor() },
-            ]}
-          >
+        <View style={[styles.customModalContainer, { backgroundColor: theme.colors.card }]}>
+          <View style={[styles.customModalIcon, { backgroundColor: getIconColor() }]}>
             <Text style={styles.customModalIconText}>{getIcon()}</Text>
           </View>
-          <Text style={[styles.customModalTitle, { color: theme.colors.text }]}>
-            {title}
-          </Text>
-          <Text
-            style={[styles.customModalMessage, { color: theme.colors.text }]}
-          >
-            {message}
-          </Text>
+          <Text style={[styles.customModalTitle, { color: theme.colors.text }]}>{title}</Text>
+          <Text style={[styles.customModalMessage, { color: theme.colors.text }]}>{message}</Text>
           <Pressable
             style={({ pressed }) => [
               styles.customModalButton,
               {
-                backgroundColor: pressed
-                  ? theme.colors.border
-                  : theme.colors.primary,
+                backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
               },
             ]}
             onPress={onClose}
@@ -348,22 +276,14 @@ export default function ModalDialogExamples() {
           </Text>
           <View style={styles.counterContainer}>
             <Pressable
-              style={[
-                styles.counterButton,
-                { backgroundColor: theme.colors.primary },
-              ]}
+              style={[styles.counterButton, { backgroundColor: theme.colors.primary }]}
               onPress={() => setDeleteCount(Math.max(1, deleteCount - 1))}
             >
               <Text style={styles.counterButtonText}>-</Text>
             </Pressable>
-            <Text style={[styles.counterValue, { color: theme.colors.text }]}>
-              {deleteCount}
-            </Text>
+            <Text style={[styles.counterValue, { color: theme.colors.text }]}>{deleteCount}</Text>
             <Pressable
-              style={[
-                styles.counterButton,
-                { backgroundColor: theme.colors.primary },
-              ]}
+              style={[styles.counterButton, { backgroundColor: theme.colors.primary }]}
               onPress={() => setDeleteCount(deleteCount + 1)}
             >
               <Text style={styles.counterButtonText}>+</Text>
@@ -410,10 +330,7 @@ export default function ModalDialogExamples() {
             </Text>
           </Pressable>
           <Pressable
-            style={[
-              styles.smallButton,
-              { backgroundColor: theme.colors.notification },
-            ]}
+            style={[styles.smallButton, { backgroundColor: theme.colors.notification }]}
             onPress={() => setErrorModalVisible(true)}
           >
             <Text style={styles.buttonText}>
@@ -421,10 +338,7 @@ export default function ModalDialogExamples() {
             </Text>
           </Pressable>
           <Pressable
-            style={[
-              styles.smallButton,
-              { backgroundColor: theme.colors.primary },
-            ]}
+            style={[styles.smallButton, { backgroundColor: theme.colors.primary }]}
             onPress={() => setInfoModalVisible(true)}
           >
             <Text style={styles.buttonText}>
@@ -451,15 +365,11 @@ export default function ModalDialogExamples() {
 
       {/* 結果表示 */}
       {lastAction ? (
-        <View
-          style={[styles.resultBox, { backgroundColor: theme.colors.card }]}
-        >
+        <View style={[styles.resultBox, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.resultLabel, { color: theme.colors.text }]}>
             <Trans>最後のアクション:</Trans>
           </Text>
-          <Text style={[styles.resultText, { color: theme.colors.text }]}>
-            {lastAction}
-          </Text>
+          <Text style={[styles.resultText, { color: theme.colors.text }]}>{lastAction}</Text>
         </View>
       ) : null}
 

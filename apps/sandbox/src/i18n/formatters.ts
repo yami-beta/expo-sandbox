@@ -39,10 +39,7 @@ export const createDateFormatPresets = (i18n: I18n) => ({
   },
 
   // カスタムフォーマット
-  custom: (
-    date: Date | string,
-    options: Intl.DateTimeFormatOptions,
-  ): string => {
+  custom: (date: Date | string, options: Intl.DateTimeFormatOptions): string => {
     return i18n.date(date, options);
   },
 });

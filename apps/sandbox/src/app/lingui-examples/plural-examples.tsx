@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  StyleSheet,
-  TextInput,
-} from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet, TextInput } from "react-native";
 import { Trans, Plural } from "@lingui/react/macro";
 import { plural } from "@lingui/core/macro";
 import { useThemeContext } from "../../theme/ThemeContext";
@@ -126,19 +119,12 @@ export default function PluralExamples() {
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{itemCount}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setItemCount(itemCount + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setItemCount(itemCount + 1)}>
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
           </View>
           <Text style={styles.result}>
-            <Plural
-              value={itemCount}
-              one="1件のアイテム"
-              other="#件のアイテム"
-            />
+            <Plural value={itemCount} one="1件のアイテム" other="#件のアイテム" />
           </Text>
           <Text style={styles.description}>
             <Trans>one、otherの形式を使用（日本語はotherのみ）</Trans>
@@ -161,10 +147,7 @@ export default function PluralExamples() {
                 <Trans>クリア</Trans>
               </Text>
             </Pressable>
-            <Pressable
-              style={styles.button}
-              onPress={() => setFileCount(fileCount + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setFileCount(fileCount + 1)}>
               <Text style={styles.buttonText}>
                 <Trans>ファイルを追加</Trans>
               </Text>
@@ -194,10 +177,7 @@ export default function PluralExamples() {
             <Trans>正確な値のマッチング（_0）を使用</Trans>
           </Text>
           <View style={styles.controls}>
-            <Pressable
-              style={styles.button}
-              onPress={() => setNotificationCount(0)}
-            >
+            <Pressable style={styles.button} onPress={() => setNotificationCount(0)}>
               <Text style={styles.buttonText}>
                 <Trans>既読</Trans>
               </Text>
@@ -210,10 +190,7 @@ export default function PluralExamples() {
                 <Trans>新着</Trans>
               </Text>
             </Pressable>
-            <Pressable
-              style={styles.button}
-              onPress={() => setNotificationCount(99)}
-            >
+            <Pressable style={styles.button} onPress={() => setNotificationCount(99)}>
               <Text style={styles.buttonText}>99</Text>
             </Pressable>
           </View>
@@ -248,10 +225,7 @@ export default function PluralExamples() {
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{taskCount}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setTaskCount(taskCount + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setTaskCount(taskCount + 1)}>
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
           </View>
@@ -262,15 +236,10 @@ export default function PluralExamples() {
             editable={false}
           />
           <Text style={styles.description}>
-            <Trans>
-              TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用
-            </Trans>
+            <Trans>TextInputのplaceholderは文字列のみ受け付けるため、pluralマクロを使用</Trans>
           </Text>
           <Text style={[styles.description, { marginTop: 8 }]}>
-            <Trans>
-              注: pluralマクロでは数値リテラル（0,
-              1など）で正確な値のマッチングが可能
-            </Trans>
+            <Trans>注: pluralマクロでは数値リテラル（0, 1など）で正確な値のマッチングが可能</Trans>
           </Text>
         </View>
       </View>
@@ -292,10 +261,7 @@ export default function PluralExamples() {
               <Text style={styles.buttonText}>-</Text>
             </Pressable>
             <Text style={styles.counter}>{friendCount}</Text>
-            <Pressable
-              style={styles.button}
-              onPress={() => setFriendCount(friendCount + 1)}
-            >
+            <Pressable style={styles.button} onPress={() => setFriendCount(friendCount + 1)}>
               <Text style={styles.buttonText}>+</Text>
             </Pressable>
           </View>
@@ -326,14 +292,10 @@ export default function PluralExamples() {
             <Trans>Pluralコンポーネント vs pluralマクロ</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              Pluralコンポーネント: JSX要素を返す（React要素内で使用）
-            </Trans>
+            • <Trans>Pluralコンポーネント: JSX要素を返す（React要素内で使用）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>pluralマクロ: 文字列を返す（文字列プロパティで使用）</Trans>
+            • <Trans>pluralマクロ: 文字列を返す（文字列プロパティで使用）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
             • <Trans>両方ともCLDR Pluralルールに基づく処理</Trans>

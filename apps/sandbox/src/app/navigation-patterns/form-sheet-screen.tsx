@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  ScrollView,
-  TextInput,
-  Platform,
-} from "react-native";
+import { StyleSheet, Text, View, Pressable, ScrollView, TextInput, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useThemeContext } from "../../theme/ThemeContext";
@@ -31,41 +23,26 @@ export default function FormSheetScreen() {
   };
 
   return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
-    >
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.contentContainer}
-      >
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
           <Text style={[styles.title, { color: theme.colors.text }]}>
             <Trans>フォームシートの例</Trans>
           </Text>
           <View style={styles.headerButtons}>
             <Pressable
-              style={({ pressed }) => [
-                styles.headerButton,
-                pressed && styles.headerButtonPressed,
-              ]}
+              style={({ pressed }) => [styles.headerButton, pressed && styles.headerButtonPressed]}
               onPress={handleCancel}
             >
-              <Text
-                style={[styles.cancelButtonText, { color: theme.colors.text }]}
-              >
+              <Text style={[styles.cancelButtonText, { color: theme.colors.text }]}>
                 <Trans>キャンセル</Trans>
               </Text>
             </Pressable>
             <Pressable
-              style={({ pressed }) => [
-                styles.headerButton,
-                pressed && styles.headerButtonPressed,
-              ]}
+              style={({ pressed }) => [styles.headerButton, pressed && styles.headerButtonPressed]}
               onPress={handleSubmit}
             >
-              <Text
-                style={[styles.doneButtonText, { color: theme.colors.primary }]}
-              >
+              <Text style={[styles.doneButtonText, { color: theme.colors.primary }]}>
                 <Trans>完了</Trans>
               </Text>
             </Pressable>
@@ -163,9 +140,7 @@ export default function FormSheetScreen() {
               style={({ pressed }) => [
                 styles.submitButton,
                 {
-                  backgroundColor: pressed
-                    ? theme.colors.border
-                    : theme.colors.primary,
+                  backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
                 },
               ]}
               onPress={handleSubmit}

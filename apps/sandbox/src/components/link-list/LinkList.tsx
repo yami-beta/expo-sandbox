@@ -33,9 +33,7 @@ function LinkListItem({ href, text }: LinkItem): ReactElement {
   return (
     <Link href={href} asChild>
       <Pressable style={styles.item}>
-        <Text style={[styles.itemText, { color: theme.colors.text }]}>
-          {text}
-        </Text>
+        <Text style={[styles.itemText, { color: theme.colors.text }]}>{text}</Text>
         <Ionicons name="chevron-forward" size={20} color={theme.colors.text} />
       </Pressable>
     </Link>

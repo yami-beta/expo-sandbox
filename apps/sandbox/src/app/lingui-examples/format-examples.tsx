@@ -175,8 +175,7 @@ export default function FormatExamples() {
             <Trans>コンパクト表記</Trans>
           </Text>
           <Text style={[styles.value, { color: theme.colors.text }]}>
-            {formatters.number.compact(1234567)} /{" "}
-            {formatters.number.compact(12345678)}
+            {formatters.number.compact(1234567)} / {formatters.number.compact(12345678)}
           </Text>
         </View>
 

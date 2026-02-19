@@ -27,9 +27,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: t`ホーム`,
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -37,9 +35,7 @@ export default function TabLayout() {
         options={{
           title: t`設定`,
           headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
         }}
       />
     </Tabs>

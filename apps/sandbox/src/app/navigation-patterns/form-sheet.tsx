@@ -12,27 +12,21 @@ export default function FormSheetSample() {
   };
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
-    >
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.content}>
         <Text style={[styles.title, { color: theme.colors.text }]}>
           <Trans>フォームシート表示サンプル</Trans>
         </Text>
 
         <Text style={[styles.description, { color: theme.colors.text }]}>
-          <Trans>
-            下のボタンをタップしてフォームシート表示で画面を開きます。
-          </Trans>
+          <Trans>下のボタンをタップしてフォームシート表示で画面を開きます。</Trans>
         </Text>
 
         <Pressable
           style={({ pressed }) => [
             styles.button,
             {
-              backgroundColor: pressed
-                ? theme.colors.border
-                : theme.colors.primary,
+              backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
             },
           ]}
           onPress={openFormSheet}
@@ -48,11 +42,11 @@ export default function FormSheetSample() {
           </Text>
           <Text style={[styles.infoText, { color: theme.colors.text }]}>
             <Trans>
-              【iOS】{"\n"}• 画面全体を覆わない小さめのモーダル{"\n"}•
-              背景に親画面を表示{"\n"}• フォームや集中的なタスクに最適{"\n"}
+              【iOS】{"\n"}• 画面全体を覆わない小さめのモーダル{"\n"}• 背景に親画面を表示{"\n"}•
+              フォームや集中的なタスクに最適{"\n"}
               {"\n"}
-              【Android】{"\n"}• 通常のモーダルとして動作{"\n"}•
-              画面全体を覆います{"\n"}• プラットフォーム固有の動作{"\n"}
+              【Android】{"\n"}• 通常のモーダルとして動作{"\n"}• 画面全体を覆います{"\n"}•
+              プラットフォーム固有の動作{"\n"}
               {"\n"}
               【共通】{"\n"}• 下へのスワイプジェスチャーで閉じることができます
             </Trans>

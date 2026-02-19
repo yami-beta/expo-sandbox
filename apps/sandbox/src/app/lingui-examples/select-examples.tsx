@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Pressable,
-  StyleSheet,
-  TextInput,
-} from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet, TextInput } from "react-native";
 import { Trans, Select } from "@lingui/react/macro";
 import { select } from "@lingui/core/macro";
 import { useThemeContext } from "../../theme/ThemeContext";
@@ -22,19 +15,13 @@ export default function SelectExamples() {
   const [audience, setAudience] = useState<"singular" | "plural">("singular");
 
   // 所有格
-  const [possessive, setPossessive] = useState<
-    "my" | "your" | "his" | "her" | "their"
-  >("my");
+  const [possessive, setPossessive] = useState<"my" | "your" | "his" | "her" | "their">("my");
 
   // 動作主体
-  const [subject, setSubject] = useState<"i" | "you" | "he" | "she" | "they">(
-    "i",
-  );
+  const [subject, setSubject] = useState<"i" | "you" | "he" | "she" | "they">("i");
 
   // アンチパターン例（技術的状態）
-  const [userStatus, setUserStatus] = useState<
-    "online" | "offline" | "away" | "busy"
-  >("online");
+  const [userStatus, setUserStatus] = useState<"online" | "offline" | "away" | "busy">("online");
 
   // 所有格の例でselectマクロを使用（文字列プロパティ）
   const profilePlaceholder = select(possessive, {
@@ -145,9 +132,7 @@ export default function SelectExamples() {
           <Trans>✅ 適切な使用例（文法的変化）</Trans>
         </Text>
         <Text style={styles.description}>
-          <Trans>
-            Selectマクロは自然言語の文法的変化を扱うために設計されています
-          </Trans>
+          <Trans>Selectマクロは自然言語の文法的変化を扱うために設計されています</Trans>
         </Text>
       </View>
 
@@ -162,10 +147,7 @@ export default function SelectExamples() {
           </Text>
           <View style={styles.controls}>
             <Pressable
-              style={[
-                styles.button,
-                gender === "male" && styles.buttonSelected,
-              ]}
+              style={[styles.button, gender === "male" && styles.buttonSelected]}
               onPress={() => setGender("male")}
             >
               <Text style={styles.buttonText}>
@@ -173,10 +155,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                gender === "female" && styles.buttonSelected,
-              ]}
+              style={[styles.button, gender === "female" && styles.buttonSelected]}
               onPress={() => setGender("female")}
             >
               <Text style={styles.buttonText}>
@@ -184,10 +163,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                gender === "other" && styles.buttonSelected,
-              ]}
+              style={[styles.button, gender === "other" && styles.buttonSelected]}
               onPress={() => setGender("other")}
             >
               <Text style={styles.buttonText}>
@@ -215,9 +191,7 @@ export default function SelectExamples() {
             />
           </Text>
           <Text style={styles.description}>
-            <Trans>
-              日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります
-            </Trans>
+            <Trans>日本語では代名詞の省略が一般的ですが、英語では明確な違いがあります</Trans>
           </Text>
         </View>
       </View>
@@ -233,10 +207,7 @@ export default function SelectExamples() {
           </Text>
           <View style={styles.controls}>
             <Pressable
-              style={[
-                styles.button,
-                audience === "singular" && styles.buttonSelected,
-              ]}
+              style={[styles.button, audience === "singular" && styles.buttonSelected]}
               onPress={() => setAudience("singular")}
             >
               <Text style={styles.buttonText}>
@@ -244,10 +215,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                audience === "plural" && styles.buttonSelected,
-              ]}
+              style={[styles.button, audience === "plural" && styles.buttonSelected]}
               onPress={() => setAudience("plural")}
             >
               <Text style={styles.buttonText}>
@@ -288,10 +256,7 @@ export default function SelectExamples() {
           </Text>
           <View style={styles.controls}>
             <Pressable
-              style={[
-                styles.button,
-                possessive === "my" && styles.buttonSelected,
-              ]}
+              style={[styles.button, possessive === "my" && styles.buttonSelected]}
               onPress={() => setPossessive("my")}
             >
               <Text style={styles.buttonText}>
@@ -299,10 +264,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                possessive === "your" && styles.buttonSelected,
-              ]}
+              style={[styles.button, possessive === "your" && styles.buttonSelected]}
               onPress={() => setPossessive("your")}
             >
               <Text style={styles.buttonText}>
@@ -310,10 +272,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                possessive === "his" && styles.buttonSelected,
-              ]}
+              style={[styles.button, possessive === "his" && styles.buttonSelected]}
               onPress={() => setPossessive("his")}
             >
               <Text style={styles.buttonText}>
@@ -321,10 +280,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                possessive === "her" && styles.buttonSelected,
-              ]}
+              style={[styles.button, possessive === "her" && styles.buttonSelected]}
               onPress={() => setPossessive("her")}
             >
               <Text style={styles.buttonText}>
@@ -332,10 +288,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                possessive === "their" && styles.buttonSelected,
-              ]}
+              style={[styles.button, possessive === "their" && styles.buttonSelected]}
               onPress={() => setPossessive("their")}
             >
               <Text style={styles.buttonText}>
@@ -360,9 +313,7 @@ export default function SelectExamples() {
             />
           </Text>
           <Text style={styles.description}>
-            <Trans>
-              TextInputのplaceholderには文字列が必要なため、selectマクロを使用
-            </Trans>
+            <Trans>TextInputのplaceholderには文字列が必要なため、selectマクロを使用</Trans>
           </Text>
         </View>
       </View>
@@ -386,10 +337,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                subject === "you" && styles.buttonSelected,
-              ]}
+              style={[styles.button, subject === "you" && styles.buttonSelected]}
               onPress={() => setSubject("you")}
             >
               <Text style={styles.buttonText}>
@@ -405,10 +353,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                subject === "she" && styles.buttonSelected,
-              ]}
+              style={[styles.button, subject === "she" && styles.buttonSelected]}
               onPress={() => setSubject("she")}
             >
               <Text style={styles.buttonText}>
@@ -416,10 +361,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                subject === "they" && styles.buttonSelected,
-              ]}
+              style={[styles.button, subject === "they" && styles.buttonSelected]}
               onPress={() => setSubject("they")}
             >
               <Text style={styles.buttonText}>
@@ -439,9 +381,7 @@ export default function SelectExamples() {
             />
           </Text>
           <Text style={styles.description}>
-            <Trans>
-              日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します
-            </Trans>
+            <Trans>日本語では動詞の活用が少ないですが、英語では主語によって動詞が変化します</Trans>
           </Text>
         </View>
       </View>
@@ -452,9 +392,7 @@ export default function SelectExamples() {
           <Trans>❌ 不適切な使用例（アンチパターン）</Trans>
         </Text>
         <Text style={styles.description}>
-          <Trans>
-            以下は技術的な状態であり、Selectマクロの使用は不適切です
-          </Trans>
+          <Trans>以下は技術的な状態であり、Selectマクロの使用は不適切です</Trans>
         </Text>
       </View>
 
@@ -469,10 +407,7 @@ export default function SelectExamples() {
           </Text>
           <View style={styles.controls}>
             <Pressable
-              style={[
-                styles.button,
-                userStatus === "online" && styles.buttonSelected,
-              ]}
+              style={[styles.button, userStatus === "online" && styles.buttonSelected]}
               onPress={() => setUserStatus("online")}
             >
               <Text style={styles.buttonText}>
@@ -480,10 +415,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                userStatus === "offline" && styles.buttonSelected,
-              ]}
+              style={[styles.button, userStatus === "offline" && styles.buttonSelected]}
               onPress={() => setUserStatus("offline")}
             >
               <Text style={styles.buttonText}>
@@ -491,10 +423,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                userStatus === "away" && styles.buttonSelected,
-              ]}
+              style={[styles.button, userStatus === "away" && styles.buttonSelected]}
               onPress={() => setUserStatus("away")}
             >
               <Text style={styles.buttonText}>
@@ -502,10 +431,7 @@ export default function SelectExamples() {
               </Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.button,
-                userStatus === "busy" && styles.buttonSelected,
-              ]}
+              style={[styles.button, userStatus === "busy" && styles.buttonSelected]}
               onPress={() => setUserStatus("busy")}
             >
               <Text style={styles.buttonText}>
@@ -515,9 +441,7 @@ export default function SelectExamples() {
           </View>
 
           <View style={styles.warningBox}>
-            <Text style={styles.warningText}>
-              ❌ 悪い例：技術的状態にSelectマクロを使用
-            </Text>
+            <Text style={styles.warningText}>❌ 悪い例：技術的状態にSelectマクロを使用</Text>
           </View>
           <Text style={styles.result}>
             <Select
@@ -531,9 +455,7 @@ export default function SelectExamples() {
           </Text>
 
           <View style={styles.goodBox}>
-            <Text style={styles.goodText}>
-              ✅ 良い例：通常の条件分岐や辞書を使用
-            </Text>
+            <Text style={styles.goodText}>✅ 良い例：通常の条件分岐や辞書を使用</Text>
           </View>
           <Text style={styles.result}>
             {userStatus === "online" && <Trans>オンライン</Trans>}
@@ -564,16 +486,10 @@ export default function SelectExamples() {
             • <Trans>ICU MessageFormatの仕様に基づいて設計されています</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              自然言語の文法的変化（性別、数、格変化など）を扱うためのものです
-            </Trans>
+            • <Trans>自然言語の文法的変化（性別、数、格変化など）を扱うためのものです</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              技術的な状態やビジネスロジックには使用すべきではありません
-            </Trans>
+            • <Trans>技術的な状態やビジネスロジックには使用すべきではありません</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 16 }]}>
             • <Trans>必ずotherケースを含める必要があります</Trans>
@@ -583,19 +499,13 @@ export default function SelectExamples() {
             <Trans>Select vs select</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              Selectコンポーネント: JSX要素を返す（@lingui/react/macro）
-            </Trans>
+            • <Trans>Selectコンポーネント: JSX要素を返す（@lingui/react/macro）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
             • <Trans>selectマクロ: 文字列を返す（@lingui/core/macro）</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 16 }]}>
-            •{" "}
-            <Trans>
-              特定のケースはアンダースコアで始める（_male、_female等）
-            </Trans>
+            • <Trans>特定のケースはアンダースコアで始める（_male、_female等）</Trans>
           </Text>
 
           <Text style={[styles.label, { marginBottom: 8 }]}>
@@ -605,17 +515,11 @@ export default function SelectExamples() {
             • <Trans>文法的変化が必要か？ → YES: Selectマクロを使用</Trans>
           </Text>
           <Text style={[styles.description, { marginBottom: 8 }]}>
-            •{" "}
-            <Trans>
-              技術的/ビジネス的な状態か？ → YES: 通常の条件分岐を使用
-            </Trans>
+            • <Trans>技術的/ビジネス的な状態か？ → YES: 通常の条件分岐を使用</Trans>
           </Text>
           <Text style={styles.description}>
             •{" "}
-            <Trans>
-              翻訳者が独立して翻訳する必要があるか？ → YES:
-              個別のメッセージキーを使用
-            </Trans>
+            <Trans>翻訳者が独立して翻訳する必要があるか？ → YES: 個別のメッセージキーを使用</Trans>
           </Text>
         </View>
       </View>
