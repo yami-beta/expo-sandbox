@@ -1,6 +1,8 @@
 {
   "plugins": null,
-  "categories": {},
+  "categories": {
+    "correctness": "error"
+  },
   "rules": {},
   "settings": {
     "jsx-a11y": {
