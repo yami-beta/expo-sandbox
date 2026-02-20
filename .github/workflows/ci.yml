@@ -20,8 +20,11 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
+      - name: Run Oxlint
+        run: pnpm -C apps/sandbox lint:oxlint
+
       - name: Run ESLint
-        run: pnpm -C apps/sandbox lint:expo
+        run: pnpm -C apps/sandbox lint:eslint
 
       - name: Check formatting
         run: pnpm -C apps/sandbox lint:format
