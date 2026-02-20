@@ -21,7 +21,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Run Oxlint
-        run: pnpm -C apps/sandbox lint:oxlint
+        run: pnpm -C apps/sandbox lint:oxlint --format=github
 
       - name: Run ESLint
         run: pnpm -C apps/sandbox lint:eslint
