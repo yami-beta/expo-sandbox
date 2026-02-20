@@ -211,7 +211,7 @@ msgstr "• Proper display of notification count with Plural macro"
 msgid "• クリック可能な各階層へのジャンプ機能"
 msgstr "• Clickable jump to each hierarchy level"
 
-#: src/app/performance/lazy-translation.tsx:100
+#: src/app/performance/lazy-translation.tsx:101
 msgid "• タブやモーダルの遅延初期化"
 msgstr "• Lazy initialization of tabs and modals"
 
@@ -231,7 +231,7 @@ msgstr "• Badge type switching (numeric/text/dot)"
 msgid "• ファイルシステムのパス表示"
 msgstr "• File system path display"
 
-#: src/app/performance/lazy-translation.tsx:97
+#: src/app/performance/lazy-translation.tsx:98
 msgid "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
 msgstr "• Memory usage optimization (save memory for unused translations)"
 
@@ -247,7 +247,7 @@ msgstr "• Dynamic tab label updates"
 msgid "• 区切り文字のカスタマイズ"
 msgstr "• Customizable separator characters"
 
-#: src/app/performance/lazy-translation.tsx:94
+#: src/app/performance/lazy-translation.tsx:95
 msgid "• 大量データの初期化コスト削減"
 msgstr "• Reduced initialization cost for large datasets"
 
@@ -255,7 +255,7 @@ msgstr "• Reduced initialization cost for large datasets"
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• Use back gesture (Android)"
 
-#: src/app/performance/lazy-translation.tsx:91
+#: src/app/performance/lazy-translation.tsx:92
 msgid "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 msgstr "• Conditional translation (don't translate unused messages)"
 
@@ -283,11 +283,11 @@ msgstr "• Admin screen hierarchy menu"
 msgid "• 階層的なナビゲーションパスの管理"
 msgstr "• Hierarchical navigation path management"
 
-#: src/app/performance/lazy-translation.tsx:71
+#: src/app/performance/lazy-translation.tsx:72
 msgid "⚠️ React Nativeでの制限事項"
 msgstr "⚠️ Limitations in React Native"
 
-#: src/app/performance/lazy-translation.tsx:88
+#: src/app/performance/lazy-translation.tsx:89
 msgid "✅ 実際に効果があるケース"
 msgstr "✅ Cases with Actual Benefits"
 
@@ -299,7 +299,7 @@ msgstr "✅ Proper Use Cases (Grammatical Variations)"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ Improper Use Cases (Anti-patterns)"
 
-#: src/app/performance/lazy-translation.tsx:48
+#: src/app/performance/lazy-translation.tsx:49
 msgid "📚 Linguiの遅延ロードの仕組み"
 msgstr "📚 How Lingui's Lazy Loading Works"
 
@@ -315,7 +315,7 @@ msgstr "1. Cache translation results and calculations with useMemo"
 msgid "1. エラーコード管理"
 msgstr "1. Error Code Management"
 
-#: src/app/performance/lazy-translation.tsx:187
+#: src/app/performance/lazy-translation.tsx:188
 msgid "1. 選択肢やマッピングを定数として定義できる"
 msgstr "1. Define choices and mappings as constants"
 
@@ -331,7 +331,7 @@ msgstr "18-120"
 msgid "1個のアイテム"
 msgstr "1 item"
 
-#: src/app/performance/lazy-translation.tsx:190
+#: src/app/performance/lazy-translation.tsx:191
 msgid "2. TypeScriptの型安全性を保てる"
 msgstr "2. Maintain TypeScript type safety"
 
@@ -363,7 +363,7 @@ msgstr "3. Prevent component re-rendering with React.memo"
 msgid "3. フォールバック戦略"
 msgstr "3. Fallback Strategy"
 
-#: src/app/performance/lazy-translation.tsx:193
+#: src/app/performance/lazy-translation.tsx:194
 msgid "3. 翻訳が必要な時だけ実行される（遅延評価）"
 msgstr "3. Executed only when translation is needed (lazy evaluation)"
 
@@ -375,7 +375,7 @@ msgstr "3 items"
 msgid "4. FlatListの最適化オプションを活用"
 msgstr "4. Utilize FlatList optimization options"
 
-#: src/app/performance/lazy-translation.tsx:196
+#: src/app/performance/lazy-translation.tsx:197
 msgid "4. コードの可読性と保守性が向上する"
 msgstr "4. Improve code readability and maintainability"
 
@@ -403,7 +403,7 @@ msgstr "503 Service Unavailable"
 msgid "8文字以上"
 msgstr "8+ characters"
 
-#: src/app/performance/lazy-translation.tsx:150
+#: src/app/performance/lazy-translation.tsx:151
 msgid "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 msgstr "Map status codes from API responses to predefined translation messages."
 
@@ -440,11 +440,11 @@ msgstr "Lingui Learning Examples"
 msgid "Metro Transformerの利点"
 msgstr "Benefits of Metro Transformer"
 
-#: src/app/performance/lazy-translation.tsx:51
+#: src/app/performance/lazy-translation.tsx:52
 msgid "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 msgstr "The msg macro doesn't execute translation but returns a MessageDescriptor (an object containing information needed for translation). The actual translation is deferred until i18n._() is called."
 
-#: src/app/performance/lazy-translation.tsx:184
+#: src/app/performance/lazy-translation.tsx:185
 msgid "msgマクロを使うメリット"
 msgstr "Benefits of using msg macro"
 
@@ -452,7 +452,7 @@ msgstr "Benefits of using msg macro"
 msgid "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
 msgstr "Implement lazy translation patterns using the msg macro and conditional message loading patterns."
 
-#: src/app/performance/lazy-translation.tsx:39
+#: src/app/performance/lazy-translation.tsx:40
 msgid "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 msgstr "The msg macro allows you to define translations in advance and use them later. It's ideal for dynamic options like dropdowns and status displays."
 
@@ -609,7 +609,7 @@ msgstr "Demonstrate translation optimization patterns using useMemo, useCallback
 msgid "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
 msgstr "Introduces translation memoization using useMemo and useCallback, and list display optimization techniques."
 
-#: src/app/performance/lazy-translation.tsx:74
+#: src/app/performance/lazy-translation.tsx:75
 msgid "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
 msgstr "Unlike Web, React Native doesn't support dynamic imports, so all translation files are included in the bundle from the start. Therefore, there's no bundle size reduction benefit."
 
@@ -1396,7 +1396,7 @@ msgstr "Down"
 msgid "両方ともCLDR Pluralルールに基づく処理"
 msgstr "Both based on CLDR Plural rules"
 
-#: src/app/performance/lazy-translation.tsx:81
+#: src/app/performance/lazy-translation.tsx:82
 msgid "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
 msgstr "Main value: Code organization, type safety, translation timing control"
 
@@ -1433,11 +1433,11 @@ msgstr "Usage Examples"
 msgid "例: 製品詳細ページ"
 msgstr "e.g., Product Detail Page"
 
-#: src/app/performance/lazy-translation.tsx:107
+#: src/app/performance/lazy-translation.tsx:108
 msgid "例1: 国選択ドロップダウン"
 msgstr "Example 1: Country Selection Dropdown"
 
-#: src/app/performance/lazy-translation.tsx:147
+#: src/app/performance/lazy-translation.tsx:148
 msgid "例2: ステータス表示システム"
 msgstr "Example 2: Status Display System"
 
@@ -1953,7 +1953,7 @@ msgstr "Specific cases start with underscore (_male, _female, etc.)"
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "Currently processing {step, selectordinal, one {Step #} two {Step #} few {Step #} other {Step #}}"
 
-#: src/app/performance/lazy-translation.tsx:176
+#: src/app/performance/lazy-translation.tsx:177
 msgid "現在のステータス:"
 msgstr "Current Status:"
 
@@ -2180,7 +2180,7 @@ msgid "遅延翻訳の例を見る →"
 msgstr "View Lazy Translation Examples →"
 
 #: src/app/performance/index.tsx:21
-#: src/app/performance/lazy-translation.tsx:36
+#: src/app/performance/lazy-translation.tsx:37
 msgid "遅延翻訳パターン"
 msgstr "Lazy Translation Patterns"
 
@@ -2192,7 +2192,7 @@ msgstr "Appropriate usage criteria"
 msgid "選択されたファイル数の表示"
 msgstr "Display of selected file count"
 
-#: src/app/performance/lazy-translation.tsx:139
+#: src/app/performance/lazy-translation.tsx:140
 msgid "選択された国:"
 msgstr "Selected Country:"
 
@@ -2200,7 +2200,7 @@ msgstr "Selected Country:"
 msgid "選択中:"
 msgstr "Selected:"
 
-#: src/app/performance/lazy-translation.tsx:110
+#: src/app/performance/lazy-translation.tsx:111
 msgid "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 msgstr "Define choices in advance and translate them when needed. This improves code organization and reusability."
 

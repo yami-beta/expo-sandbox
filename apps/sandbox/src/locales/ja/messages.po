@@ -211,7 +211,7 @@ msgstr "• Pluralマクロで通知数の適切な表示"
 msgid "• クリック可能な各階層へのジャンプ機能"
 msgstr "• クリック可能な各階層へのジャンプ機能"
 
-#: src/app/performance/lazy-translation.tsx:100
+#: src/app/performance/lazy-translation.tsx:101
 msgid "• タブやモーダルの遅延初期化"
 msgstr "• タブやモーダルの遅延初期化"
 
@@ -231,7 +231,7 @@ msgstr "• バッジタイプ（数値/テキスト/ドット）の切り替え
 msgid "• ファイルシステムのパス表示"
 msgstr "• ファイルシステムのパス表示"
 
-#: src/app/performance/lazy-translation.tsx:97
+#: src/app/performance/lazy-translation.tsx:98
 msgid "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
 msgstr "• メモリ使用量の最適化（未使用翻訳のメモリ節約）"
 
@@ -247,7 +247,7 @@ msgstr "• 動的なタブラベルの更新"
 msgid "• 区切り文字のカスタマイズ"
 msgstr "• 区切り文字のカスタマイズ"
 
-#: src/app/performance/lazy-translation.tsx:94
+#: src/app/performance/lazy-translation.tsx:95
 msgid "• 大量データの初期化コスト削減"
 msgstr "• 大量データの初期化コスト削減"
 
@@ -255,7 +255,7 @@ msgstr "• 大量データの初期化コスト削減"
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• 戻るジェスチャーを使用（Android）"
 
-#: src/app/performance/lazy-translation.tsx:91
+#: src/app/performance/lazy-translation.tsx:92
 msgid "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 msgstr "• 条件付き翻訳（使わないメッセージを翻訳しない）"
 
@@ -283,11 +283,11 @@ msgstr "• 管理画面の階層メニュー"
 msgid "• 階層的なナビゲーションパスの管理"
 msgstr "• 階層的なナビゲーションパスの管理"
 
-#: src/app/performance/lazy-translation.tsx:71
+#: src/app/performance/lazy-translation.tsx:72
 msgid "⚠️ React Nativeでの制限事項"
 msgstr "⚠️ React Nativeでの制限事項"
 
-#: src/app/performance/lazy-translation.tsx:88
+#: src/app/performance/lazy-translation.tsx:89
 msgid "✅ 実際に効果があるケース"
 msgstr "✅ 実際に効果があるケース"
 
@@ -299,7 +299,7 @@ msgstr "✅ 適切な使用例（文法的変化）"
 msgid "❌ 不適切な使用例（アンチパターン）"
 msgstr "❌ 不適切な使用例（アンチパターン）"
 
-#: src/app/performance/lazy-translation.tsx:48
+#: src/app/performance/lazy-translation.tsx:49
 msgid "📚 Linguiの遅延ロードの仕組み"
 msgstr "📚 Linguiの遅延ロードの仕組み"
 
@@ -315,7 +315,7 @@ msgstr "1. useMemoで翻訳結果と計算結果をキャッシュ"
 msgid "1. エラーコード管理"
 msgstr "1. エラーコード管理"
 
-#: src/app/performance/lazy-translation.tsx:187
+#: src/app/performance/lazy-translation.tsx:188
 msgid "1. 選択肢やマッピングを定数として定義できる"
 msgstr "1. 選択肢やマッピングを定数として定義できる"
 
@@ -331,7 +331,7 @@ msgstr "18-120"
 msgid "1個のアイテム"
 msgstr "1個のアイテム"
 
-#: src/app/performance/lazy-translation.tsx:190
+#: src/app/performance/lazy-translation.tsx:191
 msgid "2. TypeScriptの型安全性を保てる"
 msgstr "2. TypeScriptの型安全性を保てる"
 
@@ -363,7 +363,7 @@ msgstr "3. React.memoでコンポーネントの再レンダリングを防止"
 msgid "3. フォールバック戦略"
 msgstr "3. フォールバック戦略"
 
-#: src/app/performance/lazy-translation.tsx:193
+#: src/app/performance/lazy-translation.tsx:194
 msgid "3. 翻訳が必要な時だけ実行される（遅延評価）"
 msgstr "3. 翻訳が必要な時だけ実行される（遅延評価）"
 
@@ -375,7 +375,7 @@ msgstr "3個のアイテム"
 msgid "4. FlatListの最適化オプションを活用"
 msgstr "4. FlatListの最適化オプションを活用"
 
-#: src/app/performance/lazy-translation.tsx:196
+#: src/app/performance/lazy-translation.tsx:197
 msgid "4. コードの可読性と保守性が向上する"
 msgstr "4. コードの可読性と保守性が向上する"
 
@@ -403,7 +403,7 @@ msgstr "503 Service Unavailable"
 msgid "8文字以上"
 msgstr "8文字以上"
 
-#: src/app/performance/lazy-translation.tsx:150
+#: src/app/performance/lazy-translation.tsx:151
 msgid "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 msgstr "APIレスポンスなどのステータスコードを、事前定義した翻訳メッセージにマッピングします。"
 
@@ -440,11 +440,11 @@ msgstr "Lingui学習サンプル"
 msgid "Metro Transformerの利点"
 msgstr "Metro Transformerの利点"
 
-#: src/app/performance/lazy-translation.tsx:51
+#: src/app/performance/lazy-translation.tsx:52
 msgid "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 msgstr "msgマクロは翻訳を実行せず、MessageDescriptor（翻訳に必要な情報を含むオブジェクト）を返します。 実際の翻訳はi18n._()を呼ぶまで遅延されます。"
 
-#: src/app/performance/lazy-translation.tsx:184
+#: src/app/performance/lazy-translation.tsx:185
 msgid "msgマクロを使うメリット"
 msgstr "msgマクロを使うメリット"
 
@@ -452,7 +452,7 @@ msgstr "msgマクロを使うメリット"
 msgid "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
 msgstr "msgマクロを使用した遅延翻訳や、条件付きメッセージローディングのパターンを実装します。"
 
-#: src/app/performance/lazy-translation.tsx:39
+#: src/app/performance/lazy-translation.tsx:40
 msgid "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 msgstr "msgマクロを使用すると、翻訳を事前に定義して後で使用できます。 ドロップダウンやステータス表示など、動的な選択肢に最適です。"
 
@@ -609,7 +609,7 @@ msgstr "useMemo、useCallback、React.memoを使用した翻訳の最適化パ�
 msgid "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
 msgstr "useMemoやuseCallbackを活用した翻訳のメモ化と、リスト表示の最適化テクニックを紹介します。"
 
-#: src/app/performance/lazy-translation.tsx:74
+#: src/app/performance/lazy-translation.tsx:75
 msgid "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
 msgstr "Webと異なり、React Nativeでは動的インポートができないため、 すべての翻訳ファイルが最初からバンドルに含まれます。 そのため、バンドルサイズ削減効果はありません。"
 
@@ -1396,7 +1396,7 @@ msgstr "下へ"
 msgid "両方ともCLDR Pluralルールに基づく処理"
 msgstr "両方ともCLDR Pluralルールに基づく処理"
 
-#: src/app/performance/lazy-translation.tsx:81
+#: src/app/performance/lazy-translation.tsx:82
 msgid "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
 msgstr "主な価値：コードの整理、型安全性、翻訳タイミングの制御"
 
@@ -1433,11 +1433,11 @@ msgstr "使用例"
 msgid "例: 製品詳細ページ"
 msgstr "例: 製品詳細ページ"
 
-#: src/app/performance/lazy-translation.tsx:107
+#: src/app/performance/lazy-translation.tsx:108
 msgid "例1: 国選択ドロップダウン"
 msgstr "例1: 国選択ドロップダウン"
 
-#: src/app/performance/lazy-translation.tsx:147
+#: src/app/performance/lazy-translation.tsx:148
 msgid "例2: ステータス表示システム"
 msgstr "例2: ステータス表示システム"
 
@@ -1953,7 +1953,7 @@ msgstr "特定のケースはアンダースコアで始める（_male、_female
 msgid "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 msgstr "現在、{step, selectordinal, one {第#ステップ} two {第#ステップ} few {第#ステップ} other {第#ステップ}}を処理中です"
 
-#: src/app/performance/lazy-translation.tsx:176
+#: src/app/performance/lazy-translation.tsx:177
 msgid "現在のステータス:"
 msgstr "現在のステータス:"
 
@@ -2180,7 +2180,7 @@ msgid "遅延翻訳の例を見る →"
 msgstr "遅延翻訳の例を見る →"
 
 #: src/app/performance/index.tsx:21
-#: src/app/performance/lazy-translation.tsx:36
+#: src/app/performance/lazy-translation.tsx:37
 msgid "遅延翻訳パターン"
 msgstr "遅延翻訳パターン"
 
@@ -2192,7 +2192,7 @@ msgstr "適切な使用判断基準"
 msgid "選択されたファイル数の表示"
 msgstr "選択されたファイル数の表示"
 
-#: src/app/performance/lazy-translation.tsx:139
+#: src/app/performance/lazy-translation.tsx:140
 msgid "選択された国:"
 msgstr "選択された国:"
 
@@ -2200,7 +2200,7 @@ msgstr "選択された国:"
 msgid "選択中:"
 msgstr "選択中:"
 
-#: src/app/performance/lazy-translation.tsx:110
+#: src/app/performance/lazy-translation.tsx:111
 msgid "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 msgstr "選択肢を事前に定義し、必要な時に翻訳します。 これにより、コードの整理と再利用性が向上します。"
 

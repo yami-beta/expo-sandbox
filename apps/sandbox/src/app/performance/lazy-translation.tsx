@@ -27,6 +27,7 @@ export default function LazyTranslationScreen() {
   const [selectedCountry, setSelectedCountry] = useState("jp");
   const [currentStatus, setCurrentStatus] = useState<Status>("pending");
 
+  const selectedCountryOption = countryOptions.find((c) => c.value === selectedCountry);
   const statusList: Status[] = ["pending", "processing", "completed", "failed"];
 
   return (
@@ -137,7 +138,7 @@ const translated = i18n._(message); // 使用時に翻訳`}
 
           <Text style={styles.result}>
             <Trans>選択された国:</Trans>{" "}
-            {i18n._(countryOptions.find((c) => c.value === selectedCountry)?.label!)}
+            {selectedCountryOption ? i18n._(selectedCountryOption.label) : ""}
           </Text>
         </View>
 
