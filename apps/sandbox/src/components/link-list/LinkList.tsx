@@ -20,7 +20,7 @@ export function LinkList({ data }: LinkListProps): ReactElement {
     <FlatList
       data={data}
       renderItem={({ item }) => <LinkListItem {...item} />}
-      keyExtractor={(item) => item.href.toString()}
+      keyExtractor={(item) => (typeof item.href === "string" ? item.href : item.href.pathname)}
       contentContainerStyle={styles.container}
       style={{ backgroundColor: theme.colors.background }}
     />

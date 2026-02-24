@@ -374,7 +374,7 @@ function ApiErrorDemo() {
   const handleRetry = () => {
     if (error?.retryable) {
       setRetryCount((prev) => prev + 1);
-      simulateApiCall(retryCount < 2, 500);
+      void simulateApiCall(retryCount < 2, 500);
     }
   };
 
