@@ -20,6 +20,9 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
+      - name: Generate typed routes
+        run: pnpm -C apps/sandbox generate-types
+
       - name: Run Oxlint
         run: pnpm -C apps/sandbox lint:oxlint --format=github
 
@@ -28,20 +31,3 @@ jobs:
 
       - name: Check formatting
         run: pnpm -C apps/sandbox lint:format
-
-  typecheck:
-    name: Type Check
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js and pnpm
-        uses: ./.github/actions/setup-node
-
-      - name: Generate typed routes
-        run: pnpm -C apps/sandbox generate-types
-
-      - name: Run TypeScript type check
-        run: pnpm -C apps/sandbox typecheck

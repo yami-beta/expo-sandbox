@@ -10,12 +10,12 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint && pnpm run lint:format",
-    "lint:oxlint": "oxlint --type-aware",
+    "lint:oxlint": "oxlint --type-aware --type-check",
     "lint:eslint": "expo lint",
     "lint:format": "oxfmt . --check",
     "format": "oxfmt . --write",
     "generate-types": "expo customize tsconfig.json",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "pnpm run generate-types && oxlint --type-aware --type-check",
     "lingui:extract": "lingui extract --clean"
   },
   "dependencies": {
