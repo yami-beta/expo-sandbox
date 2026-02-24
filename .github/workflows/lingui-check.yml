@@ -27,7 +27,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Run lingui extract
-        run: pnpm -C apps/sandbox lingui:extract
+        run: pnpm -r run lingui:extract
 
       - name: Check for uncommitted changes
         run: |
@@ -38,7 +38,7 @@ jobs:
             echo ""
             echo "Please run the following command and commit the changes:"
             echo "\`\`\`bash"
-            echo "pnpm -C apps/sandbox lingui:extract"
+            echo "pnpm -r run lingui:extract"
             echo "\`\`\`"
             echo ""
             echo "### 📝 Changed files:"

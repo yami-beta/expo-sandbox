@@ -30,7 +30,7 @@
 2. **翻訳メッセージの抽出**
    ```bash
    # UIテキストを変更したら必ず実行
-   pnpm -C apps/sandbox lingui:extract
+   pnpm -r run lingui:extract
    ```
 
 3. **英語翻訳の追加**
@@ -118,13 +118,13 @@ import { SelectOrdinal } from "@lingui/react/macro";
 ```
 ❌ Translation files are out of sync
 Please run the following command and commit the changes:
-pnpm -C apps/sandbox lingui:extract
+pnpm -r run lingui:extract
 ```
 
 解決手順：
 ```bash
 # 1. 翻訳メッセージを抽出
-pnpm -C apps/sandbox lingui:extract
+pnpm -r run lingui:extract
 
 # 2. 差分を確認
 git diff apps/sandbox/src/locales
@@ -146,7 +146,7 @@ git push
 
 **解決方法**:
 ```bash
-pnpm -C apps/sandbox lingui:extract
+pnpm -r run lingui:extract
 git add apps/sandbox/src/locales
 git commit -m "chore: update translation files"
 ```
@@ -282,7 +282,7 @@ import { Trans } from "@lingui/macro";
 
 3. **翻訳メッセージを抽出**
    ```bash
-   pnpm -C apps/sandbox lingui:extract
+   pnpm -r run lingui:extract
    ```
 
 4. **新しい言語の翻訳を追加**
@@ -308,7 +308,7 @@ import { Trans } from "@lingui/macro";
 3. **Metro Transformerの動作確認**
    ```bash
    # Metro Bundlerを再起動
-   pnpm -C apps/sandbox start --clear
+   pnpm --dir apps/sandbox start --clear
    ```
 
 ### よくある質問
