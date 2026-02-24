@@ -21,13 +21,13 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Generate typed routes
-        run: pnpm -C apps/sandbox generate-types
+        run: pnpm -r run generate-types
 
       - name: Run Oxlint
-        run: pnpm -C apps/sandbox lint:oxlint --format=github
+        run: pnpm -r run lint:oxlint --format=github
 
       - name: Run ESLint
-        run: pnpm -C apps/sandbox lint:eslint
+        run: pnpm -r run lint:eslint
 
       - name: Check formatting
-        run: pnpm -C apps/sandbox lint:format
+        run: pnpm -r run lint:format
