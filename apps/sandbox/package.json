@@ -10,7 +10,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint && pnpm run lint:format",
-    "lint:oxlint": "oxlint",
+    "lint:oxlint": "oxlint --type-aware",
     "lint:eslint": "expo lint",
     "lint:format": "oxfmt . --check",
     "format": "oxfmt . --write",
@@ -65,6 +65,7 @@
     "eslint-plugin-oxlint": "^1.49.0",
     "oxfmt": "^0.33.0",
     "oxlint": "^1.49.0",
+    "oxlint-tsgolint": "^0.14.2",
     "typescript": "~5.9.3"
   }
 }
