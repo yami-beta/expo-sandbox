@@ -26,8 +26,8 @@ jobs:
       - name: Run Oxlint
         run: pnpm -r run lint:oxlint --format=github
 
-      - name: Run ESLint
-        run: pnpm -r run lint:eslint
+      - name: Run expo lint
+        run: pnpm -r run lint:expo
 
       - name: Check formatting
-        run: pnpm -r run lint:format
+        run: pnpm -r run lint:oxfmt
