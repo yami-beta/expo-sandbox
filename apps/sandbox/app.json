@@ -53,6 +53,12 @@
         "projectId": "36293d69-1021-4402-8c6f-6c462ec73ef5"
       }
     },
-    "owner": "yami-beta"
+    "owner": "yami-beta",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/36293d69-1021-4402-8c6f-6c462ec73ef5"
+    }
   }
 }
