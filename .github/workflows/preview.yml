@@ -2,10 +2,12 @@ name: preview
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
   update:
     name: EAS Update
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -37,3 +39,35 @@ jobs:
         with:
           command: eas update --auto --branch ${{ github.event.pull_request.head.ref }} --message "${{ github.event.pull_request.title }}"
           working-directory: apps/sandbox
+
+  delete-branch:
+    name: Delete EAS Update Branch
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "EXPO_TOKEN is not set. Skipping."
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+          packager: pnpm
+
+      - name: Delete EAS Update branch
+        run: eas branch:delete ${{ github.event.pull_request.head.ref }} --non-interactive
+        working-directory: apps/sandbox
