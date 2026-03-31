@@ -1,0 +1,38 @@
+name: eas-update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    name: EAS Update
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "EXPO_TOKEN is not set. Skipping EAS Update."
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+          packager: pnpm
+
+      - name: Run EAS Update
+        run: eas update --auto --branch development
+        working-directory: apps/sandbox
