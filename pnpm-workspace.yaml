@@ -2,3 +2,11 @@ packages:
   - apps/*
 
 nodeLinker: hoisted
+
+# Supply chain security
+# 公開から1日(1440分)経過していないバージョンのインストールは拒否
+minimumReleaseAge: 1440
+# 直接依存（package.jsonに記載されている依存）以外はGitリポジトリ、tarball URLを参照することをブロック
+blockExoticSubdeps: true
+# lockfileに記載されたパッケージの信頼レベルが以前のリリースより低下した場合にインストールを拒否
+trustPolicy: no-downgrade
