@@ -22,3 +22,4 @@ runs:
         eas-version: latest
         token: ${{ inputs.token }}
         packager: pnpm
+        eas-cache: false
