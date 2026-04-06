@@ -35,5 +35,5 @@ jobs:
           packager: pnpm
 
       - name: Run EAS Build
-        run: eas build --profile development --platform all --non-interactive
+        run: eas build --profile development --platform android --non-interactive
         working-directory: apps/sandbox
