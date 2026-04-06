@@ -1,0 +1,24 @@
+name: 'Setup EAS'
+description: 'Setup Expo EAS CLI'
+
+inputs:
+  token:
+    description: 'Expo access token'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Check for Expo token
+      if: inputs.token == ''
+      shell: bash
+      run: |
+        echo "::error::Expo token is not set."
+        exit 1
+
+    - name: Setup EAS
+      uses: expo/expo-github-action@v8
+      with:
+        eas-version: latest
+        token: ${{ inputs.token }}
+        packager: pnpm
