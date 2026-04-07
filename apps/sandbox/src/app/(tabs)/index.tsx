@@ -7,10 +7,6 @@ export default function Index() {
       href: "/navigation-patterns",
       text: <Trans>ナビゲーションパターン</Trans>,
     },
-    {
-      href: "/lingui-examples",
-      text: <Trans>Lingui学習サンプル</Trans>,
-    },
   ] as const satisfies LinkItem[];
 
   return <LinkList data={list} />;
