@@ -3,6 +3,13 @@ name: preview
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'apps/sandbox/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - '.github/workflows/preview.yml'
+      - '.github/actions/**'
 
 jobs:
   update:
