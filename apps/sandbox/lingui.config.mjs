@@ -1,4 +1,7 @@
-module.exports = {
+import { defineConfig } from "@lingui/cli";
+import { formatter } from "@lingui/format-po";
+
+export default defineConfig({
   locales: ["ja", "en"],
   sourceLocale: "ja",
   catalogs: [
@@ -8,5 +11,5 @@ module.exports = {
       exclude: ["**/node_modules/**"],
     },
   ],
-  format: "po",
-};
+  format: formatter(),
+});
