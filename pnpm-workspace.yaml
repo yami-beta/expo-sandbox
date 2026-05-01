@@ -8,7 +8,3 @@ nodeLinker: hoisted
 minimumReleaseAge: 1440
 # 直接依存（package.jsonに記載されている依存）以外はGitリポジトリ、tarball URLを参照することをブロック
 blockExoticSubdeps: true
-# lockfileに記載されたパッケージの信頼レベルが以前のリリースより低下した場合にインストールを拒否
-trustPolicy: no-downgrade
-trustPolicyExclude:
-  - 'react-native-worklets@0.7.2'
