@@ -1,8 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, type LinkProps } from "expo-router";
 import type { ReactElement, ReactNode } from "react";
-import { FlatList, Pressable, StyleSheet, Text } from "react-native";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { FlatList, Pressable, StyleSheet } from "react-native";
+import { useTheme } from "../../theme/useTheme";
+import { ThemedText } from "../themed-text/ThemedText";
 
 export type LinkItem = {
   href: LinkProps["href"];
@@ -14,7 +15,7 @@ type LinkListProps = {
 };
 
 export function LinkList({ data }: LinkListProps): ReactElement {
-  const { theme } = useThemeContext();
+  const colors = useTheme();
 
   return (
     <FlatList
@@ -22,19 +23,19 @@ export function LinkList({ data }: LinkListProps): ReactElement {
       renderItem={({ item }) => <LinkListItem {...item} />}
       keyExtractor={(item) => (typeof item.href === "string" ? item.href : item.href.pathname)}
       contentContainerStyle={styles.container}
-      style={{ backgroundColor: theme.colors.background }}
+      style={{ backgroundColor: colors.background }}
     />
   );
 }
 
 function LinkListItem({ href, text }: LinkItem): ReactElement {
-  const { theme } = useThemeContext();
+  const colors = useTheme();
 
   return (
     <Link href={href} asChild>
       <Pressable style={styles.item}>
-        <Text style={[styles.itemText, { color: theme.colors.text }]}>{text}</Text>
-        <Ionicons name="chevron-forward" size={20} color={theme.colors.text} />
+        <ThemedText type="subtitle">{text}</ThemedText>
+        <Ionicons name="chevron-forward" size={20} color={colors.text} />
       </Pressable>
     </Link>
   );
@@ -49,8 +50,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 16,
-  },
-  itemText: {
-    fontSize: 20,
   },
 });

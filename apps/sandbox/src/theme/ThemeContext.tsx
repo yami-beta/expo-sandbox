@@ -7,6 +7,7 @@ import {
   type Theme,
 } from "@react-navigation/native";
 import Storage from "expo-sqlite/kv-store";
+import { Colors, type ColorScheme, type ColorTokens } from "../constants/theme";
 
 export type ThemeMode = "system" | "light" | "dark";
 
@@ -19,6 +20,8 @@ interface ThemeContextValue {
   setMode: (mode: ThemeMode) => void;
   theme: Theme;
   isDark: boolean;
+  scheme: ColorScheme;
+  colors: ColorTokens;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
@@ -45,6 +48,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return isDark ? NavigationDarkTheme : NavigationDefaultTheme;
   }, [isDark]);
 
+  const scheme: ColorScheme = isDark ? "dark" : "light";
+  const colors = Colors[scheme];
+
   const handleSetMode = (newMode: ThemeMode) => {
     setMode(newMode);
     Storage.setItemSync(STORAGE_KEY.THEME_MODE, newMode);
@@ -56,8 +62,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       setMode: handleSetMode,
       theme,
       isDark,
+      scheme,
+      colors,
     }),
-    [mode, theme, isDark],
+    [mode, theme, isDark, scheme, colors],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
