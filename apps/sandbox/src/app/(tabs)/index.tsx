@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/react/macro";
+import { SafeAreaView } from "react-native-screens/experimental";
 import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
 
 export default function Index() {
@@ -9,5 +10,9 @@ export default function Index() {
     },
   ] as const satisfies LinkItem[];
 
-  return <LinkList data={list} />;
+  return (
+    <SafeAreaView edges={{ top: true }}>
+      <LinkList data={list} />
+    </SafeAreaView>
+  );
 }

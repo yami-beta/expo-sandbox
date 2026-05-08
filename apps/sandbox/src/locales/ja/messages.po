@@ -107,7 +107,7 @@ msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
 #: src/app/_layout.tsx:42
-#: src/app/(tabs)/index.tsx:8
+#: src/app/(tabs)/index.tsx:9
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
