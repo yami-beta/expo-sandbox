@@ -15,7 +15,7 @@ type LinkListProps = {
 };
 
 export function LinkList({ data }: LinkListProps): ReactElement {
-  const colors = useTheme();
+  const { colors } = useTheme();
 
   return (
     <FlatList
@@ -29,7 +29,7 @@ export function LinkList({ data }: LinkListProps): ReactElement {
 }
 
 function LinkListItem({ href, text }: LinkItem): ReactElement {
-  const colors = useTheme();
+  const { colors } = useTheme();
 
   return (
     <Link href={href} asChild>

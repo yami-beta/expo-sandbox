@@ -89,15 +89,15 @@ msgstr "This is a form demo displayed in a modal."
 msgid "これはモーダル表示です"
 msgstr "This is a Modal Display"
 
-#: src/app/(tabs)/settings/theme.tsx:10
+#: src/app/(tabs)/settings/theme.tsx:13
 msgid "システム設定に従う"
 msgstr "Follow system settings"
 
-#: src/app/(tabs)/settings/theme.tsx:12
+#: src/app/(tabs)/settings/theme.tsx:15
 msgid "ダーク"
 msgstr "Dark"
 
-#: src/app/(tabs)/settings/_layout.tsx:20
+#: src/app/(tabs)/settings/_layout.tsx:13
 #: src/app/(tabs)/settings/index.tsx:8
 msgid "テーマ"
 msgstr "Theme"
@@ -106,12 +106,12 @@ msgstr "Theme"
 msgid "デモコンテンツ"
 msgstr "Demo Content"
 
-#: src/app/_layout.tsx:42
+#: src/app/_layout.tsx:36
 #: src/app/(tabs)/index.tsx:9
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
-#: src/app/_layout.tsx:54
+#: src/app/_layout.tsx:48
 msgid "フォームシートサンプル"
 msgstr "Form Sheet Sample"
 
@@ -123,7 +123,7 @@ msgstr "Form Sheet Example"
 msgid "フォームシートを開く"
 msgstr "Open Form Sheet"
 
-#: src/app/_layout.tsx:67
+#: src/app/_layout.tsx:61
 msgid "フォームシート画面"
 msgstr "Form Sheet Screen"
 
@@ -144,7 +144,7 @@ msgstr "About Form Sheet Display:"
 msgid "フォームを送信"
 msgstr "Submit Form"
 
-#: src/app/_layout.tsx:38
+#: src/app/_layout.tsx:32
 #: src/app/(tabs)/_layout.tsx:22
 msgid "ホーム"
 msgstr "Home"
@@ -165,7 +165,7 @@ msgstr "Message"
 msgid "メッセージを入力"
 msgstr "Enter message"
 
-#: src/app/_layout.tsx:48
+#: src/app/_layout.tsx:42
 msgid "モーダルサンプル"
 msgstr "Modal Sample"
 
@@ -177,7 +177,7 @@ msgstr "Modal Form (Android)"
 msgid "モーダルを開く"
 msgstr "Open Modal"
 
-#: src/app/_layout.tsx:60
+#: src/app/_layout.tsx:54
 #: src/app/navigation-patterns/modal-screen.tsx:21
 msgid "モーダル画面"
 msgstr "Modal Screen"
@@ -194,7 +194,7 @@ msgstr "Modal Display Sample"
 msgid "モーダル表示について："
 msgstr "About Modal Display:"
 
-#: src/app/(tabs)/settings/theme.tsx:11
+#: src/app/(tabs)/settings/theme.tsx:14
 msgid "ライト"
 msgstr "Light"
 
@@ -220,7 +220,7 @@ msgid "完了"
 msgstr "Done"
 
 #: src/app/(tabs)/_layout.tsx:30
-#: src/app/(tabs)/settings/_layout.tsx:19
+#: src/app/(tabs)/settings/_layout.tsx:12
 msgid "設定"
 msgstr "Settings"
 

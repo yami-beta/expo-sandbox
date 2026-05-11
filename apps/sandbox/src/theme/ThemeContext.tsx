@@ -1,11 +1,6 @@
 import type { ReactNode } from "react";
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { useColorScheme } from "react-native";
-import {
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme,
-  type Theme,
-} from "@react-navigation/native";
 import Storage from "expo-sqlite/kv-store";
 import { Colors, type ColorScheme, type ColorTokens } from "../constants/theme";
 
@@ -15,11 +10,9 @@ const STORAGE_KEY = {
   THEME_MODE: "theme-mode",
 } as const;
 
-interface ThemeContextValue {
+export interface ThemeContextValue {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
-  theme: Theme;
-  isDark: boolean;
   scheme: ColorScheme;
   colors: ColorTokens;
 }
@@ -37,44 +30,37 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   });
   const colorScheme = useColorScheme();
 
-  const isDark = useMemo(() => {
+  const scheme: ColorScheme = useMemo(() => {
     if (mode === "system") {
-      return colorScheme === "dark";
+      return colorScheme === "dark" ? "dark" : "light";
     }
-    return mode === "dark";
+    return mode;
   }, [mode, colorScheme]);
 
-  const theme = useMemo(() => {
-    return isDark ? NavigationDarkTheme : NavigationDefaultTheme;
-  }, [isDark]);
-
-  const scheme: ColorScheme = isDark ? "dark" : "light";
   const colors = Colors[scheme];
 
-  const handleSetMode = (newMode: ThemeMode) => {
+  const handleSetMode = useCallback((newMode: ThemeMode) => {
     setMode(newMode);
     Storage.setItemSync(STORAGE_KEY.THEME_MODE, newMode);
-  };
+  }, []);
 
-  const value = useMemo(
+  const value = useMemo<ThemeContextValue>(
     () => ({
       mode,
       setMode: handleSetMode,
-      theme,
-      isDark,
       scheme,
       colors,
     }),
-    [mode, theme, isDark, scheme, colors],
+    [mode, handleSetMode, scheme, colors],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
-export function useThemeContext() {
+export function useThemeContextInternal(): ThemeContextValue {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useThemeContext must be used within a ThemeProvider");
+    throw new Error("ThemeContext must be used within a ThemeProvider");
   }
   return context;
 }

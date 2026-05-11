@@ -8,6 +8,6 @@ export interface ThemedViewProps extends ViewProps {
 }
 
 export function ThemedView({ type = "background", style, ...rest }: ThemedViewProps): ReactElement {
-  const colors = useTheme();
+  const { colors } = useTheme();
   return <View style={[{ backgroundColor: colors[type] }, style]} {...rest} />;
 }

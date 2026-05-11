@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { useRouter } from "expo-router";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { useTheme } from "../../theme/useTheme";
 import { Trans } from "@lingui/react/macro";
 
 export default function ModalSample() {
-  const { theme } = useThemeContext();
+  const { colors } = useTheme();
   const router = useRouter();
 
   const openModal = () => {
@@ -12,13 +12,13 @@ export default function ModalSample() {
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.content}>
-        <Text style={[styles.title, { color: theme.colors.text }]}>
+        <Text style={[styles.title, { color: colors.text }]}>
           <Trans>モーダル表示サンプル</Trans>
         </Text>
 
-        <Text style={[styles.description, { color: theme.colors.text }]}>
+        <Text style={[styles.description, { color: colors.text }]}>
           <Trans>下のボタンをタップしてモーダル表示で画面を開きます。</Trans>
         </Text>
 
@@ -26,7 +26,7 @@ export default function ModalSample() {
           style={({ pressed }) => [
             styles.button,
             {
-              backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
+              backgroundColor: pressed ? colors.border : colors.primary,
             },
           ]}
           onPress={openModal}
@@ -37,10 +37,10 @@ export default function ModalSample() {
         </Pressable>
 
         <View style={styles.infoBox}>
-          <Text style={[styles.infoTitle, { color: theme.colors.text }]}>
+          <Text style={[styles.infoTitle, { color: colors.text }]}>
             <Trans>モーダル表示について：</Trans>
           </Text>
-          <Text style={[styles.infoText, { color: theme.colors.text }]}>
+          <Text style={[styles.infoText, { color: colors.text }]}>
             <Trans>
               • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
               下へのスワイプジェスチャーで閉じることができます{"\n"}• 親画面との対話をブロックします

@@ -1,9 +1,9 @@
 import { NativeTabs } from "expo-router/unstable-native-tabs";
 import { useLingui } from "@lingui/react/macro";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { useTheme } from "../../theme/useTheme";
 
 export default function TabLayout() {
-  const { colors } = useThemeContext();
+  const { colors } = useTheme();
   const { t } = useLingui();
 
   return (

@@ -1,9 +1,12 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useThemeContext, type ThemeMode } from "../../../theme/ThemeContext";
+import type { ThemeMode } from "../../../theme/ThemeContext";
+import { useTheme } from "../../../theme/useTheme";
+import { useThemeMode } from "../../../theme/useThemeMode";
 import { useLingui } from "@lingui/react/macro";
 
 export default function ThemeScreen() {
-  const { mode, setMode, theme } = useThemeContext();
+  const { mode, setMode } = useThemeMode();
+  const { colors } = useTheme();
   const { t } = useLingui();
 
   const options: { value: ThemeMode; label: string }[] = [
@@ -13,15 +16,15 @@ export default function ThemeScreen() {
   ];
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       {options.map((option) => (
         <Pressable
           key={option.value}
           style={[
             styles.option,
             {
-              backgroundColor: mode === option.value ? theme.colors.primary : theme.colors.card,
-              borderColor: theme.colors.border,
+              backgroundColor: mode === option.value ? colors.primary : colors.backgroundHeader,
+              borderColor: colors.border,
             },
           ]}
           onPress={() => setMode(option.value)}
@@ -30,7 +33,7 @@ export default function ThemeScreen() {
             style={[
               styles.optionText,
               {
-                color: mode === option.value ? (theme.dark ? "#000" : "#fff") : theme.colors.text,
+                color: mode === option.value ? colors.onPrimary : colors.text,
               },
             ]}
           >
