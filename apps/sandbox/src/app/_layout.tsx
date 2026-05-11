@@ -22,13 +22,13 @@ import { useLingui } from "@lingui/react/macro";
 initializeI18n();
 
 function RootLayoutContent() {
-  const { scheme, colors } = useTheme();
+  const { colorScheme, colors } = useTheme();
   const { t } = useLingui();
 
   return (
     <>
-      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
-      <Stack screenOptions={buildStackScreenOptions(colors, scheme)}>
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
+      <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false, title: t`ホーム` }} />
         <Stack.Screen
           name="navigation-patterns/index"

@@ -8,11 +8,11 @@ interface StackScreenOptions {
 
 export function buildStackScreenOptions(
   colors: ColorTokens,
-  scheme: ColorScheme,
+  colorScheme: ColorScheme,
 ): StackScreenOptions {
   return {
     headerStyle: { backgroundColor: colors.backgroundHeader },
     headerTintColor: colors.text,
-    headerShadowVisible: scheme === "light",
+    headerShadowVisible: colorScheme === "light",
   };
 }

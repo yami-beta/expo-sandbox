@@ -4,11 +4,11 @@ import { buildStackScreenOptions } from "../../../theme/navigationScreenOptions"
 import { useLingui } from "@lingui/react/macro";
 
 export default function SettingsLayout() {
-  const { scheme, colors } = useTheme();
+  const { colorScheme, colors } = useTheme();
   const { t } = useLingui();
 
   return (
-    <Stack screenOptions={buildStackScreenOptions(colors, scheme)}>
+    <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
       <Stack.Screen name="index" options={{ title: t`設定` }} />
       <Stack.Screen name="theme" options={{ title: t`テーマ` }} />
     </Stack>
