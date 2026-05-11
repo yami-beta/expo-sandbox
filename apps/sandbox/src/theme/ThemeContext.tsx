@@ -13,7 +13,7 @@ const STORAGE_KEY = {
 export interface ThemeContextValue {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
-  scheme: ColorScheme;
+  colorScheme: ColorScheme;
   colors: ColorTokens;
 }
 
@@ -28,16 +28,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const stored = Storage.getItemSync(STORAGE_KEY.THEME_MODE);
     return isValidThemeMode(stored) ? stored : "system";
   });
-  const colorScheme = useColorScheme();
+  const systemColorScheme = useColorScheme();
 
-  const scheme: ColorScheme = useMemo(() => {
+  const colorScheme: ColorScheme = useMemo(() => {
     if (mode === "system") {
-      return colorScheme === "dark" ? "dark" : "light";
+      return systemColorScheme === "dark" ? "dark" : "light";
     }
     return mode;
-  }, [mode, colorScheme]);
+  }, [mode, systemColorScheme]);
 
-  const colors = Colors[scheme];
+  const colors = Colors[colorScheme];
 
   const handleSetMode = useCallback((newMode: ThemeMode) => {
     setMode(newMode);
@@ -48,10 +48,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     () => ({
       mode,
       setMode: handleSetMode,
-      scheme,
+      colorScheme,
       colors,
     }),
-    [mode, handleSetMode, scheme, colors],
+    [mode, handleSetMode, colorScheme, colors],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
