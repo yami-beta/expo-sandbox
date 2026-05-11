@@ -1,6 +1,7 @@
-import type { ColorTokens } from "../constants/theme";
-import { useThemeContext } from "./ThemeContext";
+import type { ColorScheme, ColorTokens } from "../constants/theme";
+import { useThemeContextInternal } from "./ThemeContext";
 
-export function useTheme(): ColorTokens {
-  return useThemeContext().colors;
+export function useTheme(): { scheme: ColorScheme; colors: ColorTokens } {
+  const { scheme, colors } = useThemeContextInternal();
+  return { scheme, colors };
 }

@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Pressable, ScrollView, TextInput, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { useTheme } from "../../theme/useTheme";
 import { useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function FormSheetScreen() {
-  const { theme } = useThemeContext();
+  const { colors } = useTheme();
   const router = useRouter();
   const { t } = useLingui();
   const [name, setName] = useState("");
@@ -23,10 +23,10 @@ export default function FormSheetScreen() {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
-          <Text style={[styles.title, { color: theme.colors.text }]}>
+          <Text style={[styles.title, { color: colors.text }]}>
             <Trans>フォームシートの例</Trans>
           </Text>
           <View style={styles.headerButtons}>
@@ -34,7 +34,7 @@ export default function FormSheetScreen() {
               style={({ pressed }) => [styles.headerButton, pressed && styles.headerButtonPressed]}
               onPress={handleCancel}
             >
-              <Text style={[styles.cancelButtonText, { color: theme.colors.text }]}>
+              <Text style={[styles.cancelButtonText, { color: colors.text }]}>
                 <Trans>キャンセル</Trans>
               </Text>
             </Pressable>
@@ -42,7 +42,7 @@ export default function FormSheetScreen() {
               style={({ pressed }) => [styles.headerButton, pressed && styles.headerButtonPressed]}
               onPress={handleSubmit}
             >
-              <Text style={[styles.doneButtonText, { color: theme.colors.primary }]}>
+              <Text style={[styles.doneButtonText, { color: colors.primary }]}>
                 <Trans>完了</Trans>
               </Text>
             </Pressable>
@@ -50,7 +50,7 @@ export default function FormSheetScreen() {
         </View>
 
         <View style={styles.content}>
-          <Text style={[styles.subtitle, { color: theme.colors.text }]}>
+          <Text style={[styles.subtitle, { color: colors.text }]}>
             {Platform.OS === "ios" ? (
               <Trans>フォームシート表示</Trans>
             ) : (
@@ -58,7 +58,7 @@ export default function FormSheetScreen() {
             )}
           </Text>
 
-          <Text style={[styles.description, { color: theme.colors.text }]}>
+          <Text style={[styles.description, { color: colors.text }]}>
             {Platform.OS === "ios" ? (
               <Trans>
                 これはフォームシートで表示されたフォームのデモです。
@@ -71,64 +71,64 @@ export default function FormSheetScreen() {
 
           <View style={styles.form}>
             <View style={styles.formGroup}>
-              <Text style={[styles.label, { color: theme.colors.text }]}>
+              <Text style={[styles.label, { color: colors.text }]}>
                 <Trans>名前</Trans>
               </Text>
               <TextInput
                 style={[
                   styles.input,
                   {
-                    backgroundColor: theme.colors.card,
-                    color: theme.colors.text,
-                    borderColor: theme.colors.border,
+                    backgroundColor: colors.backgroundHeader,
+                    color: colors.text,
+                    borderColor: colors.border,
                   },
                 ]}
                 value={name}
                 onChangeText={setName}
                 placeholder={t`名前を入力`}
-                placeholderTextColor={theme.colors.text + "80"}
+                placeholderTextColor={colors.text + "80"}
               />
             </View>
 
             <View style={styles.formGroup}>
-              <Text style={[styles.label, { color: theme.colors.text }]}>
+              <Text style={[styles.label, { color: colors.text }]}>
                 <Trans>メールアドレス</Trans>
               </Text>
               <TextInput
                 style={[
                   styles.input,
                   {
-                    backgroundColor: theme.colors.card,
-                    color: theme.colors.text,
-                    borderColor: theme.colors.border,
+                    backgroundColor: colors.backgroundHeader,
+                    color: colors.text,
+                    borderColor: colors.border,
                   },
                 ]}
                 value={email}
                 onChangeText={setEmail}
                 placeholder={t`メールアドレスを入力`}
-                placeholderTextColor={theme.colors.text + "80"}
+                placeholderTextColor={colors.text + "80"}
                 keyboardType="email-address"
                 autoCapitalize="none"
               />
             </View>
 
             <View style={styles.formGroup}>
-              <Text style={[styles.label, { color: theme.colors.text }]}>
+              <Text style={[styles.label, { color: colors.text }]}>
                 <Trans>メッセージ</Trans>
               </Text>
               <TextInput
                 style={[
                   styles.textArea,
                   {
-                    backgroundColor: theme.colors.card,
-                    color: theme.colors.text,
-                    borderColor: theme.colors.border,
+                    backgroundColor: colors.backgroundHeader,
+                    color: colors.text,
+                    borderColor: colors.border,
                   },
                 ]}
                 value={message}
                 onChangeText={setMessage}
                 placeholder={t`メッセージを入力`}
-                placeholderTextColor={theme.colors.text + "80"}
+                placeholderTextColor={colors.text + "80"}
                 multiline
                 numberOfLines={4}
               />
@@ -140,7 +140,7 @@ export default function FormSheetScreen() {
               style={({ pressed }) => [
                 styles.submitButton,
                 {
-                  backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
+                  backgroundColor: pressed ? colors.border : colors.primary,
                 },
               ]}
               onPress={handleSubmit}

@@ -12,7 +12,9 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
-import { ThemeProvider, useThemeContext } from "../theme/ThemeContext";
+import { ThemeProvider } from "../theme/ThemeContext";
+import { useTheme } from "../theme/useTheme";
+import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { initializeI18n } from "../i18n";
 import { useLingui } from "@lingui/react/macro";
 
@@ -20,21 +22,13 @@ import { useLingui } from "@lingui/react/macro";
 initializeI18n();
 
 function RootLayoutContent() {
-  const { isDark, theme } = useThemeContext();
+  const { scheme, colors } = useTheme();
   const { t } = useLingui();
 
   return (
     <>
-      <StatusBar style={isDark ? "light" : "dark"} />
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: theme.colors.card,
-          },
-          headerTintColor: theme.colors.text,
-          headerShadowVisible: !theme.dark,
-        }}
-      >
+      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
+      <Stack screenOptions={buildStackScreenOptions(colors, scheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false, title: t`ホーム` }} />
         <Stack.Screen
           name="navigation-patterns/index"

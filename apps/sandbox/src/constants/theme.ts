@@ -7,6 +7,10 @@ export const Colors = {
     background: "#ffffff",
     backgroundElement: "#F0F0F3",
     backgroundSelected: "#E0E1E6",
+    backgroundHeader: "rgb(255, 255, 255)",
+    border: "rgb(216, 216, 216)",
+    primary: "rgb(0, 122, 255)",
+    onPrimary: "#ffffff",
   },
   dark: {
     text: "#ffffff",
@@ -14,6 +18,10 @@ export const Colors = {
     background: "#000000",
     backgroundElement: "#212225",
     backgroundSelected: "#2E3135",
+    backgroundHeader: "rgb(18, 18, 18)",
+    border: "rgb(39, 39, 41)",
+    primary: "rgb(10, 132, 255)",
+    onPrimary: "#000000",
   },
 } as const;
 

@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
-import { useThemeContext } from "../../theme/ThemeContext";
+import { useTheme } from "../../theme/useTheme";
 import { Trans } from "@lingui/react/macro";
 
 export default function ModalScreen() {
-  const { theme } = useThemeContext();
+  const { colors } = useTheme();
   const router = useRouter();
 
   const closeModal = () => {
@@ -13,11 +13,11 @@ export default function ModalScreen() {
 
   return (
     <ScrollView
-      style={[styles.container, { backgroundColor: theme.colors.background }]}
+      style={[styles.container, { backgroundColor: colors.background }]}
       contentContainerStyle={styles.contentContainer}
     >
       <View style={styles.header}>
-        <Text style={[styles.title, { color: theme.colors.text }]}>
+        <Text style={[styles.title, { color: colors.text }]}>
           <Trans>モーダル画面</Trans>
         </Text>
         <Pressable
@@ -29,40 +29,40 @@ export default function ModalScreen() {
           ]}
           onPress={closeModal}
         >
-          <Text style={[styles.closeButtonText, { color: theme.colors.primary }]}>
+          <Text style={[styles.closeButtonText, { color: colors.primary }]}>
             <Trans>閉じる</Trans>
           </Text>
         </Pressable>
       </View>
 
       <View style={styles.content}>
-        <Text style={[styles.subtitle, { color: theme.colors.text }]}>
+        <Text style={[styles.subtitle, { color: colors.text }]}>
           <Trans>これはモーダル表示です</Trans>
         </Text>
 
-        <Text style={[styles.description, { color: theme.colors.text }]}>
+        <Text style={[styles.description, { color: colors.text }]}>
           <Trans>
             この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます：
           </Trans>
         </Text>
 
         <View style={styles.list}>
-          <Text style={[styles.listItem, { color: theme.colors.text }]}>
+          <Text style={[styles.listItem, { color: colors.text }]}>
             <Trans>• 「閉じる」ボタンをタップ</Trans>
           </Text>
-          <Text style={[styles.listItem, { color: theme.colors.text }]}>
+          <Text style={[styles.listItem, { color: colors.text }]}>
             <Trans>• 上から下へスワイプ（iOS）</Trans>
           </Text>
-          <Text style={[styles.listItem, { color: theme.colors.text }]}>
+          <Text style={[styles.listItem, { color: colors.text }]}>
             <Trans>• 戻るジェスチャーを使用（Android）</Trans>
           </Text>
         </View>
 
-        <View style={[styles.demoBox, { backgroundColor: theme.colors.card }]}>
-          <Text style={[styles.demoTitle, { color: theme.colors.text }]}>
+        <View style={[styles.demoBox, { backgroundColor: colors.backgroundHeader }]}>
+          <Text style={[styles.demoTitle, { color: colors.text }]}>
             <Trans>デモコンテンツ</Trans>
           </Text>
-          <Text style={[styles.demoText, { color: theme.colors.text }]}>
+          <Text style={[styles.demoText, { color: colors.text }]}>
             <Trans>
               このモーダルにはフォーム、画像、インタラクティブな要素など、
               あらゆるコンテンツを含めることができます。
@@ -74,7 +74,7 @@ export default function ModalScreen() {
           style={({ pressed }) => [
             styles.primaryButton,
             {
-              backgroundColor: pressed ? theme.colors.border : theme.colors.primary,
+              backgroundColor: pressed ? colors.border : colors.primary,
             },
           ]}
           onPress={closeModal}

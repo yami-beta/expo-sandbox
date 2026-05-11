@@ -64,6 +64,6 @@ export function ThemedText({
   style,
   ...rest
 }: ThemedTextProps): ReactElement {
-  const colors = useTheme();
+  const { colors } = useTheme();
   return <Text style={[{ color: colors[themeColor] }, typeStyles[type], style]} {...rest} />;
 }
