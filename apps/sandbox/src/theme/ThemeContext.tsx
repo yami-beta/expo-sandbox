@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
-import { useColorScheme } from "react-native";
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { Appearance, useColorScheme } from "react-native";
 import Storage from "expo-sqlite/kv-store";
 import { Colors, type ColorScheme, type ColorTokens } from "../constants/theme";
 
@@ -38,6 +38,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [mode, systemColorScheme]);
 
   const colors = Colors[colorScheme];
+
+  // iOS の overrideUserInterfaceStyle をアプリ設定に揃える。
+  // これをやらないと NativeTabs などのネイティブ UI が OS 設定側を
+  // 参照し続け、アプリ内でダーク強制してもタブ切替時にライト色が
+  // ちらつく。"unspecified" を渡すと OS 設定に戻る。
+  useEffect(() => {
+    Appearance.setColorScheme(mode === "system" ? "unspecified" : mode);
+  }, [mode]);
 
   const handleSetMode = useCallback((newMode: ThemeMode) => {
     setMode(newMode);
