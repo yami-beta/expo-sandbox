@@ -145,7 +145,7 @@ msgid "フォームを送信"
 msgstr "フォームを送信"
 
 #: src/app/_layout.tsx:32
-#: src/app/(tabs)/_layout.tsx:22
+#: src/app/(tabs)/_layout.tsx:27
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -219,7 +219,7 @@ msgstr "名前を入力"
 msgid "完了"
 msgstr "完了"
 
-#: src/app/(tabs)/_layout.tsx:30
+#: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/settings/_layout.tsx:12
 msgid "設定"
 msgstr "設定"
