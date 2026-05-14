@@ -144,7 +144,8 @@ msgstr "About Form Sheet Display:"
 msgid "フォームを送信"
 msgstr "Submit Form"
 
-#: src/app/(tabs)/_layout.tsx:27
+#: src/app/(tabs)/_layout.tsx:19
+#: src/app/(tabs)/_layout.tsx:33
 msgid "ホーム"
 msgstr "Home"
 
@@ -218,7 +219,7 @@ msgstr "Enter name"
 msgid "完了"
 msgstr "Done"
 
-#: src/app/(tabs)/_layout.tsx:35
+#: src/app/(tabs)/_layout.tsx:41
 #: src/app/(tabs)/settings/index.tsx:16
 msgid "設定"
 msgstr "Settings"

@@ -144,7 +144,8 @@ msgstr "フォームシート表示について："
 msgid "フォームを送信"
 msgstr "フォームを送信"
 
-#: src/app/(tabs)/_layout.tsx:27
+#: src/app/(tabs)/_layout.tsx:19
+#: src/app/(tabs)/_layout.tsx:33
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -218,7 +219,7 @@ msgstr "名前を入力"
 msgid "完了"
 msgstr "完了"
 
-#: src/app/(tabs)/_layout.tsx:35
+#: src/app/(tabs)/_layout.tsx:41
 #: src/app/(tabs)/settings/index.tsx:16
 msgid "設定"
 msgstr "設定"
