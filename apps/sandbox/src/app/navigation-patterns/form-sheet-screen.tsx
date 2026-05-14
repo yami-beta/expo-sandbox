@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable, ScrollView, TextInput, Platform } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { useTheme } from "../../theme/useTheme";
 import { useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -24,6 +24,7 @@ export default function FormSheetScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <Stack.Screen.Title>{t`フォームシート画面`}</Stack.Screen.Title>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <View style={styles.header}>
           <Text style={[styles.title, { color: colors.text }]}>

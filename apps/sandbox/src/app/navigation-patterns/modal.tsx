@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { useTheme } from "../../theme/useTheme";
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function ModalSample() {
   const { colors } = useTheme();
   const router = useRouter();
+  const { t } = useLingui();
 
   const openModal = () => {
     router.push("/navigation-patterns/modal-screen");
@@ -13,6 +14,7 @@ export default function ModalSample() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <Stack.Screen.Title>{t`モーダルサンプル`}</Stack.Screen.Title>
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>
           <Trans>モーダル表示サンプル</Trans>
