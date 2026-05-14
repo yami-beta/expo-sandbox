@@ -1,7 +1,9 @@
-import { Trans } from "@lingui/react/macro";
+import { Stack } from "expo-router";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { LinkList, type LinkItem } from "../../../components/link-list/LinkList";
 
 export default function SettingsScreen() {
+  const { t } = useLingui();
   const list = [
     {
       href: "/settings/theme",
@@ -9,5 +11,10 @@ export default function SettingsScreen() {
     },
   ] as const satisfies LinkItem[];
 
-  return <LinkList data={list} />;
+  return (
+    <>
+      <Stack.Screen.Title>{t`設定`}</Stack.Screen.Title>
+      <LinkList data={list} />
+    </>
+  );
 }

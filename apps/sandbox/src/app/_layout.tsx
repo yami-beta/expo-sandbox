@@ -16,52 +16,22 @@ import { ThemeProvider } from "../theme/ThemeContext";
 import { useTheme } from "../theme/useTheme";
 import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { initializeI18n } from "../i18n";
-import { useLingui } from "@lingui/react/macro";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
 
 function RootLayoutContent() {
   const { colorScheme, colors } = useTheme();
-  const { t } = useLingui();
 
   return (
     <>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: t`ホーム` }} />
-        <Stack.Screen
-          name="navigation-patterns/index"
-          options={{
-            title: t`ナビゲーションパターン`,
-          }}
-        />
-        <Stack.Screen
-          name="navigation-patterns/modal"
-          options={{
-            title: t`モーダルサンプル`,
-          }}
-        />
-        <Stack.Screen
-          name="navigation-patterns/form-sheet"
-          options={{
-            title: t`フォームシートサンプル`,
-          }}
-        />
-        <Stack.Screen
-          name="navigation-patterns/modal-screen"
-          options={{
-            title: t`モーダル画面`,
-            presentation: "modal",
-          }}
-        />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="navigation-patterns/modal-screen" options={{ presentation: "modal" }} />
         <Stack.Screen
           name="navigation-patterns/form-sheet-screen"
-          options={{
-            title: t`フォームシート画面`,
-            presentation: "formSheet",
-            sheetGrabberVisible: true,
-          }}
+          options={{ presentation: "formSheet", sheetGrabberVisible: true }}
         />
       </Stack>
     </>

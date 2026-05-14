@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Stack } from "expo-router";
 import type { ThemeMode } from "../../../theme/ThemeContext";
 import { useTheme } from "../../../theme/useTheme";
 import { useThemeMode } from "../../../theme/useThemeMode";
@@ -17,6 +18,7 @@ export default function ThemeScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <Stack.Screen.Title>{t`テーマ`}</Stack.Screen.Title>
       {options.map((option) => (
         <Pressable
           key={option.value}

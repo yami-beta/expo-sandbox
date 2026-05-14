@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { useTheme } from "../../theme/useTheme";
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function ModalScreen() {
   const { colors } = useTheme();
   const router = useRouter();
+  const { t } = useLingui();
 
   const closeModal = () => {
     router.back();
@@ -16,6 +17,7 @@ export default function ModalScreen() {
       style={[styles.container, { backgroundColor: colors.background }]}
       contentContainerStyle={styles.contentContainer}
     >
+      <Stack.Screen.Title>{t`モーダル画面`}</Stack.Screen.Title>
       <View style={styles.header}>
         <Text style={[styles.title, { color: colors.text }]}>
           <Trans>モーダル画面</Trans>

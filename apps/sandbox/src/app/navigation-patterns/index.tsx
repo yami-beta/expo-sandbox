@@ -1,7 +1,9 @@
+import { Stack } from "expo-router";
 import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function NavigationPatterns() {
+  const { t } = useLingui();
   const list = [
     {
       href: "/navigation-patterns/modal",
@@ -13,5 +15,10 @@ export default function NavigationPatterns() {
     },
   ] as const satisfies LinkItem[];
 
-  return <LinkList data={list} />;
+  return (
+    <>
+      <Stack.Screen.Title>{t`ナビゲーションパターン`}</Stack.Screen.Title>
+      <LinkList data={list} />
+    </>
+  );
 }
