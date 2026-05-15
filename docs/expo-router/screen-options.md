@@ -65,7 +65,22 @@ Expo Router は画面オプションを設定する 2 種類の API を提供し
 
 ### `presentation` が画面ファイル側で動作しない理由
 
-`presentation` はネイティブ Stack が画面をどう生成・遷移させるかを決める設定で、画面コンテンツが render される **前** に親ナビゲータが知っている必要があります。画面ファイル内の `<Stack.Screen options>` は screen 自身がマウントされた **後** に options を更新するため、初回 presentation には間に合いません。issue [expo/router#630](https://github.com/expo/router/issues/630) で Expo Router の core contributor (EvanBacon) が明示的に "you cannot modally present a screen from a different stack inside the current stack" と回答しており、`_layout.tsx` 側での宣言が必須です。
+`presentation` はネイティブ Stack が画面をどう生成・遷移させるかを決める設定で、画面コンテンツが render される **前** に親ナビゲータが知っている必要があります。画面ファイル内の `<Stack.Screen options>` は screen 自身がマウントされた **後** に options を更新するため、初回 presentation には間に合いません。issue [expo/router#630](https://redirect.github.com/expo/router/issues/630) で Expo Router の core contributor (EvanBacon) が明示的に "you cannot modally present a screen from a different stack inside the current stack" と回答しており、`_layout.tsx` 側での宣言が必須です。
+
+### modal / formSheet 画面はルート Stack 配下に置く
+
+「画面の所属としては自然だから」とタブ内側の Stack 配下に modal-screen / form-sheet-screen を置くことも技術的には可能ですが、プラットフォーム間の挙動差が大きくなるため不適切です。本プロジェクトで実機検証した結果は以下の通り。
+
+| 配置 | プラットフォーム | modal | formSheet |
+| --- | --- | --- | --- |
+| ルート Stack 配下 (採用) | iOS | タブバーを覆う | タブバーを覆う |
+| ルート Stack 配下 (採用) | Android | タブバーを覆う | タブバーを覆う |
+| タブ内側 Stack 配下 | iOS | タブバーを覆う | タブバーを覆う |
+| タブ内側 Stack 配下 | Android | スタック push と同様の遷移 | タブバーが残ったまま表示 |
+
+iOS は UITabBarController の上にネイティブ modal が表示されるため、Expo Router の Stack 階層に関わらず常にタブバーを覆います。Android はフラグメント階層に従って表示が変わるため、内側 Stack に置くと "modal を開いたつもりが通常 push に見える" 等の意図とズレた表現になります。
+
+両プラットフォームで「タブバーを覆う全画面 modal」という形式本来の挙動を一致させるため、modal-screen / form-sheet-screen は **ルート Stack 配下** に置きます。なお URL は内側に置いても変わらない (グループルートは URL に現れない) ため、配置選択は純粋に挙動の問題です。
 
 ## コードサンプル
 
