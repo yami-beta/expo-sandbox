@@ -1,27 +1,27 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Stack, useRouter } from "expo-router";
-import { useTheme } from "../../theme/useTheme";
+import { useTheme } from "../../../../theme/useTheme";
 import { Trans, useLingui } from "@lingui/react/macro";
 
-export default function ModalSample() {
+export default function FormSheetSample() {
   const { colors } = useTheme();
   const router = useRouter();
   const { t } = useLingui();
 
-  const openModal = () => {
-    router.push("/navigation-patterns/modal-screen");
+  const openFormSheet = () => {
+    router.push("/navigation-patterns/form-sheet-screen");
   };
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <Stack.Screen.Title>{t`モーダルサンプル`}</Stack.Screen.Title>
+      <Stack.Screen.Title>{t`フォームシートサンプル`}</Stack.Screen.Title>
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>
-          <Trans>モーダル表示サンプル</Trans>
+          <Trans>フォームシート表示サンプル</Trans>
         </Text>
 
         <Text style={[styles.description, { color: colors.text }]}>
-          <Trans>下のボタンをタップしてモーダル表示で画面を開きます。</Trans>
+          <Trans>下のボタンをタップしてフォームシート表示で画面を開きます。</Trans>
         </Text>
 
         <Pressable
@@ -31,21 +31,26 @@ export default function ModalSample() {
               backgroundColor: pressed ? colors.border : colors.primary,
             },
           ]}
-          onPress={openModal}
+          onPress={openFormSheet}
         >
           <Text style={styles.buttonText}>
-            <Trans>モーダルを開く</Trans>
+            <Trans>フォームシートを開く</Trans>
           </Text>
         </Pressable>
 
         <View style={styles.infoBox}>
           <Text style={[styles.infoTitle, { color: colors.text }]}>
-            <Trans>モーダル表示について：</Trans>
+            <Trans>フォームシート表示について：</Trans>
           </Text>
           <Text style={[styles.infoText, { color: colors.text }]}>
             <Trans>
-              • 画面全体を覆います{"\n"}• 下から上へアニメーションします{"\n"}•
-              下へのスワイプジェスチャーで閉じることができます{"\n"}• 親画面との対話をブロックします
+              【iOS】{"\n"}• 画面全体を覆わない小さめのモーダル{"\n"}• 背景に親画面を表示{"\n"}•
+              フォームや集中的なタスクに最適{"\n"}
+              {"\n"}
+              【Android】{"\n"}• 通常のモーダルとして動作{"\n"}• 画面全体を覆います{"\n"}•
+              プラットフォーム固有の動作{"\n"}
+              {"\n"}
+              【共通】{"\n"}• 下へのスワイプジェスチャーで閉じることができます
             </Trans>
           </Text>
         </View>
@@ -87,6 +92,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "rgba(0,0,0,0.05)",
     borderRadius: 8,
+    marginBottom: 20,
   },
   infoTitle: {
     fontSize: 18,

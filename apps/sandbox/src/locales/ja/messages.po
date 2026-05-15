@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/navigation-patterns/form-sheet.tsx:46
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:46
 msgid ""
 "【iOS】\n"
 "• 画面全体を覆わない小さめのモーダル\n"
@@ -53,7 +53,7 @@ msgstr "• 上から下へスワイプ（iOS）"
 msgid "• 戻るジェスチャーを使用（Android）"
 msgstr "• 戻るジェスチャーを使用（Android）"
 
-#: src/app/navigation-patterns/modal.tsx:46
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:46
 msgid ""
 "• 画面全体を覆います\n"
 "• 下から上へアニメーションします\n"
@@ -106,12 +106,12 @@ msgstr "テーマ"
 msgid "デモコンテンツ"
 msgstr "デモコンテンツ"
 
-#: src/app/(tabs)/index.tsx:9
-#: src/app/navigation-patterns/index.tsx:20
+#: src/app/(tabs)/(home)/index.tsx:10
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:20
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
-#: src/app/navigation-patterns/form-sheet.tsx:17
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:17
 msgid "フォームシートサンプル"
 msgstr "フォームシートサンプル"
 
@@ -119,7 +119,7 @@ msgstr "フォームシートサンプル"
 msgid "フォームシートの例"
 msgstr "フォームシートの例"
 
-#: src/app/navigation-patterns/form-sheet.tsx:37
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:37
 msgid "フォームシートを開く"
 msgstr "フォームシートを開く"
 
@@ -127,16 +127,16 @@ msgstr "フォームシートを開く"
 msgid "フォームシート画面"
 msgstr "フォームシート画面"
 
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
 #: src/app/navigation-patterns/form-sheet-screen.tsx:56
-#: src/app/navigation-patterns/index.tsx:14
 msgid "フォームシート表示"
 msgstr "フォームシート表示"
 
-#: src/app/navigation-patterns/form-sheet.tsx:20
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:20
 msgid "フォームシート表示サンプル"
 msgstr "フォームシート表示サンプル"
 
-#: src/app/navigation-patterns/form-sheet.tsx:43
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:43
 msgid "フォームシート表示について："
 msgstr "フォームシート表示について："
 
@@ -144,8 +144,8 @@ msgstr "フォームシート表示について："
 msgid "フォームを送信"
 msgstr "フォームを送信"
 
-#: src/app/(tabs)/_layout.tsx:19
-#: src/app/(tabs)/_layout.tsx:33
+#: src/app/(tabs)/_layout.tsx:27
+#: src/app/(tabs)/(home)/index.tsx:16
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -165,7 +165,7 @@ msgstr "メッセージ"
 msgid "メッセージを入力"
 msgstr "メッセージを入力"
 
-#: src/app/navigation-patterns/modal.tsx:17
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:17
 msgid "モーダルサンプル"
 msgstr "モーダルサンプル"
 
@@ -173,7 +173,7 @@ msgstr "モーダルサンプル"
 msgid "モーダルフォーム（Android）"
 msgstr "モーダルフォーム（Android）"
 
-#: src/app/navigation-patterns/modal.tsx:37
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:37
 msgid "モーダルを開く"
 msgstr "モーダルを開く"
 
@@ -182,15 +182,15 @@ msgstr "モーダルを開く"
 msgid "モーダル画面"
 msgstr "モーダル画面"
 
-#: src/app/navigation-patterns/index.tsx:10
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:10
 msgid "モーダル表示"
 msgstr "モーダル表示"
 
-#: src/app/navigation-patterns/modal.tsx:20
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:20
 msgid "モーダル表示サンプル"
 msgstr "モーダル表示サンプル"
 
-#: src/app/navigation-patterns/modal.tsx:43
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:43
 msgid "モーダル表示について："
 msgstr "モーダル表示について："
 
@@ -198,11 +198,11 @@ msgstr "モーダル表示について："
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/navigation-patterns/form-sheet.tsx:24
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:24
 msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
 msgstr "下のボタンをタップしてフォームシート表示で画面を開きます。"
 
-#: src/app/navigation-patterns/modal.tsx:24
+#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:24
 msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
 msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
 
@@ -219,7 +219,7 @@ msgstr "名前を入力"
 msgid "完了"
 msgstr "完了"
 
-#: src/app/(tabs)/_layout.tsx:41
+#: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/settings/index.tsx:16
 msgid "設定"
 msgstr "設定"
