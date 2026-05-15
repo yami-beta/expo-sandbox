@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { LinkList, type LinkItem } from "../../components/link-list/LinkList";
+import { LinkList, type LinkItem } from "../../../../components/link-list/LinkList";
 import { Trans, useLingui } from "@lingui/react/macro";
 
 export default function NavigationPatterns() {
