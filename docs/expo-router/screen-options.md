@@ -80,7 +80,13 @@ Expo Router は画面オプションを設定する 2 種類の API を提供し
 
 iOS は UITabBarController の上にネイティブ modal が表示されるため、Expo Router の Stack 階層に関わらず常にタブバーを覆います。Android はフラグメント階層に従って表示が変わるため、内側 Stack に置くと "modal を開いたつもりが通常 push に見える" 等の意図とズレた表現になります。
 
-両プラットフォームで「タブバーを覆う全画面 modal」という形式本来の挙動を一致させるため、modal-screen / form-sheet-screen は **ルート Stack 配下** に置きます。なお URL は内側に置いても変わらない (グループルートは URL に現れない) ため、配置選択は純粋に挙動の問題です。
+両プラットフォームで「タブバーを覆う全画面 modal」という形式本来の挙動を一致させるため、`modal` / `formSheet` / `transparentModal` / `fullScreenModal` 系は **ルート Stack 配下** に置きます。なお URL は内側に置いても変わらない (グループルートは URL に現れない) ため、配置選択は純粋に挙動の問題です。
+
+#### 例外: `containedModal` / `containedTransparentModal` はタブ内側 Stack 配下
+
+`containedModal` (`UIModalPresentationCurrentContext`) と `containedTransparentModal` (`UIModalPresentationOverCurrentContext`) は、**iOS で `definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に収まる** ことが本来の特徴です。これらをルート Stack に置くと画面全体を覆ってしまい、`modal` / `transparentModal` / `fullScreenModal` と見た目が変わらず、`contained*` を選択する意味が失われます。
+
+そのため本プロジェクトでは `containedModal` / `containedTransparentModal` の 2 つだけ **例外的にタブ内側 Stack (`(tabs)/(home)/`) 配下に配置** しています。これにより iOS ではタブバーが残ったままモーダルが表示され、`contained*` 独自の挙動を実機で観察できます (Android では `modal` / `transparentModal` にフォールバックするため、配置場所による差は実質ありません)。
 
 ## コードサンプル
 

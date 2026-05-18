@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { PresentationSampleScreen } from "../../components/presentation-sample/PresentationSampleScreen";
+import { PresentationSampleScreen } from "../../../../components/presentation-sample/PresentationSampleScreen";
 
 export default function ContainedTransparentModalSample(): ReactElement {
   const { t } = useLingui();
@@ -16,7 +16,8 @@ export default function ContainedTransparentModalSample(): ReactElement {
         iosBehavior={
           <Trans>
             UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context
-            の上に重なる。
+            の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても
+            current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。
           </Trans>
         }
         androidBehavior={

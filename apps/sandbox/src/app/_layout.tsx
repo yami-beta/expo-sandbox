@@ -38,18 +38,6 @@ function RootLayoutContent() {
           }}
         />
         <Stack.Screen
-          name="navigation-patterns/contained-modal"
-          options={{ presentation: "containedModal" }}
-        />
-        <Stack.Screen
-          name="navigation-patterns/contained-transparent-modal"
-          options={{
-            presentation: "containedTransparentModal",
-            animation: "fade",
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
           name="navigation-patterns/full-screen-modal"
           options={{
             presentation: "fullScreenModal",

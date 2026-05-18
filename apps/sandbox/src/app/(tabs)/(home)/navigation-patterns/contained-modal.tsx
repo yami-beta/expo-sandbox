@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { PresentationSampleScreen } from "../../components/presentation-sample/PresentationSampleScreen";
+import { PresentationSampleScreen } from "../../../../components/presentation-sample/PresentationSampleScreen";
 
 export default function ContainedModalSample(): ReactElement {
   const { t } = useLingui();
@@ -15,11 +15,10 @@ export default function ContainedModalSample(): ReactElement {
         iosBehavior={
           <Trans>
             UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true`
-            を持つ最も近い祖先 view controller の bounds 内に重なる。タブ内側 Stack
-            で開けばタブバーが残る。`fullScreenModal` との差は表示範囲で、`fullScreenModal` は
-            presentation context に関係なく画面全体を覆うが、`containedModal` は presentation
-            context の bounds 内に収まる。swipe down では閉じない (UIKit の
-            `UIModalPresentationCurrentContext` 自体が sheet
+            を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側
+            Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート
+            Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down
+            では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet
             ジェスチャーを持たないため)。ただしこれは React Navigation
             公式が明示的に保証している挙動ではない点に注意。
           </Trans>

@@ -33,21 +33,21 @@ msgstr "card"
 msgid "card (push)"
 msgstr "card (push)"
 
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:22
-#: src/app/navigation-patterns/contained-modal.tsx:11
 msgid "containedModal"
 msgstr "containedModal"
 
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:26
-#: src/app/navigation-patterns/contained-transparent-modal.tsx:11
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
 
-#: src/app/navigation-patterns/contained-modal.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:14
 msgid "current context 上の modal"
 msgstr "Modal on the current context"
 
-#: src/app/navigation-patterns/contained-transparent-modal.tsx:15
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:15
 msgid "current context 上の透過 modal"
 msgstr "Transparent modal on the current context"
 
@@ -61,7 +61,7 @@ msgstr "formSheet"
 msgid "fullScreenModal"
 msgstr "fullScreenModal"
 
-#: src/app/navigation-patterns/contained-modal.tsx:35
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:34
 msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
 msgstr "On iOS, an explicit Close button is required (swipe down does not work). Android also dismisses on back navigation."
 
@@ -95,9 +95,9 @@ msgstr "Full-screen modal that cannot be dismissed by swipe"
 msgid "transparentModal"
 msgstr "transparentModal"
 
-#: src/app/navigation-patterns/contained-modal.tsx:16
-msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。タブ内側 Stack で開けばタブバーが残る。`fullScreenModal` との差は表示範囲で、`fullScreenModal` は presentation context に関係なく画面全体を覆うが、`containedModal` は presentation context の bounds 内に収まる。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
-msgstr "Presented with UIModalPresentationCurrentContext. Overlays within the bounds of the closest ancestor view controller that has `definesPresentationContext: true`. When opened from an in-tab Stack, the tab bar remains visible. The difference from `fullScreenModal` is the display area: `fullScreenModal` covers the entire screen regardless of presentation context, while `containedModal` stays within the bounds of the presentation context. Swipe down does not dismiss it (because UIKit's `UIModalPresentationCurrentContext` itself does not provide a sheet gesture). Note however that this behavior is not explicitly guaranteed by React Navigation."
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:16
+msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+msgstr "Presented with UIModalPresentationCurrentContext. Overlays within the bounds of the closest ancestor view controller that has `definesPresentationContext: true`. This sample is placed under the in-tab Stack on the Home tab, so opening it keeps the tab bar visible (placing it under the root Stack would cover the entire screen and erase the distinction from `fullScreenModal`). Swipe down does not dismiss it (because UIKit's `UIModalPresentationCurrentContext` itself does not provide a sheet gesture). Note however that this behavior is not explicitly guaranteed by React Navigation."
 
 #: src/app/navigation-patterns/form-sheet.tsx:16
 msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。"
@@ -107,9 +107,9 @@ msgstr "Presented with UIModalPresentationFormSheet. Any number of detents (snap
 msgid "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
 msgstr "Covers the entire screen with UIModalPresentationFullScreen. While `containedModal` stays within the bounds of the presentation context, `fullScreenModal` covers the entire screen regardless of presentation context. React Navigation officially documents that `A screen using this presentation style cannot be dismissed by gesture.`, so its no-swipe-dismiss behavior can be relied on as a library guarantee. An explicit dismiss action is required."
 
-#: src/app/navigation-patterns/contained-transparent-modal.tsx:17
-msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。"
-msgstr "Presented with UIModalPresentationOverCurrentContext. Layered on top of the current context while remaining transparent."
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:17
+msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。"
+msgstr "Presented with UIModalPresentationOverCurrentContext. Layered on top of the current context while remaining transparent. This sample is placed under the in-tab Stack on the Home tab, so the transparent overlay stays within the current context (the area outside the tab bar)."
 
 #: src/app/navigation-patterns/form-sheet.tsx:14
 msgid "シート表示（detent 対応）"
@@ -133,7 +133,7 @@ msgstr "Theme"
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
-#: src/app/navigation-patterns/contained-modal.tsx:28
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:27
 msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal と同様、`animation` 未指定なら OS 標準の遷移（多くは右からスライド）になり「下から上」にはならない。"
 msgstr "Without a matching native presentation, it falls back to `modal`. Like `modal`, when `animation` is not specified the OS-default transition (often slide-in from the right) is used, so it does not slide up from the bottom."
 
@@ -141,7 +141,7 @@ msgstr "Without a matching native presentation, it falls back to `modal`. Like `
 msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
 msgstr "Without a matching native presentation, it falls back to `modal`. The animation follows `modal` as well: when `animation` is not specified the OS-default transition is used. The major difference from iOS is that the back button and system gesture can still dismiss it."
 
-#: src/app/navigation-patterns/contained-transparent-modal.tsx:23
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:24
 msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。標準の透過モーダルとして開く。"
 msgstr "Without a matching native presentation, it falls back to `transparentModal` and opens as a standard transparent modal."
 
@@ -182,7 +182,7 @@ msgstr "Standard push transition"
 msgid "標準のモーダル表示"
 msgstr "Standard modal presentation"
 
-#: src/app/navigation-patterns/contained-transparent-modal.tsx:29
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:30
 msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context の範囲を越えない。"
 msgstr "Tap the translucent backdrop or the Close button to dismiss. On iOS, it stays within the current context."
 
