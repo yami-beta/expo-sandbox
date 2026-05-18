@@ -38,7 +38,7 @@ Expo Router は画面オプションを設定する 2 種類の API を提供し
 
 構造的に親 Stack ナビゲータが画面マウント前に把握しなければならない options は `_layout.tsx` の `<Stack.Screen name="..." options={...} />` で宣言します。
 
-- **`presentation: "modal" / "formSheet" / "fullScreenModal"`** - 画面の表示モード
+- **`presentation: "modal" / "formSheet" / "fullScreenModal"`** - 画面の表示モード（値ごとの iOS / Android 挙動は [`presentation.md`](./presentation.md) を参照）
 - **`sheetGrabberVisible`**, **`sheetAllowedDetents`** など formSheet 関連
 - **`headerShown: false`** - グループ全体のヘッダー非表示
 - **`animation`** - 一部の値は初回不適用になる可能性があるため layout 側推奨
