@@ -10,11 +10,10 @@ export default function FormSheetIntermediate(): ReactElement {
       href: "/navigation-patterns/form-sheet/on-root",
       text: <Trans>on root</Trans>,
     },
-    // in tab 版は #114 で追加する
-    // {
-    //   href: "/navigation-patterns/form-sheet/in-tab",
-    //   text: <Trans>in tab</Trans>,
-    // },
+    {
+      href: "/navigation-patterns/form-sheet/in-tab",
+      text: <Trans>in tab</Trans>,
+    },
   ] as const satisfies LinkItem[];
 
   return (
