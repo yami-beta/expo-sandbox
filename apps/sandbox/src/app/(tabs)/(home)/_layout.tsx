@@ -8,11 +8,11 @@ export default function HomeLayout() {
   return (
     <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
       <Stack.Screen
-        name="navigation-patterns/contained-modal"
+        name="navigation-patterns/contained-modal/in-tab"
         options={{ presentation: "containedModal" }}
       />
       <Stack.Screen
-        name="navigation-patterns/contained-transparent-modal"
+        name="navigation-patterns/contained-transparent-modal/in-tab"
         options={{
           presentation: "containedTransparentModal",
           animation: "fade",
