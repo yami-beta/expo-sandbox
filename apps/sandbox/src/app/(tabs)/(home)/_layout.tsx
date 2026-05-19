@@ -19,6 +19,26 @@ export default function HomeLayout() {
           headerShown: false,
         }}
       />
+      <Stack.Screen name="navigation-patterns/modal/in-tab" options={{ presentation: "modal" }} />
+      <Stack.Screen
+        name="navigation-patterns/transparent-modal/in-tab"
+        options={{
+          presentation: "transparentModal",
+          animation: "fade",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="navigation-patterns/full-screen-modal/in-tab"
+        options={{
+          presentation: "fullScreenModal",
+          gestureEnabled: false,
+        }}
+      />
+      <Stack.Screen
+        name="navigation-patterns/form-sheet/in-tab"
+        options={{ presentation: "formSheet", sheetGrabberVisible: true }}
+      />
     </Stack>
   );
 }
