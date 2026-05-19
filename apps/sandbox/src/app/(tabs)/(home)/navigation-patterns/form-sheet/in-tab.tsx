@@ -11,23 +11,27 @@ export default function FormSheetSample(): ReactElement {
       <Stack.Screen.Title>{t`formSheet`}</Stack.Screen.Title>
       <PresentationSampleScreen
         presentationValue="formSheet"
-        heading={<Trans>シート表示（detent 対応）</Trans>}
+        heading={<Trans>タブ内 Stack 上のシート表示</Trans>}
         iosBehavior={
           <Trans>
-            UIModalPresentationFormSheet で表示される。detent (snap point)
-            を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。
+            UIModalPresentationFormSheet で表示される。タブ内 Stack 配下に置いても iOS の formSheet
+            は UIKit 上の最前面に出るため、タブバーを覆って表示される (on-root
+            版とほぼ同じ見た目)。detent (snap point) や sheetGrabberVisible
+            の挙動は配置に依存しない。
           </Trans>
         }
         androidBehavior={
           <Trans>
-            BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible
-            は無視され、代わりに sheetElevation 等の Android 専用オプションがある。
+            BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま**
+            tab content の領域内にボトムシートが出る形になる (Android は presentation context
+            の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。
           </Trans>
         }
         dismissNote={
           <Trans>
             下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android
-            では戻る操作でも閉じる。
+            では戻る操作でも閉じる。**Android でタブバーが残ったままシートが出る**のが on-root
+            版との最大の差分。実プロダクトではルート配置を推奨。
           </Trans>
         }
       />

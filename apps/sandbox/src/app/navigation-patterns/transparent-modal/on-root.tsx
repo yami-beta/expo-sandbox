@@ -12,19 +12,24 @@ export default function TransparentModalSample(): ReactElement {
       <PresentationSampleScreen
         variant="transparent-overlay"
         presentationValue="transparentModal"
-        heading={<Trans>背景透過モーダル</Trans>}
+        heading={<Trans>ルート Stack 上の背景透過モーダル</Trans>}
         iosBehavior={
           <Trans>
-            背景を透明にしたまま modal
-            が重なる。前画面が透けて見えるので、自前のバックドロップを描画する。
+            背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体
+            (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の
+            バックドロップを描画する。
           </Trans>
         }
         androidBehavior={
-          <Trans>同等の透過モーダルとして重なる。戻るボタンで閉じる挙動は modal と同じ。</Trans>
+          <Trans>
+            同等の透過モーダルとして重なる。ルート Stack 配下なのでタブバーごと前景に出る。
+            戻るボタンで閉じる挙動は modal と同じ。
+          </Trans>
         }
         dismissNote={
           <Trans>
-            背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ判定は画面側で実装する必要がある。
+            背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ
+            判定は画面側で実装する必要がある。タブバーごと透過させるのが in-tab 版との差分。
           </Trans>
         }
       />

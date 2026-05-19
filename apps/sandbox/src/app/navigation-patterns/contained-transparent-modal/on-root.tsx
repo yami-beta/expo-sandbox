@@ -12,24 +12,29 @@ export default function ContainedTransparentModalSample(): ReactElement {
       <PresentationSampleScreen
         variant="transparent-overlay"
         presentationValue="containedTransparentModal"
-        heading={<Trans>current context 上の透過 modal</Trans>}
+        heading={<Trans>ルート Stack に置いた containedTransparentModal (観察用)</Trans>}
         iosBehavior={
           <Trans>
             UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context
-            の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても
-            current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。
+            の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view
+            controller になり、結果として画面全体 (タブバーを含む領域全体)
+            に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が
+            なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds
+            に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。
           </Trans>
         }
         androidBehavior={
           <Trans>
-            ネイティブの対応 presentation がないため transparentModal
-            にフォールバックする。標準の透過モーダルとして開く。
+            ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android
+            は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal
+            と同等の挙動になる。
           </Trans>
         }
         dismissNote={
           <Trans>
-            背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context
-            の範囲を越えない。
+            背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。 **ルート版は
+            transparentModal とほぼ同じ挙動になりフォールバック相当**。 挙動差を観察したい場合は
+            in-tab 版と並べて比較する。
           </Trans>
         }
       />
