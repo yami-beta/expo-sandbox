@@ -13,19 +13,25 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:30
-#: src/app/navigation-patterns/modal/on-root.tsx:30
-msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。"
-msgstr "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。"
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:32
+msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。Android ではタブバー越しに見ても card push と区別がつかなくなりやすい点が on-root 版との差分。"
+msgstr "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。Android ではタブバー越しに見ても card push と区別がつかなくなりやすい点が on-root 版との差分。"
+
+#: src/app/navigation-patterns/modal/on-root.tsx:32
+msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。ルート版は、Android で animation 未指定だとタブバーが消えた push 同様の遷移になり、in-tab 版の「Android push と区別がつかない」と挙動が近づく。"
+msgstr "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。ルート版は、Android で animation 未指定だとタブバーが消えた push 同様の遷移になり、in-tab 版の「Android push と区別がつかない」と挙動が近づく。"
 
 #: src/components/presentation-sample/PresentationSampleScreen.tsx:106
 msgid "Android の挙動"
 msgstr "Android の挙動"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:22
-#: src/app/navigation-patterns/form-sheet/on-root.tsx:22
-msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。"
-msgstr "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。"
+#: src/app/navigation-patterns/form-sheet/on-root.tsx:24
+msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。 ルート Stack 配下なのでタブバーを覆ってシートが出る。"
+msgstr "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。 ルート Stack 配下なのでタブバーを覆ってシートが出る。"
+
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:24
+msgid "BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま** tab content の領域内にボトムシートが出る形になる (Android は presentation context の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。"
+msgstr "BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま** tab content の領域内にボトムシートが出る形になる (Android は presentation context の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:21
@@ -51,16 +57,6 @@ msgstr "containedModal"
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:14
-#: src/app/navigation-patterns/contained-modal/on-root.tsx:14
-msgid "current context 上の modal"
-msgstr "current context 上の modal"
-
-#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:15
-#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:15
-msgid "current context 上の透過 modal"
-msgstr "current context 上の透過 modal"
-
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:21
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:34
@@ -85,15 +81,21 @@ msgstr "fullScreenModal"
 msgid "in tab"
 msgstr "in tab"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:34
 #: src/app/navigation-patterns/contained-modal/on-root.tsx:34
-msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
-msgstr "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
+msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 **ルート版は fullScreenModal とほぼ同じ挙動になりフォールバック相当**。挙動差を 観察したい場合は in-tab 版と並べて比較する。"
+msgstr "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 **ルート版は fullScreenModal とほぼ同じ挙動になりフォールバック相当**。挙動差を 観察したい場合は in-tab 版と並べて比較する。"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:34
+msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 iOS で **タブバーが残ったまま重なる**のが on-root 版との最大の差分。"
+msgstr "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 iOS で **タブバーが残ったまま重なる**のが on-root 版との最大の差分。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:33
-#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:33
-msgid "iOS では「閉じる」ボタンが必須（swipe down 不可）。Android では戻る操作でも閉じる。"
-msgstr "iOS では「閉じる」ボタンが必須（swipe down 不可）。Android では戻る操作でも閉じる。"
+msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 **Android で tab 内 push 風に出る可能性がある**のが on-root 版との最大の差分。"
+msgstr "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 **Android で tab 内 push 風に出る可能性がある**のが on-root 版との最大の差分。"
+
+#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:34
+msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
+msgstr "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 
 #: src/components/presentation-sample/PresentationSampleScreen.tsx:105
 msgid "iOS の挙動"
@@ -117,19 +119,20 @@ msgid "on root"
 msgstr "on root"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:22
-#: src/app/navigation-patterns/card/on-root.tsx:22
-msgid "OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン / ジェスチャーで戻れる。"
-msgstr "OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン / ジェスチャーで戻れる。"
+msgid "OS / テーマに応じたスライドアニメーションで push される。タブ内 Stack 配下なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。"
+msgstr "OS / テーマに応じたスライドアニメーションで push される。タブ内 Stack 配下なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:21
-#: src/app/navigation-patterns/modal/on-root.tsx:21
-msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
-msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
+#: src/app/navigation-patterns/card/on-root.tsx:24
+msgid "OS / テーマに応じたスライドアニメーションで push される。ルート Stack 配下なので遷移先ではタブバーが消える。システムの戻るボタン / ジェスチャーで戻れる。"
+msgstr "OS / テーマに応じたスライドアニメーションで push される。ルート Stack 配下なので遷移先ではタブバーが消える。システムの戻るボタン / ジェスチャーで戻れる。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:14
-#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:14
-msgid "swipe で閉じられない全画面モーダル"
-msgstr "swipe で閉じられない全画面モーダル"
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:23
+msgid "presentation 形式は modal だが、Android では animation 未指定だと OS 標準の遷移 (多くは右からスライド) になる。タブ内 Stack に置いた場合、タブバーが残った状態でスライドインするため、 標準の card push と見た目の区別がほぼつかなくなる。「下から上」にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
+msgstr "presentation 形式は modal だが、Android では animation 未指定だと OS 標準の遷移 (多くは右からスライド) になる。タブ内 Stack に置いた場合、タブバーが残った状態でスライドインするため、 標準の card push と見た目の区別がほぼつかなくなる。「下から上」にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
+
+#: src/app/navigation-patterns/modal/on-root.tsx:23
+msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
+msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:18
 #: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:11
@@ -139,29 +142,36 @@ msgid "transparentModal"
 msgstr "transparentModal"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:16
+msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller (タブ内 Stack の Navigator) の bounds 内に 重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが 残ったままになるのが観察できる ── これが containedModal の本来期待される挙動。 swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+msgstr "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller (タブ内 Stack の Navigator) の bounds 内に 重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが 残ったままになるのが観察できる ── これが containedModal の本来期待される挙動。 swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+
 #: src/app/navigation-patterns/contained-modal/on-root.tsx:16
-msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
-msgstr "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる挙動だが、ルート Stack 配下に置くと presentation context はアプリのルート view controller になり、結果 として画面全体 (タブバーごと) を覆ってしまう。これでは `fullScreenModal` と 見た目の差がなくなり、containedModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。swipe down では閉じない。"
+msgstr "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる挙動だが、ルート Stack 配下に置くと presentation context はアプリのルート view controller になり、結果 として画面全体 (タブバーごと) を覆ってしまう。これでは `fullScreenModal` と 見た目の差がなくなり、containedModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。swipe down では閉じない。"
+
+#: src/app/navigation-patterns/form-sheet/on-root.tsx:16
+msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。 ルート Stack 配下なのでタブバーを覆ってシートが下から出る形になる (formSheet は通常 modal 同様タブバー上に乗るのが期待される挙動)。"
+msgstr "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。 ルート Stack 配下なのでタブバーを覆ってシートが下から出る形になる (formSheet は通常 modal 同様タブバー上に乗るのが期待される挙動)。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:16
-#: src/app/navigation-patterns/form-sheet/on-root.tsx:16
-msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。"
-msgstr "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。"
+msgid "UIModalPresentationFormSheet で表示される。タブ内 Stack 配下に置いても iOS の formSheet は UIKit 上の最前面に出るため、タブバーを覆って表示される (on-root 版とほぼ同じ見た目)。detent (snap point) や sheetGrabberVisible の挙動は配置に依存しない。"
+msgstr "UIModalPresentationFormSheet で表示される。タブ内 Stack 配下に置いても iOS の formSheet は UIKit 上の最前面に出るため、タブバーを覆って表示される (on-root 版とほぼ同じ見た目)。detent (snap point) や sheetGrabberVisible の挙動は配置に依存しない。"
+
+#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:16
+msgid "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。ルート Stack 配下に置いた場合の標準挙動。 React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
+msgstr "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。ルート Stack 配下に置いた場合の標準挙動。 React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:16
-#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:16
-msgid "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
-msgstr "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
+msgid "UIModalPresentationFullScreen で画面全体を覆う。`fullScreenModal` は presentation context に関係なく画面全体を覆うので、タブ内 Stack 配下に置いてもタブバーごと 画面全体を覆う (on-root 版と iOS では同じ見た目になる)。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
+msgstr "UIModalPresentationFullScreen で画面全体を覆う。`fullScreenModal` は presentation context に関係なく画面全体を覆うので、タブ内 Stack 配下に置いてもタブバーごと 画面全体を覆う (on-root 版と iOS では同じ見た目になる)。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:17
-#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:17
-msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。"
-msgstr "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。"
+msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた tab content 領域) に透過オーバーレイが 収まる ── これが containedTransparentModal の本来期待される挙動。タブバーは前面に 残ったままになる。"
+msgstr "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた tab content 領域) に透過オーバーレイが 収まる ── これが containedTransparentModal の本来期待される挙動。タブバーは前面に 残ったままになる。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:14
-#: src/app/navigation-patterns/form-sheet/on-root.tsx:14
-msgid "シート表示（detent 対応）"
-msgstr "シート表示（detent 対応）"
+#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:17
+msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
+msgstr "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
 
 #: src/app/(tabs)/settings/theme.tsx:14
 msgid "システム設定に従う"
@@ -170,6 +180,34 @@ msgstr "システム設定に従う"
 #: src/app/(tabs)/settings/theme.tsx:16
 msgid "ダーク"
 msgstr "ダーク"
+
+#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:14
+msgid "タブ内 Stack に push される card 遷移"
+msgstr "タブ内 Stack に push される card 遷移"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:14
+msgid "タブ内 Stack 上の containedModal (本来挙動)"
+msgstr "タブ内 Stack 上の containedModal (本来挙動)"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:15
+msgid "タブ内 Stack 上の containedTransparentModal (本来挙動)"
+msgstr "タブ内 Stack 上の containedTransparentModal (本来挙動)"
+
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:14
+msgid "タブ内 Stack 上のシート表示"
+msgstr "タブ内 Stack 上のシート表示"
+
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:14
+msgid "タブ内 Stack 上のモーダル表示"
+msgstr "タブ内 Stack 上のモーダル表示"
+
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:14
+msgid "タブ内 Stack 上の全画面モーダル"
+msgstr "タブ内 Stack 上の全画面モーダル"
+
+#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:15
+msgid "タブ内 Stack 上の背景透過モーダル"
+msgstr "タブ内 Stack 上の背景透過モーダル"
 
 #: src/app/(tabs)/settings/index.tsx:10
 #: src/app/(tabs)/settings/theme.tsx:21
@@ -182,24 +220,36 @@ msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:27
+msgid "ネイティブの対応 presentation がないため modal にフォールバックする。Android は current context の概念に依存しないため、配置 Stack による挙動差はなく、 on-root 版と同じ挙動になる。`animation` 未指定なら OS 標準の遷移 (多くは右からスライド) になる。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。Android は current context の概念に依存しないため、配置 Stack による挙動差はなく、 on-root 版と同じ挙動になる。`animation` 未指定なら OS 標準の遷移 (多くは右からスライド) になる。"
+
 #: src/app/navigation-patterns/contained-modal/on-root.tsx:27
-msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal と同様、`animation` 未指定なら OS 標準の遷移（多くは右からスライド）になり「下から上」にはならない。"
-msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal と同様、`animation` 未指定なら OS 標準の遷移（多くは右からスライド）になり「下から上」にはならない。"
+msgid "ネイティブの対応 presentation がないため modal にフォールバックする。Android は元々 current context の概念に依存しないため、配置 Stack によらず modal と同等の挙動になる。`animation` 未指定なら OS 標準の遷移 (多くは右からスライド) になる。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。Android は元々 current context の概念に依存しないため、配置 Stack によらず modal と同等の挙動になる。`animation` 未指定なら OS 標準の遷移 (多くは右からスライド) になる。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:26
 #: src/app/navigation-patterns/full-screen-modal/on-root.tsx:26
-msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
-msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
+msgid "ネイティブの対応 presentation がないため modal にフォールバックする。ルート Stack 配下なのでタブバーごと覆う形になる。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。ルート Stack 配下なのでタブバーごと覆う形になる。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:24
-#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:24
-msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。標準の透過モーダルとして開く。"
-msgstr "ネイティブの対応 presentation がないため transparentModal にフォールバックする。標準の透過モーダルとして開く。"
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:25
+msgid "ネイティブの対応 presentation がないため modal にフォールバックするが、タブ内 Stack 配下に置くと **tab 内に push 風に出る**ケースがある (Android は presentation context の概念に依存せず、Stack の階層がそのまま遷移先のレイアウトに反映されるため)。 `animation` 未指定なら OS 標準の遷移。戻るボタン / システムジェスチャーで閉じられる。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックするが、タブ内 Stack 配下に置くと **tab 内に push 風に出る**ケースがある (Android は presentation context の概念に依存せず、Stack の階層がそのまま遷移先のレイアウトに反映されるため)。 `animation` 未指定なら OS 標準の遷移。戻るボタン / システムジェスチャーで閉じられる。"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:26
+msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は current context の概念に依存しないため、配置 Stack による挙動差はなく、 on-root 版と同じ挙動になる。"
+msgstr "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は current context の概念に依存しないため、配置 Stack による挙動差はなく、 on-root 版と同じ挙動になる。"
+
+#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:27
+msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal と同等の挙動になる。"
+msgstr "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal と同等の挙動になる。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:28
-#: src/app/navigation-patterns/card/on-root.tsx:28
-msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーは表示されたまま維持される。"
-msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーは表示されたまま維持される。"
+msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーが残ったまま維持されるのが on-root 版との差分。"
+msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーが残ったまま維持されるのが on-root 版との差分。"
+
+#: src/app/navigation-patterns/card/on-root.tsx:30
+msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。ルート版ではタブバーが消えるのが in-tab 版との差分。"
+msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。ルート版ではタブバーが消えるのが in-tab 版との差分。"
 
 #: src/app/(tabs)/_layout.tsx:27
 #: src/app/(tabs)/(home)/index.tsx:16
@@ -210,55 +260,89 @@ msgstr "ホーム"
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:16
-#: src/app/navigation-patterns/modal/on-root.tsx:16
-msgid "下から上にスライドして表示される。上端からの swipe down で閉じられる（page sheet 風）。"
-msgstr "下から上にスライドして表示される。上端からの swipe down で閉じられる（page sheet 風）。"
+#: src/app/navigation-patterns/card/on-root.tsx:14
+msgid "ルート Stack に push される card 遷移"
+msgstr "ルート Stack に push される card 遷移"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:28
-#: src/app/navigation-patterns/form-sheet/on-root.tsx:28
-msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。"
-msgstr "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。"
+#: src/app/navigation-patterns/contained-modal/on-root.tsx:14
+msgid "ルート Stack に置いた containedModal (観察用)"
+msgstr "ルート Stack に置いた containedModal (観察用)"
+
+#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:15
+msgid "ルート Stack に置いた containedTransparentModal (観察用)"
+msgstr "ルート Stack に置いた containedTransparentModal (観察用)"
+
+#: src/app/navigation-patterns/form-sheet/on-root.tsx:14
+msgid "ルート Stack 上のシート表示 (推奨配置)"
+msgstr "ルート Stack 上のシート表示 (推奨配置)"
+
+#: src/app/navigation-patterns/modal/on-root.tsx:14
+msgid "ルート Stack 上のモーダル表示"
+msgstr "ルート Stack 上のモーダル表示"
+
+#: src/app/navigation-patterns/full-screen-modal/on-root.tsx:14
+msgid "ルート Stack 上の全画面モーダル (標準挙動)"
+msgstr "ルート Stack 上の全画面モーダル (標準挙動)"
+
+#: src/app/navigation-patterns/transparent-modal/on-root.tsx:15
+msgid "ルート Stack 上の背景透過モーダル"
+msgstr "ルート Stack 上の背景透過モーダル"
+
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:16
+msgid "下から上にスライドして表示される page sheet 風 modal。タブ内 Stack 配下に置いても iOS の modal は UIKit 上の最前面に出るため、結局タブバーを覆って表示される (ルート版とほぼ同じ見た目になる)。上端からの swipe down で閉じられる。"
+msgstr "下から上にスライドして表示される page sheet 風 modal。タブ内 Stack 配下に置いても iOS の modal は UIKit 上の最前面に出るため、結局タブバーを覆って表示される (ルート版とほぼ同じ見た目になる)。上端からの swipe down で閉じられる。"
+
+#: src/app/navigation-patterns/modal/on-root.tsx:16
+msgid "下から上にスライドして表示される標準の page sheet 風 modal。ルート Stack 配下なので、タブバーごと画面全体を覆う形で重なる (in-tab 版でも iOS では modal がタブバーを覆うため見た目はほぼ同じ)。上端からの swipe down で閉じられる。"
+msgstr "下から上にスライドして表示される標準の page sheet 風 modal。ルート Stack 配下なので、タブバーごと画面全体を覆う形で重なる (in-tab 版でも iOS では modal がタブバーを覆うため見た目はほぼ同じ)。上端からの swipe down で閉じられる。"
+
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:31
+msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。**Android でタブバーが残ったままシートが出る**のが on-root 版との最大の差分。実プロダクトではルート配置を推奨。"
+msgstr "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。**Android でタブバーが残ったままシートが出る**のが on-root 版との最大の差分。実プロダクトではルート配置を推奨。"
+
+#: src/app/navigation-patterns/form-sheet/on-root.tsx:31
+msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。タブバーごと覆うのが in-tab 版との差分 (実プロダクトでは このルート配置が推奨)。"
+msgstr "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。タブバーごと覆うのが in-tab 版との差分 (実プロダクトでは このルート配置が推奨)。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:16
+msgid "右からスライドして push されるネイティブ遷移。タブ内 Stack 配下なので push 先でもタブバーが残ったまま維持される。左端からの swipe back ジェスチャーで戻れる。"
+msgstr "右からスライドして push されるネイティブ遷移。タブ内 Stack 配下なので push 先でもタブバーが残ったまま維持される。左端からの swipe back ジェスチャーで戻れる。"
+
 #: src/app/navigation-patterns/card/on-root.tsx:16
-msgid "右からスライドして push されるネイティブ遷移。左端からの swipe back ジェスチャーで戻れる。"
-msgstr "右からスライドして push されるネイティブ遷移。左端からの swipe back ジェスチャーで戻れる。"
+msgid "右からスライドして push されるネイティブ遷移。ルート Stack 配下に push するため、遷移先ではタブバーが消える (タブ表示は (tabs) グループの中だけに存在し、ルート Stack の sibling screen にはタブが描画されないため)。左端からの swipe back ジェスチャーで戻れる。"
+msgstr "右からスライドして push されるネイティブ遷移。ルート Stack 配下に push するため、遷移先ではタブバーが消える (タブ表示は (tabs) グループの中だけに存在し、ルート Stack の sibling screen にはタブが描画されないため)。左端からの swipe back ジェスチャーで戻れる。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:23
-#: src/app/navigation-patterns/transparent-modal/on-root.tsx:23
-msgid "同等の透過モーダルとして重なる。戻るボタンで閉じる挙動は modal と同じ。"
-msgstr "同等の透過モーダルとして重なる。戻るボタンで閉じる挙動は modal と同じ。"
+#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:25
+msgid "同等の透過モーダルとして重なる。タブ内 Stack 配下なのでタブバーは残った状態で tab content の上に透過オーバーレイが乗る。戻るボタンで閉じる挙動は modal と同じ。"
+msgstr "同等の透過モーダルとして重なる。タブ内 Stack 配下なのでタブバーは残った状態で tab content の上に透過オーバーレイが乗る。戻るボタンで閉じる挙動は modal と同じ。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:14
-#: src/app/navigation-patterns/card/on-root.tsx:14
-msgid "標準の push 遷移"
-msgstr "標準の push 遷移"
+#: src/app/navigation-patterns/transparent-modal/on-root.tsx:24
+msgid "同等の透過モーダルとして重なる。ルート Stack 配下なのでタブバーごと前景に出る。 戻るボタンで閉じる挙動は modal と同じ。"
+msgstr "同等の透過モーダルとして重なる。ルート Stack 配下なのでタブバーごと前景に出る。 戻るボタンで閉じる挙動は modal と同じ。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:14
-#: src/app/navigation-patterns/modal/on-root.tsx:14
-msgid "標準のモーダル表示"
-msgstr "標準のモーダル表示"
+#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:34
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。 **ルート版は transparentModal とほぼ同じ挙動になりフォールバック相当**。 挙動差を観察したい場合は in-tab 版と並べて比較する。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。 **ルート版は transparentModal とほぼ同じ挙動になりフォールバック相当**。 挙動差を観察したい場合は in-tab 版と並べて比較する。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:30
-#: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:30
-msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context の範囲を越えない。"
-msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context の範囲を越えない。"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:33
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では **透過オーバーレイがタブバーを越えず tab content の bounds に収まる**のが on-root 版との最大の差分。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では **透過オーバーレイがタブバーを越えず tab content の bounds に収まる**のが on-root 版との最大の差分。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:26
-#: src/app/navigation-patterns/transparent-modal/on-root.tsx:26
-msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ判定は画面側で実装する必要がある。"
-msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ判定は画面側で実装する必要がある。"
+#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:31
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。タブバーが 残ったまま透過オーバーレイが乗るのが on-root 版との差分。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。タブバーが 残ったまま透過オーバーレイが乗るのが on-root 版との差分。"
+
+#: src/app/navigation-patterns/transparent-modal/on-root.tsx:30
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ 判定は画面側で実装する必要がある。タブバーごと透過させるのが in-tab 版との差分。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ 判定は画面側で実装する必要がある。タブバーごと透過させるのが in-tab 版との差分。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:17
-#: src/app/navigation-patterns/transparent-modal/on-root.tsx:17
-msgid "背景を透明にしたまま modal が重なる。前画面が透けて見えるので、自前のバックドロップを描画する。"
-msgstr "背景を透明にしたまま modal が重なる。前画面が透けて見えるので、自前のバックドロップを描画する。"
+msgid "背景を透明にしたまま modal が重なる。タブ内 Stack 配下に置くと、 透過オーバーレイは tab content の領域に描かれ、タブバーは前面に残ったままになる (タブ内 Stack の Navigator が UIKit 上で current context として振る舞うため)。 前画面が透けて見えるので、自前のバックドロップを描画する。"
+msgstr "背景を透明にしたまま modal が重なる。タブ内 Stack 配下に置くと、 透過オーバーレイは tab content の領域に描かれ、タブバーは前面に残ったままになる (タブ内 Stack の Navigator が UIKit 上で current context として振る舞うため)。 前画面が透けて見えるので、自前のバックドロップを描画する。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:15
-#: src/app/navigation-patterns/transparent-modal/on-root.tsx:15
-msgid "背景透過モーダル"
-msgstr "背景透過モーダル"
+#: src/app/navigation-patterns/transparent-modal/on-root.tsx:17
+msgid "背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体 (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の バックドロップを描画する。"
+msgstr "背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体 (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の バックドロップを描画する。"
 
 #: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/settings/index.tsx:16

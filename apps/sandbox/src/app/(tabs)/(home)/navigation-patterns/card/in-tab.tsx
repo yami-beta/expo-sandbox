@@ -11,23 +11,23 @@ export default function CardSample(): ReactElement {
       <Stack.Screen.Title>{t`card`}</Stack.Screen.Title>
       <PresentationSampleScreen
         presentationValue="card"
-        heading={<Trans>標準の push 遷移</Trans>}
+        heading={<Trans>タブ内 Stack に push される card 遷移</Trans>}
         iosBehavior={
           <Trans>
-            右からスライドして push されるネイティブ遷移。左端からの swipe back
-            ジェスチャーで戻れる。
+            右からスライドして push されるネイティブ遷移。タブ内 Stack 配下なので push
+            先でもタブバーが残ったまま維持される。左端からの swipe back ジェスチャーで戻れる。
           </Trans>
         }
         androidBehavior={
           <Trans>
-            OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン /
-            ジェスチャーで戻れる。
+            OS / テーマに応じたスライドアニメーションで push される。タブ内 Stack
+            配下なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。
           </Trans>
         }
         dismissNote={
           <Trans>
             ヘッダー左の戻るボタン、または OS
-            のジェスチャーで前画面に戻る。タブバーは表示されたまま維持される。
+            のジェスチャーで前画面に戻る。タブバーが残ったまま維持されるのが on-root 版との差分。
           </Trans>
         }
       />
