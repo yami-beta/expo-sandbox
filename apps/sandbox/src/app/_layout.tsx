@@ -28,9 +28,24 @@ function RootLayoutContent() {
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="navigation-patterns/modal-screen" options={{ presentation: "modal" }} />
+        <Stack.Screen name="navigation-patterns/modal" options={{ presentation: "modal" }} />
         <Stack.Screen
-          name="navigation-patterns/form-sheet-screen"
+          name="navigation-patterns/transparent-modal"
+          options={{
+            presentation: "transparentModal",
+            animation: "fade",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/full-screen-modal"
+          options={{
+            presentation: "fullScreenModal",
+            gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/form-sheet"
           options={{ presentation: "formSheet", sheetGrabberVisible: true }}
         />
       </Stack>

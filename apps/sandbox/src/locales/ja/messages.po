@@ -13,81 +13,107 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:46
-msgid ""
-"【iOS】\n"
-"• 画面全体を覆わない小さめのモーダル\n"
-"• 背景に親画面を表示\n"
-"• フォームや集中的なタスクに最適\n"
-"\n"
-"【Android】\n"
-"• 通常のモーダルとして動作\n"
-"• 画面全体を覆います\n"
-"• プラットフォーム固有の動作\n"
-"\n"
-"【共通】\n"
-"• 下へのスワイプジェスチャーで閉じることができます"
-msgstr ""
-"【iOS】\n"
-"• 画面全体を覆わない小さめのモーダル\n"
-"• 背景に親画面を表示\n"
-"• フォームや集中的なタスクに最適\n"
-"\n"
-"【Android】\n"
-"• 通常のモーダルとして動作\n"
-"• 画面全体を覆います\n"
-"• プラットフォーム固有の動作\n"
-"\n"
-"【共通】\n"
-"• 下へのスワイプジェスチャーで閉じることができます"
+#: src/app/navigation-patterns/modal.tsx:30
+msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。"
+msgstr "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。"
 
-#: src/app/navigation-patterns/modal-screen.tsx:53
-msgid "• 「閉じる」ボタンをタップ"
-msgstr "• 「閉じる」ボタンをタップ"
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:106
+msgid "Android の挙動"
+msgstr "Android の挙動"
 
-#: src/app/navigation-patterns/modal-screen.tsx:56
-msgid "• 上から下へスワイプ（iOS）"
-msgstr "• 上から下へスワイプ（iOS）"
+#: src/app/navigation-patterns/form-sheet.tsx:22
+msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。"
+msgstr "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。"
 
-#: src/app/navigation-patterns/modal-screen.tsx:59
-msgid "• 戻るジェスチャーを使用（Android）"
-msgstr "• 戻るジェスチャーを使用（Android）"
+#: src/app/(tabs)/(home)/navigation-patterns/card.tsx:11
+msgid "card"
+msgstr "card"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:46
-msgid ""
-"• 画面全体を覆います\n"
-"• 下から上へアニメーションします\n"
-"• 下へのスワイプジェスチャーで閉じることができます\n"
-"• 親画面との対話をブロックします"
-msgstr ""
-"• 画面全体を覆います\n"
-"• 下から上へアニメーションします\n"
-"• 下へのスワイプジェスチャーで閉じることができます\n"
-"• 親画面との対話をブロックします"
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:10
+msgid "card (push)"
+msgstr "card (push)"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:39
-msgid "キャンセル"
-msgstr "キャンセル"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:22
+msgid "containedModal"
+msgstr "containedModal"
 
-#: src/app/navigation-patterns/modal-screen.tsx:68
-msgid "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
-msgstr "このモーダルにはフォーム、画像、インタラクティブな要素など、 あらゆるコンテンツを含めることができます。"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:26
+msgid "containedTransparentModal"
+msgstr "containedTransparentModal"
 
-#: src/app/navigation-patterns/modal-screen.tsx:46
-msgid "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
-msgstr "この画面はモーダル表示スタイルで表示されています。 以下の方法で閉じることができます："
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:14
+msgid "current context 上の modal"
+msgstr "current context 上の modal"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:64
-msgid "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
-msgstr "これはフォームシートで表示されたフォームのデモです。 背景に親画面が見えることに注目してください。"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:15
+msgid "current context 上の透過 modal"
+msgstr "current context 上の透過 modal"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:69
-msgid "これはモーダルで表示されたフォームのデモです。"
-msgstr "これはモーダルで表示されたフォームのデモです。"
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:34
+#: src/app/navigation-patterns/form-sheet.tsx:11
+msgid "formSheet"
+msgstr "formSheet"
 
-#: src/app/navigation-patterns/modal-screen.tsx:42
-msgid "これはモーダル表示です"
-msgstr "これはモーダル表示です"
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:30
+#: src/app/navigation-patterns/full-screen-modal.tsx:11
+msgid "fullScreenModal"
+msgstr "fullScreenModal"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:34
+msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
+msgstr "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
+
+#: src/app/navigation-patterns/full-screen-modal.tsx:33
+msgid "iOS では「閉じる」ボタンが必須（swipe down 不可）。Android では戻る操作でも閉じる。"
+msgstr "iOS では「閉じる」ボタンが必須（swipe down 不可）。Android では戻る操作でも閉じる。"
+
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:105
+msgid "iOS の挙動"
+msgstr "iOS の挙動"
+
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
+#: src/app/navigation-patterns/modal.tsx:11
+msgid "modal"
+msgstr "modal"
+
+#: src/app/(tabs)/(home)/navigation-patterns/card.tsx:22
+msgid "OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン / ジェスチャーで戻れる。"
+msgstr "OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン / ジェスチャーで戻れる。"
+
+#: src/app/navigation-patterns/modal.tsx:21
+msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
+msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
+
+#: src/app/navigation-patterns/full-screen-modal.tsx:14
+msgid "swipe で閉じられない全画面モーダル"
+msgstr "swipe で閉じられない全画面モーダル"
+
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:18
+#: src/app/navigation-patterns/transparent-modal.tsx:11
+msgid "transparentModal"
+msgstr "transparentModal"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:16
+msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+msgstr "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller の bounds 内に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが残ったままになるのが観察できる (ルート Stack 配下に置くと画面全体を覆い、`fullScreenModal`との差が消える)。swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
+
+#: src/app/navigation-patterns/form-sheet.tsx:16
+msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。"
+msgstr "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。"
+
+#: src/app/navigation-patterns/full-screen-modal.tsx:16
+msgid "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
+msgstr "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:17
+msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。"
+msgstr "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いても current context の範囲 (タブバーを除いた領域) に透過オーバーレイが収まる。"
+
+#: src/app/navigation-patterns/form-sheet.tsx:14
+msgid "シート表示（detent 対応）"
+msgstr "シート表示（detent 対応）"
 
 #: src/app/(tabs)/settings/theme.tsx:14
 msgid "システム設定に従う"
@@ -102,128 +128,85 @@ msgstr "ダーク"
 msgid "テーマ"
 msgstr "テーマ"
 
-#: src/app/navigation-patterns/modal-screen.tsx:65
-msgid "デモコンテンツ"
-msgstr "デモコンテンツ"
-
 #: src/app/(tabs)/(home)/index.tsx:10
-#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:20
+#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:40
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:17
-msgid "フォームシートサンプル"
-msgstr "フォームシートサンプル"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal.tsx:27
+msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal と同様、`animation` 未指定なら OS 標準の遷移（多くは右からスライド）になり「下から上」にはならない。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal と同様、`animation` 未指定なら OS 標準の遷移（多くは右からスライド）になり「下から上」にはならない。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:31
-msgid "フォームシートの例"
-msgstr "フォームシートの例"
+#: src/app/navigation-patterns/full-screen-modal.tsx:26
+msgid "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
+msgstr "ネイティブの対応 presentation がないため modal にフォールバックする。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:37
-msgid "フォームシートを開く"
-msgstr "フォームシートを開く"
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:24
+msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。標準の透過モーダルとして開く。"
+msgstr "ネイティブの対応 presentation がないため transparentModal にフォールバックする。標準の透過モーダルとして開く。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:27
-msgid "フォームシート画面"
-msgstr "フォームシート画面"
-
-#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
-#: src/app/navigation-patterns/form-sheet-screen.tsx:56
-msgid "フォームシート表示"
-msgstr "フォームシート表示"
-
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:20
-msgid "フォームシート表示サンプル"
-msgstr "フォームシート表示サンプル"
-
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:43
-msgid "フォームシート表示について："
-msgstr "フォームシート表示について："
-
-#: src/app/navigation-patterns/form-sheet-screen.tsx:150
-msgid "フォームを送信"
-msgstr "フォームを送信"
+#: src/app/(tabs)/(home)/navigation-patterns/card.tsx:28
+msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーは表示されたまま維持される。"
+msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーは表示されたまま維持される。"
 
 #: src/app/(tabs)/_layout.tsx:27
 #: src/app/(tabs)/(home)/index.tsx:16
 msgid "ホーム"
 msgstr "ホーム"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:96
-msgid "メールアドレス"
-msgstr "メールアドレス"
-
-#: src/app/navigation-patterns/form-sheet-screen.tsx:109
-msgid "メールアドレスを入力"
-msgstr "メールアドレスを入力"
-
-#: src/app/navigation-patterns/form-sheet-screen.tsx:118
-msgid "メッセージ"
-msgstr "メッセージ"
-
-#: src/app/navigation-patterns/form-sheet-screen.tsx:131
-msgid "メッセージを入力"
-msgstr "メッセージを入力"
-
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:17
-msgid "モーダルサンプル"
-msgstr "モーダルサンプル"
-
-#: src/app/navigation-patterns/form-sheet-screen.tsx:58
-msgid "モーダルフォーム（Android）"
-msgstr "モーダルフォーム（Android）"
-
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:37
-msgid "モーダルを開く"
-msgstr "モーダルを開く"
-
-#: src/app/navigation-patterns/modal-screen.tsx:20
-#: src/app/navigation-patterns/modal-screen.tsx:23
-msgid "モーダル画面"
-msgstr "モーダル画面"
-
-#: src/app/(tabs)/(home)/navigation-patterns/index.tsx:10
-msgid "モーダル表示"
-msgstr "モーダル表示"
-
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:20
-msgid "モーダル表示サンプル"
-msgstr "モーダル表示サンプル"
-
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:43
-msgid "モーダル表示について："
-msgstr "モーダル表示について："
-
 #: src/app/(tabs)/settings/theme.tsx:15
 msgid "ライト"
 msgstr "ライト"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet.tsx:24
-msgid "下のボタンをタップしてフォームシート表示で画面を開きます。"
-msgstr "下のボタンをタップしてフォームシート表示で画面を開きます。"
+#: src/app/navigation-patterns/modal.tsx:16
+msgid "下から上にスライドして表示される。上端からの swipe down で閉じられる（page sheet 風）。"
+msgstr "下から上にスライドして表示される。上端からの swipe down で閉じられる（page sheet 風）。"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal.tsx:24
-msgid "下のボタンをタップしてモーダル表示で画面を開きます。"
-msgstr "下のボタンをタップしてモーダル表示で画面を開きます。"
+#: src/app/navigation-patterns/form-sheet.tsx:28
+msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。"
+msgstr "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:76
-msgid "名前"
-msgstr "名前"
+#: src/app/(tabs)/(home)/navigation-patterns/card.tsx:16
+msgid "右からスライドして push されるネイティブ遷移。左端からの swipe back ジェスチャーで戻れる。"
+msgstr "右からスライドして push されるネイティブ遷移。左端からの swipe back ジェスチャーで戻れる。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:89
-msgid "名前を入力"
-msgstr "名前を入力"
+#: src/app/navigation-patterns/transparent-modal.tsx:23
+msgid "同等の透過モーダルとして重なる。戻るボタンで閉じる挙動は modal と同じ。"
+msgstr "同等の透過モーダルとして重なる。戻るボタンで閉じる挙動は modal と同じ。"
 
-#: src/app/navigation-patterns/form-sheet-screen.tsx:47
-#: src/app/navigation-patterns/modal-screen.tsx:85
-msgid "完了"
-msgstr "完了"
+#: src/app/(tabs)/(home)/navigation-patterns/card.tsx:14
+msgid "標準の push 遷移"
+msgstr "標準の push 遷移"
+
+#: src/app/navigation-patterns/modal.tsx:14
+msgid "標準のモーダル表示"
+msgstr "標準のモーダル表示"
+
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal.tsx:30
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context の範囲を越えない。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。iOS では current context の範囲を越えない。"
+
+#: src/app/navigation-patterns/transparent-modal.tsx:26
+msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ判定は画面側で実装する必要がある。"
+msgstr "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。バックドロップタップ判定は画面側で実装する必要がある。"
+
+#: src/app/navigation-patterns/transparent-modal.tsx:17
+msgid "背景を透明にしたまま modal が重なる。前画面が透けて見えるので、自前のバックドロップを描画する。"
+msgstr "背景を透明にしたまま modal が重なる。前画面が透けて見えるので、自前のバックドロップを描画する。"
+
+#: src/app/navigation-patterns/transparent-modal.tsx:15
+msgid "背景透過モーダル"
+msgstr "背景透過モーダル"
 
 #: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/settings/index.tsx:16
 msgid "設定"
 msgstr "設定"
 
-#: src/app/navigation-patterns/modal-screen.tsx:35
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:117
 msgid "閉じる"
 msgstr "閉じる"
+
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:107
+msgid "閉じる操作"
+msgstr "閉じる操作"
