@@ -6,11 +6,10 @@ import { LinkList, type LinkItem } from "../../../../../components/link-list/Lin
 export default function ContainedModalIntermediate(): ReactElement {
   const { t } = useLingui();
   const list = [
-    // on root 版は #113 で追加する
-    // {
-    //   href: "/navigation-patterns/contained-modal/on-root",
-    //   text: <Trans>on root</Trans>,
-    // },
+    {
+      href: "/navigation-patterns/contained-modal/on-root",
+      text: <Trans>on root</Trans>,
+    },
     {
       href: "/navigation-patterns/contained-modal/in-tab",
       text: <Trans>in tab</Trans>,
