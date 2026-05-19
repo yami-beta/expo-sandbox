@@ -51,6 +51,18 @@ function RootLayoutContent() {
           name="navigation-patterns/form-sheet/on-root"
           options={{ presentation: "formSheet", sheetGrabberVisible: true }}
         />
+        <Stack.Screen
+          name="navigation-patterns/contained-modal/on-root"
+          options={{ presentation: "containedModal" }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/contained-transparent-modal/on-root"
+          options={{
+            presentation: "containedTransparentModal",
+            animation: "fade",
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );
