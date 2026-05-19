@@ -26,6 +26,7 @@ msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。s
 msgstr "Presented with BottomSheetBehavior. Limited to up to 3 detents. `sheetGrabberVisible` is ignored; Android-only options such as `sheetElevation` apply instead."
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:22
 msgid "card"
 msgstr "card"
 
@@ -34,11 +35,13 @@ msgid "card (push)"
 msgstr "card (push)"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/index.tsx:22
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:22
 msgid "containedModal"
 msgstr "containedModal"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/in-tab.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/index.tsx:22
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:26
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
@@ -51,15 +54,23 @@ msgstr "Modal on the current context"
 msgid "current context 上の透過 modal"
 msgstr "Transparent modal on the current context"
 
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:22
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:34
 #: src/app/navigation-patterns/form-sheet/on-root.tsx:11
 msgid "formSheet"
 msgstr "formSheet"
 
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/index.tsx:22
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:30
 #: src/app/navigation-patterns/full-screen-modal/on-root.tsx:11
 msgid "fullScreenModal"
 msgstr "fullScreenModal"
+
+#: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/index.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/index.tsx:16
+msgid "in tab"
+msgstr "in tab"
 
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:34
 msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。"
@@ -74,9 +85,17 @@ msgid "iOS の挙動"
 msgstr "iOS behavior"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:22
 #: src/app/navigation-patterns/modal/on-root.tsx:11
 msgid "modal"
 msgstr "modal"
+
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/index.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/index.tsx:11
+msgid "on root"
+msgstr "on root"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:22
 msgid "OS / テーマに応じたスライドアニメーションで push される。システムの戻るボタン / ジェスチャーで戻れる。"
@@ -91,6 +110,7 @@ msgid "swipe で閉じられない全画面モーダル"
 msgstr "Full-screen modal that cannot be dismissed by swipe"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:18
+#: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/index.tsx:22
 #: src/app/navigation-patterns/transparent-modal/on-root.tsx:11
 msgid "transparentModal"
 msgstr "transparentModal"
