@@ -10,6 +10,7 @@ export default function FullScreenModalSample(): ReactElement {
     <>
       <Stack.Screen.Title>{t`fullScreenModal`}</Stack.Screen.Title>
       <PresentationSampleScreen
+        isInTab
         presentationValue="fullScreenModal"
         heading={<Trans>タブ内 Stack 上の全画面モーダル</Trans>}
         iosBehavior={
