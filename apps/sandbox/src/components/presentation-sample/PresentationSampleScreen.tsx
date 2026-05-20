@@ -16,6 +16,9 @@ export interface PresentationSampleScreenProps {
   androidBehavior: ReactNode;
   dismissNote: ReactNode;
   variant?: PresentationSampleVariant;
+  // タブ内 Stack 配下に置く場合は true。SafeAreaView の bottom inset が
+  // タブバー高さを認識できず、コンテンツとタブバーの間に余分な余白を作るのを避ける。
+  isInTab?: boolean;
 }
 
 export function PresentationSampleScreen({
@@ -25,6 +28,7 @@ export function PresentationSampleScreen({
   androidBehavior,
   dismissNote,
   variant = "opaque",
+  isInTab = false,
 }: PresentationSampleScreenProps): ReactElement {
   const router = useRouter();
   const { colors } = useTheme();
@@ -60,7 +64,7 @@ export function PresentationSampleScreen({
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors.background }]}
-      edges={["bottom"]}
+      edges={isInTab ? [] : ["bottom"]}
     >
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

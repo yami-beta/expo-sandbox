@@ -10,6 +10,7 @@ export default function ModalSample(): ReactElement {
     <>
       <Stack.Screen.Title>{t`modal`}</Stack.Screen.Title>
       <PresentationSampleScreen
+        isInTab
         presentationValue="modal"
         heading={<Trans>タブ内 Stack 上のモーダル表示</Trans>}
         iosBehavior={

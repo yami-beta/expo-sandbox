@@ -10,6 +10,7 @@ export default function FormSheetSample(): ReactElement {
     <>
       <Stack.Screen.Title>{t`formSheet`}</Stack.Screen.Title>
       <PresentationSampleScreen
+        isInTab
         presentationValue="formSheet"
         heading={<Trans>タブ内 Stack 上のシート表示</Trans>}
         iosBehavior={
