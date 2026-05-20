@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:32
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:33
 msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。Android ではタブバー越しに見ても card push と区別がつかなくなりやすい点が on-root 版との差分。"
 msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation. On Android, the modal tends to be visually indistinguishable from a card push even with the tab bar in view — that's the differentiator versus the on-root variant."
 
@@ -21,7 +21,7 @@ msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation
 msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。ルート版は、Android で animation 未指定だとタブバーが消えた push 同様の遷移になり、in-tab 版の「Android push と区別がつかない」と挙動が近づく。"
 msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation. On the root variant with `animation` unspecified, Android shows a push-like transition that hides the tab bar, which converges visually with the in-tab variant's \"indistinguishable from a card push\" behavior."
 
-#: src/components/presentation-sample/PresentationSampleScreen.tsx:106
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:110
 msgid "Android の挙動"
 msgstr "Android behavior"
 
@@ -29,7 +29,7 @@ msgstr "Android behavior"
 msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。 ルート Stack 配下なのでタブバーを覆ってシートが出る。"
 msgstr "Presented with BottomSheetBehavior. Limited to up to 3 detents. `sheetGrabberVisible` is ignored; Android-only options such as `sheetElevation` apply instead. Since it sits under the root Stack, the sheet covers the tab bar when it appears."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:24
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:25
 msgid "BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま** tab content の領域内にボトムシートが出る形になる (Android は presentation context の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。"
 msgstr "Presented with BottomSheetBehavior. When placed under the in-tab Stack, the bottom sheet appears within the tab content area **with the tab bar still visible** (Android has no concept of presentation context, so the Stack hierarchy is reflected directly). Limited to up to 3 detents."
 
@@ -85,11 +85,11 @@ msgstr "in tab"
 msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 **ルート版は fullScreenModal とほぼ同じ挙動になりフォールバック相当**。挙動差を 観察したい場合は in-tab 版と並べて比較する。"
 msgstr "On iOS, an explicit Close button is required (swipe down does not work). Android also dismisses on back navigation. **On the root variant, behavior collapses into something nearly identical to fullScreenModal — effectively a fallback**. Compare side by side with the in-tab variant to observe the intended distinction."
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:34
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:35
 msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 iOS で **タブバーが残ったまま重なる**のが on-root 版との最大の差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down does not work). Android also dismisses on back navigation. On iOS, **the tab bar remains visible while the modal overlays** — the key differentiator versus the on-root variant."
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:33
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:34
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 **Android で tab 内 push 風に出る可能性がある**のが on-root 版との最大の差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. **On Android it may appear push-like within the tab** — the key differentiator versus the on-root variant."
 
@@ -97,7 +97,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. The placement Stack doesn't affect presentation context for the root variant, so iOS behaves identically to the in-tab variant. The difference shows on Android, where the in-tab variant may appear push-like within the tab."
 
-#: src/components/presentation-sample/PresentationSampleScreen.tsx:105
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:109
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
@@ -118,7 +118,7 @@ msgstr "modal"
 msgid "on root"
 msgstr "on root"
 
-#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:22
+#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:23
 msgid "OS / テーマに応じたスライドアニメーションで push される。タブ内 Stack 配下なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。"
 msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the in-tab Stack, the tab bar remains visible. Dismissed via the system back button or gesture."
 
@@ -126,7 +126,7 @@ msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the 
 msgid "OS / テーマに応じたスライドアニメーションで push される。ルート Stack 配下なので遷移先ではタブバーが消える。システムの戻るボタン / ジェスチャーで戻れる。"
 msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the system back button or gesture."
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:23
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:24
 msgid "presentation 形式は modal だが、Android では animation 未指定だと OS 標準の遷移 (多くは右からスライド) になる。タブ内 Stack に置いた場合、タブバーが残った状態でスライドインするため、 標準の card push と見た目の区別がほぼつかなくなる。「下から上」にしたい場合は `animation: slide_from_bottom` を明示する。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style is `modal`, but with `animation` unspecified Android uses the OS-default transition (often slide-in from the right). When placed under the in-tab Stack, the slide-in happens with the tab bar still visible, making it virtually indistinguishable from a standard card push. Set `animation: slide_from_bottom` explicitly to slide up. Dismissed via the back button or system gesture."
 
@@ -141,7 +141,7 @@ msgstr "The presentation style becomes `modal`, but the transition animation is 
 msgid "transparentModal"
 msgstr "transparentModal"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:17
 msgid "UIModalPresentationCurrentContext で表示される。`definesPresentationContext: true` を持つ最も近い祖先 view controller (タブ内 Stack の Navigator) の bounds 内に 重なる。本サンプルはホームタブの内側 Stack 配下に配置しているため、開いてもタブバーが 残ったままになるのが観察できる ── これが containedModal の本来期待される挙動。 swipe down では閉じない (UIKit の `UIModalPresentationCurrentContext` 自体が sheet ジェスチャーを持たないため)。ただしこれは React Navigation 公式が明示的に保証している挙動ではない点に注意。"
 msgstr "Presented with UIModalPresentationCurrentContext. Overlays within the bounds of the closest ancestor view controller that has `definesPresentationContext: true` (the in-tab Stack's Navigator). This sample is placed under the in-tab Stack on the Home tab, so opening it keeps the tab bar visible — this is the originally expected behavior of containedModal. Swipe down does not dismiss it (because UIKit's `UIModalPresentationCurrentContext` itself does not provide a sheet gesture). Note however that this behavior is not explicitly guaranteed by React Navigation."
 
@@ -153,7 +153,7 @@ msgstr "Presented with UIModalPresentationCurrentContext. The intended behavior 
 msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。 ルート Stack 配下なのでタブバーを覆ってシートが下から出る形になる (formSheet は通常 modal 同様タブバー上に乗るのが期待される挙動)。"
 msgstr "Presented with UIModalPresentationFormSheet. Any number of detents (snap points) can be configured. `sheetGrabberVisible` shows the grabber at the top. Since it sits under the root Stack, the sheet rises from the bottom covering the tab bar (formSheet is generally expected to sit above the tab bar, the same as a modal)."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:17
 msgid "UIModalPresentationFormSheet で表示される。タブ内 Stack 配下に置いても iOS の formSheet は UIKit 上の最前面に出るため、タブバーを覆って表示される (on-root 版とほぼ同じ見た目)。detent (snap point) や sheetGrabberVisible の挙動は配置に依存しない。"
 msgstr "Presented with UIModalPresentationFormSheet. Even when placed under the in-tab Stack, iOS's formSheet comes up at the front of UIKit's hierarchy, so it covers the tab bar (visually nearly identical to the on-root variant). Detents (snap points) and `sheetGrabberVisible` behavior do not depend on placement."
 
@@ -161,7 +161,7 @@ msgstr "Presented with UIModalPresentationFormSheet. Even when placed under the 
 msgid "UIModalPresentationFullScreen で画面全体を覆う。`containedModal` が presentation context の bounds 内に収まるのに対し、`fullScreenModal` は presentation context に関係なく画面全体を覆う。ルート Stack 配下に置いた場合の標準挙動。 React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため (`A screen using this presentation style cannot be dismissed by gesture.`)、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
 msgstr "Covers the entire screen with UIModalPresentationFullScreen. Whereas `containedModal` stays within the bounds of the presentation context, `fullScreenModal` covers the full screen regardless of presentation context. This is the standard behavior when placed under the root Stack. React Navigation documents \"A screen using this presentation style cannot be dismissed by gesture.\", so the no-swipe behavior is a library-level guarantee you can rely on. An explicit dismiss action is required."
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:17
 msgid "UIModalPresentationFullScreen で画面全体を覆う。`fullScreenModal` は presentation context に関係なく画面全体を覆うので、タブ内 Stack 配下に置いてもタブバーごと 画面全体を覆う (on-root 版と iOS では同じ見た目になる)。React Navigation 公式に「ジェスチャーで dismiss できない」と明記されているため、swipe で閉じない挙動はライブラリの保証として依拠できる。明示的な閉じる操作が必須。"
 msgstr "Covers the entire screen with UIModalPresentationFullScreen. Since `fullScreenModal` covers the full screen regardless of presentation context, even when placed under the in-tab Stack it still covers the entire screen including the tab bar (visually identical to the on-root variant on iOS). React Navigation documents that it cannot be dismissed by gesture, so the no-swipe behavior is a library-level guarantee. An explicit dismiss action is required."
 
@@ -181,11 +181,11 @@ msgstr "Follow system settings"
 msgid "ダーク"
 msgstr "Dark"
 
-#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:15
 msgid "タブ内 Stack に push される card 遷移"
 msgstr "Card push under the in-tab Stack"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:15
 msgid "タブ内 Stack 上の containedModal (本来挙動)"
 msgstr "containedModal on the in-tab Stack (intended behavior)"
 
@@ -193,15 +193,15 @@ msgstr "containedModal on the in-tab Stack (intended behavior)"
 msgid "タブ内 Stack 上の containedTransparentModal (本来挙動)"
 msgstr "containedTransparentModal on the in-tab Stack (intended behavior)"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:15
 msgid "タブ内 Stack 上のシート表示"
 msgstr "Sheet presentation on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:15
 msgid "タブ内 Stack 上のモーダル表示"
 msgstr "Modal presentation on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:15
 msgid "タブ内 Stack 上の全画面モーダル"
 msgstr "Full-screen modal on the in-tab Stack"
 
@@ -219,7 +219,7 @@ msgstr "Theme"
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
 
-#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:27
+#: src/app/(tabs)/(home)/navigation-patterns/contained-modal/in-tab.tsx:28
 msgid "ネイティブの対応 presentation がないため modal にフォールバックする。Android は current context の概念に依存しないため、配置 Stack による挙動差はなく、 on-root 版と同じ挙動になる。`animation` 未指定なら OS 標準の遷移 (多くは右からスライド) になる。"
 msgstr "Falls back to modal because Android has no native equivalent of this presentation. Since Android does not rely on the concept of a current context, there is no behavioral difference based on placement Stack — it behaves the same as the on-root variant. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right)."
 
@@ -231,7 +231,7 @@ msgstr "Falls back to modal because Android has no native equivalent of this pre
 msgid "ネイティブの対応 presentation がないため modal にフォールバックする。ルート Stack 配下なのでタブバーごと覆う形になる。アニメーションも modal 同様 `animation` 未指定なら OS 標準の遷移になる。戻るボタン / システムジェスチャーで閉じられる点が iOS との大きな差分。"
 msgstr "Falls back to modal because Android has no native equivalent of this presentation. Since it sits under the root Stack, the modal covers the entire screen including the tab bar. Animation follows modal's behavior — with `animation` unspecified, it uses the OS-default transition. Being dismissible via the back button or system gesture is the main difference from iOS."
 
-#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:25
+#: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab.tsx:26
 msgid "ネイティブの対応 presentation がないため modal にフォールバックするが、タブ内 Stack 配下に置くと **tab 内に push 風に出る**ケースがある (Android は presentation context の概念に依存せず、Stack の階層がそのまま遷移先のレイアウトに反映されるため)。 `animation` 未指定なら OS 標準の遷移。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "Falls back to modal because Android has no native equivalent of this presentation, but when placed under the in-tab Stack **the result can look push-like within the tab** (Android does not depend on the presentation context concept, and the Stack hierarchy is reflected directly in the destination layout). With `animation` unspecified, it uses the OS-default transition. Dismissed via the back button or system gesture."
 
@@ -243,7 +243,7 @@ msgstr "Falls back to transparentModal because Android has no native equivalent 
 msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal と同等の挙動になる。"
 msgstr "Falls back to transparentModal because Android has no native equivalent of this presentation. Android never relied on the concept of a current context, so the behavior is the same as transparentModal regardless of placement Stack."
 
-#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:28
+#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:29
 msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。タブバーが残ったまま維持されるのが on-root 版との差分。"
 msgstr "Return to the previous screen via the back button in the header or the OS gesture. Keeping the tab bar visible is the differentiator versus the on-root variant."
 
@@ -288,7 +288,7 @@ msgstr "Full-screen modal on the root Stack (standard behavior)"
 msgid "ルート Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the root Stack"
 
-#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:17
 msgid "下から上にスライドして表示される page sheet 風 modal。タブ内 Stack 配下に置いても iOS の modal は UIKit 上の最前面に出るため、結局タブバーを覆って表示される (ルート版とほぼ同じ見た目になる)。上端からの swipe down で閉じられる。"
 msgstr "A page sheet-style modal that slides up from the bottom. Even when placed under the in-tab Stack, iOS's modal still comes up at the front of UIKit's hierarchy and ends up covering the tab bar (visually nearly identical to the root variant). Dismissed via swipe down from the top edge."
 
@@ -296,7 +296,7 @@ msgstr "A page sheet-style modal that slides up from the bottom. Even when place
 msgid "下から上にスライドして表示される標準の page sheet 風 modal。ルート Stack 配下なので、タブバーごと画面全体を覆う形で重なる (in-tab 版でも iOS では modal がタブバーを覆うため見た目はほぼ同じ)。上端からの swipe down で閉じられる。"
 msgstr "A standard page sheet-style modal that slides up from the bottom. Since it sits under the root Stack, it overlays the entire screen including the tab bar (the in-tab variant also covers the tab bar on iOS, so the appearance is nearly the same). Dismissed via swipe down from the top edge."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:31
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:32
 msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。**Android でタブバーが残ったままシートが出る**のが on-root 版との最大の差分。実プロダクトではルート配置を推奨。"
 msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close button. Android also dismisses on back navigation. **The sheet appearing with the tab bar still visible on Android** is the key differentiator versus the on-root variant. Root placement is recommended in real products."
 
@@ -304,7 +304,7 @@ msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close but
 msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。タブバーごと覆うのが in-tab 版との差分 (実プロダクトでは このルート配置が推奨)。"
 msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close button. Android also dismisses on back navigation. Covering the tab bar entirely is the differentiator versus the in-tab variant (this root placement is the recommended one in real products)."
 
-#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:17
 msgid "右からスライドして push されるネイティブ遷移。タブ内 Stack 配下なので push 先でもタブバーが残ったまま維持される。左端からの swipe back ジェスチャーで戻れる。"
 msgstr "A native push transition sliding in from the right. Since it sits under the in-tab Stack, the tab bar remains visible on the destination screen. Dismissed via the left-edge swipe-back gesture."
 
@@ -349,10 +349,10 @@ msgstr "Overlays as a modal while keeping the background transparent. Since it a
 msgid "設定"
 msgstr "Settings"
 
-#: src/components/presentation-sample/PresentationSampleScreen.tsx:117
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:121
 msgid "閉じる"
 msgstr "Close"
 
-#: src/components/presentation-sample/PresentationSampleScreen.tsx:107
+#: src/components/presentation-sample/PresentationSampleScreen.tsx:111
 msgid "閉じる操作"
 msgstr "Dismiss action"
