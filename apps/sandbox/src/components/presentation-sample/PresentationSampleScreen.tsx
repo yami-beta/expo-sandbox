@@ -14,6 +14,7 @@ export function PresentationSampleScreen(props: PresentationSampleScreenProps): 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={styles.scrollContent}
+        nestedScrollEnabled
       >
         <PresentationSampleBody {...props} />
       </ScrollView>

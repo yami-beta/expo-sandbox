@@ -21,7 +21,25 @@ msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation
 msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。ルート版は、Android で animation 未指定だとタブバーが消えた push 同様の遷移になり、in-tab 版の「Android push と区別がつかない」と挙動が近づく。"
 msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation. On the root variant with `animation` unspecified, Android shows a push-like transition that hides the tab bar, which converges visually with the in-tab variant's \"indistinguishable from a card push\" behavior."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:44
+#: src/app/navigation-patterns/form-sheet/on-root.tsx:40
+msgid ""
+"Android の formSheet は CoordinatorLayout 上の BottomSheetBehavior として実装される。シート内に ScrollView を置く場合は `nestedScrollEnabled` を true にしてシートの drag と nested scroll を連携させる必要がある (詳細: react-native-screens#2687)。\n"
+"\n"
+"さらに RN 0.83 の Android ScrollView には「コンテンツの実高さが ScrollView より短い場合、OnInterceptTouchEvent が常に false を返し nested scroll event を一切 dispatch しない」既知の挙動があり、シート内コンテンツが領域に 収まる場合は下スワイプによるシートの dismiss が動かなくなる。RN 側のフィックス (facebook/react-native#55239) は `useNestedScrollViewAndroid` feature flag 経由で RN 0.84 以降に入る見込み。\n"
+"\n"
+"そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
+msgstr ""
+
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:38
+msgid ""
+"Android の formSheet は CoordinatorLayout 上の BottomSheetBehavior として実装される。シート内に ScrollView を置く場合は `nestedScrollEnabled` を true にしてシートの drag と nested scroll を連携させる必要がある (詳細: react-native-screens#2687)。\n"
+"\n"
+"さらに RN 0.83 の Android ScrollView には「コンテンツの実高さが ScrollView より短い場合、OnInterceptTouchEvent が常に false を返し nested scroll event を一切 dispatch しない」既知の挙動があり、シート内コンテンツが領域に収まる 場合は下スワイプによるシートの dismiss が動かなくなる。RN 側のフィックス (facebook/react-native#55239) は `useNestedScrollViewAndroid` feature flag 経由で RN 0.84 以降に入る見込み。\n"
+"\n"
+"そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
+msgstr ""
+
+#: src/components/presentation-sample/PresentationSampleBody.tsx:46
 msgid "Android の挙動"
 msgstr "Android behavior"
 
@@ -97,7 +115,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. The placement Stack doesn't affect presentation context for the root variant, so iOS behaves identically to the in-tab variant. The difference shows on Android, where the in-tab variant may appear push-like within the tab."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:43
+#: src/components/presentation-sample/PresentationSampleBody.tsx:45
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
@@ -320,6 +338,10 @@ msgstr "Overlays as an equivalent transparent modal. Since it sits under the in-
 msgid "同等の透過モーダルとして重なる。ルート Stack 配下なのでタブバーごと前景に出る。 戻るボタンで閉じる挙動は modal と同じ。"
 msgstr "Overlays as an equivalent transparent modal. Since it sits under the root Stack, it comes to the foreground covering the tab bar as well. Dismissal via the back button behaves the same as modal."
 
+#: src/components/presentation-sample/PresentationSampleBody.tsx:51
+msgid "実装メモ"
+msgstr ""
+
 #: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:33
 msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。 **ルート版は transparentModal とほぼ同じ挙動になりフォールバック相当**。 挙動差を観察したい場合は in-tab 版と並べて比較する。"
 msgstr "Dismiss by tapping the semi-transparent background area or pressing the Close button. **On the root variant, behavior collapses into something nearly identical to transparentModal — effectively a fallback**. Compare side by side with the in-tab variant to observe the intended distinction."
@@ -349,10 +371,10 @@ msgstr "Overlays as a modal while keeping the background transparent. Since it a
 msgid "設定"
 msgstr "Settings"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:57
+#: src/components/presentation-sample/PresentationSampleBody.tsx:62
 msgid "閉じる"
 msgstr "Close"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:47
+#: src/components/presentation-sample/PresentationSampleBody.tsx:49
 msgid "閉じる操作"
 msgstr "Dismiss action"
