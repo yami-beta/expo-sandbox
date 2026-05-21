@@ -10,7 +10,6 @@ export default function ContainedModalSample(): ReactElement {
     <>
       <Stack.Screen.Title>{t`containedModal`}</Stack.Screen.Title>
       <PresentationSampleScreen
-        isInTab
         presentationValue="containedModal"
         heading={<Trans>タブ内 Stack 上の containedModal (本来挙動)</Trans>}
         iosBehavior={

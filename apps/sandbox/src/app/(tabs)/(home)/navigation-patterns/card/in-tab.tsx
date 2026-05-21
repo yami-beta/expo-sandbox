@@ -10,7 +10,6 @@ export default function CardSample(): ReactElement {
     <>
       <Stack.Screen.Title>{t`card`}</Stack.Screen.Title>
       <PresentationSampleScreen
-        isInTab
         presentationValue="card"
         heading={<Trans>タブ内 Stack に push される card 遷移</Trans>}
         iosBehavior={
