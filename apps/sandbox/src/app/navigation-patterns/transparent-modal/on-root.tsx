@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { PresentationSampleScreen } from "../../../components/presentation-sample/PresentationSampleScreen";
+import { PresentationSampleOverlay } from "../../../components/presentation-sample/PresentationSampleOverlay";
 
 export default function TransparentModalSample(): ReactElement {
   const { t } = useLingui();
@@ -9,8 +9,7 @@ export default function TransparentModalSample(): ReactElement {
   return (
     <>
       <Stack.Screen.Title>{t`transparentModal`}</Stack.Screen.Title>
-      <PresentationSampleScreen
-        variant="transparent-overlay"
+      <PresentationSampleOverlay
         presentationValue="transparentModal"
         heading={<Trans>ルート Stack 上の背景透過モーダル</Trans>}
         iosBehavior={
