@@ -13,6 +13,7 @@ export interface PresentationSampleBodyProps {
   iosBehavior: ReactNode;
   androidBehavior: ReactNode;
   dismissNote: ReactNode;
+  additionalNotes?: ReactNode;
 }
 
 export function PresentationSampleBody({
@@ -21,6 +22,7 @@ export function PresentationSampleBody({
   iosBehavior,
   androidBehavior,
   dismissNote,
+  additionalNotes,
 }: PresentationSampleBodyProps): ReactElement {
   const router = useRouter();
   const { colors } = useTheme();
@@ -45,6 +47,9 @@ export function PresentationSampleBody({
         {androidBehavior}
       </PresentationSection>
       <PresentationSection title={<Trans>閉じる操作</Trans>}>{dismissNote}</PresentationSection>
+      {additionalNotes ? (
+        <PresentationSection title={<Trans>実装メモ</Trans>}>{additionalNotes}</PresentationSection>
+      ) : null}
 
       <Pressable
         style={({ pressed }) => [
