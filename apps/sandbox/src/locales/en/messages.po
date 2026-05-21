@@ -81,7 +81,7 @@ msgstr "fullScreenModal"
 msgid "in tab"
 msgstr "in tab"
 
-#: src/app/navigation-patterns/contained-modal/on-root.tsx:36
+#: src/app/navigation-patterns/contained-modal/on-root.tsx:37
 msgid "iOS では「閉じる」ボタンが必須 (swipe down は効かない)。Android では戻る操作でも閉じる。 **ルート版は fullScreenModal とほぼ同じ挙動になりフォールバック相当**。挙動差を 観察したい場合は in-tab 版と並べて比較する。"
 msgstr "On iOS, an explicit Close button is required (swipe down does not work). Android also dismisses on back navigation. **On the root variant, behavior collapses into something nearly identical to fullScreenModal — effectively a fallback**. Compare side by side with the in-tab variant to observe the intended distinction."
 
