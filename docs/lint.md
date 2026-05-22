@@ -8,6 +8,9 @@
    - Rust ベースの高速リンタ
    - tsgolint 経由で TypeScript 型エラーも同時検出
    - `typecheck` スクリプトはこれを再利用している
+   - プロジェクト固有のルール（`apps/sandbox/.oxlintrc.json`）:
+     - `typescript/no-unsafe-type-assertion`: 型安全性を損なう narrowing assertion を禁止（`as const` / broadening は許容）
+     - `oxc/no-barrel-file`（threshold: 1）: `export * from "..."` 形式の barrel file を禁止（背景は [`no-barrel-file.md`](no-barrel-file.md)）
 
 2. **expo lint**
    - `eslint-config-expo` ベース

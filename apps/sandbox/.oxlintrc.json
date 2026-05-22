@@ -1,9 +1,12 @@
 {
-  "plugins": null,
+  "plugins": ["eslint", "unicorn", "typescript", "oxc", "import"],
   "categories": {
     "correctness": "error"
   },
-  "rules": {},
+  "rules": {
+    "typescript/no-unsafe-type-assertion": "error",
+    "oxc/no-barrel-file": ["error", { "threshold": 1 }]
+  },
   "settings": {
     "jsx-a11y": {
       "polymorphicPropName": null,

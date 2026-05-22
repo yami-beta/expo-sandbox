@@ -15,14 +15,9 @@ Expo SDK 55 monorepo。詳細は `apps/sandbox/package.json` と `apps/sandbox/a
   - 特定パッケージ: `pnpm --dir apps/sandbox <command>`
 - **Expo SDK パッケージの追加は `pnpm --dir apps/sandbox exec expo install <pkg>`**（npx / pnpm dlx は使わない。SDK 互換バージョンを自動解決）
 
-### TypeScript
-
-- **Type Assertion は原則使わない**
-
 ### ファイル配置
 
 - **機能で分類し co-location**: 関連する component / hooks / utils は同じ機能ディレクトリにまとめる
-- **barrel file は作らない**
 - **`docs/` と `tasks/` を混在させない**
   - `docs/`: 長期的に参照する設計ドキュメント・運用手順
   - `tasks/`: 後続タスクの引き継ぎ資料・バックログ。完了後は削除/アーカイブ
