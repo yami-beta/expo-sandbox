@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Pressable, ScrollView, StyleSheet } from "react-native";
+import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Spacing } from "../../constants/theme";
 import { useTheme } from "../../theme/useTheme";
@@ -16,16 +16,16 @@ export function PresentationSampleOverlay(props: PresentationSampleOverlayProps)
   };
 
   return (
-    <Pressable style={styles.backdrop} onPress={close}>
-      <Pressable
+    <View style={styles.backdrop}>
+      <Pressable style={StyleSheet.absoluteFill} onPress={close} />
+      <View
         style={[styles.card, { backgroundColor: colors.background, borderColor: colors.border }]}
-        onPress={() => {}}
       >
         <ScrollView contentContainerStyle={styles.cardScroll}>
           <PresentationSampleBody {...props} />
         </ScrollView>
-      </Pressable>
-    </Pressable>
+      </View>
+    </View>
   );
 }
 
