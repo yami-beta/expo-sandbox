@@ -31,9 +31,8 @@ Expo SDK 55 monorepo。詳細は `apps/sandbox/package.json` と `apps/sandbox/a
 
 ### コード品質
 
-- `pnpm -r run lint` — 3 層リント（詳細: [`docs/lint.md`](docs/lint.md)）
+- `pnpm -r run lint` — 3 層リント（詳細: [`docs/lint.md`](docs/lint.md)）。`lint:oxlint` が `generate-types` と型チェックを内包する
 - `pnpm -r run format` — フォーマット
-- `pnpm -r run typecheck` — 型チェック（`generate-types` 込み）
 
 ### 国際化
 

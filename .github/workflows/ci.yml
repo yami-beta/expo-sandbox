@@ -20,9 +20,6 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
-      - name: Generate typed routes
-        run: pnpm -r run generate-types
-
       - name: Run Oxlint
         run: pnpm -r run lint:oxlint --format=github
 
