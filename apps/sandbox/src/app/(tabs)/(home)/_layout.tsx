@@ -3,10 +3,10 @@ import { useTheme } from "../../../theme/useTheme";
 import { buildStackScreenOptions } from "../../../theme/navigationScreenOptions";
 
 export default function HomeLayout() {
-  const { colorScheme, colors } = useTheme();
+  const { colorScheme, tokens } = useTheme();
 
   return (
-    <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
+    <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
       <Stack.Screen
         name="navigation-patterns/contained-modal/in-tab"
         options={{ presentation: "containedModal" }}

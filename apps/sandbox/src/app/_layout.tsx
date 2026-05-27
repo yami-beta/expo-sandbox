@@ -21,12 +21,12 @@ import { initializeI18n } from "../i18n";
 initializeI18n();
 
 function RootLayoutContent() {
-  const { colorScheme, colors } = useTheme();
+  const { colorScheme, tokens } = useTheme();
 
   return (
     <>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)}>
+      <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
           name="navigation-patterns/modal/on-root"
