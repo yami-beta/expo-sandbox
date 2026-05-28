@@ -1,8 +1,8 @@
-import type { ReactElement, ReactNode } from "react";
+import { Fragment, type ReactElement, type ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
-import { type LinkItem, LinkListItem } from "./LinkListItem";
+import { ICON_GAP, ICON_SLOT_WIDTH, type LinkItem, LinkListItem } from "./LinkListItem";
 
 interface LinkSectionProps {
   title?: ReactNode;
@@ -12,6 +12,7 @@ interface LinkSectionProps {
 
 export function LinkSection({ title, footer, data }: LinkSectionProps): ReactElement {
   const { colorScheme, tokens } = useTheme();
+  const iconSlotReserved = data.some((item) => item.leadingIcon != null);
 
   const islandStyle = {
     backgroundColor: tokens.color.background.surface,
@@ -23,6 +24,8 @@ export function LinkSection({ title, footer, data }: LinkSectionProps): ReactEle
         }
       : tokens.shadow.sm),
   };
+
+  const separatorInset = tokens.spacing.lg + (iconSlotReserved ? ICON_SLOT_WIDTH + ICON_GAP : 0);
 
   return (
     <View>
@@ -43,7 +46,18 @@ export function LinkSection({ title, footer, data }: LinkSectionProps): ReactEle
         {data.map((item, index) => {
           const hrefKey = typeof item.href === "string" ? item.href : item.href.pathname;
           return (
-            <LinkListItem key={`${index}-${hrefKey}`} {...item} showTopSeparator={index > 0} />
+            <Fragment key={`${index}-${hrefKey}`}>
+              {index > 0 ? (
+                <View
+                  style={{
+                    height: StyleSheet.hairlineWidth,
+                    marginLeft: separatorInset,
+                    backgroundColor: tokens.color.border.subtle,
+                  }}
+                />
+              ) : null}
+              <LinkListItem {...item} iconSlotReserved={iconSlotReserved} />
+            </Fragment>
           );
         })}
       </View>

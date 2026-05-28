@@ -5,6 +5,10 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
 
+export const ICON_SLOT_WIDTH = 28;
+export const ICON_GAP = 12;
+const MIN_ROW_HEIGHT = 44;
+
 export type LinkItem = {
   href: LinkProps["href"];
   text: ReactNode;
@@ -15,7 +19,7 @@ export type LinkItem = {
 };
 
 interface LinkListItemProps extends LinkItem {
-  showTopSeparator?: boolean;
+  iconSlotReserved?: boolean;
 }
 
 export function LinkListItem({
@@ -25,7 +29,7 @@ export function LinkListItem({
   leadingIcon,
   trailingBadge,
   disabled,
-  showTopSeparator,
+  iconSlotReserved,
 }: LinkListItemProps): ReactElement {
   const { tokens } = useTheme();
 
@@ -40,51 +44,35 @@ export function LinkListItem({
         style={({ pressed }) => [
           styles.row,
           {
+            minHeight: MIN_ROW_HEIGHT,
             paddingHorizontal: tokens.spacing.lg,
+            paddingVertical: 10,
             backgroundColor: pressed && !disabled ? tokens.color.background.pressed : "transparent",
           },
         ]}
       >
-        {leadingIcon ? (
-          <View
-            style={[
-              styles.iconSlot,
-              { marginRight: tokens.spacing.md, paddingVertical: tokens.spacing.md },
-            ]}
-          >
-            {leadingIcon}
-          </View>
+        {iconSlotReserved ? (
+          <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>{leadingIcon ?? null}</View>
         ) : null}
-        <View
-          style={[
-            styles.contentArea,
-            { paddingVertical: tokens.spacing.md },
-            showTopSeparator && {
-              borderTopWidth: StyleSheet.hairlineWidth,
-              borderTopColor: tokens.color.border.subtle,
-            },
-          ]}
-        >
-          <View style={styles.textCol}>
-            <ThemedText type="headline" tone={textTone}>
-              {text}
+        <View style={styles.textCol}>
+          <ThemedText type="body" tone={textTone}>
+            {text}
+          </ThemedText>
+          {description ? (
+            <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
+              {description}
             </ThemedText>
-            {description ? (
-              <ThemedText type="caption" tone={descriptionTone}>
-                {description}
-              </ThemedText>
-            ) : null}
-          </View>
-          {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
-          {!disabled ? (
-            <Ionicons
-              name="chevron-forward"
-              size={20}
-              color={tokens.color.text.tertiary}
-              style={styles.chevron}
-            />
           ) : null}
         </View>
+        {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
+        {!disabled ? (
+          <Ionicons
+            name="chevron-forward"
+            size={16}
+            color={tokens.color.text.tertiary}
+            style={styles.chevron}
+          />
+        ) : null}
       </Pressable>
     </Link>
   );
@@ -96,20 +84,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconSlot: {
+    width: ICON_SLOT_WIDTH,
+    height: ICON_SLOT_WIDTH,
     alignItems: "center",
     justifyContent: "center",
   },
-  contentArea: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-  },
   textCol: {
     flex: 1,
-    gap: 2,
+    minWidth: 0,
+  },
+  description: {
+    marginTop: 2,
   },
   trailingSlot: {
-    marginLeft: 8,
+    marginLeft: 12,
   },
   chevron: {
     marginLeft: 8,
