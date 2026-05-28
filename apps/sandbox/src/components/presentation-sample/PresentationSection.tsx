@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-import { Spacing } from "../../constants/theme";
+import { Spacing } from "../../theme/tokens/spacing";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
 
@@ -10,29 +10,32 @@ interface PresentationSectionProps {
 }
 
 export function PresentationSection({ title, children }: PresentationSectionProps): ReactElement {
-  const { colors } = useTheme();
+  const { tokens } = useTheme();
 
   return (
     <View
       style={[
         styles.section,
-        { backgroundColor: colors.backgroundElement, borderColor: colors.border },
+        {
+          backgroundColor: tokens.color.background.surface,
+          borderColor: tokens.color.border.subtle,
+        },
       ]}
     >
-      <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionTitle}>
+      <ThemedText type="caption" tone="secondary" style={styles.sectionTitle}>
         {title}
       </ThemedText>
-      <ThemedText type="default">{children}</ThemedText>
+      <ThemedText type="body">{children}</ThemedText>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   section: {
-    gap: Spacing.two,
-    padding: Spacing.three,
+    gap: Spacing.sm,
+    padding: Spacing.lg,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Spacing.two,
+    borderRadius: Spacing.sm,
   },
   sectionTitle: {
     textTransform: "uppercase",

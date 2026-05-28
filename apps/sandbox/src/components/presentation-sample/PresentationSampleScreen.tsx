@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { Spacing } from "../../constants/theme";
+import { Spacing } from "../../theme/tokens/spacing";
 import { useTheme } from "../../theme/useTheme";
 import { PresentationSampleBody, type PresentationSampleBodyProps } from "./PresentationSampleBody";
 
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    padding: Spacing.three,
-    gap: Spacing.three,
+    padding: Spacing.lg,
+    gap: Spacing.lg,
   },
 });
