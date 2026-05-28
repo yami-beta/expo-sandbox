@@ -38,41 +38,46 @@ export function LinkListItem({
 
   return (
     <Link href={href} asChild>
-      <Pressable
-        disabled={disabled}
-        accessibilityState={{ disabled: !!disabled }}
-        style={({ pressed }) => [
-          styles.row,
-          {
-            minHeight: MIN_ROW_HEIGHT,
-            paddingHorizontal: tokens.spacing.lg,
-            paddingVertical: 10,
-            backgroundColor: pressed && !disabled ? tokens.color.background.pressed : "transparent",
-          },
-        ]}
-      >
-        {iconSlotReserved ? (
-          <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>{leadingIcon ?? null}</View>
-        ) : null}
-        <View style={styles.textCol}>
-          <ThemedText type="body" tone={textTone}>
-            {text}
-          </ThemedText>
-          {description ? (
-            <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
-              {description}
-            </ThemedText>
-          ) : null}
-        </View>
-        {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
-        {!disabled ? (
-          <Ionicons
-            name="chevron-forward"
-            size={16}
-            color={tokens.color.text.tertiary}
-            style={styles.chevron}
-          />
-        ) : null}
+      <Pressable disabled={disabled} accessibilityState={{ disabled: !!disabled }}>
+        {({ pressed }) => (
+          <View
+            style={[
+              styles.row,
+              {
+                minHeight: MIN_ROW_HEIGHT,
+                paddingHorizontal: tokens.spacing.lg,
+                paddingVertical: 10,
+                backgroundColor:
+                  pressed && !disabled ? tokens.color.background.pressed : "transparent",
+              },
+            ]}
+          >
+            {iconSlotReserved ? (
+              <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>
+                {leadingIcon ?? null}
+              </View>
+            ) : null}
+            <View style={styles.textCol}>
+              <ThemedText type="body" tone={textTone}>
+                {text}
+              </ThemedText>
+              {description ? (
+                <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
+                  {description}
+                </ThemedText>
+              ) : null}
+            </View>
+            {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
+            {!disabled ? (
+              <Ionicons
+                name="chevron-forward"
+                size={16}
+                color={tokens.color.text.tertiary}
+                style={styles.chevron}
+              />
+            ) : null}
+          </View>
+        )}
       </Pressable>
     </Link>
   );
