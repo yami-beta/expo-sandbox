@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
-import { LinkList, type LinkItem } from "../../../../components/link-list/LinkList";
 import { Trans, useLingui } from "@lingui/react/macro";
+import { LinkList, LinkSection, type LinkItem } from "../../../../components/link-list/LinkList";
 
 export default function NavigationPatterns() {
   const { t } = useLingui();
@@ -38,7 +38,13 @@ export default function NavigationPatterns() {
   return (
     <>
       <Stack.Screen.Title>{t`ナビゲーションパターン`}</Stack.Screen.Title>
-      <LinkList data={list} />
+      <LinkList>
+        <LinkSection
+          title={<Trans>Presentation オプション</Trans>}
+          footer={<Trans>Stack.Screen の presentation に渡せる値のサンプルです。</Trans>}
+          data={list}
+        />
+      </LinkList>
     </>
   );
 }
