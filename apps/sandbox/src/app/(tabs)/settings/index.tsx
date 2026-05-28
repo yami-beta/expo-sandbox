@@ -23,7 +23,6 @@ export default function SettingsScreen() {
 
   const infoItems = [
     {
-      href: "/settings",
       text: <Trans>アプリ情報</Trans>,
       leadingIcon: (
         <Ionicons name="information-circle-outline" size={22} color={tokens.color.text.tertiary} />
@@ -47,7 +46,6 @@ export default function SettingsScreen() {
       disabled: true,
     },
     {
-      href: "/settings",
       text: <Trans>ライセンス</Trans>,
       leadingIcon: (
         <Ionicons name="document-text-outline" size={22} color={tokens.color.text.tertiary} />

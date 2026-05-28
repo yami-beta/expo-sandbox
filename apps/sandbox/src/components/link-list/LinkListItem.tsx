@@ -9,36 +9,45 @@ export const ICON_SLOT_WIDTH = 28;
 export const ICON_GAP = 12;
 const MIN_ROW_HEIGHT = 44;
 
-export type LinkItem = {
-  href: LinkProps["href"];
+interface CommonItemFields {
   text: ReactNode;
   description?: ReactNode;
   leadingIcon?: ReactNode;
   trailingBadge?: ReactNode;
-  disabled?: boolean;
-};
-
-interface LinkListItemProps extends LinkItem {
-  iconSlotReserved?: boolean;
 }
 
-export function LinkListItem({
-  href,
-  text,
-  description,
-  leadingIcon,
-  trailingBadge,
-  disabled,
-  iconSlotReserved,
-}: LinkListItemProps): ReactElement {
+export type LinkItem =
+  | (CommonItemFields & {
+      href: LinkProps["href"];
+      disabled?: false;
+    })
+  | (CommonItemFields & {
+      disabled: true;
+    });
+
+interface LinkListItemProps {
+  item: LinkItem;
+  iconSlotReserved?: boolean | undefined;
+}
+
+export function LinkListItem({ item, iconSlotReserved }: LinkListItemProps): ReactElement {
+  if (item.disabled) {
+    return <DisabledRow item={item} iconSlotReserved={iconSlotReserved} />;
+  }
+  return <LinkRow item={item} iconSlotReserved={iconSlotReserved} />;
+}
+
+interface LinkRowProps {
+  item: CommonItemFields & { href: LinkProps["href"] };
+  iconSlotReserved?: boolean | undefined;
+}
+
+function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
   const { tokens } = useTheme();
 
-  const textTone = disabled ? "disabled" : "primary";
-  const descriptionTone = disabled ? "disabled" : "secondary";
-
   return (
-    <Link href={href} asChild>
-      <Pressable disabled={disabled} accessibilityState={{ disabled: !!disabled }}>
+    <Link href={item.href} asChild>
+      <Pressable>
         {({ pressed }) => (
           <View
             style={[
@@ -47,39 +56,75 @@ export function LinkListItem({
                 minHeight: MIN_ROW_HEIGHT,
                 paddingHorizontal: tokens.spacing.lg,
                 paddingVertical: 10,
-                backgroundColor:
-                  pressed && !disabled ? tokens.color.background.pressed : "transparent",
+                backgroundColor: pressed ? tokens.color.background.pressed : "transparent",
               },
             ]}
           >
-            {iconSlotReserved ? (
-              <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>
-                {leadingIcon ?? null}
-              </View>
-            ) : null}
-            <View style={styles.textCol}>
-              <ThemedText type="body" tone={textTone}>
-                {text}
-              </ThemedText>
-              {description ? (
-                <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
-                  {description}
-                </ThemedText>
-              ) : null}
-            </View>
-            {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
-            {!disabled ? (
-              <Ionicons
-                name="chevron-forward"
-                size={16}
-                color={tokens.color.text.tertiary}
-                style={styles.chevron}
-              />
-            ) : null}
+            <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled={false} />
+            <Ionicons
+              name="chevron-forward"
+              size={16}
+              color={tokens.color.text.tertiary}
+              style={styles.chevron}
+            />
           </View>
         )}
       </Pressable>
     </Link>
+  );
+}
+
+interface DisabledRowProps {
+  item: CommonItemFields;
+  iconSlotReserved?: boolean | undefined;
+}
+
+function DisabledRow({ item, iconSlotReserved }: DisabledRowProps): ReactElement {
+  const { tokens } = useTheme();
+
+  return (
+    <View
+      style={[
+        styles.row,
+        {
+          minHeight: MIN_ROW_HEIGHT,
+          paddingHorizontal: tokens.spacing.lg,
+          paddingVertical: 10,
+        },
+      ]}
+    >
+      <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled />
+    </View>
+  );
+}
+
+interface RowContentProps {
+  item: CommonItemFields;
+  iconSlotReserved?: boolean | undefined;
+  disabled: boolean;
+}
+
+function RowContent({ item, iconSlotReserved, disabled }: RowContentProps): ReactElement {
+  const textTone = disabled ? "disabled" : "primary";
+  const descriptionTone = disabled ? "disabled" : "secondary";
+
+  return (
+    <>
+      {iconSlotReserved ? (
+        <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>{item.leadingIcon ?? null}</View>
+      ) : null}
+      <View style={styles.textCol}>
+        <ThemedText type="body" tone={textTone}>
+          {item.text}
+        </ThemedText>
+        {item.description ? (
+          <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
+            {item.description}
+          </ThemedText>
+        ) : null}
+      </View>
+      {item.trailingBadge ? <View style={styles.trailingSlot}>{item.trailingBadge}</View> : null}
+    </>
   );
 }
 

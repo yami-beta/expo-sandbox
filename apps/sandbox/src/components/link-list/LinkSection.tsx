@@ -43,23 +43,22 @@ export function LinkSection({ title, footer, data }: LinkSectionProps): ReactEle
       ) : null}
 
       <View style={[styles.island, islandStyle]}>
-        {data.map((item, index) => {
-          const hrefKey = typeof item.href === "string" ? item.href : item.href.pathname;
-          return (
-            <Fragment key={`${index}-${hrefKey}`}>
-              {index > 0 ? (
-                <View
-                  style={{
-                    height: StyleSheet.hairlineWidth,
-                    marginLeft: separatorInset,
-                    backgroundColor: tokens.color.border.subtle,
-                  }}
-                />
-              ) : null}
-              <LinkListItem {...item} iconSlotReserved={iconSlotReserved} />
-            </Fragment>
-          );
-        })}
+        {data.map((item, index) => (
+          // 各 section の data 配列は静的に定義されるため index key で十分。
+          // disabled item は href を持たないため href ベースの key は使えない。
+          <Fragment key={index}>
+            {index > 0 ? (
+              <View
+                style={{
+                  height: StyleSheet.hairlineWidth,
+                  marginLeft: separatorInset,
+                  backgroundColor: tokens.color.border.subtle,
+                }}
+              />
+            ) : null}
+            <LinkListItem item={item} iconSlotReserved={iconSlotReserved} />
+          </Fragment>
+        ))}
       </View>
 
       {footer ? (
