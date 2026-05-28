@@ -33,12 +33,7 @@ function LinkListItem({ href, text }: LinkItem): ReactElement {
 
   return (
     <Link href={href} asChild>
-      <Pressable
-        style={({ pressed }) => [
-          styles.item,
-          pressed ? { backgroundColor: tokens.color.background.pressed } : null,
-        ]}
-      >
+      <Pressable style={styles.item}>
         <ThemedText type="headline">{text}</ThemedText>
         <Ionicons name="chevron-forward" size={20} color={tokens.color.text.tertiary} />
       </Pressable>
