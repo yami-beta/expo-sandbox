@@ -3,7 +3,7 @@ import { useTheme } from "../../../theme/useTheme";
 import { buildStackScreenOptions } from "../../../theme/navigationScreenOptions";
 
 export default function SettingsLayout() {
-  const { colorScheme, colors } = useTheme();
+  const { colorScheme, tokens } = useTheme();
 
-  return <Stack screenOptions={buildStackScreenOptions(colors, colorScheme)} />;
+  return <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)} />;
 }

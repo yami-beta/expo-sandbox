@@ -1,4 +1,4 @@
-import type { ColorScheme, ColorTokens } from "../constants/theme";
+import type { ColorScheme, SemanticColorTokens } from "./tokens/colors";
 
 interface StackScreenOptions {
   headerStyle: { backgroundColor: string };
@@ -7,12 +7,12 @@ interface StackScreenOptions {
 }
 
 export function buildStackScreenOptions(
-  colors: ColorTokens,
+  color: SemanticColorTokens,
   colorScheme: ColorScheme,
 ): StackScreenOptions {
   return {
-    headerStyle: { backgroundColor: colors.backgroundHeader },
-    headerTintColor: colors.text,
+    headerStyle: { backgroundColor: color.background.canvas },
+    headerTintColor: color.text.primary,
     headerShadowVisible: colorScheme === "light",
   };
 }

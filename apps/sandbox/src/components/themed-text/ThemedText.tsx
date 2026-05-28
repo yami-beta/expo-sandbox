@@ -1,69 +1,98 @@
 import type { ReactElement } from "react";
-import { StyleSheet, Text, type TextProps, type TextStyle } from "react-native";
-import { Fonts, type ColorTokenName } from "../../constants/theme";
+import { Text, type TextProps, type TextStyle } from "react-native";
+import type { ColorTokenName } from "../../constants/theme";
 import { useTheme } from "../../theme/useTheme";
+import { Typography, type TypographyTokenName } from "../../theme/tokens/typography";
 
-export type ThemedTextType =
-  | "default"
-  | "title"
-  | "subtitle"
-  | "small"
-  | "smallBold"
-  | "link"
-  | "linkPrimary"
-  | "code";
+type LegacyThemedTextType = "default" | "subtitle" | "small" | "smallBold" | "link" | "linkPrimary";
+
+export type ThemedTextType = TypographyTokenName | LegacyThemedTextType;
+
+export type ThemedTextWeight = "regular" | "medium" | "semibold" | "bold";
+
+export type ThemedTextTone =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "disabled"
+  | "accent"
+  | "onAccent";
 
 export interface ThemedTextProps extends TextProps {
   type?: ThemedTextType;
+  weight?: ThemedTextWeight;
+  tone?: ThemedTextTone;
+  align?: TextStyle["textAlign"];
+  /** @deprecated tone を使うこと */
   themeColor?: ColorTokenName;
 }
 
-const typeStyles: Record<ThemedTextType, TextStyle> = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    fontWeight: "400",
-    lineHeight: 24,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "700",
-    lineHeight: 32,
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: "600",
-  },
-  small: {
-    fontSize: 14,
-    fontWeight: "400",
-  },
-  smallBold: {
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  link: {
-    fontSize: 16,
-    fontWeight: "400",
-    textDecorationLine: "underline",
-  },
-  linkPrimary: {
-    fontSize: 16,
-    fontWeight: "600",
-    textDecorationLine: "underline",
-  },
-  code: {
-    fontSize: 14,
-    fontWeight: "400",
-    fontFamily: Fonts.mono,
-  },
-});
+const legacyTypeMap: Record<LegacyThemedTextType, TypographyTokenName> = {
+  default: "body",
+  subtitle: "headline",
+  small: "caption",
+  smallBold: "label",
+  link: "body",
+  linkPrimary: "bodyEmphasis",
+};
+
+const legacyDecoration: Partial<Record<LegacyThemedTextType, TextStyle>> = {
+  link: { textDecorationLine: "underline" },
+  linkPrimary: { textDecorationLine: "underline" },
+};
+
+const fontWeightMap: Record<ThemedTextWeight, NonNullable<TextStyle["fontWeight"]>> = {
+  regular: "400",
+  medium: "500",
+  semibold: "600",
+  bold: "700",
+};
+
+const isLegacy = (type: ThemedTextType): type is LegacyThemedTextType => type in legacyTypeMap;
+
+const warnedLegacyTypes = new Set<string>();
+const warnLegacyType = (type: LegacyThemedTextType, mapped: TypographyTokenName) => {
+  if (__DEV__ && !warnedLegacyTypes.has(type)) {
+    warnedLegacyTypes.add(type);
+    console.warn(
+      `[ThemedText] type="${type}" は deprecated。第2段で削除予定 (代替: type="${mapped}")`,
+    );
+  }
+};
 
 export function ThemedText({
-  type = "default",
-  themeColor = "text",
+  type = "body",
+  weight,
+  tone = "primary",
+  align,
+  themeColor,
   style,
   ...rest
 }: ThemedTextProps): ReactElement {
-  const { colors } = useTheme();
-  return <Text style={[{ color: colors[themeColor] }, typeStyles[type], style]} {...rest} />;
+  const { colors, tokens } = useTheme();
+
+  const typographyName: TypographyTokenName = isLegacy(type) ? legacyTypeMap[type] : type;
+  if (isLegacy(type)) {
+    warnLegacyType(type, typographyName);
+  }
+
+  const color = themeColor
+    ? colors[themeColor]
+    : tone === "accent"
+      ? tokens.color.accent.text
+      : tokens.color.text[tone];
+
+  return (
+    <Text
+      style={[
+        Typography[typographyName],
+        isLegacy(type) ? legacyDecoration[type] : undefined,
+        { color },
+        weight ? { fontWeight: fontWeightMap[weight] } : undefined,
+        align ? { textAlign: align } : undefined,
+        style,
+      ]}
+      {...rest}
+    />
+  );
 }

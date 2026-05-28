@@ -1,70 +1,35 @@
-import { Platform } from "react-native";
+// 旧 API。新規コードは ../theme/tokens/<name> から直接 import すること。
+// 既存呼び出し箇所は第2段以降で順次置換する。
+import { semanticColors } from "../theme/tokens/colors";
+
+export type { ColorScheme } from "../theme/tokens/colors";
+export { Spacing, type SpacingName } from "../theme/tokens/spacing";
+export { Fonts } from "../theme/tokens/typography";
 
 export const Colors = {
   light: {
-    text: "#000000",
-    textSecondary: "#60646C",
-    background: "#ffffff",
-    backgroundElement: "#F0F0F3",
-    backgroundSelected: "#E0E1E6",
-    backgroundHeader: "rgb(255, 255, 255)",
-    border: "rgb(216, 216, 216)",
-    primary: "rgb(0, 122, 255)",
-    onPrimary: "#ffffff",
+    text: semanticColors.light.text.primary,
+    textSecondary: semanticColors.light.text.secondary,
+    background: semanticColors.light.background.canvas,
+    backgroundElement: semanticColors.light.background.surface,
+    backgroundSelected: semanticColors.light.background.pressed,
+    backgroundHeader: semanticColors.light.background.canvas,
+    border: semanticColors.light.border.subtle,
+    primary: semanticColors.light.accent.solid,
+    onPrimary: semanticColors.light.text.onAccent,
   },
   dark: {
-    text: "#ffffff",
-    textSecondary: "#B0B4BA",
-    background: "#000000",
-    backgroundElement: "#212225",
-    backgroundSelected: "#2E3135",
-    backgroundHeader: "rgb(18, 18, 18)",
-    border: "rgb(39, 39, 41)",
-    primary: "rgb(10, 132, 255)",
-    onPrimary: "#000000",
+    text: semanticColors.dark.text.primary,
+    textSecondary: semanticColors.dark.text.secondary,
+    background: semanticColors.dark.background.canvas,
+    backgroundElement: semanticColors.dark.background.surface,
+    backgroundSelected: semanticColors.dark.background.pressed,
+    backgroundHeader: semanticColors.dark.background.canvas,
+    border: semanticColors.dark.border.subtle,
+    primary: semanticColors.dark.accent.solid,
+    onPrimary: semanticColors.dark.text.onAccent,
   },
 } as const;
 
-export type ColorScheme = keyof typeof Colors;
 export type ColorTokenName = keyof (typeof Colors)["light"];
 export type ColorTokens = Readonly<Record<ColorTokenName, string>>;
-
-export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
-} as const;
-
-export type SpacingName = keyof typeof Spacing;
-
-interface FontFamily {
-  sans: string;
-  serif: string;
-  rounded: string;
-  mono: string;
-}
-
-export const Fonts: FontFamily = Platform.select({
-  ios: {
-    sans: "system-ui",
-    serif: "ui-serif",
-    rounded: "ui-rounded",
-    mono: "ui-monospace",
-  },
-  android: {
-    sans: "normal",
-    serif: "serif",
-    rounded: "normal",
-    mono: "monospace",
-  },
-  default: {
-    sans: "normal",
-    serif: "serif",
-    rounded: "normal",
-    mono: "monospace",
-  },
-});

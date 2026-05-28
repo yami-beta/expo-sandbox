@@ -15,7 +15,7 @@ type LinkListProps = {
 };
 
 export function LinkList({ data }: LinkListProps): ReactElement {
-  const { colors } = useTheme();
+  const { tokens } = useTheme();
 
   return (
     <FlatList
@@ -23,19 +23,19 @@ export function LinkList({ data }: LinkListProps): ReactElement {
       renderItem={({ item }) => <LinkListItem {...item} />}
       keyExtractor={(item) => (typeof item.href === "string" ? item.href : item.href.pathname)}
       contentContainerStyle={styles.container}
-      style={{ backgroundColor: colors.background }}
+      style={{ backgroundColor: tokens.color.background.canvas }}
     />
   );
 }
 
 function LinkListItem({ href, text }: LinkItem): ReactElement {
-  const { colors } = useTheme();
+  const { tokens } = useTheme();
 
   return (
     <Link href={href} asChild>
       <Pressable style={styles.item}>
-        <ThemedText type="subtitle">{text}</ThemedText>
-        <Ionicons name="chevron-forward" size={20} color={colors.text} />
+        <ThemedText type="headline">{text}</ThemedText>
+        <Ionicons name="chevron-forward" size={20} color={tokens.color.text.tertiary} />
       </Pressable>
     </Link>
   );

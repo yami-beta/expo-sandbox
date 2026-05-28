@@ -3,6 +3,11 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 import { Appearance, useColorScheme } from "react-native";
 import Storage from "expo-sqlite/kv-store";
 import { Colors, type ColorScheme, type ColorTokens } from "../constants/theme";
+import { semanticColors, type SemanticColorTokens } from "./tokens/colors";
+import { Radius } from "./tokens/radius";
+import { shadowsByScheme, type ShadowTokens } from "./tokens/shadows";
+import { Spacing } from "./tokens/spacing";
+import { Typography } from "./tokens/typography";
 
 export type ThemeMode = "system" | "light" | "dark";
 
@@ -10,11 +15,20 @@ const STORAGE_KEY = {
   THEME_MODE: "theme-mode",
 } as const;
 
+export interface ThemeTokens {
+  color: SemanticColorTokens;
+  spacing: typeof Spacing;
+  radius: typeof Radius;
+  shadow: ShadowTokens;
+  typography: typeof Typography;
+}
+
 export interface ThemeContextValue {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
   colorScheme: ColorScheme;
   colors: ColorTokens;
+  tokens: ThemeTokens;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
@@ -39,6 +53,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const colors = Colors[colorScheme];
 
+  const tokens = useMemo<ThemeTokens>(
+    () => ({
+      color: semanticColors[colorScheme],
+      spacing: Spacing,
+      radius: Radius,
+      shadow: shadowsByScheme[colorScheme],
+      typography: Typography,
+    }),
+    [colorScheme],
+  );
+
   // iOS の overrideUserInterfaceStyle をアプリ設定に揃える。
   // これをやらないと NativeTabs などのネイティブ UI が OS 設定側を
   // 参照し続け、アプリ内でダーク強制してもタブ切替時にライト色が
@@ -58,8 +83,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       setMode: handleSetMode,
       colorScheme,
       colors,
+      tokens,
     }),
-    [mode, handleSetMode, colorScheme, colors],
+    [mode, handleSetMode, colorScheme, colors, tokens],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
