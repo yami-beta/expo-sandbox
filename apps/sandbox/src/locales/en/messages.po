@@ -75,6 +75,10 @@ msgstr "containedModal"
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
 
+#: src/app/(tabs)/(home)/components/index.tsx:121
+msgid "expo-haptics 連動の押下フィードバック。Web は no-op"
+msgstr "Press feedback via expo-haptics. No-op on Web"
+
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:28
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:31
@@ -123,7 +127,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
-#: src/app/(tabs)/(home)/components/index.tsx:41
+#: src/app/(tabs)/(home)/components/index.tsx:52
 msgid "iOS は SF Symbols、Android / Web は Material Icons にフォールバック"
 msgstr "SF Symbols on iOS, falling back to Material Icons on Android / Web"
 
@@ -186,15 +190,15 @@ msgstr "React Query / fetch sample (coming soon)"
 msgid "Stack.Screen の presentation に渡せる値のサンプルです。"
 msgstr "Sample values that can be passed to Stack.Screen's presentation prop."
 
-#: src/app/(tabs)/(home)/components/index.tsx:81
+#: src/app/(tabs)/(home)/components/index.tsx:92
 msgid "surface elevation + padding 規約 (dark は border で階層)"
 msgstr "surface elevation + padding convention (border-based layering on dark)"
 
-#: src/app/(tabs)/(home)/components/index.tsx:86
+#: src/app/(tabs)/(home)/components/index.tsx:97
 msgid "surface カード"
 msgstr "surface card"
 
-#: src/app/(tabs)/(home)/components/index.tsx:99
+#: src/app/(tabs)/(home)/components/index.tsx:110
 msgid "surfaceElevated カード"
 msgstr "surfaceElevated card"
 
@@ -208,11 +212,11 @@ msgstr "surfaceElevated card"
 msgid "tab navigator 内から表示"
 msgstr "Shown from inside a tab navigator"
 
-#: src/app/(tabs)/(home)/components/index.tsx:89
+#: src/app/(tabs)/(home)/components/index.tsx:100
 msgid "tone: surface / elevation: sm / padding: lg"
 msgstr "tone: surface / elevation: sm / padding: lg"
 
-#: src/app/(tabs)/(home)/components/index.tsx:102
+#: src/app/(tabs)/(home)/components/index.tsx:113
 msgid "tone: surfaceElevated / elevation: md"
 msgstr "tone: surfaceElevated / elevation: md"
 
@@ -255,15 +259,15 @@ msgstr "Presented with UIModalPresentationOverCurrentContext. Overlays the curre
 msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
 msgstr "Presented with UIModalPresentationOverCurrentContext. The intended behavior is to overlay the current context transparently, but when placed under the root Stack the current context becomes the app's root view controller — so the transparent overlay ends up spanning the entire screen (including the tab bar area). This collapses the visual distinction from `transparentModal` and erases the point of using containedTransparentModal — since this presentation value is intended to stay within the tab content bounds, the root placement is not recommended (observation only)."
 
-#: src/app/(tabs)/(home)/components/index.tsx:58
+#: src/app/(tabs)/(home)/components/index.tsx:69
 msgid "variant: solid / soft / outline / ghost"
 msgstr "variant: solid / soft / outline / ghost"
 
-#: src/app/(tabs)/(home)/components/index.tsx:39
+#: src/app/(tabs)/(home)/components/index.tsx:50
 msgid "アイコン"
 msgstr "Icons"
 
-#: src/app/(tabs)/(home)/components/index.tsx:93
+#: src/app/(tabs)/(home)/components/index.tsx:104
 msgid "アクション"
 msgstr "Action"
 
@@ -271,11 +275,11 @@ msgstr "Action"
 msgid "アプリ情報"
 msgstr "App info"
 
-#: src/app/(tabs)/(home)/components/index.tsx:80
+#: src/app/(tabs)/(home)/components/index.tsx:91
 msgid "カード"
 msgstr "Card"
 
-#: src/app/(tabs)/(home)/components/index.tsx:33
+#: src/app/(tabs)/(home)/components/index.tsx:44
 #: src/app/(tabs)/(home)/index.tsx:27
 msgid "コンポーネント"
 msgstr "Components"
@@ -371,7 +375,7 @@ msgstr "Return to the previous screen via the back button in the header or the O
 msgid "ホーム"
 msgstr "Home"
 
-#: src/app/(tabs)/(home)/components/index.tsx:57
+#: src/app/(tabs)/(home)/components/index.tsx:68
 msgid "ボタン"
 msgstr "Button"
 
@@ -463,7 +467,7 @@ msgstr "Info"
 msgid "準備中"
 msgstr "Coming soon"
 
-#: src/app/(tabs)/(home)/components/index.tsx:67
+#: src/app/(tabs)/(home)/components/index.tsx:78
 msgid "無効"
 msgstr "Disabled"
 
@@ -490,6 +494,10 @@ msgstr "Overlays as a modal while keeping the background transparent. When place
 #: src/app/navigation-patterns/transparent-modal/on-root.tsx:16
 msgid "背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体 (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の バックドロップを描画する。"
 msgstr "Overlays as a modal while keeping the background transparent. Since it appears under the root Stack, the transparent overlay covers the entire screen (including the tab bar). The previous screen shows through, so draw your own backdrop."
+
+#: src/app/(tabs)/(home)/components/index.tsx:120
+msgid "触覚フィードバック"
+msgstr "Haptic feedback"
 
 #: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/settings/index.tsx:74
