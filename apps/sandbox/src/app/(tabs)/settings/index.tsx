@@ -1,20 +1,84 @@
+import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { LinkList, type LinkItem } from "../../../components/link-list/LinkList";
+import { StyleSheet, View } from "react-native";
+import { LinkList, type LinkSection } from "../../../components/link-list/LinkList";
+import { ThemedText } from "../../../components/themed-text/ThemedText";
+import { useTheme } from "../../../theme/useTheme";
 
 export default function SettingsScreen() {
   const { t } = useLingui();
-  const list = [
+  const { tokens } = useTheme();
+
+  const versionBadge = (
+    <View
+      style={[
+        styles.badge,
+        {
+          paddingHorizontal: tokens.spacing.sm,
+          borderRadius: tokens.radius.sm,
+          backgroundColor: tokens.color.background.subtle,
+        },
+      ]}
+    >
+      <ThemedText type="caption" tone="secondary">
+        v1.0
+      </ThemedText>
+    </View>
+  );
+
+  const sections = [
     {
-      href: "/settings/theme",
-      text: <Trans>テーマ</Trans>,
+      title: <Trans>外観</Trans>,
+      iconSlotReserved: true,
+      data: [
+        {
+          href: "/settings/theme",
+          text: <Trans>テーマ</Trans>,
+          description: <Trans>ライト / ダーク / システム</Trans>,
+          leadingIcon: (
+            <Ionicons name="contrast-outline" size={22} color={tokens.color.text.secondary} />
+          ),
+        },
+      ],
     },
-  ] as const satisfies LinkItem[];
+    {
+      title: <Trans>情報</Trans>,
+      iconSlotReserved: true,
+      data: [
+        {
+          disabled: true,
+          text: <Trans>アプリ情報</Trans>,
+          leadingIcon: (
+            <Ionicons
+              name="information-circle-outline"
+              size={22}
+              color={tokens.color.text.tertiary}
+            />
+          ),
+          trailingBadge: versionBadge,
+        },
+        {
+          disabled: true,
+          text: <Trans>ライセンス</Trans>,
+          leadingIcon: (
+            <Ionicons name="document-text-outline" size={22} color={tokens.color.text.tertiary} />
+          ),
+        },
+      ],
+    },
+  ] as const satisfies LinkSection[];
 
   return (
     <>
       <Stack.Screen.Title>{t`設定`}</Stack.Screen.Title>
-      <LinkList data={list} />
+      <LinkList sections={sections} />
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  badge: {
+    paddingVertical: 2,
+  },
+});
