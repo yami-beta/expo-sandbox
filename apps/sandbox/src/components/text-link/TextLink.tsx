@@ -3,7 +3,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { StyleProp, TextStyle } from "react-native";
 import { ThemedText, type ThemedTextProps } from "../themed-text/ThemedText";
 
-export interface ThemedLinkProps {
+export interface TextLinkProps {
   href: LinkProps["href"];
   children: ReactNode;
   type?: ThemedTextProps["type"];
@@ -14,7 +14,7 @@ export interface ThemedLinkProps {
   style?: StyleProp<TextStyle>;
 }
 
-export function ThemedLink({
+export function TextLink({
   href,
   children,
   type = "body",
@@ -23,7 +23,7 @@ export function ThemedLink({
   underline = true,
   disabled,
   style,
-}: ThemedLinkProps): ReactElement {
+}: TextLinkProps): ReactElement {
   const textStyle: StyleProp<TextStyle> = [
     underline ? { textDecorationLine: "underline" } : null,
     style,
