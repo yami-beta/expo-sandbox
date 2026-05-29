@@ -30,7 +30,7 @@ msgid ""
 "そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
 msgstr ""
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:38
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:46
 msgid ""
 "Android の formSheet は CoordinatorLayout 上の BottomSheetBehavior として実装される。シート内に ScrollView を置く場合は `nestedScrollEnabled` を true にしてシートの drag と nested scroll を連携させる必要がある (詳細: react-native-screens#2687)。\n"
 "\n"
@@ -47,7 +47,7 @@ msgstr "Android behavior"
 msgid "BottomSheetBehavior で表示される。detent は最大 3 つまで。sheetGrabberVisible は無視され、代わりに sheetElevation 等の Android 専用オプションがある。 ルート Stack 配下なのでタブバーを覆ってシートが出る。"
 msgstr "Presented with BottomSheetBehavior. Limited to up to 3 detents. `sheetGrabberVisible` is ignored; Android-only options such as `sheetElevation` apply instead. Since it sits under the root Stack, the sheet covers the tab bar when it appears."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:24
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:32
 msgid "BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま** tab content の領域内にボトムシートが出る形になる (Android は presentation context の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。"
 msgstr "Presented with BottomSheetBehavior. When placed under the in-tab Stack, the bottom sheet appears within the tab content area **with the tab bar still visible** (Android has no concept of presentation context, so the Stack hierarchy is reflected directly). Limited to up to 3 detents."
 
@@ -83,7 +83,7 @@ msgstr "containedTransparentModal"
 msgid "expo-haptics 連動の押下フィードバック。Web は no-op"
 msgstr "Press feedback via expo-haptics. No-op on Web"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:11
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:12
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:28
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:31
 #: src/app/navigation-patterns/form-sheet/on-root.tsx:12
@@ -243,7 +243,7 @@ msgstr "Presented with UIModalPresentationCurrentContext. The intended behavior 
 msgid "UIModalPresentationFormSheet で表示される。detent (snap point) を任意の数だけ指定可。sheetGrabberVisible で上端のつまみを表示できる。 ルート Stack 配下なのでタブバーを覆ってシートが下から出る形になる (formSheet は通常 modal 同様タブバー上に乗るのが期待される挙動)。"
 msgstr "Presented with UIModalPresentationFormSheet. Any number of detents (snap points) can be configured. `sheetGrabberVisible` shows the grabber at the top. Since it sits under the root Stack, the sheet rises from the bottom covering the tab bar (formSheet is generally expected to sit above the tab bar, the same as a modal)."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:16
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:24
 msgid "UIModalPresentationFormSheet で表示される。タブ内 Stack 配下に置いても iOS の formSheet は UIKit 上の最前面に出るため、タブバーを覆って表示される (on-root 版とほぼ同じ見た目)。detent (snap point) や sheetGrabberVisible の挙動は配置に依存しない。"
 msgstr "Presented with UIModalPresentationFormSheet. Even when placed under the in-tab Stack, iOS's formSheet comes up at the front of UIKit's hierarchy, so it covers the tab bar (visually nearly identical to the on-root variant). Detents (snap points) and `sheetGrabberVisible` behavior do not depend on placement."
 
@@ -312,7 +312,7 @@ msgstr "containedModal on the in-tab Stack (intended behavior)"
 msgid "タブ内 Stack 上の containedTransparentModal (本来挙動)"
 msgstr "containedTransparentModal on the in-tab Stack (intended behavior)"
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:14
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:22
 msgid "タブ内 Stack 上のシート表示"
 msgstr "Sheet presentation on the in-tab Stack"
 
@@ -439,7 +439,7 @@ msgstr "A page sheet-style modal that slides up from the bottom. Even when place
 msgid "下から上にスライドして表示される標準の page sheet 風 modal。ルート Stack 配下なので、タブバーごと画面全体を覆う形で重なる (in-tab 版でも iOS では modal がタブバーを覆うため見た目はほぼ同じ)。上端からの swipe down で閉じられる。"
 msgstr "A standard page sheet-style modal that slides up from the bottom. Since it sits under the root Stack, it overlays the entire screen including the tab bar (the in-tab variant also covers the tab bar on iOS, so the appearance is nearly the same). Dismissed via swipe down from the top edge."
 
-#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:31
+#: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:39
 msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。**Android でタブバーが残ったままシートが出る**のが on-root 版との最大の差分。実プロダクトではルート配置を推奨。"
 msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close button. Android also dismisses on back navigation. **The sheet appearing with the tab bar still visible on Android** is the key differentiator versus the on-root variant. Root placement is recommended in real products."
 
