@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { ReactElement, ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import { Button, type ButtonVariant } from "../../../../components/button/Button";
 import { Icon, type IconName } from "../../../../components/icon/Icon";
 import { ThemedText } from "../../../../components/themed-text/ThemedText";
 import { useTheme } from "../../../../theme/useTheme";
@@ -19,6 +20,8 @@ const ICON_NAMES: readonly IconName[] = [
   "document",
   "chevron-right",
 ];
+
+const BUTTON_VARIANTS: readonly ButtonVariant[] = ["solid", "soft", "outline", "ghost"];
 
 export default function ComponentsScreen(): ReactElement {
   const { t } = useLingui();
@@ -46,6 +49,29 @@ export default function ComponentsScreen(): ReactElement {
                 </ThemedText>
               </View>
             ))}
+          </View>
+        </ShowcaseSection>
+
+        <ShowcaseSection
+          title={<Trans>ボタン</Trans>}
+          description={<Trans>variant: solid / soft / outline / ghost</Trans>}
+        >
+          <View style={{ gap: tokens.spacing.md }}>
+            {BUTTON_VARIANTS.map((variant) => (
+              <View key={variant} style={[styles.buttonRow, { gap: tokens.spacing.sm }]}>
+                <Button variant={variant} leadingIcon="star">
+                  {variant}
+                </Button>
+                <Button variant={variant} disabled>
+                  <Trans>無効</Trans>
+                </Button>
+              </View>
+            ))}
+            <View style={[styles.buttonRow, { gap: tokens.spacing.sm }]}>
+              <Button size="sm">sm</Button>
+              <Button size="md">md</Button>
+              <Button size="lg">lg</Button>
+            </View>
           </View>
         </ShowcaseSection>
       </ScrollView>
@@ -91,6 +117,11 @@ const styles = StyleSheet.create({
   },
   iconCell: {
     width: 72,
+    alignItems: "center",
+  },
+  buttonRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
     alignItems: "center",
   },
 });
