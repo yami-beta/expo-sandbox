@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { LinkList, type LinkSection } from "../../../components/link-list/LinkList";
+import { GroupedList, type ListSection } from "../../../components/grouped-list/GroupedList";
 import { useTheme } from "../../../theme/useTheme";
 
 export default function Index() {
@@ -45,12 +45,12 @@ export default function Index() {
         },
       ],
     },
-  ] as const satisfies LinkSection[];
+  ] as const satisfies ListSection[];
 
   return (
     <>
       <Stack.Screen.Title>{t`ホーム`}</Stack.Screen.Title>
-      <LinkList sections={sections} />
+      <GroupedList sections={sections} />
     </>
   );
 }

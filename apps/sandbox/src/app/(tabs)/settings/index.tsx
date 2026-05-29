@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { StyleSheet, View } from "react-native";
-import { LinkList, type LinkSection } from "../../../components/link-list/LinkList";
+import { GroupedList, type ListSection } from "../../../components/grouped-list/GroupedList";
 import { ThemedText } from "../../../components/themed-text/ThemedText";
 import { useTheme } from "../../../theme/useTheme";
 
@@ -67,12 +67,12 @@ export default function SettingsScreen() {
         },
       ],
     },
-  ] as const satisfies LinkSection[];
+  ] as const satisfies ListSection[];
 
   return (
     <>
       <Stack.Screen.Title>{t`設定`}</Stack.Screen.Title>
-      <LinkList sections={sections} />
+      <GroupedList sections={sections} />
     </>
   );
 }
