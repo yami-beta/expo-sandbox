@@ -1,24 +1,32 @@
-import { Fragment, type ReactElement, type ReactNode } from "react";
+import {
+  Children,
+  Fragment,
+  isValidElement,
+  type ReactElement,
+  type ReactNode,
+  useMemo,
+} from "react";
 import { StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
-import {
-  getLinkItemKey,
-  ICON_GAP,
-  ICON_SLOT_WIDTH,
-  type LinkItem,
-  LinkListItem,
-} from "./LinkListItem";
+import { ICON_GAP, ICON_SLOT_WIDTH } from "./LinkListItem";
+import { LinkSectionContext, type LinkSectionContextValue } from "./LinkSectionContext";
 
 interface LinkSectionProps {
   title?: ReactNode;
   footer?: ReactNode;
-  data: readonly LinkItem[];
+  children: ReactNode;
 }
 
-export function LinkSection({ title, footer, data }: LinkSectionProps): ReactElement {
+const isLinkListItemElement = (
+  child: ReactNode,
+): child is ReactElement<{ leadingIcon?: ReactNode }> => isValidElement(child);
+
+export function LinkSection({ title, footer, children }: LinkSectionProps): ReactElement {
   const { colorScheme, tokens } = useTheme();
-  const iconSlotReserved = data.some((item) => item.leadingIcon != null);
+
+  const childArray = Children.toArray(children).filter(isLinkListItemElement);
+  const iconSlotReserved = childArray.some((child) => child.props.leadingIcon != null);
 
   const islandStyle = {
     backgroundColor: tokens.color.background.surface,
@@ -33,48 +41,55 @@ export function LinkSection({ title, footer, data }: LinkSectionProps): ReactEle
 
   const separatorInset = tokens.spacing.lg + (iconSlotReserved ? ICON_SLOT_WIDTH + ICON_GAP : 0);
 
+  const contextValue = useMemo<LinkSectionContextValue>(
+    () => ({ iconSlotReserved }),
+    [iconSlotReserved],
+  );
+
   return (
-    <View>
-      {title ? (
-        <ThemedText
-          type="caption"
-          tone="tertiary"
-          style={[
-            styles.title,
-            { paddingHorizontal: tokens.spacing.lg, paddingBottom: tokens.spacing.sm },
-          ]}
-        >
-          {title}
-        </ThemedText>
-      ) : null}
+    <LinkSectionContext.Provider value={contextValue}>
+      <View>
+        {title ? (
+          <ThemedText
+            type="caption"
+            tone="tertiary"
+            style={[
+              styles.title,
+              { paddingHorizontal: tokens.spacing.lg, paddingBottom: tokens.spacing.sm },
+            ]}
+          >
+            {title}
+          </ThemedText>
+        ) : null}
 
-      <View style={[styles.island, islandStyle]}>
-        {data.map((item, index) => (
-          <Fragment key={getLinkItemKey(item)}>
-            {index > 0 ? (
-              <View
-                style={{
-                  height: StyleSheet.hairlineWidth,
-                  marginLeft: separatorInset,
-                  backgroundColor: tokens.color.border.subtle,
-                }}
-              />
-            ) : null}
-            <LinkListItem item={item} iconSlotReserved={iconSlotReserved} />
-          </Fragment>
-        ))}
+        <View style={[styles.island, islandStyle]}>
+          {childArray.map((child, index) => (
+            <Fragment key={child.key}>
+              {index > 0 ? (
+                <View
+                  style={{
+                    height: StyleSheet.hairlineWidth,
+                    marginLeft: separatorInset,
+                    backgroundColor: tokens.color.border.subtle,
+                  }}
+                />
+              ) : null}
+              {child}
+            </Fragment>
+          ))}
+        </View>
+
+        {footer ? (
+          <ThemedText
+            type="caption"
+            tone="tertiary"
+            style={{ paddingHorizontal: tokens.spacing.lg, paddingTop: tokens.spacing.sm }}
+          >
+            {footer}
+          </ThemedText>
+        ) : null}
       </View>
-
-      {footer ? (
-        <ThemedText
-          type="caption"
-          tone="tertiary"
-          style={{ paddingHorizontal: tokens.spacing.lg, paddingTop: tokens.spacing.sm }}
-        >
-          {footer}
-        </ThemedText>
-      ) : null}
-    </View>
+    </LinkSectionContext.Provider>
   );
 }
 

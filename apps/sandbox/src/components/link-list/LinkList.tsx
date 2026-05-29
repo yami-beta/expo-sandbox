@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 
-export { type LinkItem } from "./LinkListItem";
+export { LinkListItem } from "./LinkListItem";
 export { LinkSection } from "./LinkSection";
 
 interface LinkListProps {

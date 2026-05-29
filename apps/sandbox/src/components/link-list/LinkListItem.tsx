@@ -1,9 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, type LinkProps } from "expo-router";
-import type { ReactElement, ReactNode } from "react";
+import { type ReactElement, type ReactNode, useContext } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
+import { LinkSectionContext } from "./LinkSectionContext";
 
 export const ICON_SLOT_WIDTH = 28;
 export const ICON_GAP = 12;
@@ -16,46 +17,42 @@ interface CommonItemFields {
   trailingBadge?: ReactNode;
 }
 
-export type LinkItem =
+export type LinkListItemProps =
   | (CommonItemFields & {
       href: LinkProps["href"];
       disabled?: false;
     })
   | (CommonItemFields & {
-      id: string;
       disabled: true;
     });
 
-export function getLinkItemKey(item: LinkItem): string {
-  if (item.disabled) {
-    return `disabled:${item.id}`;
+export function LinkListItem(props: LinkListItemProps): ReactElement {
+  const ctx = useContext(LinkSectionContext);
+  const iconSlotReserved = ctx?.iconSlotReserved ?? false;
+
+  if (props.disabled) {
+    return <DisabledRow {...props} iconSlotReserved={iconSlotReserved} />;
   }
-  const path = typeof item.href === "string" ? item.href : item.href.pathname;
-  return `href:${path}`;
+  return <LinkRow {...props} iconSlotReserved={iconSlotReserved} />;
 }
 
-interface LinkListItemProps {
-  item: LinkItem;
-  iconSlotReserved?: boolean | undefined;
+interface LinkRowProps extends CommonItemFields {
+  href: LinkProps["href"];
+  iconSlotReserved: boolean;
 }
 
-export function LinkListItem({ item, iconSlotReserved }: LinkListItemProps): ReactElement {
-  if (item.disabled) {
-    return <DisabledRow item={item} iconSlotReserved={iconSlotReserved} />;
-  }
-  return <LinkRow item={item} iconSlotReserved={iconSlotReserved} />;
-}
-
-interface LinkRowProps {
-  item: CommonItemFields & { href: LinkProps["href"] };
-  iconSlotReserved?: boolean | undefined;
-}
-
-function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
+function LinkRow({
+  href,
+  text,
+  description,
+  leadingIcon,
+  trailingBadge,
+  iconSlotReserved,
+}: LinkRowProps): ReactElement {
   const { tokens } = useTheme();
 
   return (
-    <Link href={item.href} asChild>
+    <Link href={href} asChild>
       <Pressable>
         {({ pressed }) => (
           <View
@@ -69,7 +66,14 @@ function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
               },
             ]}
           >
-            <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled={false} />
+            <RowContent
+              text={text}
+              description={description}
+              leadingIcon={leadingIcon}
+              trailingBadge={trailingBadge}
+              iconSlotReserved={iconSlotReserved}
+              disabled={false}
+            />
             <Ionicons
               name="chevron-forward"
               size={16}
@@ -83,12 +87,17 @@ function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
   );
 }
 
-interface DisabledRowProps {
-  item: CommonItemFields;
-  iconSlotReserved?: boolean | undefined;
+interface DisabledRowProps extends CommonItemFields {
+  iconSlotReserved: boolean;
 }
 
-function DisabledRow({ item, iconSlotReserved }: DisabledRowProps): ReactElement {
+function DisabledRow({
+  text,
+  description,
+  leadingIcon,
+  trailingBadge,
+  iconSlotReserved,
+}: DisabledRowProps): ReactElement {
   const { tokens } = useTheme();
 
   return (
@@ -102,37 +111,50 @@ function DisabledRow({ item, iconSlotReserved }: DisabledRowProps): ReactElement
         },
       ]}
     >
-      <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled />
+      <RowContent
+        text={text}
+        description={description}
+        leadingIcon={leadingIcon}
+        trailingBadge={trailingBadge}
+        iconSlotReserved={iconSlotReserved}
+        disabled
+      />
     </View>
   );
 }
 
-interface RowContentProps {
-  item: CommonItemFields;
-  iconSlotReserved?: boolean | undefined;
+interface RowContentProps extends CommonItemFields {
+  iconSlotReserved: boolean;
   disabled: boolean;
 }
 
-function RowContent({ item, iconSlotReserved, disabled }: RowContentProps): ReactElement {
+function RowContent({
+  text,
+  description,
+  leadingIcon,
+  trailingBadge,
+  iconSlotReserved,
+  disabled,
+}: RowContentProps): ReactElement {
   const textTone = disabled ? "disabled" : "primary";
   const descriptionTone = disabled ? "disabled" : "secondary";
 
   return (
     <>
       {iconSlotReserved ? (
-        <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>{item.leadingIcon ?? null}</View>
+        <View style={[styles.iconSlot, { marginRight: ICON_GAP }]}>{leadingIcon ?? null}</View>
       ) : null}
       <View style={styles.textCol}>
         <ThemedText type="body" tone={textTone}>
-          {item.text}
+          {text}
         </ThemedText>
-        {item.description ? (
+        {description ? (
           <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
-            {item.description}
+            {description}
           </ThemedText>
         ) : null}
       </View>
-      {item.trailingBadge ? <View style={styles.trailingSlot}>{item.trailingBadge}</View> : null}
+      {trailingBadge ? <View style={styles.trailingSlot}>{trailingBadge}</View> : null}
     </>
   );
 }
