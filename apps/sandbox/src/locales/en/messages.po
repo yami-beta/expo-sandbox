@@ -51,10 +51,6 @@ msgstr "Presented with BottomSheetBehavior. Limited to up to 3 detents. `sheetGr
 msgid "BottomSheetBehavior で表示される。タブ内 Stack 配下に置くと、**タブバーが残った まま** tab content の領域内にボトムシートが出る形になる (Android は presentation context の概念がないため、Stack の階層が反映される)。detent は最大 3 つまで。"
 msgstr "Presented with BottomSheetBehavior. When placed under the in-tab Stack, the bottom sheet appears within the tab content area **with the tab bar still visible** (Android has no concept of presentation context, so the Stack hierarchy is reflected directly). Limited to up to 3 detents."
 
-#: src/app/(tabs)/(home)/index.tsx:33
-msgid "Button / Card など (準備中)"
-msgstr "Button / Card, etc. (coming soon)"
-
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:11
 #: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:28
 #: src/app/navigation-patterns/card/on-root.tsx:12
@@ -93,6 +89,10 @@ msgstr "formSheet"
 msgid "fullScreenModal"
 msgstr "fullScreenModal"
 
+#: src/app/(tabs)/(home)/index.tsx:28
+msgid "Icon / Button / Card など"
+msgstr "Icon / Button / Card, and more"
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:19
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/index.tsx:19
 #: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/index.tsx:19
@@ -122,6 +122,10 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 #: src/components/presentation-sample/PresentationSampleBody.tsx:45
 msgid "iOS の挙動"
 msgstr "iOS behavior"
+
+#: src/app/(tabs)/(home)/components/index.tsx:36
+msgid "iOS は SF Symbols、Android / Web は Material Icons にフォールバック"
+msgstr "SF Symbols on iOS, falling back to Material Icons on Android / Web"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:11
@@ -162,7 +166,7 @@ msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the 
 msgid "Presentation オプション"
 msgstr "Presentation options"
 
-#: src/app/(tabs)/(home)/index.tsx:19
+#: src/app/(tabs)/(home)/index.tsx:20
 msgid "presentation オプションのデモ"
 msgstr "Demo of presentation options"
 
@@ -174,7 +178,7 @@ msgstr "The presentation style is `modal`, but with `animation` unspecified Andr
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style becomes `modal`, but the transition animation is controlled separately by the `animation` prop. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right, same as `card`), not the iOS-style \"slide up from the bottom\". Set `animation: slide_from_bottom` explicitly to slide up. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the back button or system gesture."
 
-#: src/app/(tabs)/(home)/index.tsx:41
+#: src/app/(tabs)/(home)/index.tsx:40
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
 
@@ -231,15 +235,20 @@ msgstr "Presented with UIModalPresentationOverCurrentContext. Overlays the curre
 msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
 msgstr "Presented with UIModalPresentationOverCurrentContext. The intended behavior is to overlay the current context transparently, but when placed under the root Stack the current context becomes the app's root view controller — so the transparent overlay ends up spanning the entire screen (including the tab bar area). This collapses the visual distinction from `transparentModal` and erases the point of using containedTransparentModal — since this presentation value is intended to stay within the tab content bounds, the root placement is not recommended (observation only)."
 
+#: src/app/(tabs)/(home)/components/index.tsx:35
+msgid "アイコン"
+msgstr "Icons"
+
 #: src/app/(tabs)/settings/index.tsx:51
 msgid "アプリ情報"
 msgstr "App info"
 
-#: src/app/(tabs)/(home)/index.tsx:32
+#: src/app/(tabs)/(home)/components/index.tsx:29
+#: src/app/(tabs)/(home)/index.tsx:27
 msgid "コンポーネント"
 msgstr "Components"
 
-#: src/app/(tabs)/(home)/index.tsx:13
+#: src/app/(tabs)/(home)/index.tsx:14
 msgid "サンプル"
 msgstr "Sample"
 
@@ -279,7 +288,7 @@ msgstr "Full-screen modal on the in-tab Stack"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/index.tsx:40
+#: src/app/(tabs)/(home)/index.tsx:39
 msgid "データ取得"
 msgstr "Data fetching"
 
@@ -288,7 +297,7 @@ msgstr "Data fetching"
 msgid "テーマ"
 msgstr "Theme"
 
-#: src/app/(tabs)/(home)/index.tsx:18
+#: src/app/(tabs)/(home)/index.tsx:19
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:38
 msgid "ナビゲーションパターン"
 msgstr "Navigation Patterns"
@@ -326,7 +335,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "Return to the previous screen via the back button in the header or the OS gesture. The tab bar disappearing on the root variant is the differentiator versus the in-tab variant."
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:52
+#: src/app/(tabs)/(home)/index.tsx:51
 msgid "ホーム"
 msgstr "Home"
 
@@ -414,7 +423,7 @@ msgstr ""
 msgid "情報"
 msgstr "Info"
 
-#: src/app/(tabs)/(home)/index.tsx:27
+#: src/app/(tabs)/(home)/index.tsx:34
 msgid "準備中"
 msgstr "Coming soon"
 
