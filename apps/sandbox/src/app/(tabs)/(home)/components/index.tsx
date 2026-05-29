@@ -4,6 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Button, type ButtonVariant } from "../../../../components/button/Button";
 import { Card } from "../../../../components/card/Card";
+import type { HapticStyle } from "../../../../components/haptics/usePressHaptics";
 import { Icon, type IconName } from "../../../../components/icon/Icon";
 import { ThemedText } from "../../../../components/themed-text/ThemedText";
 import { useTheme } from "../../../../theme/useTheme";
@@ -23,6 +24,16 @@ const ICON_NAMES: readonly IconName[] = [
 ];
 
 const BUTTON_VARIANTS: readonly ButtonVariant[] = ["solid", "soft", "outline", "ghost"];
+
+const HAPTIC_STYLES: readonly HapticStyle[] = [
+  "light",
+  "medium",
+  "heavy",
+  "selection",
+  "success",
+  "warning",
+  "error",
+];
 
 export default function ComponentsScreen(): ReactElement {
   const { t } = useLingui();
@@ -102,6 +113,19 @@ export default function ComponentsScreen(): ReactElement {
                 <Trans>tone: surfaceElevated / elevation: md</Trans>
               </ThemedText>
             </Card>
+          </View>
+        </ShowcaseSection>
+
+        <ShowcaseSection
+          title={<Trans>触覚フィードバック</Trans>}
+          description={<Trans>expo-haptics 連動の押下フィードバック。Web は no-op</Trans>}
+        >
+          <View style={[styles.buttonRow, { gap: tokens.spacing.sm }]}>
+            {HAPTIC_STYLES.map((style) => (
+              <Button key={style} variant="soft" size="sm" haptic={style}>
+                {style}
+              </Button>
+            ))}
           </View>
         </ShowcaseSection>
       </ScrollView>

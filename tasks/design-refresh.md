@@ -58,7 +58,7 @@ GitHub issue: ベース [#141](https://github.com/yami-beta/expo-sandbox/issues/
 2. [x] **アイコンコンポーネント** (`expo-symbols`) — iOS は `SymbolView` (SF Symbols)、Android/Web は Material 系フォールバック。後続の `leadingIcon` / `Button` icon で再利用。 (#143)
 3. [x] **`Button`** (variants: solid / soft / ghost / outline、size、leading icon、disabled)。 (#144)
 4. [x] **`Card`** (surface elevation + padding 規約。`GroupedList` の島スタイルと規約共通化を検討)。 (#145)
-5. [ ] **`Haptics` 連動の押下フィードバック** (`expo-haptics`。hook or Pressable ラッパー。Web は no-op)。 (#146)
+5. [x] **`Haptics` 連動の押下フィードバック** (`expo-haptics`。hook or Pressable ラッパー。Web は no-op)。 (#146)
 6. [ ] **`BlurView` を活用したヘッダ / overlay サンプル** (`expo-blur`。`intensity`/`tint` を colorScheme 連動)。 (#147)
 
 各コンポーネントは co-location パターンで追加し、`useTheme().tokens` のみ参照、テキストは lingui、ホーム画面のサンプル section に見本導線を追加する。`expo-blur` / `expo-haptics` / `expo-symbols` は導入済み。

@@ -1,7 +1,8 @@
-import type { ReactElement, ReactNode } from "react";
+import { useCallback, type ReactElement, type ReactNode } from "react";
 import { Pressable, type PressableProps, StyleSheet, View, type ViewStyle } from "react-native";
 import type { SemanticColorTokens } from "../../theme/tokens/colors";
 import { useTheme } from "../../theme/useTheme";
+import { type HapticStyle, usePressHaptics } from "../haptics/usePressHaptics";
 import { Icon, type IconName } from "../icon/Icon";
 import { ThemedText, type ThemedTextType } from "../themed-text/ThemedText";
 
@@ -15,6 +16,8 @@ export interface ButtonProps {
   leadingIcon?: IconName;
   disabled?: boolean;
   onPress?: PressableProps["onPress"];
+  /** 押下時の触覚フィードバック。`true` で light、style 指定でその種類。Web は no-op。 */
+  haptic?: HapticStyle | boolean;
 }
 
 interface SizeSpec {
@@ -100,14 +103,26 @@ export function Button({
   leadingIcon,
   disabled = false,
   onPress,
+  haptic,
 }: ButtonProps): ReactElement {
   const { tokens } = useTheme();
   const spec = SIZE_SPECS[size];
   const colors = resolveVariantColors(variant, disabled, tokens.color);
 
+  const triggerHaptic = usePressHaptics(typeof haptic === "string" ? haptic : "light");
+  const handlePress = useCallback<NonNullable<PressableProps["onPress"]>>(
+    (event) => {
+      if (haptic) {
+        triggerHaptic();
+      }
+      onPress?.(event);
+    },
+    [haptic, triggerHaptic, onPress],
+  );
+
   return (
     <Pressable
-      onPress={onPress}
+      onPress={handlePress}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityState={{ disabled }}
