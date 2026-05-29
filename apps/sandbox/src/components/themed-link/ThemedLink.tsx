@@ -1,6 +1,6 @@
 import { Link, type LinkProps } from "expo-router";
 import type { ReactElement, ReactNode } from "react";
-import { Pressable, type StyleProp, type TextStyle } from "react-native";
+import type { StyleProp, TextStyle } from "react-native";
 import { ThemedText, type ThemedTextProps } from "../themed-text/ThemedText";
 
 export interface ThemedLinkProps {
@@ -24,19 +24,24 @@ export function ThemedLink({
   disabled,
   style,
 }: ThemedLinkProps): ReactElement {
+  const textStyle: StyleProp<TextStyle> = [
+    underline ? { textDecorationLine: "underline" } : null,
+    style,
+  ];
+
+  if (disabled) {
+    return (
+      <ThemedText type={type} tone="disabled" weight={weight} align={align} style={textStyle}>
+        {children}
+      </ThemedText>
+    );
+  }
+
   return (
-    <Link href={href} asChild>
-      <Pressable disabled={disabled} accessibilityState={{ disabled: !!disabled }}>
-        <ThemedText
-          type={type}
-          tone={disabled ? "disabled" : "accent"}
-          weight={weight}
-          align={align}
-          style={[underline && { textDecorationLine: "underline" }, style]}
-        >
-          {children}
-        </ThemedText>
-      </Pressable>
+    <Link href={href}>
+      <ThemedText type={type} tone="accent" weight={weight} align={align} style={textStyle}>
+        {children}
+      </ThemedText>
     </Link>
   );
 }
