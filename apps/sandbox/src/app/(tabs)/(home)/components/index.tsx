@@ -3,6 +3,7 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import type { ReactElement, ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Button, type ButtonVariant } from "../../../../components/button/Button";
+import { Card } from "../../../../components/card/Card";
 import { Icon, type IconName } from "../../../../components/icon/Icon";
 import { ThemedText } from "../../../../components/themed-text/ThemedText";
 import { useTheme } from "../../../../theme/useTheme";
@@ -72,6 +73,35 @@ export default function ComponentsScreen(): ReactElement {
               <Button size="md">md</Button>
               <Button size="lg">lg</Button>
             </View>
+          </View>
+        </ShowcaseSection>
+
+        <ShowcaseSection
+          title={<Trans>カード</Trans>}
+          description={<Trans>surface elevation + padding 規約 (dark は border で階層)</Trans>}
+        >
+          <View style={{ gap: tokens.spacing.md }}>
+            <Card>
+              <ThemedText type="bodyEmphasis">
+                <Trans>surface カード</Trans>
+              </ThemedText>
+              <ThemedText type="caption" tone="secondary" style={{ marginTop: tokens.spacing.xs }}>
+                <Trans>tone: surface / elevation: sm / padding: lg</Trans>
+              </ThemedText>
+              <View style={{ marginTop: tokens.spacing.md, alignSelf: "flex-start" }}>
+                <Button size="sm" variant="soft" leadingIcon="heart">
+                  <Trans>アクション</Trans>
+                </Button>
+              </View>
+            </Card>
+            <Card tone="surfaceElevated" elevation="md">
+              <ThemedText type="bodyEmphasis">
+                <Trans>surfaceElevated カード</Trans>
+              </ThemedText>
+              <ThemedText type="caption" tone="secondary" style={{ marginTop: tokens.spacing.xs }}>
+                <Trans>tone: surfaceElevated / elevation: md</Trans>
+              </ThemedText>
+            </Card>
           </View>
         </ShowcaseSection>
       </ScrollView>
