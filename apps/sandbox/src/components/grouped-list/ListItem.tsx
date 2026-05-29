@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, type LinkProps } from "expo-router";
 import type { ReactElement, ReactNode } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View, type ViewStyle } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
 
@@ -16,7 +16,7 @@ interface CommonItemFields {
   trailingBadge?: ReactNode;
 }
 
-export type LinkItem =
+export type ListItem =
   | (CommonItemFields & {
       href: LinkProps["href"];
       disabled?: false;
@@ -25,25 +25,43 @@ export type LinkItem =
       disabled: true;
     });
 
-interface LinkListItemProps {
-  item: LinkItem;
+interface ListItemRowProps {
+  item: ListItem;
   iconSlotReserved: boolean;
+  /** セクション内で先頭の行か (上角丸 + 上辺 border を付ける) */
+  isFirst: boolean;
+  /** セクション内で末尾の行か (下角丸 + 下辺 border を付ける) */
+  isLast: boolean;
 }
 
-export function LinkListItem({ item, iconSlotReserved }: LinkListItemProps): ReactElement {
-  if (item.disabled) {
-    return <DisabledRow item={item} iconSlotReserved={iconSlotReserved} />;
-  }
-  return <LinkRow item={item} iconSlotReserved={iconSlotReserved} />;
-}
-
-interface LinkRowProps {
-  item: CommonItemFields & { href: LinkProps["href"] };
-  iconSlotReserved: boolean;
-}
-
-function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
+/**
+ * grouped list の 1 行。SectionList の renderItem から呼ばれる。
+ * SectionList はセクション全体を 1 枚の View で包めないため、島 (角丸 + border) は
+ * 行レベルで組む: 全行に左右 border + surface、先頭行に上角丸/上辺、末尾行に下角丸/下辺。
+ * (公開型 `ListItem` と値の名前衝突を避けるため、コンポーネントは `ListItemRow` とする)
+ */
+export function ListItemRow({
+  item,
+  iconSlotReserved,
+  isFirst,
+  isLast,
+}: ListItemRowProps): ReactElement {
   const { tokens } = useTheme();
+  const islandStyle = useIslandRowStyle(isFirst, isLast);
+
+  if (item.disabled) {
+    return (
+      <View
+        style={[
+          styles.row,
+          islandStyle,
+          { backgroundColor: tokens.color.background.surface, ...rowPadding(tokens.spacing.lg) },
+        ]}
+      >
+        <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled />
+      </View>
+    );
+  }
 
   return (
     <Link href={item.href} asChild>
@@ -52,11 +70,12 @@ function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
           <View
             style={[
               styles.row,
+              islandStyle,
               {
-                minHeight: MIN_ROW_HEIGHT,
-                paddingHorizontal: tokens.spacing.lg,
-                paddingVertical: 10,
-                backgroundColor: pressed ? tokens.color.background.pressed : "transparent",
+                backgroundColor: pressed
+                  ? tokens.color.background.pressed
+                  : tokens.color.background.surface,
+                ...rowPadding(tokens.spacing.lg),
               },
             ]}
           >
@@ -74,29 +93,40 @@ function LinkRow({ item, iconSlotReserved }: LinkRowProps): ReactElement {
   );
 }
 
-interface DisabledRowProps {
-  item: CommonItemFields;
-  iconSlotReserved: boolean;
-}
-
-function DisabledRow({ item, iconSlotReserved }: DisabledRowProps): ReactElement {
+/**
+ * 行を島に見せるための border / 角丸スタイル。
+ * light/dark とも hairline border + surface に統一し shadow は使わない
+ * (SectionList ではセクション全体に 1 枚の shadow を出せないため)。
+ */
+function useIslandRowStyle(isFirst: boolean, isLast: boolean): ViewStyle {
   const { tokens } = useTheme();
-
-  return (
-    <View
-      style={[
-        styles.row,
-        {
-          minHeight: MIN_ROW_HEIGHT,
-          paddingHorizontal: tokens.spacing.lg,
-          paddingVertical: 10,
-        },
-      ]}
-    >
-      <RowContent item={item} iconSlotReserved={iconSlotReserved} disabled />
-    </View>
-  );
+  const borderColor = tokens.color.border.subtle;
+  return {
+    borderColor,
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
+    ...(isFirst
+      ? {
+          borderTopWidth: StyleSheet.hairlineWidth,
+          borderTopLeftRadius: tokens.radius.lg,
+          borderTopRightRadius: tokens.radius.lg,
+        }
+      : null),
+    ...(isLast
+      ? {
+          borderBottomWidth: StyleSheet.hairlineWidth,
+          borderBottomLeftRadius: tokens.radius.lg,
+          borderBottomRightRadius: tokens.radius.lg,
+        }
+      : null),
+  };
 }
+
+const rowPadding = (horizontal: number): ViewStyle => ({
+  minHeight: MIN_ROW_HEIGHT,
+  paddingHorizontal: horizontal,
+  paddingVertical: 10,
+});
 
 interface RowContentProps {
   item: CommonItemFields;

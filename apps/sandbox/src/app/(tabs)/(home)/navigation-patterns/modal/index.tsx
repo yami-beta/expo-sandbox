@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { LinkList, type LinkSection } from "../../../../../components/link-list/LinkList";
+import { GroupedList, type ListSection } from "../../../../../components/grouped-list/GroupedList";
 
 export default function ModalIntermediate(): ReactElement {
   const { t } = useLingui();
@@ -21,12 +21,12 @@ export default function ModalIntermediate(): ReactElement {
         },
       ],
     },
-  ] as const satisfies LinkSection[];
+  ] as const satisfies ListSection[];
 
   return (
     <>
       <Stack.Screen.Title>{t`modal`}</Stack.Screen.Title>
-      <LinkList sections={sections} />
+      <GroupedList sections={sections} />
     </>
   );
 }

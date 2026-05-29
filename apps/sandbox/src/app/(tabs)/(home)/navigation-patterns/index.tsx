@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { LinkList, type LinkSection } from "../../../../components/link-list/LinkList";
+import { GroupedList, type ListSection } from "../../../../components/grouped-list/GroupedList";
 
 export default function NavigationPatterns() {
   const { t } = useLingui();
@@ -31,12 +31,12 @@ export default function NavigationPatterns() {
         { href: "/navigation-patterns/form-sheet", text: <Trans>formSheet</Trans> },
       ],
     },
-  ] as const satisfies LinkSection[];
+  ] as const satisfies ListSection[];
 
   return (
     <>
       <Stack.Screen.Title>{t`ナビゲーションパターン`}</Stack.Screen.Title>
-      <LinkList sections={sections} />
+      <GroupedList sections={sections} />
     </>
   );
 }
