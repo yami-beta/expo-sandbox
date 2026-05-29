@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
-import { Spacing } from "../../constants/theme";
+import { Spacing } from "../../theme/tokens/spacing";
 import { useTheme } from "../../theme/useTheme";
 import { PresentationSampleBody, type PresentationSampleBodyProps } from "./PresentationSampleBody";
 
@@ -34,15 +34,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     justifyContent: "center",
-    paddingHorizontal: Spacing.three,
+    paddingHorizontal: Spacing.lg,
   },
   card: {
     maxHeight: "85%",
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: Spacing.three,
+    borderRadius: Spacing.lg,
     overflow: "hidden",
   },
   cardScroll: {
-    padding: Spacing.three,
+    padding: Spacing.lg,
   },
 });

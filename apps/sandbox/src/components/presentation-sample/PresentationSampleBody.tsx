@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Trans } from "@lingui/react/macro";
-import { Spacing } from "../../constants/theme";
+import { Spacing } from "../../theme/tokens/spacing";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
 import { PresentationSection } from "./PresentationSection";
@@ -68,16 +68,16 @@ export function PresentationSampleBody({
 
 const styles = StyleSheet.create({
   body: {
-    gap: Spacing.three,
+    gap: Spacing.lg,
   },
   headerRow: {
-    gap: Spacing.two,
+    gap: Spacing.sm,
   },
   badge: {
     alignSelf: "flex-start",
-    paddingHorizontal: Spacing.two,
-    paddingVertical: Spacing.one,
-    borderRadius: Spacing.two,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: Spacing.xs,
+    borderRadius: Spacing.sm,
   },
   badgeText: {
     fontSize: 13,
@@ -89,10 +89,10 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   primaryButton: {
-    paddingVertical: Spacing.three,
-    borderRadius: Spacing.two,
+    paddingVertical: Spacing.lg,
+    borderRadius: Spacing.sm,
     alignItems: "center",
-    marginTop: Spacing.two,
+    marginTop: Spacing.sm,
   },
   primaryButtonText: {
     fontSize: 16,
