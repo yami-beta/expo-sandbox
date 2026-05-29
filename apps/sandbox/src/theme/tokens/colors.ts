@@ -114,6 +114,10 @@ interface SemanticColorTokens {
   accent: {
     solid: string;
     solidHover: string;
+    /** 低彩度の accent 背景 (Button の soft variant 等) */
+    soft: string;
+    /** soft 背景の押下 (hover) 時 */
+    softHover: string;
     text: string;
   };
 }
@@ -144,6 +148,8 @@ const buildSemantic = (n: GrayScale, a: GrayScale): SemanticColorTokens => ({
   accent: {
     solid: a[9],
     solidHover: a[10],
+    soft: a[2],
+    softHover: a[3],
     text: a[11],
   },
 });
