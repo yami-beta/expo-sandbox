@@ -133,7 +133,7 @@ msgstr "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Androi
 msgid "iOS の挙動"
 msgstr "iOS の挙動"
 
-#: src/app/(tabs)/(home)/components/index.tsx:36
+#: src/app/(tabs)/(home)/components/index.tsx:37
 msgid "iOS は SF Symbols、Android / Web は Material Icons にフォールバック"
 msgstr "iOS は SF Symbols、Android / Web は Material Icons にフォールバック"
 
