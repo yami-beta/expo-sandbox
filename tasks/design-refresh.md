@@ -57,7 +57,7 @@ GitHub issue: ベース [#141](https://github.com/yami-beta/expo-sandbox/issues/
 1. [x] **`LinkList`→`GroupedList` リネーム + 内部 SectionList 化** — `LinkList`→`GroupedList`、`LinkListItem`→`ListItem`、`LinkSection`→`ListSection`、`LinkItem` 型→`ListItem` 型。ディレクトリ `link-list/`→`grouped-list/`。内部を RN 標準 `SectionList` ベースに作り替え (`SectionList` 利用例としての価値も得る)。島はセクション全体を1枚で包めないため行レベルで角丸を組み、light/dark とも **border ベースに統一** (light の shadow は撤去)。ページ側は `ScrollView` を撤去し `GroupedList` 自体をスクロールコンテナに。新規コンポーネント追加前に土台を整える。 (#142)
 2. [x] **アイコンコンポーネント** (`expo-symbols`) — iOS は `SymbolView` (SF Symbols)、Android/Web は Material 系フォールバック。後続の `leadingIcon` / `Button` icon で再利用。 (#143)
 3. [x] **`Button`** (variants: solid / soft / ghost / outline、size、leading icon、disabled)。 (#144)
-4. [ ] **`Card`** (surface elevation + padding 規約。`GroupedList` の島スタイルと規約共通化を検討)。 (#145)
+4. [x] **`Card`** (surface elevation + padding 規約。`GroupedList` の島スタイルと規約共通化を検討)。 (#145)
 5. [ ] **`Haptics` 連動の押下フィードバック** (`expo-haptics`。hook or Pressable ラッパー。Web は no-op)。 (#146)
 6. [ ] **`BlurView` を活用したヘッダ / overlay サンプル** (`expo-blur`。`intensity`/`tint` を colorScheme 連動)。 (#147)
 

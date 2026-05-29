@@ -123,7 +123,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
-#: src/app/(tabs)/(home)/components/index.tsx:40
+#: src/app/(tabs)/(home)/components/index.tsx:41
 msgid "iOS は SF Symbols、Android / Web は Material Icons にフォールバック"
 msgstr "SF Symbols on iOS, falling back to Material Icons on Android / Web"
 
@@ -186,6 +186,18 @@ msgstr "React Query / fetch sample (coming soon)"
 msgid "Stack.Screen の presentation に渡せる値のサンプルです。"
 msgstr "Sample values that can be passed to Stack.Screen's presentation prop."
 
+#: src/app/(tabs)/(home)/components/index.tsx:81
+msgid "surface elevation + padding 規約 (dark は border で階層)"
+msgstr "surface elevation + padding convention (border-based layering on dark)"
+
+#: src/app/(tabs)/(home)/components/index.tsx:86
+msgid "surface カード"
+msgstr "surface card"
+
+#: src/app/(tabs)/(home)/components/index.tsx:99
+msgid "surfaceElevated カード"
+msgstr "surfaceElevated card"
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:20
 #: src/app/(tabs)/(home)/navigation-patterns/contained-modal/index.tsx:20
 #: src/app/(tabs)/(home)/navigation-patterns/contained-transparent-modal/index.tsx:20
@@ -195,6 +207,14 @@ msgstr "Sample values that can be passed to Stack.Screen's presentation prop."
 #: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/index.tsx:20
 msgid "tab navigator 内から表示"
 msgstr "Shown from inside a tab navigator"
+
+#: src/app/(tabs)/(home)/components/index.tsx:89
+msgid "tone: surface / elevation: sm / padding: lg"
+msgstr "tone: surface / elevation: sm / padding: lg"
+
+#: src/app/(tabs)/(home)/components/index.tsx:102
+msgid "tone: surfaceElevated / elevation: md"
+msgstr "tone: surfaceElevated / elevation: md"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:17
 #: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:11
@@ -235,19 +255,27 @@ msgstr "Presented with UIModalPresentationOverCurrentContext. Overlays the curre
 msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
 msgstr "Presented with UIModalPresentationOverCurrentContext. The intended behavior is to overlay the current context transparently, but when placed under the root Stack the current context becomes the app's root view controller — so the transparent overlay ends up spanning the entire screen (including the tab bar area). This collapses the visual distinction from `transparentModal` and erases the point of using containedTransparentModal — since this presentation value is intended to stay within the tab content bounds, the root placement is not recommended (observation only)."
 
-#: src/app/(tabs)/(home)/components/index.tsx:57
+#: src/app/(tabs)/(home)/components/index.tsx:58
 msgid "variant: solid / soft / outline / ghost"
 msgstr "variant: solid / soft / outline / ghost"
 
-#: src/app/(tabs)/(home)/components/index.tsx:38
+#: src/app/(tabs)/(home)/components/index.tsx:39
 msgid "アイコン"
 msgstr "Icons"
+
+#: src/app/(tabs)/(home)/components/index.tsx:93
+msgid "アクション"
+msgstr "Action"
 
 #: src/app/(tabs)/settings/index.tsx:51
 msgid "アプリ情報"
 msgstr "App info"
 
-#: src/app/(tabs)/(home)/components/index.tsx:32
+#: src/app/(tabs)/(home)/components/index.tsx:80
+msgid "カード"
+msgstr "Card"
+
+#: src/app/(tabs)/(home)/components/index.tsx:33
 #: src/app/(tabs)/(home)/index.tsx:27
 msgid "コンポーネント"
 msgstr "Components"
@@ -343,7 +371,7 @@ msgstr "Return to the previous screen via the back button in the header or the O
 msgid "ホーム"
 msgstr "Home"
 
-#: src/app/(tabs)/(home)/components/index.tsx:56
+#: src/app/(tabs)/(home)/components/index.tsx:57
 msgid "ボタン"
 msgstr "Button"
 
@@ -435,7 +463,7 @@ msgstr "Info"
 msgid "準備中"
 msgstr "Coming soon"
 
-#: src/app/(tabs)/(home)/components/index.tsx:66
+#: src/app/(tabs)/(home)/components/index.tsx:67
 msgid "無効"
 msgstr "Disabled"
 
