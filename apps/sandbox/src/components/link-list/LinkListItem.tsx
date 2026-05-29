@@ -22,8 +22,17 @@ export type LinkItem =
       disabled?: false;
     })
   | (CommonItemFields & {
+      id: string;
       disabled: true;
     });
+
+export function getLinkItemKey(item: LinkItem): string {
+  if (item.disabled) {
+    return `disabled:${item.id}`;
+  }
+  const path = typeof item.href === "string" ? item.href : item.href.pathname;
+  return `href:${path}`;
+}
 
 interface LinkListItemProps {
   item: LinkItem;

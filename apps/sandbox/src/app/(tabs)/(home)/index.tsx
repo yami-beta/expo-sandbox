@@ -19,12 +19,14 @@ export default function Index() {
 
   const upcomingItems = [
     {
+      id: "components",
       text: <Trans>コンポーネント</Trans>,
       description: <Trans>Button / Card など (準備中)</Trans>,
       leadingIcon: <Ionicons name="apps-outline" size={22} color={tokens.color.text.tertiary} />,
       disabled: true,
     },
     {
+      id: "data-fetching",
       text: <Trans>データ取得</Trans>,
       description: <Trans>React Query / fetch サンプル (準備中)</Trans>,
       leadingIcon: (

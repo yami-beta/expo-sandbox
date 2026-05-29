@@ -2,7 +2,13 @@ import { Fragment, type ReactElement, type ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 import { ThemedText } from "../themed-text/ThemedText";
-import { ICON_GAP, ICON_SLOT_WIDTH, type LinkItem, LinkListItem } from "./LinkListItem";
+import {
+  getLinkItemKey,
+  ICON_GAP,
+  ICON_SLOT_WIDTH,
+  type LinkItem,
+  LinkListItem,
+} from "./LinkListItem";
 
 interface LinkSectionProps {
   title?: ReactNode;
@@ -44,9 +50,7 @@ export function LinkSection({ title, footer, data }: LinkSectionProps): ReactEle
 
       <View style={[styles.island, islandStyle]}>
         {data.map((item, index) => (
-          // 各 section の data 配列は静的に定義されるため index key で十分。
-          // disabled item は href を持たないため href ベースの key は使えない。
-          <Fragment key={index}>
+          <Fragment key={getLinkItemKey(item)}>
             {index > 0 ? (
               <View
                 style={{
