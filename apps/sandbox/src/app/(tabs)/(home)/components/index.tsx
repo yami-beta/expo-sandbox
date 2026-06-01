@@ -94,25 +94,31 @@ export default function ComponentsScreen(): ReactElement {
         >
           <View style={{ gap: tokens.spacing.md }}>
             <Card>
-              <ThemedText type="bodyEmphasis">
-                <Trans>surface カード</Trans>
-              </ThemedText>
-              <ThemedText type="caption" tone="secondary" style={{ marginTop: tokens.spacing.xs }}>
-                <Trans>tone: surface / elevation: sm / padding: lg</Trans>
-              </ThemedText>
-              <View style={{ marginTop: tokens.spacing.md, alignSelf: "flex-start" }}>
-                <Button size="sm" variant="soft" leadingIcon="heart">
-                  <Trans>アクション</Trans>
-                </Button>
+              <View style={{ gap: tokens.spacing.md }}>
+                <View style={{ gap: tokens.spacing.xs }}>
+                  <ThemedText type="bodyEmphasis">
+                    <Trans>surface カード</Trans>
+                  </ThemedText>
+                  <ThemedText type="caption" tone="secondary">
+                    <Trans>tone: surface / elevation: sm / padding: lg</Trans>
+                  </ThemedText>
+                </View>
+                <View style={{ alignSelf: "flex-start" }}>
+                  <Button size="sm" variant="soft" leadingIcon="heart">
+                    <Trans>アクション</Trans>
+                  </Button>
+                </View>
               </View>
             </Card>
             <Card tone="surfaceElevated" elevation="md">
-              <ThemedText type="bodyEmphasis">
-                <Trans>surfaceElevated カード</Trans>
-              </ThemedText>
-              <ThemedText type="caption" tone="secondary" style={{ marginTop: tokens.spacing.xs }}>
-                <Trans>tone: surfaceElevated / elevation: md</Trans>
-              </ThemedText>
+              <View style={{ gap: tokens.spacing.xs }}>
+                <ThemedText type="bodyEmphasis">
+                  <Trans>surfaceElevated カード</Trans>
+                </ThemedText>
+                <ThemedText type="caption" tone="secondary">
+                  <Trans>tone: surfaceElevated / elevation: md</Trans>
+                </ThemedText>
+              </View>
             </Card>
           </View>
         </ShowcaseSection>
@@ -141,17 +147,12 @@ export default function ComponentsScreen(): ReactElement {
               <View style={{ flex: 1, backgroundColor: tokens.color.accent.solidHover }} />
               <View style={{ flex: 1, backgroundColor: tokens.color.background.surface }} />
             </View>
-            <BlurOverlay style={[styles.blurHeader, { paddingHorizontal: tokens.spacing.lg }]}>
+            <BlurOverlay style={styles.blurHeader}>
               <ThemedText type="bodyEmphasis">
                 <Trans>ブラーヘッダ</Trans>
               </ThemedText>
             </BlurOverlay>
-            <BlurOverlay
-              style={[
-                styles.blurFooter,
-                { paddingHorizontal: tokens.spacing.lg, paddingVertical: tokens.spacing.sm },
-              ]}
-            >
+            <BlurOverlay style={styles.blurFooter}>
               <ThemedText type="caption" tone="secondary">
                 <Trans>下部 overlay</Trans>
               </ThemedText>

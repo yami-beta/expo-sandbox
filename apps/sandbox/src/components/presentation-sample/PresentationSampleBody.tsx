@@ -37,9 +37,7 @@ export function PresentationSampleBody({
         <View style={[styles.badge, { backgroundColor: colors.backgroundSelected }]}>
           <Text style={[styles.badgeText, { color: colors.text }]}>{presentationValue}</Text>
         </View>
-        <ThemedText type="title" style={styles.heading}>
-          {heading}
-        </ThemedText>
+        <ThemedText type="title">{heading}</ThemedText>
       </View>
 
       <PresentationSection title={<Trans>iOS の挙動</Trans>}>{iosBehavior}</PresentationSection>
@@ -83,10 +81,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "600",
     fontVariant: ["tabular-nums"],
-  },
-  heading: {
-    fontSize: 24,
-    lineHeight: 32,
   },
   primaryButton: {
     paddingVertical: Spacing.lg,

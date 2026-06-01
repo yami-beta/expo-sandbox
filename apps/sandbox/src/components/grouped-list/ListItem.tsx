@@ -148,7 +148,7 @@ function RowContent({ item, iconSlotReserved, disabled }: RowContentProps): Reac
           {item.text}
         </ThemedText>
         {item.description ? (
-          <ThemedText type="caption" tone={descriptionTone} style={styles.description}>
+          <ThemedText type="caption" tone={descriptionTone}>
             {item.description}
           </ThemedText>
         ) : null}
@@ -172,9 +172,7 @@ const styles = StyleSheet.create({
   textCol: {
     flex: 1,
     minWidth: 0,
-  },
-  description: {
-    marginTop: 2,
+    gap: 2,
   },
   trailingSlot: {
     marginLeft: 12,

@@ -22,7 +22,7 @@ export function PresentationSection({ title, children }: PresentationSectionProp
         },
       ]}
     >
-      <ThemedText type="caption" tone="secondary" style={styles.sectionTitle}>
+      <ThemedText type="overline" tone="secondary">
         {title}
       </ThemedText>
       <ThemedText type="body">{children}</ThemedText>
@@ -36,9 +36,5 @@ const styles = StyleSheet.create({
     padding: Spacing.lg,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: Spacing.sm,
-  },
-  sectionTitle: {
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
   },
 });

@@ -47,7 +47,7 @@ export function GroupedList({ sections, ListHeaderComponent }: GroupedListProps)
         }}
       >
         {section.title ? (
-          <ThemedText type="caption" tone="tertiary" style={styles.title}>
+          <ThemedText type="overline" tone="tertiary">
             {section.title}
           </ThemedText>
         ) : null}
@@ -64,16 +64,16 @@ export function GroupedList({ sections, ListHeaderComponent }: GroupedListProps)
       return null;
     }
     return (
-      <ThemedText
-        type="caption"
-        tone="tertiary"
+      <View
         style={{
           paddingHorizontal: tokens.spacing.lg,
           paddingTop: tokens.spacing.sm,
         }}
       >
-        {section.footer}
-      </ThemedText>
+        <ThemedText type="caption" tone="tertiary">
+          {section.footer}
+        </ThemedText>
+      </View>
     );
   };
 
@@ -145,9 +145,5 @@ function getItemKey(item: ListItem, index: number): string {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-  },
-  title: {
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
   },
 });

@@ -1,11 +1,10 @@
 import type { ReactElement } from "react";
-import { StyleSheet, type ViewProps } from "react-native";
+import { StyleSheet, View, type ViewProps } from "react-native";
 import type { ShadowTokenName } from "../../theme/tokens/shadows";
 import type { SpacingName } from "../../theme/tokens/spacing";
 import { useTheme } from "../../theme/useTheme";
-import { ThemedView } from "../themed-view/ThemedView";
 
-export interface CardProps extends ViewProps {
+export interface CardProps extends Omit<ViewProps, "style"> {
   /** surface (既定) か surfaceElevated。背景の階層を選ぶ。 */
   tone?: "surface" | "surfaceElevated";
   /** 内側 padding。`tokens.spacing` のキー。 @default "lg" */
@@ -24,7 +23,6 @@ export function Card({
   tone = "surface",
   padding = "lg",
   elevation = "sm",
-  style,
   ...rest
 }: CardProps): ReactElement {
   const { colorScheme, tokens } = useTheme();
@@ -35,12 +33,14 @@ export function Card({
       : tokens.shadow[elevation];
 
   return (
-    <ThemedView
-      tone={tone}
+    <View
       style={[
-        { borderRadius: tokens.radius.lg, padding: tokens.spacing[padding] },
+        {
+          backgroundColor: tokens.color.background[tone],
+          borderRadius: tokens.radius.lg,
+          padding: tokens.spacing[padding],
+        },
         elevationStyle,
-        style,
       ]}
       {...rest}
     />
