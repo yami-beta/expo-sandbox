@@ -36,7 +36,8 @@ export type TypographyTokenName =
   | "bodyEmphasis"
   | "label"
   | "caption"
-  | "code";
+  | "code"
+  | "overline";
 
 export const Typography: Record<TypographyTokenName, TextStyle> = {
   displayLg: { fontSize: 34, lineHeight: 40, fontWeight: "700" },
@@ -47,4 +48,11 @@ export const Typography: Record<TypographyTokenName, TextStyle> = {
   label: { fontSize: 14, lineHeight: 20, fontWeight: "500" },
   caption: { fontSize: 12, lineHeight: 16, fontWeight: "400" },
   code: { fontSize: 14, lineHeight: 20, fontWeight: "400", fontFamily: Fonts.mono },
+  overline: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: "400",
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
 };

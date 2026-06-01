@@ -8,6 +8,7 @@ export interface BlurOverlayProps {
   intensity?: number;
   /** tint を明示する場合。未指定なら colorScheme に連動。 */
   tint?: BlurTint;
+  /** 配置スタイル (position / top / bottom / height 等)。内側の padding は内部で付与する。 */
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
 }
@@ -24,7 +25,7 @@ export function BlurOverlay({
   style,
   children,
 }: BlurOverlayProps): ReactElement {
-  const { colorScheme } = useTheme();
+  const { colorScheme, tokens } = useTheme();
   const resolvedTint: BlurTint =
     tint ?? (colorScheme === "dark" ? "systemMaterialDark" : "systemMaterialLight");
 
@@ -32,7 +33,7 @@ export function BlurOverlay({
     <BlurView
       intensity={intensity}
       tint={resolvedTint}
-      style={style}
+      style={[{ paddingHorizontal: tokens.spacing.lg, paddingVertical: tokens.spacing.sm }, style]}
       {...(Platform.OS === "android" ? { blurMethod: "dimezisBlurViewSdk31Plus" } : null)}
     >
       {children}

@@ -1,6 +1,5 @@
 import { Link, type LinkProps } from "expo-router";
 import type { ReactElement, ReactNode } from "react";
-import type { StyleProp, TextStyle } from "react-native";
 import { ThemedText, type ThemedTextProps } from "../themed-text/ThemedText";
 
 export interface TextLinkProps {
@@ -11,7 +10,6 @@ export interface TextLinkProps {
   align?: ThemedTextProps["align"];
   underline?: boolean;
   disabled?: boolean;
-  style?: StyleProp<TextStyle>;
 }
 
 export function TextLink({
@@ -22,16 +20,10 @@ export function TextLink({
   align,
   underline = true,
   disabled,
-  style,
 }: TextLinkProps): ReactElement {
-  const textStyle: StyleProp<TextStyle> = [
-    underline ? { textDecorationLine: "underline" } : null,
-    style,
-  ];
-
   if (disabled) {
     return (
-      <ThemedText type={type} tone="disabled" weight={weight} align={align} style={textStyle}>
+      <ThemedText type={type} tone="disabled" weight={weight} align={align} underline={underline}>
         {children}
       </ThemedText>
     );
@@ -39,7 +31,7 @@ export function TextLink({
 
   return (
     <Link href={href}>
-      <ThemedText type={type} tone="accent" weight={weight} align={align} style={textStyle}>
+      <ThemedText type={type} tone="accent" weight={weight} align={align} underline={underline}>
         {children}
       </ThemedText>
     </Link>

@@ -15,11 +15,12 @@ export type ThemedTextTone =
   | "accent"
   | "onAccent";
 
-export interface ThemedTextProps extends TextProps {
+export interface ThemedTextProps extends Omit<TextProps, "style"> {
   type?: ThemedTextType | undefined;
   weight?: ThemedTextWeight | undefined;
   tone?: ThemedTextTone | undefined;
   align?: TextStyle["textAlign"] | undefined;
+  underline?: boolean | undefined;
 }
 
 const fontWeightMap: Record<ThemedTextWeight, NonNullable<TextStyle["fontWeight"]>> = {
@@ -34,7 +35,7 @@ export function ThemedText({
   weight,
   tone = "primary",
   align,
-  style,
+  underline,
   ...rest
 }: ThemedTextProps): ReactElement {
   const { tokens } = useTheme();
@@ -48,7 +49,7 @@ export function ThemedText({
         { color },
         weight ? { fontWeight: fontWeightMap[weight] } : undefined,
         align ? { textAlign: align } : undefined,
-        style,
+        underline ? { textDecorationLine: "underline" } : undefined,
       ]}
       {...rest}
     />

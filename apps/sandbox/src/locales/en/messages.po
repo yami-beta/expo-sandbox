@@ -39,7 +39,7 @@ msgid ""
 "そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
 msgstr ""
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:46
+#: src/components/presentation-sample/PresentationSampleBody.tsx:44
 msgid "Android の挙動"
 msgstr "Android behavior"
 
@@ -61,7 +61,7 @@ msgstr "card"
 msgid "card (push)"
 msgstr "card (push)"
 
-#: src/app/(tabs)/(home)/components/index.tsx:135
+#: src/app/(tabs)/(home)/components/index.tsx:141
 msgid "colorScheme 連動の半透明ブラー。ヘッダ / overlay 用途"
 msgstr "colorScheme-linked translucent blur, for header / overlay use"
 
@@ -79,7 +79,7 @@ msgstr "containedModal"
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
 
-#: src/app/(tabs)/(home)/components/index.tsx:122
+#: src/app/(tabs)/(home)/components/index.tsx:128
 msgid "expo-haptics 連動の押下フィードバック。Web は no-op"
 msgstr "Press feedback via expo-haptics. No-op on Web"
 
@@ -127,7 +127,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. The placement Stack doesn't affect presentation context for the root variant, so iOS behaves identically to the in-tab variant. The difference shows on Android, where the in-tab variant may appear push-like within the tab."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:45
+#: src/components/presentation-sample/PresentationSampleBody.tsx:43
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
@@ -198,11 +198,11 @@ msgstr "Sample values that can be passed to Stack.Screen's presentation prop."
 msgid "surface elevation + padding 規約 (dark は border で階層)"
 msgstr "surface elevation + padding convention (border-based layering on dark)"
 
-#: src/app/(tabs)/(home)/components/index.tsx:98
+#: src/app/(tabs)/(home)/components/index.tsx:100
 msgid "surface カード"
 msgstr "surface card"
 
-#: src/app/(tabs)/(home)/components/index.tsx:111
+#: src/app/(tabs)/(home)/components/index.tsx:116
 msgid "surfaceElevated カード"
 msgstr "surfaceElevated card"
 
@@ -216,11 +216,11 @@ msgstr "surfaceElevated card"
 msgid "tab navigator 内から表示"
 msgstr "Shown from inside a tab navigator"
 
-#: src/app/(tabs)/(home)/components/index.tsx:101
+#: src/app/(tabs)/(home)/components/index.tsx:103
 msgid "tone: surface / elevation: sm / padding: lg"
 msgstr "tone: surface / elevation: sm / padding: lg"
 
-#: src/app/(tabs)/(home)/components/index.tsx:114
+#: src/app/(tabs)/(home)/components/index.tsx:119
 msgid "tone: surfaceElevated / elevation: md"
 msgstr "tone: surfaceElevated / elevation: md"
 
@@ -271,7 +271,7 @@ msgstr "variant: solid / soft / outline / ghost"
 msgid "アイコン"
 msgstr "Icons"
 
-#: src/app/(tabs)/(home)/components/index.tsx:105
+#: src/app/(tabs)/(home)/components/index.tsx:108
 msgid "アクション"
 msgstr "Action"
 
@@ -366,11 +366,11 @@ msgstr "Falls back to transparentModal because Android has no native equivalent 
 msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal と同等の挙動になる。"
 msgstr "Falls back to transparentModal because Android has no native equivalent of this presentation. Android never relied on the concept of a current context, so the behavior is the same as transparentModal regardless of placement Stack."
 
-#: src/app/(tabs)/(home)/components/index.tsx:134
+#: src/app/(tabs)/(home)/components/index.tsx:140
 msgid "ブラー (BlurView)"
 msgstr "Blur (BlurView)"
 
-#: src/app/(tabs)/(home)/components/index.tsx:146
+#: src/app/(tabs)/(home)/components/index.tsx:152
 msgid "ブラーヘッダ"
 msgstr "Blur header"
 
@@ -447,7 +447,7 @@ msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close but
 msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。タブバーごと覆うのが in-tab 版との差分 (実プロダクトでは このルート配置が推奨)。"
 msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close button. Android also dismisses on back navigation. Covering the tab bar entirely is the differentiator versus the in-tab variant (this root placement is the recommended one in real products)."
 
-#: src/app/(tabs)/(home)/components/index.tsx:156
+#: src/app/(tabs)/(home)/components/index.tsx:157
 msgid "下部 overlay"
 msgstr "Bottom overlay"
 
@@ -471,7 +471,7 @@ msgstr "Overlays as an equivalent transparent modal. Since it sits under the roo
 msgid "外観"
 msgstr "Appearance"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:51
+#: src/components/presentation-sample/PresentationSampleBody.tsx:49
 msgid "実装メモ"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr "Overlays as a modal while keeping the background transparent. When place
 msgid "背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体 (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の バックドロップを描画する。"
 msgstr "Overlays as a modal while keeping the background transparent. Since it appears under the root Stack, the transparent overlay covers the entire screen (including the tab bar). The previous screen shows through, so draw your own backdrop."
 
-#: src/app/(tabs)/(home)/components/index.tsx:121
+#: src/app/(tabs)/(home)/components/index.tsx:127
 msgid "触覚フィードバック"
 msgstr "Haptic feedback"
 
@@ -520,10 +520,10 @@ msgstr "Haptic feedback"
 msgid "設定"
 msgstr "Settings"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:62
+#: src/components/presentation-sample/PresentationSampleBody.tsx:60
 msgid "閉じる"
 msgstr "Close"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:49
+#: src/components/presentation-sample/PresentationSampleBody.tsx:47
 msgid "閉じる操作"
 msgstr "Dismiss action"

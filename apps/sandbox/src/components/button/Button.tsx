@@ -4,7 +4,7 @@ import type { SemanticColorTokens } from "../../theme/tokens/colors";
 import { useTheme } from "../../theme/useTheme";
 import { type HapticStyle, usePressHaptics } from "../haptics/usePressHaptics";
 import { Icon, type IconName } from "../icon/Icon";
-import { ThemedText, type ThemedTextType } from "../themed-text/ThemedText";
+import { ThemedText, type ThemedTextTone, type ThemedTextType } from "../themed-text/ThemedText";
 
 export type ButtonVariant = "solid" | "soft" | "ghost" | "outline";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -44,7 +44,10 @@ const SIZE_SPECS: Record<ButtonSize, SizeSpec> = {
 interface VariantColors {
   background: string;
   backgroundPressed: string;
+  /** Icon に渡す色文字列。ThemedText へは `textTone` を使う。 */
   text: string;
+  /** ThemedText の tone。`text` と同じ意味色を semantic tone で表す。 */
+  textTone: ThemedTextTone;
   border?: string | undefined;
 }
 
@@ -59,6 +62,7 @@ function resolveVariantColors(
       background: solidLike ? color.background.subtle : "transparent",
       backgroundPressed: solidLike ? color.background.subtle : "transparent",
       text: color.text.disabled,
+      textTone: "disabled",
       border: variant === "outline" ? color.border.default : undefined,
     };
   }
@@ -68,24 +72,28 @@ function resolveVariantColors(
         background: color.accent.solid,
         backgroundPressed: color.accent.solidHover,
         text: color.text.onAccent,
+        textTone: "onAccent",
       };
     case "soft":
       return {
         background: color.accent.soft,
         backgroundPressed: color.accent.softHover,
         text: color.accent.text,
+        textTone: "accent",
       };
     case "ghost":
       return {
         background: "transparent",
         backgroundPressed: color.accent.soft,
         text: color.accent.text,
+        textTone: "accent",
       };
     case "outline":
       return {
         background: "transparent",
         backgroundPressed: color.accent.soft,
         text: color.accent.text,
+        textTone: "accent",
         border: color.accent.solid,
       };
   }
@@ -143,7 +151,7 @@ export function Button({
             {leadingIcon ? (
               <Icon name={leadingIcon} size={spec.iconSize} color={colors.text} />
             ) : null}
-            <ThemedText type={spec.textType} style={{ color: colors.text }}>
+            <ThemedText type={spec.textType} tone={colors.textTone}>
               {children}
             </ThemedText>
           </View>
