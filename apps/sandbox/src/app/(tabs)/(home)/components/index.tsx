@@ -2,7 +2,6 @@ import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { ReactElement, ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { BlurOverlay } from "../../../../components/blur-overlay/BlurOverlay";
 import { Button, type ButtonVariant } from "../../../../components/button/Button";
 import { Card } from "../../../../components/card/Card";
 import type { HapticStyle } from "../../../../components/haptics/usePressHaptics";
@@ -135,30 +134,6 @@ export default function ComponentsScreen(): ReactElement {
             ))}
           </View>
         </ShowcaseSection>
-
-        <ShowcaseSection
-          title={<Trans>ブラー (BlurView)</Trans>}
-          description={<Trans>colorScheme 連動の半透明ブラー。ヘッダ / overlay 用途</Trans>}
-        >
-          <View style={[styles.blurDemo, { borderRadius: tokens.radius.lg }]}>
-            <View style={styles.blurBackdrop}>
-              <View style={{ flex: 1, backgroundColor: tokens.color.accent.solid }} />
-              <View style={{ flex: 1, backgroundColor: tokens.color.accent.softHover }} />
-              <View style={{ flex: 1, backgroundColor: tokens.color.accent.solidHover }} />
-              <View style={{ flex: 1, backgroundColor: tokens.color.background.surface }} />
-            </View>
-            <BlurOverlay style={styles.blurHeader}>
-              <ThemedText type="bodyEmphasis">
-                <Trans>ブラーヘッダ</Trans>
-              </ThemedText>
-            </BlurOverlay>
-            <BlurOverlay style={styles.blurFooter}>
-              <ThemedText type="caption" tone="secondary">
-                <Trans>下部 overlay</Trans>
-              </ThemedText>
-            </BlurOverlay>
-          </View>
-        </ShowcaseSection>
       </ScrollView>
     </>
   );
@@ -208,27 +183,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
-  },
-  blurDemo: {
-    height: 180,
-    overflow: "hidden",
-  },
-  blurBackdrop: {
-    ...StyleSheet.absoluteFillObject,
-    flexDirection: "row",
-  },
-  blurHeader: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 56,
-    justifyContent: "center",
-  },
-  blurFooter: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
 });
