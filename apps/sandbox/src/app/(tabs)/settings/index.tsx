@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@react-native-vector-icons/ionicons/static";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { StyleSheet, View } from "react-native";
