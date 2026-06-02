@@ -1,10 +1,9 @@
 packages:
   - apps/*
 
-nodeLinker: hoisted
+# ビルドスクリプトの実行可否（prebuilt バイナリを利用するため実行不要。従来の ignoredBuilds 挙動を維持）
+allowBuilds:
+  esbuild: false
+  unrs-resolver: false
 
-# Supply chain security
-# 公開から1日(1440分)経過していないバージョンのインストールは拒否
-minimumReleaseAge: 1440
-# 直接依存（package.jsonに記載されている依存）以外はGitリポジトリ、tarball URLを参照することをブロック
-blockExoticSubdeps: true
+nodeLinker: hoisted
