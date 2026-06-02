@@ -1,5 +1,5 @@
 import { NativeTabs } from "expo-router/unstable-native-tabs";
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "expo-router/react-navigation";
 import { useLingui } from "@lingui/react/macro";
 import { useTheme } from "../../theme/useTheme";
 

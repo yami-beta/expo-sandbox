@@ -1,4 +1,4 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@react-native-vector-icons/material-icons/static";
 import { SymbolView, type SymbolViewProps, type SymbolWeight } from "expo-symbols";
 import type { ComponentProps, ReactElement } from "react";
 import { Platform, type StyleProp, View, type ViewStyle } from "react-native";
@@ -48,7 +48,7 @@ export interface IconProps {
 
 /**
  * プラットフォーム横断のアイコン。iOS は SF Symbols (`expo-symbols`)、
- * Android / Web は Material Icons (`@expo/vector-icons`) にフォールバックする。
+ * Android / Web は Material Icons (`@react-native-vector-icons/material-icons`) にフォールバックする。
  * `GroupedList` の `leadingIcon` や `Button` の icon で再利用する想定。
  */
 export function Icon({ name, size = 24, color, weight, style }: IconProps): ReactElement {
