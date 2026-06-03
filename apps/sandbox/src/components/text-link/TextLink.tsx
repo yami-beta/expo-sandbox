@@ -30,7 +30,7 @@ export function TextLink({
   }
 
   return (
-    <Link href={href} accessibilityRole="link">
+    <Link href={href}>
       <ThemedText type={type} tone="accent" weight={weight} align={align} underline={underline}>
         {children}
       </ThemedText>
