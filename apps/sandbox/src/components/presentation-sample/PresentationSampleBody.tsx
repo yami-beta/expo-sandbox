@@ -50,6 +50,7 @@ export function PresentationSampleBody({
       ) : null}
 
       <Pressable
+        accessibilityRole="button"
         style={({ pressed }) => [
           styles.primaryButton,
           { backgroundColor: pressed ? colors.border : colors.primary },

@@ -504,7 +504,7 @@ msgstr "Haptic feedback"
 msgid "設定"
 msgstr "Settings"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:60
+#: src/components/presentation-sample/PresentationSampleBody.tsx:61
 msgid "閉じる"
 msgstr "Close"
 

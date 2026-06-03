@@ -19,30 +19,34 @@ export default function ThemeScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <Stack.Screen.Title>{t`テーマ`}</Stack.Screen.Title>
-      {options.map((option) => (
-        <Pressable
-          key={option.value}
-          style={[
-            styles.option,
-            {
-              backgroundColor: mode === option.value ? colors.primary : colors.backgroundHeader,
-              borderColor: colors.border,
-            },
-          ]}
-          onPress={() => setMode(option.value)}
-        >
-          <Text
+      <View accessibilityRole="radiogroup">
+        {options.map((option) => (
+          <Pressable
+            key={option.value}
+            accessibilityRole="radio"
+            accessibilityState={{ selected: mode === option.value }}
             style={[
-              styles.optionText,
+              styles.option,
               {
-                color: mode === option.value ? colors.onPrimary : colors.text,
+                backgroundColor: mode === option.value ? colors.primary : colors.backgroundHeader,
+                borderColor: colors.border,
               },
             ]}
+            onPress={() => setMode(option.value)}
           >
-            {option.label}
-          </Text>
-        </Pressable>
-      ))}
+            <Text
+              style={[
+                styles.optionText,
+                {
+                  color: mode === option.value ? colors.onPrimary : colors.text,
+                },
+              ]}
+            >
+              {option.label}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
     </View>
   );
 }
