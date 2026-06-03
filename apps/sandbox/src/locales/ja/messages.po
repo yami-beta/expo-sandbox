@@ -514,7 +514,7 @@ msgstr "触覚フィードバック"
 msgid "設定"
 msgstr "設定"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:60
+#: src/components/presentation-sample/PresentationSampleBody.tsx:61
 msgid "閉じる"
 msgstr "閉じる"
 

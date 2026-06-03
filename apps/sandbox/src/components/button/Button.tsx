@@ -18,6 +18,11 @@ export interface ButtonProps {
   onPress?: PressableProps["onPress"];
   /** 押下時の触覚フィードバック。`true` で light、style 指定でその種類。Web は no-op。 */
   haptic?: HapticStyle | boolean;
+  /**
+   * SR 読み上げ用ラベル。children がアイコンのみで文言を持たない場合に
+   * `t` マクロ経由（`accessibilityLabel={t`…`}`）で渡す。通常は children が担う。
+   */
+  accessibilityLabel?: string;
 }
 
 interface SizeSpec {
@@ -112,6 +117,7 @@ export function Button({
   disabled = false,
   onPress,
   haptic,
+  accessibilityLabel,
 }: ButtonProps): ReactElement {
   const { tokens } = useTheme();
   const spec = SIZE_SPECS[size];
@@ -133,6 +139,7 @@ export function Button({
       onPress={handlePress}
       disabled={disabled}
       accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
       accessibilityState={{ disabled }}
     >
       {({ pressed }) => {
