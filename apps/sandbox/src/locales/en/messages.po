@@ -39,7 +39,7 @@ msgid ""
 "そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
 msgstr ""
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:44
+#: src/components/presentation-sample/PresentationSampleBody.tsx:46
 msgid "Android の挙動"
 msgstr "Android behavior"
 
@@ -123,7 +123,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. The placement Stack doesn't affect presentation context for the root variant, so iOS behaves identically to the in-tab variant. The difference shows on Android, where the in-tab variant may appear push-like within the tab."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:43
+#: src/components/presentation-sample/PresentationSampleBody.tsx:45
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
@@ -455,7 +455,7 @@ msgstr "Overlays as an equivalent transparent modal. Since it sits under the roo
 msgid "外観"
 msgstr "Appearance"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:49
+#: src/components/presentation-sample/PresentationSampleBody.tsx:51
 msgid "実装メモ"
 msgstr ""
 
@@ -504,10 +504,10 @@ msgstr "Haptic feedback"
 msgid "設定"
 msgstr "Settings"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:61
+#: src/components/presentation-sample/PresentationSampleBody.tsx:63
 msgid "閉じる"
 msgstr "Close"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:47
+#: src/components/presentation-sample/PresentationSampleBody.tsx:49
 msgid "閉じる操作"
 msgstr "Dismiss action"

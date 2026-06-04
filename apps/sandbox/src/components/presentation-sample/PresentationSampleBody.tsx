@@ -37,7 +37,9 @@ export function PresentationSampleBody({
         <View style={[styles.badge, { backgroundColor: colors.backgroundSelected }]}>
           <Text style={[styles.badgeText, { color: colors.text }]}>{presentationValue}</Text>
         </View>
-        <ThemedText type="title">{heading}</ThemedText>
+        <ThemedText type="title" accessibilityRole="header">
+          {heading}
+        </ThemedText>
       </View>
 
       <PresentationSection title={<Trans>iOS の挙動</Trans>}>{iosBehavior}</PresentationSection>
