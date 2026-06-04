@@ -16,8 +16,13 @@ export function PresentationSampleOverlay(props: PresentationSampleOverlayProps)
   };
 
   return (
-    <View style={styles.backdrop}>
-      <Pressable style={StyleSheet.absoluteFill} onPress={close} />
+    <View style={styles.backdrop} accessibilityViewIsModal={true}>
+      <Pressable
+        style={StyleSheet.absoluteFill}
+        onPress={close}
+        accessibilityElementsHidden={true}
+        importantForAccessibility="no-hide-descendants"
+      />
       <View
         style={[styles.card, { backgroundColor: colors.background, borderColor: colors.border }]}
       >
