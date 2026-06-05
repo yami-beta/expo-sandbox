@@ -39,6 +39,9 @@ export type TypographyTokenName =
   | "code"
   | "overline";
 
+// lineHeight は端末フォント倍率 1.0 時の基準値。RN の <Text> は allowFontScaling 既定で
+// fontSize を倍率追従させるが px 指定の lineHeight は追従しないため、描画側 (ThemedText) で
+// 同じ倍率を掛けてスケールさせる。トークンを直接 <Text> に渡す場合も同様の対応が要る。
 export const Typography: Record<TypographyTokenName, TextStyle> = {
   displayLg: { fontSize: 34, lineHeight: 40, fontWeight: "700" },
   title: { fontSize: 28, lineHeight: 34, fontWeight: "700" },
