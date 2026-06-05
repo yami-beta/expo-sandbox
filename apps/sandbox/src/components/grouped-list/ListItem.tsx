@@ -7,7 +7,8 @@ import { ThemedText } from "../themed-text/ThemedText";
 
 export const ICON_SLOT_WIDTH = 28;
 export const ICON_GAP = 12;
-const MIN_ROW_HEIGHT = 44;
+// iOS 44pt / Android 48dp のうち厳しい 48 に全 OS 統一 (Button の MIN_TOUCH_TARGET と揃える)
+const MIN_ROW_HEIGHT = 48;
 
 interface CommonItemFields {
   text: ReactNode;

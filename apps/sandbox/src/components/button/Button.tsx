@@ -26,6 +26,11 @@ export interface ButtonProps {
 }
 
 interface SizeSpec {
+  /**
+   * 最小タッチターゲット (minHeight/minWidth に適用)。全 size で 48 以上を確保しつつ
+   * size ごとに段階化する。padding (内側余白) はこの下限に達しない構成での保険。
+   */
+  minSize: number;
   paddingVertical: number;
   paddingHorizontal: number;
   gap: number;
@@ -34,16 +39,31 @@ interface SizeSpec {
 }
 
 const SIZE_SPECS: Record<ButtonSize, SizeSpec> = {
-  // md は最小タッチターゲット 44pt を満たす (paddingVertical 10 + body lineHeight 24)
-  sm: { paddingVertical: 6, paddingHorizontal: 12, gap: 6, textType: "label", iconSize: 16 },
+  // minSize: sm は最小タッチターゲット 48 を下限に、md 56 / lg 64 へ段階化 (ListItem の 48 とも整合)
+  sm: {
+    minSize: 48,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    gap: 6,
+    textType: "label",
+    iconSize: 16,
+  },
   md: {
+    minSize: 56,
     paddingVertical: 10,
     paddingHorizontal: 16,
     gap: 8,
     textType: "bodyEmphasis",
     iconSize: 18,
   },
-  lg: { paddingVertical: 14, paddingHorizontal: 24, gap: 10, textType: "headline", iconSize: 22 },
+  lg: {
+    minSize: 64,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    gap: 10,
+    textType: "headline",
+    iconSize: 22,
+  },
 };
 
 interface VariantColors {
@@ -144,6 +164,8 @@ export function Button({
     >
       {({ pressed }) => {
         const containerStyle: ViewStyle = {
+          minHeight: spec.minSize,
+          minWidth: spec.minSize,
           paddingVertical: spec.paddingVertical,
           paddingHorizontal: spec.paddingHorizontal,
           gap: spec.gap,
