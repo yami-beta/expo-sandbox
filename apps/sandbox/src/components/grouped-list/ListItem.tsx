@@ -52,9 +52,10 @@ export function ListItemRow({
 
   if (item.disabled) {
     return (
-      // disabled 行は Pressable を介さない素の View のため、放置すると
-      // text / description (+ badge) が個別ノードに分断読み上げされる。
-      // accessible で 1 要素に束ね、無効状態を SR に伝える。
+      // disabled 行は Pressable を介さない素の View。accessible を付けて行を 1 要素に
+      // 束ね (iOS: isAccessibilityElement / Android: focusable = RN 標準のグルーピング手段)、
+      // 子の text / description (+ badge) を連結読み上げさせ、無効状態を SR に伝える。
+      // Touchable は既定で accessible のためリンク行では不要で、ここも accessible のネストは起きない。
       <View
         accessible={true}
         accessibilityState={{ disabled: true }}
