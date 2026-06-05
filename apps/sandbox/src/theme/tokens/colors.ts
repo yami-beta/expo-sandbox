@@ -1,6 +1,11 @@
 // WCAG コントラスト比 (light / dark で text vs background):
 // - text.primary (#1A1A1A on #FFFFFF / #FAFAFA on #0B0B0B) ≈ 17.8:1 / 18.5:1 (AAA)
 // - text.secondary on canvas ≈ 6.97:1 / 9.85:1 (AAA)
+// - text.tertiary (n[10]) on canvas ≈ 5.10:1 / 9.08:1 (通常 AA。light は #6E6E6E に調整して達成)
+// - text.disabled (n[9]) on canvas ≈ 3.23:1 / 3.92:1
+//   無効 UI のテキストは WCAG 1.4.3 のコントラスト免除対象だが、視認できる下限として
+//   非テキスト基準 3:1 を満たす段に設定し、tertiary より薄い階層を保つ。
+// - accent.solid 上の onAccent ≈ 4.74:1 / 6.14:1 (solid を a[10] に 1 段濃くして達成)
 // 参考: docs.expo.dev のアクセシビリティガイド / WCAG 2.2
 
 export type ColorScheme = "light" | "dark";
@@ -32,7 +37,7 @@ const lightNeutral: GrayScale = [
   "#D2D2D2",
   "#C0C0C0",
   "#8F8F8F",
-  "#7C7C7C",
+  "#6E6E6E",
   "#5F5F5F",
   "#1A1A1A",
 ];
@@ -141,13 +146,13 @@ const buildSemantic = (n: GrayScale, a: GrayScale): SemanticColorTokens => ({
     primary: n[12],
     secondary: n[11],
     tertiary: n[10],
-    disabled: n[8],
+    disabled: n[9],
     onAccent: n[0],
     link: a[11],
   },
   accent: {
-    solid: a[9],
-    solidHover: a[10],
+    solid: a[10],
+    solidHover: a[11],
     soft: a[2],
     softHover: a[3],
     text: a[11],
