@@ -52,7 +52,12 @@ export function ListItemRow({
 
   if (item.disabled) {
     return (
+      // disabled 行は Pressable を介さない素の View のため、放置すると
+      // text / description (+ badge) が個別ノードに分断読み上げされる。
+      // accessible で 1 要素に束ね、無効状態を SR に伝える。
       <View
+        accessible={true}
+        accessibilityState={{ disabled: true }}
         style={[
           styles.row,
           islandStyle,
@@ -64,6 +69,10 @@ export function ListItemRow({
     );
   }
 
+  // 行のグルーピングと role は明示指定しない:
+  // - Pressable は accessible 既定 true で子の Text を 1 要素に自動連結する。
+  // - expo-router の Link が role="link" を Slot 経由で Pressable に付与する
+  //   (TextLink の冗長 role 削除と同じ理屈)。明示すると二重指定になる。
   return (
     <Link href={item.href} asChild>
       <Pressable>
@@ -86,6 +95,9 @@ export function ListItemRow({
               size={16}
               color={tokens.color.text.tertiary}
               style={styles.chevron}
+              // chevron は装飾。グリフ名の二重読み上げを防ぐため SR から隠す。
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
             />
           </View>
         )}
