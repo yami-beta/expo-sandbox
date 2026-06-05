@@ -103,7 +103,7 @@ msgstr "formSheet"
 msgid "fullScreenModal"
 msgstr "fullScreenModal"
 
-#: src/app/(tabs)/(home)/index.tsx:28
+#: src/app/(tabs)/(home)/index.tsx:34
 msgid "Icon / Button / Card など"
 msgstr "Icon / Button / Card など"
 
@@ -192,7 +192,7 @@ msgstr "presentation 形式は modal だが、Android では animation 未指定
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 
-#: src/app/(tabs)/(home)/index.tsx:40
+#: src/app/(tabs)/(home)/index.tsx:48
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch サンプル (準備中)"
 
@@ -281,7 +281,7 @@ msgstr "アイコン"
 msgid "アクション"
 msgstr "アクション"
 
-#: src/app/(tabs)/settings/index.tsx:51
+#: src/app/(tabs)/settings/index.tsx:57
 msgid "アプリ情報"
 msgstr "アプリ情報"
 
@@ -290,7 +290,7 @@ msgid "カード"
 msgstr "カード"
 
 #: src/app/(tabs)/(home)/components/index.tsx:44
-#: src/app/(tabs)/(home)/index.tsx:27
+#: src/app/(tabs)/(home)/index.tsx:33
 msgid "コンポーネント"
 msgstr "コンポーネント"
 
@@ -334,7 +334,7 @@ msgstr "タブ内 Stack 上の全画面モーダル"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "タブ内 Stack 上の背景透過モーダル"
 
-#: src/app/(tabs)/(home)/index.tsx:39
+#: src/app/(tabs)/(home)/index.tsx:47
 msgid "データ取得"
 msgstr "データ取得"
 
@@ -381,7 +381,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。ルート版ではタブバーが消えるのが in-tab 版との差分。"
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:51
+#: src/app/(tabs)/(home)/index.tsx:65
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -389,7 +389,7 @@ msgstr "ホーム"
 msgid "ボタン"
 msgstr "ボタン"
 
-#: src/app/(tabs)/settings/index.tsx:63
+#: src/app/(tabs)/settings/index.tsx:71
 msgid "ライセンス"
 msgstr "ライセンス"
 
@@ -469,11 +469,11 @@ msgstr "外観"
 msgid "実装メモ"
 msgstr "実装メモ"
 
-#: src/app/(tabs)/settings/index.tsx:46
+#: src/app/(tabs)/settings/index.tsx:52
 msgid "情報"
 msgstr "情報"
 
-#: src/app/(tabs)/(home)/index.tsx:34
+#: src/app/(tabs)/(home)/index.tsx:42
 msgid "準備中"
 msgstr "準備中"
 
@@ -510,7 +510,7 @@ msgid "触覚フィードバック"
 msgstr "触覚フィードバック"
 
 #: src/app/(tabs)/_layout.tsx:35
-#: src/app/(tabs)/settings/index.tsx:74
+#: src/app/(tabs)/settings/index.tsx:88
 msgid "設定"
 msgstr "設定"
 
