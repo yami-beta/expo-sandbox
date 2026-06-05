@@ -19,14 +19,22 @@ export default function Index() {
           text: <Trans>ナビゲーションパターン</Trans>,
           description: <Trans>presentation オプションのデモ</Trans>,
           leadingIcon: (
-            <Ionicons name="layers-outline" size={22} color={tokens.color.text.secondary} />
+            <Ionicons
+              name="layers-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
           ),
         },
         {
           href: "/components",
           text: <Trans>コンポーネント</Trans>,
           description: <Trans>Icon / Button / Card など</Trans>,
-          leadingIcon: <Icon name="grid" size={22} color={tokens.color.text.secondary} />,
+          leadingIcon: (
+            <Icon name="grid" size={22} color={tokens.color.text.secondary} decorative />
+          ),
         },
       ],
     },
@@ -39,7 +47,13 @@ export default function Index() {
           text: <Trans>データ取得</Trans>,
           description: <Trans>React Query / fetch サンプル (準備中)</Trans>,
           leadingIcon: (
-            <Ionicons name="cloud-download-outline" size={22} color={tokens.color.text.tertiary} />
+            <Ionicons
+              name="cloud-download-outline"
+              size={22}
+              color={tokens.color.text.tertiary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
           ),
         },
       ],

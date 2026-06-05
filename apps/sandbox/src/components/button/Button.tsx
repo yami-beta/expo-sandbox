@@ -178,7 +178,7 @@ export function Button({
         return (
           <View style={[styles.container, containerStyle]}>
             {leadingIcon ? (
-              <Icon name={leadingIcon} size={spec.iconSize} color={colors.text} />
+              <Icon name={leadingIcon} size={spec.iconSize} color={colors.text} decorative />
             ) : null}
             <ThemedText type={spec.textType} tone={colors.textTone}>
               {children}

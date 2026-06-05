@@ -55,7 +55,7 @@ export default function ComponentsScreen(): ReactElement {
           <View style={[styles.iconGrid, { gap: tokens.spacing.lg }]}>
             {ICON_NAMES.map((name) => (
               <View key={name} style={[styles.iconCell, { gap: tokens.spacing.xs }]}>
-                <Icon name={name} size={28} color={tokens.color.text.secondary} />
+                <Icon name={name} size={28} color={tokens.color.text.secondary} decorative />
                 <ThemedText type="caption" tone="tertiary">
                   {name}
                 </ThemedText>
