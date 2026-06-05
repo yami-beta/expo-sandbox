@@ -172,7 +172,10 @@ export function Button({
           borderRadius: tokens.radius.md,
           backgroundColor: pressed ? colors.backgroundPressed : colors.background,
           ...(colors.border
-            ? { borderWidth: StyleSheet.hairlineWidth, borderColor: colors.border }
+            ? // outline の枠線はボタンの主たる視覚的アフォーダンス。hairlineWidth は
+              // 高密度端末でサブピクセルになり暗背景でかすれるため、1 DIP を確保する
+              // (区切り線用途の hairlineWidth とは要件が異なる)。
+              { borderWidth: 1, borderColor: colors.border }
             : null),
         };
         return (
