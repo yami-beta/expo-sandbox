@@ -1,7 +1,7 @@
 import { MaterialIcons } from "@react-native-vector-icons/material-icons/static";
 import { SymbolView, type SymbolViewProps, type SymbolWeight } from "expo-symbols";
 import type { ComponentProps, ReactElement } from "react";
-import { Platform, type StyleProp, View, type ViewStyle } from "react-native";
+import { Platform, type StyleProp, View, type ViewProps, type ViewStyle } from "react-native";
 import { useTheme } from "../../theme/useTheme";
 
 // SymbolViewProps["name"] は `SFSymbol | { ios; android; web }` の union。
@@ -44,6 +44,41 @@ export interface IconProps {
   color?: string;
   weight?: SymbolWeight;
   style?: StyleProp<ViewStyle>;
+  /**
+   * 意味を持つアイコン単体の SR 読み上げラベル。`t` マクロ経由（`accessibilityLabel={t`…`}`）で渡す。
+   * 指定すると装飾扱い (`decorative`) より優先され、image 要素として読み上げられる。
+   */
+  accessibilityLabel?: string;
+  /**
+   * 装飾アイコンとして SR から隠す。テキスト併記時のグリフ名二重読み上げを防ぐ。
+   * `accessibilityLabel` と未指定のときは現状どおり a11y 属性を付けない。
+   * @default false
+   */
+  decorative?: boolean;
+}
+
+/**
+ * `accessibilityLabel` / `decorative` から外側 View に載せる a11y 属性を導出する。
+ * label を最優先 (意味アイコン) → decorative (隠す) → どちらも無ければ無指定 (現状維持)。
+ */
+function resolveAccessibilityProps(
+  accessibilityLabel: string | undefined,
+  decorative: boolean,
+): Pick<
+  ViewProps,
+  | "accessible"
+  | "accessibilityLabel"
+  | "accessibilityRole"
+  | "accessibilityElementsHidden"
+  | "importantForAccessibility"
+> {
+  if (accessibilityLabel != null) {
+    return { accessible: true, accessibilityLabel, accessibilityRole: "image" };
+  }
+  if (decorative) {
+    return { accessibilityElementsHidden: true, importantForAccessibility: "no-hide-descendants" };
+  }
+  return {};
 }
 
 /**
@@ -51,15 +86,24 @@ export interface IconProps {
  * Android / Web は Material Icons (`@react-native-vector-icons/material-icons`) にフォールバックする。
  * `GroupedList` の `leadingIcon` や `Button` の icon で再利用する想定。
  */
-export function Icon({ name, size = 24, color, weight, style }: IconProps): ReactElement {
+export function Icon({
+  name,
+  size = 24,
+  color,
+  weight,
+  style,
+  accessibilityLabel,
+  decorative = false,
+}: IconProps): ReactElement {
   const { tokens } = useTheme();
   const resolvedColor = color ?? tokens.color.text.primary;
   const def = ICONS[name];
+  const a11yProps = resolveAccessibilityProps(accessibilityLabel, decorative);
 
   // SymbolView は ViewStyle、MaterialIcons は TextStyle を取り両者の StyleProp は
   // 相互代入できないため、外側の View に ViewStyle を持たせ、グリフ自体は size/color で制御する。
   return (
-    <View style={style}>
+    <View style={style} {...a11yProps}>
       {Platform.OS === "ios" ? (
         <SymbolView
           name={def.sf}

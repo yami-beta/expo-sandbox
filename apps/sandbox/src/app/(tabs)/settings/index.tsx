@@ -37,7 +37,13 @@ export default function SettingsScreen() {
           text: <Trans>テーマ</Trans>,
           description: <Trans>ライト / ダーク / システム</Trans>,
           leadingIcon: (
-            <Ionicons name="contrast-outline" size={22} color={tokens.color.text.secondary} />
+            <Ionicons
+              name="contrast-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
           ),
         },
       ],
@@ -54,6 +60,8 @@ export default function SettingsScreen() {
               name="information-circle-outline"
               size={22}
               color={tokens.color.text.tertiary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
             />
           ),
           trailingBadge: versionBadge,
@@ -62,7 +70,13 @@ export default function SettingsScreen() {
           disabled: true,
           text: <Trans>ライセンス</Trans>,
           leadingIcon: (
-            <Ionicons name="document-text-outline" size={22} color={tokens.color.text.tertiary} />
+            <Ionicons
+              name="document-text-outline"
+              size={22}
+              color={tokens.color.text.tertiary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
           ),
         },
       ],
