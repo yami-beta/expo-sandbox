@@ -15,6 +15,7 @@ import { i18n } from "@lingui/core";
 import { ThemeProvider } from "../theme/ThemeContext";
 import { useTheme } from "../theme/useTheme";
 import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
+import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
 import { initializeI18n } from "../i18n";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
@@ -33,6 +34,29 @@ function RootLayoutContent() {
           options={{ presentation: "modal" }}
         />
         <Stack.Screen
+          name="navigation-patterns/modal/on-root-slide-from-bottom"
+          options={{
+            presentation: "modal",
+            animation: "slide_from_bottom",
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/modal/on-root-slide-from-bottom-back-hidden"
+          options={{
+            presentation: "modal",
+            animation: "slide_from_bottom",
+            headerBackVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/modal/on-root-slide-from-bottom-close"
+          options={{
+            presentation: "modal",
+            animation: "slide_from_bottom",
+            headerBackIcon: closeHeaderBackIcon,
+          }}
+        />
+        <Stack.Screen
           name="navigation-patterns/transparent-modal/on-root"
           options={{
             presentation: "transparentModal",
@@ -45,6 +69,32 @@ function RootLayoutContent() {
           options={{
             presentation: "fullScreenModal",
             gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/full-screen-modal/on-root-slide-from-bottom"
+          options={{
+            presentation: "fullScreenModal",
+            animation: "slide_from_bottom",
+            gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/full-screen-modal/on-root-slide-from-bottom-back-hidden"
+          options={{
+            presentation: "fullScreenModal",
+            animation: "slide_from_bottom",
+            gestureEnabled: false,
+            headerBackVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="navigation-patterns/full-screen-modal/on-root-slide-from-bottom-close"
+          options={{
+            presentation: "fullScreenModal",
+            animation: "slide_from_bottom",
+            gestureEnabled: false,
+            headerBackIcon: closeHeaderBackIcon,
           }}
         />
         <Stack.Screen

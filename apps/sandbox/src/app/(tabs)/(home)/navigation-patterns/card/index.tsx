@@ -21,6 +21,22 @@ export default function CardIntermediate(): ReactElement {
         },
       ],
     },
+    {
+      title: <Trans>animation バリエーション</Trans>,
+      footer: <Trans>presentation に animation を組み合わせたサンプルです。</Trans>,
+      data: [
+        {
+          href: "/navigation-patterns/card/in-tab-fade",
+          text: <Trans>in tab + fade</Trans>,
+          description: <Trans>クロスフェードで遷移</Trans>,
+        },
+        {
+          href: "/navigation-patterns/card/in-tab-none",
+          text: <Trans>in tab + none</Trans>,
+          description: <Trans>アニメーションなしで即時切替</Trans>,
+        },
+      ],
+    },
   ] as const satisfies ListSection[];
 
   return (
