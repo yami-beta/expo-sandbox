@@ -15,6 +15,11 @@ export interface CardShapeProps extends Omit<ViewProps, "style"> {
   padding?: SpacingName;
   /** light での影の強さ。`tokens.shadow` のキー。 @default "sm" */
   elevation?: ShadowTokenName;
+  /**
+   * 面の最小高さ。タップ可能な利用 (`PressableCard`) がタッチターゲットの
+   * 下限を保証するために渡す。静的な `Card` では指定しない。
+   */
+  minHeight?: number;
 }
 
 /**
@@ -49,6 +54,7 @@ export function CardShape({
   backgroundColor,
   padding = "lg",
   elevation = "sm",
+  minHeight,
   ...rest
 }: CardShapeProps): ReactElement {
   const { colorScheme, tokens } = useTheme();
@@ -65,6 +71,7 @@ export function CardShape({
           backgroundColor,
           borderRadius: tokens.radius.lg,
           padding: tokens.spacing[padding],
+          ...(minHeight != null ? { minHeight } : null),
         },
         elevationStyle,
       ]}

@@ -1,11 +1,12 @@
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { ReactElement, ReactNode } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Button, type ButtonVariant } from "../../../../components/button/Button";
 import { Card } from "../../../../components/card/Card";
 import type { HapticStyle } from "../../../../components/haptics/usePressHaptics";
 import { Icon, type IconName } from "../../../../components/icon/Icon";
+import { ScreenScrollView } from "../../../../components/screen-scroll-view/ScreenScrollView";
 import { ThemedText } from "../../../../components/themed-text/ThemedText";
 import { useTheme } from "../../../../theme/useTheme";
 
@@ -42,10 +43,7 @@ export default function ComponentsScreen(): ReactElement {
   return (
     <>
       <Stack.Screen.Title>{t`コンポーネント`}</Stack.Screen.Title>
-      <ScrollView
-        style={{ backgroundColor: tokens.color.background.canvas }}
-        contentContainerStyle={{ padding: tokens.spacing.xl, gap: tokens.spacing.xl }}
-      >
+      <ScreenScrollView>
         <ShowcaseSection
           title={<Trans>アイコン</Trans>}
           description={
@@ -134,7 +132,7 @@ export default function ComponentsScreen(): ReactElement {
             ))}
           </View>
         </ShowcaseSection>
-      </ScrollView>
+      </ScreenScrollView>
     </>
   );
 }

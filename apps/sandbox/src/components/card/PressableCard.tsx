@@ -16,10 +16,15 @@ export interface PressableCardProps extends Omit<PressableProps, "children" | "s
   elevation?: ShadowTokenName;
 }
 
+// iOS 44pt / Android 48dp のうち厳しい 48 に全 OS 統一
+// (Button の minSize / ListItem の MIN_ROW_HEIGHT と揃える)
+const MIN_TOUCH_TARGET = 48;
+
 /**
  * タップ可能なカード。`Card` と同じ形 (`CardShape`) を描きつつ、押下中は背景を
  * `background.pressed` に切り替える。押下というジェスチャの解釈はここで行い、
- * shape には色の値だけを渡す。`PressableProps` を Pressable へ forward するため、
+ * shape には色の値だけを渡す。タップ可能な部品としてタッチターゲットの下限
+ * (minHeight 48) も保証する。`PressableProps` を Pressable へ forward するため、
  * `Link asChild` の子としてそのまま使える。
  */
 export function PressableCard({
@@ -38,6 +43,7 @@ export function PressableCard({
           backgroundColor={
             pressed ? tokens.color.background.pressed : tokens.color.background[tone]
           }
+          minHeight={MIN_TOUCH_TARGET}
           {...(padding ? { padding } : null)}
           {...(elevation ? { elevation } : null)}
         >
