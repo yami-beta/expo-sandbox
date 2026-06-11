@@ -7,4 +7,7 @@ allowBuilds:
   msgpackr-extract: false
   unrs-resolver: false
 
+minimumReleaseAgeExclude:
+  - '@expo/ui@56.0.17'
+
 nodeLinker: hoisted

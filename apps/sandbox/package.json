@@ -18,7 +18,9 @@
     "lingui:extract": "lingui extract --clean"
   },
   "dependencies": {
+    "@expo/material-symbols": "^0.1.1",
     "@expo/metro-runtime": "~56.0.13",
+    "@expo/ui": "~56.0.17",
     "@formatjs/intl-locale": "^5.3.3",
     "@formatjs/intl-pluralrules": "^6.3.3",
     "@formatjs/intl-relativetimeformat": "^12.3.3",
