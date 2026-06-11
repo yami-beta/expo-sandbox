@@ -13,6 +13,27 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:48
+msgid "{label} に共有しました"
+msgstr "Shared to {label}"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:117
+msgid "{reminderMinutes} 分前に通知"
+msgstr "Notify {reminderMinutes} minutes before"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:56
+msgid "「…」が Menu、「共有」が BottomSheet のサンプルです。どちらも OS ネイティブのメニュー / シートで表示されます。"
+msgstr "The \"…\" button demonstrates Menu and the \"Share\" button demonstrates BottomSheet. Both are rendered as OS-native menus / sheets."
+
+#. placeholder {0}: menuActionLabels[nativeEvent.event] ?? nativeEvent.event
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:84
+msgid "「{0}」を選択しました"
+msgstr "Selected \"{0}\""
+
+#: src/app/expo-ui/onboarding/index.tsx:92
+msgid "「はじめる」を押すとオンボーディングを終了します。"
+msgstr "Press \"Get started\" to finish onboarding."
+
 #: src/app/navigation-patterns/modal/on-root-slide-from-bottom-back-hidden.tsx:38
 msgid "「ヘッダーをタイトルだけにし、閉じる動線は本文に集約する」スタイル。iOS の swipe down が 使える前提なら自然に成立する一方、`gestureEnabled: false` を併用する場合は本文の閉じる ボタンが唯一の dismiss 経路になるため、必ず到達可能な位置に配置すること。"
 msgstr "A \"header is title-only, with all dismiss affordances consolidated in the body\" style. This works naturally when iOS swipe down is available, but when combined with `gestureEnabled: false`, the body's Close button becomes the only dismiss path — so place it where it is guaranteed to be reachable."
@@ -36,6 +57,14 @@ msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation
 #: src/app/navigation-patterns/modal/on-root-slide-from-bottom.tsx:34
 msgid "「閉じる」ボタン、iOS の swipe down、Android の戻る操作で閉じる。同じ on-root の animation 未指定版 (Android は右スライド) と見比べると slide_from_bottom の効果が 分かりやすい。"
 msgstr "Dismiss via the Close button, iOS swipe down, or Android back navigation. Comparing against the on-root variant with `animation` unspecified (slide-in from the right on Android) makes the effect of `slide_from_bottom` easy to see."
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:104
+msgid "@expo/ui の Drop-in replacements を試しています。既存ライブラリと同じ API のままネイティブ実装に置き換えられるのが便利。"
+msgstr "Trying out the drop-in replacements from @expo/ui. It is convenient to swap in native implementations while keeping the same API as the existing libraries."
+
+#: src/app/(tabs)/(home)/index.tsx:42
+msgid "@expo/ui のネイティブ UI サンプル"
+msgstr "Native UI samples with @expo/ui"
 
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/index.tsx:34
 #: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:34
@@ -81,6 +110,14 @@ msgstr "Specifying `headerBackVisible: false` hides the back/close element on th
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab-slide-from-bottom-close.tsx:35
 msgid "`headerLeft` で React Component を返す方式と違い、ネイティブ標準の navigation icon slot を 使うので位置・余白が完全に揃う。代償として PNG (24/48/72dp) を同梱する必要がある。"
 msgstr "Unlike the approach of returning a React Component from `headerLeft`, this uses the native standard navigation icon slot, so position and spacing line up perfectly. The trade-off is that PNG assets (24/48/72dp) must be bundled with the project."
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:123
+msgid "128 MB 使用中"
+msgstr "128 MB in use"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:77
+msgid "3 分前"
+msgstr "3 minutes ago"
 
 #: src/app/navigation-patterns/form-sheet/on-root.tsx:40
 msgid ""
@@ -182,9 +219,34 @@ msgstr "containedModal"
 msgid "containedTransparentModal"
 msgstr "containedTransparentModal"
 
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:72
+msgid "DateTimePicker (date)。iOS はインライン、Android はダイアログで選択"
+msgstr "DateTimePicker (date). Inline on iOS, dialog on Android"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:80
+msgid "DateTimePicker (time)"
+msgstr "DateTimePicker (time)"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:26
+msgid "DateTimePicker / Picker / SegmentedControl / Slider"
+msgstr "DateTimePicker / Picker / SegmentedControl / Slider"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:10
+msgid "Drop-in replacements"
+msgstr "Drop-in replacements"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:61
+#: src/app/(tabs)/(home)/index.tsx:41
+msgid "Expo UI"
+msgstr "Expo UI"
+
 #: src/app/(tabs)/(home)/components/index.tsx:125
 msgid "expo-haptics 連動の押下フィードバック。Web は no-op"
 msgstr "Press feedback via expo-haptics. No-op on Web"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:53
+msgid "FieldGroup / TextInput / Checkbox / Button / BottomSheet"
+msgstr "FieldGroup / TextInput / Checkbox / Button / BottomSheet"
 
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/in-tab.tsx:12
 #: src/app/(tabs)/(home)/navigation-patterns/form-sheet/index.tsx:35
@@ -228,6 +290,10 @@ msgstr "Swap the native back glyph for × via headerBackIcon"
 #: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:72
 msgid "headerBackVisible: false でヘッダー左を非表示"
 msgstr "Hide the header-left element via `headerBackVisible: false`"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:38
+msgid "Host 配下を iOS は SwiftUI、Android は Jetpack Compose で描画するクロスプラットフォームコンポーネント。@expo/ui は新しいパッケージのため API は変わる可能性があります。"
+msgstr "Cross-platform components rendered with SwiftUI on iOS and Jetpack Compose on Android under a Host. @expo/ui is a new package, so its API may change."
 
 #: src/app/(tabs)/(home)/index.tsx:34
 msgid "Icon / Button / Card など"
@@ -302,6 +368,14 @@ msgstr "On iOS, an in-screen Close button is required (swipe down is disabled an
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab-slide-from-bottom-back-hidden.tsx:28
 msgid "iOS は画面内の「閉じる」ボタンが必須。Android は戻る操作でも閉じる。"
 msgstr "On iOS, an in-screen Close button is required. Android also dismisses on back navigation."
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:48
+msgid "List / Switch / Picker / Slider / Collapsible"
+msgstr "List / Switch / Picker / Slider / Collapsible"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:31
+msgid "Menu / BottomSheet"
+msgstr "Menu / BottomSheet"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:14
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:11
@@ -388,6 +462,14 @@ msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the 
 msgid "OS / テーマに応じたスライドアニメーションで push される。ルート Stack 配下なので遷移先ではタブバーが消える。システムの戻るボタン / ジェスチャーで戻れる。"
 msgstr "Pushed with an OS/theme-driven slide animation. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the system back button or gesture."
 
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:21
+msgid "PagerView / MaskedView (fullScreenModal で提示)"
+msgstr "PagerView / MaskedView (presented as fullScreenModal)"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:87
+msgid "Picker。iOS はホイール、Android はドロップダウン"
+msgstr "Picker. Wheel on iOS, dropdown on Android"
+
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:10
 msgid "Presentation オプション"
 msgstr "Presentation options"
@@ -408,14 +490,22 @@ msgstr "The presentation style is `modal`, but with `animation` unspecified Andr
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style becomes `modal`, but the transition animation is controlled separately by the `animation` prop. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right, same as `card`), not the iOS-style \"slide up from the bottom\". Set `animation: slide_from_bottom` explicitly to slide up. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the back button or system gesture."
 
-#: src/app/(tabs)/(home)/index.tsx:48
+#: src/app/(tabs)/(home)/index.tsx:62
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:96
+msgid "SegmentedControl"
+msgstr "SegmentedControl"
 
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/index.tsx:32
 #: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:32
 msgid "slide_from_bottom バリエーション"
 msgstr "slide_from_bottom variations"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:106
+msgid "Slider。5 分刻みで 0〜60 分前"
+msgstr "Slider. 0–60 minutes before, in 5-minute steps"
 
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:11
 msgid "Stack.Screen の presentation に渡せる値のサンプルです。"
@@ -526,6 +616,10 @@ msgstr "Presented with UIModalPresentationOverCurrentContext. Overlays the curre
 msgid "UIModalPresentationOverCurrentContext で表示される。透過を保ったまま current context の上に重なる挙動だが、ルート Stack 配下に置くと current context はアプリのルート view controller になり、結果として画面全体 (タブバーを含む領域全体) に透過オーバーレイが展開してしまう。これでは `transparentModal` と見た目の差が なくなり、containedTransparentModal を使う意味が消える ── 本来は tab content の bounds に収まることを期待する presentation 値なので、ルート配置は推奨されない (観察用)。"
 msgstr "Presented with UIModalPresentationOverCurrentContext. The intended behavior is to overlay the current context transparently, but when placed under the root Stack the current context becomes the app's root view controller — so the transparent overlay ends up spanning the entire screen (including the tab bar area). This collapses the visual distinction from `transparentModal` and erases the point of using containedTransparentModal — since this presentation value is intended to stay within the tab content bounds, the root placement is not recommended (observation only)."
 
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:36
+msgid "Universal"
+msgstr "Universal"
+
 #: src/app/(tabs)/(home)/components/index.tsx:67
 msgid "variant: solid / soft / outline / ghost"
 msgstr "variant: solid / soft / outline / ghost"
@@ -542,17 +636,64 @@ msgstr "Action"
 msgid "アニメーションなしで即時切替"
 msgstr "Instant switch with no animation"
 
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:71
+msgid "アバター"
+msgstr "Avatar"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:124
+msgid "アバターの色を選択"
+msgstr "Choose an avatar color"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:94
+msgid "アプリ全体のテーマ設定と連動します"
+msgstr "Linked to the app-wide theme setting"
+
 #: src/app/(tabs)/settings/index.tsx:57
 msgid "アプリ情報"
 msgstr "App info"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:67
+msgid "イベント作成"
+msgstr "Create event"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:25
+msgid "イベント作成フォーム"
+msgstr "Event creation form"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:20
+#: src/app/expo-ui/onboarding/index.tsx:43
+msgid "オンボーディング"
+msgstr "Onboarding"
 
 #: src/app/(tabs)/(home)/components/index.tsx:89
 msgid "カード"
 msgstr "Card"
 
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:86
+msgid "カテゴリ"
+msgstr "Category"
+
+#. placeholder {0}: categoryLabels[category]
+#. placeholder {1}: visibilityLabels[visibility]
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:131
+msgid "カテゴリ: {0} / 公開範囲: {1}"
+msgstr "Category: {0} / Visibility: {1}"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:125
+msgid "キャッシュを削除"
+msgstr "Clear cache"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:42
+msgid "クリップボード"
+msgstr "Clipboard"
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/index.tsx:38
 msgid "クロスフェードで遷移"
 msgstr "Transition with a cross-fade"
+
+#: src/app/expo-ui/onboarding/index.tsx:81
+msgid "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
+msgstr "This paging is powered by PagerView; swiping runs on the native implementation of each platform."
 
 #: src/app/(tabs)/(home)/components/index.tsx:45
 #: src/app/(tabs)/(home)/index.tsx:33
@@ -563,14 +704,35 @@ msgstr "Components"
 msgid "サンプル"
 msgstr "Sample"
 
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:50
+msgid "システムに従う"
+msgstr "Follow system"
+
 #: src/app/(tabs)/settings/theme.tsx:14
 msgid "システム設定に従う"
 msgstr "Follow system settings"
+
+#: src/app/expo-ui/onboarding/index.tsx:121
+msgid "スキップ"
+msgstr "Skip"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab-fade.tsx:36
 msgid "スプラッシュ → 本体や、内容だけ差し替えたい画面など、位置の移動を伴わない切り替えに向く。"
 msgstr "Suited for transitions without positional movement, such as splash → main content or swapping only the on-screen content."
 
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:41
+msgid "スポーツ"
+msgstr "Sports"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:42
+msgid "その他"
+msgstr "Other"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:90
+msgid "その他の操作"
+msgstr "More actions"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:52
 #: src/app/(tabs)/settings/theme.tsx:16
 msgid "ダーク"
 msgstr "Dark"
@@ -603,10 +765,11 @@ msgstr "Full-screen modal on the in-tab Stack"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/index.tsx:47
+#: src/app/(tabs)/(home)/index.tsx:61
 msgid "データ取得"
 msgstr "Data fetching"
 
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:96
 #: src/app/(tabs)/settings/index.tsx:37
 #: src/app/(tabs)/settings/theme.tsx:21
 msgid "テーマ"
@@ -631,6 +794,10 @@ msgstr "Since this uses the native navigation icon slot directly, there is no mi
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/in-tab-slide-from-bottom-close.tsx:34
 msgid "ネイティブ navigation icon slot を使うので、`headerLeft` の React Component 方式と違い ズレが出ない。"
 msgstr "Since this uses the native navigation icon slot, there is no misalignment as can happen with the `headerLeft` React Component approach."
+
+#: src/app/expo-ui/onboarding/index.tsx:78
+msgid "ネイティブ UI"
+msgstr "Native UI"
 
 #: src/app/navigation-patterns/modal/on-root-slide-from-bottom-close.tsx:38
 msgid "ネイティブの navigation icon slot を使うため、`headerLeft` で React Component を返す 方式と違い位置・スタイルがネイティブと完全一致する。代償として PNG (24/48/72dp) を プロジェクトに同梱する必要がある。"
@@ -668,9 +835,25 @@ msgstr "Falls back to transparentModal because Android has no native equivalent 
 msgid "ネイティブの対応 presentation がないため transparentModal にフォールバックする。 Android は元々 current context の概念に依存しないため、配置 Stack によらず transparentModal と同等の挙動になる。"
 msgstr "Falls back to transparentModal because Android has no native equivalent of this presentation. Android never relied on the concept of a current context, so the behavior is the same as transparentModal regardless of placement Stack."
 
+#: src/app/expo-ui/onboarding/index.tsx:117
+msgid "はじめる"
+msgstr "Get started"
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab-none.tsx:37
 msgid "プログラムによる画面差し替えや、独自トランジションを別途実装する場合など、ネイティブの 遷移アニメーションを抑制したいケースに向く。"
 msgstr "Suited for cases where you want to suppress the native transition animation, such as swapping screens programmatically or implementing your own custom transition separately."
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:92
+msgid "プロフィールの公開に同意する"
+msgstr "I agree to make my profile public"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:52
+msgid "プロフィール編集"
+msgstr "Edit profile"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:60
+msgid "プロフィール編集 (Universal)"
+msgstr "Edit profile (Universal)"
 
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab-slide-from-bottom-back-hidden.tsx:34
 msgid "ヘッダーをタイトルだけにして、閉じる動線は本文側に集約するパターン。"
@@ -729,7 +912,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "Return to the previous screen via the back button in the header or the OS gesture. The pop is also a cross-fade. Comparing against the in-tab variant with `animation` unspecified (slide-in from the right) makes the difference easy to see."
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:65
+#: src/app/(tabs)/(home)/index.tsx:79
 msgid "ホーム"
 msgstr "Home"
 
@@ -737,10 +920,31 @@ msgstr "Home"
 msgid "ボタン"
 msgstr "Button"
 
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:109
+msgid "まだ保存されていません"
+msgstr "Not saved yet"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:41
+msgid "メール"
+msgstr "Mail"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:40
+msgid "メッセージ"
+msgstr "Messages"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:74
+msgid "やみ べーた"
+msgstr "yami beta"
+
+#: src/app/expo-ui/onboarding/index.tsx:71
+msgid "ようこそ。このタイトルは MaskedView で文字を型抜きし、背面の色帯を透過させています。"
+msgstr "Welcome. This title is cut out with MaskedView, letting the color stripes behind show through the text."
+
 #: src/app/(tabs)/settings/index.tsx:71
 msgid "ライセンス"
 msgstr "Licenses"
 
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:51
 #: src/app/(tabs)/settings/theme.tsx:15
 msgid "ライト"
 msgstr "Light"
@@ -748,6 +952,27 @@ msgstr "Light"
 #: src/app/(tabs)/settings/index.tsx:38
 msgid "ライト / ダーク / システム"
 msgstr "Light / Dark / System"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:143
+msgid "リセット"
+msgstr "Reset"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:105
+msgid "リマインダー"
+msgstr "Reminder"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:136
+msgid "リマインダー: {reminderMinutes} 分前"
+msgstr "Reminder: {reminderMinutes} minutes before"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:135
+msgid "リマインダー: なし"
+msgstr "Reminder: none"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:29
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:35
+msgid "リンクをコピー"
+msgstr "Copy link"
 
 #: src/app/navigation-patterns/modal/on-root-slide-from-bottom.tsx:16
 msgid "ルート Stack で modal を両 OS で下からスライドさせる"
@@ -801,6 +1026,24 @@ msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close but
 msgid "下方向の swipe、grabber のドラッグ、または「閉じる」ボタンで閉じる。Android では戻る操作でも閉じる。タブバーごと覆うのが in-tab 版との差分 (実プロダクトでは このルート配置が推奨)。"
 msgstr "Dismiss by swiping down, dragging the grabber, or pressing the Close button. Android also dismisses on back navigation. Covering the tab bar entirely is the differentiator versus the in-tab variant (this root placement is the recommended one in real products)."
 
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:125
+msgid "作成内容"
+msgstr "Summary"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:102
+msgid "保存"
+msgstr "Save"
+
+#. placeholder {0}: displayName.value
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:55
+msgid "保存しました: {0}"
+msgstr "Saved: {0}"
+
+#. placeholder {0}: page + 1
+#: src/app/expo-ui/onboarding/index.tsx:101
+msgid "全 {PAGE_COUNT} ページ中 {0} ページ目"
+msgstr "Page {0} of {PAGE_COUNT}"
+
 #: src/app/navigation-patterns/full-screen-modal/on-root-slide-from-bottom-back-hidden.tsx:16
 msgid "全画面モーダルでヘッダー左の戻るボタンを非表示にする"
 msgstr "Hide the back button on the left of the full-screen modal's header"
@@ -829,6 +1072,47 @@ msgstr "Use this when you want a full-screen modal to consistently slide up from
 msgid "全画面モーダルを両 OS で下からスライドさせる"
 msgstr "Slide the full-screen modal up from the bottom on both OSes"
 
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:34
+msgid "公開"
+msgstr "Public"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:78
+msgid "公開プロフィール"
+msgstr "Public profile"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:96
+msgid "公開範囲"
+msgstr "Visibility"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:116
+msgid "共有"
+msgstr "Share"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:139
+msgid "共有先を選択"
+msgstr "Choose where to share"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:118
+msgid "利用状況データを送信"
+msgstr "Send usage data"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:30
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:36
+msgid "削除"
+msgstr "Delete"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:123
+msgid "削除しました"
+msgstr "Cleared"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:39
+msgid "勉強会"
+msgstr "Meetup"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:35
+msgid "友達のみ"
+msgstr "Friends only"
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:16
 msgid "右からスライドして push されるネイティブ遷移。タブ内 Stack 配下なので push 先でもタブバーが残ったまま維持される。左端からの swipe back ジェスチャーで戻れる。"
 msgstr "A native push transition sliding in from the right. Since it sits under the in-tab Stack, the tab bar remains visible on the destination screen. Dismissed via the left-edge swipe-back gesture."
@@ -837,6 +1121,10 @@ msgstr "A native push transition sliding in from the right. Since it sits under 
 msgid "右からスライドして push されるネイティブ遷移。ルート Stack 配下に push するため、遷移先ではタブバーが消える (タブ表示は (tabs) グループの中だけに存在し、ルート Stack の sibling screen にはタブが描画されないため)。左端からの swipe back ジェスチャーで戻れる。"
 msgstr "A native push transition sliding in from the right. Since it pushes under the root Stack, the tab bar disappears on the destination screen (the tabs UI only exists inside the (tabs) group and is not rendered for sibling screens of the root Stack). Dismissed via the left-edge swipe-back gesture."
 
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:96
+msgid "同意すると他のユーザーからプロフィールが見えるようになります"
+msgstr "Once you agree, other users will be able to see your profile"
+
 #: src/app/(tabs)/(home)/navigation-patterns/transparent-modal/in-tab.tsx:24
 msgid "同等の透過モーダルとして重なる。タブ内 Stack 配下なのでタブバーは残った状態で tab content の上に透過オーバーレイが乗る。戻るボタンで閉じる挙動は modal と同じ。"
 msgstr "Overlays as an equivalent transparent modal. Since it sits under the in-tab Stack, the tab bar remains visible while the transparent overlay sits on top of the tab content. Dismissal via the back button behaves the same as modal."
@@ -844,6 +1132,10 @@ msgstr "Overlays as an equivalent transparent modal. Since it sits under the in-
 #: src/app/navigation-patterns/transparent-modal/on-root.tsx:23
 msgid "同等の透過モーダルとして重なる。ルート Stack 配下なのでタブバーごと前景に出る。 戻るボタンで閉じる挙動は modal と同じ。"
 msgstr "Overlays as an equivalent transparent modal. Since it sits under the root Stack, it comes to the foreground covering the tab bar as well. Dismissal via the back button behaves the same as modal."
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:74
+msgid "変更"
+msgstr "Change"
 
 #: src/app/(tabs)/settings/index.tsx:32
 msgid "外観"
@@ -857,6 +1149,23 @@ msgstr "Implementation notes"
 msgid "情報"
 msgstr "Info"
 
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:30
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:53
+msgid "投稿アクション"
+msgstr "Post actions"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:111
+msgid "文字サイズ: {textSize}pt"
+msgstr "Text size: {textSize}pt"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:72
+msgid "新着があったときに通知します"
+msgstr "Notifies you when something new arrives"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:12
+msgid "既存コミュニティライブラリと互換 API のコンポーネント。React Native の View ツリーにそのまま配置できます。"
+msgstr "Components with APIs compatible with existing community libraries. They can be placed directly in the React Native view tree."
+
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab-none.tsx:23
 msgid "既定の OS 標準遷移 (多くは右からスライド) ではなく、アニメーションなしで即座に切り替わる。 in-tab なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。"
 msgstr "Instead of the default OS-standard transition (often slide-in from the right), it switches instantly with no animation. Since it's in-tab, the tab bar remains visible. Dismissed via the system back button or gesture."
@@ -865,9 +1174,17 @@ msgstr "Instead of the default OS-standard transition (often slide-in from the r
 msgid "既定の OS 標準遷移 (多くは右からスライド) ではなく、クロスフェードで切り替わる。in-tab なのでタブバーは表示されたまま。システムの戻るボタン / ジェスチャーで戻れる。"
 msgstr "Instead of the default OS-standard transition (often slide-in from the right), it cross-fades. Since it's in-tab, the tab bar remains visible. Dismissed via the system back button or gesture."
 
-#: src/app/(tabs)/(home)/index.tsx:42
+#: src/app/expo-ui/onboarding/index.tsx:117
+msgid "次へ"
+msgstr "Next"
+
+#: src/app/(tabs)/(home)/index.tsx:56
 msgid "準備中"
 msgstr "Coming soon"
+
+#: src/app/expo-ui/onboarding/index.tsx:89
+msgid "準備完了"
+msgstr "All set"
 
 #: src/app/(tabs)/(home)/components/index.tsx:76
 msgid "無効"
@@ -880,6 +1197,11 @@ msgstr "Dismiss via the Close button at the bottom of the screen, iOS swipe down
 #: src/app/navigation-patterns/modal/on-root-slide-from-bottom-back-hidden.tsx:31
 msgid "画面下部の「閉じる」ボタン、iOS の swipe down、Android のシステム戻るで閉じる。ヘッダー からは閉じる動線が無くなるため、本文側の閉じる UI が必須になる。"
 msgstr "Dismiss via the Close button at the bottom of the screen, iOS swipe down, or Android's system back. Since the header no longer offers a dismiss path, a close UI in the body becomes mandatory."
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:27
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:33
+msgid "編集"
+msgstr "Edit"
 
 #: src/app/navigation-patterns/contained-transparent-modal/on-root.tsx:33
 msgid "背景の半透明エリアをタップ、または「閉じる」ボタンで閉じる。 **ルート版は transparentModal とほぼ同じ挙動になりフォールバック相当**。 挙動差を観察したい場合は in-tab 版と並べて比較する。"
@@ -905,6 +1227,19 @@ msgstr "Overlays as a modal while keeping the background transparent. When place
 msgid "背景を透明にしたまま modal が重なる。ルート Stack 配下に出るため、画面全体 (タブバーごと) を覆う透過オーバーレイになる。前画面が透けて見えるので、自前の バックドロップを描画する。"
 msgstr "Overlays as a modal while keeping the background transparent. Since it appears under the root Stack, the transparent overlay covers the entire screen (including the tab bar). The previous screen shows through, so draw your own backdrop."
 
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:85
+msgid "自己紹介"
+msgstr "Bio"
+
+#: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:81
+msgid "表示名"
+msgstr "Display name"
+
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:28
+#: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:34
+msgid "複製"
+msgstr "Duplicate"
+
 #: src/app/(tabs)/(home)/components/index.tsx:124
 msgid "触覚フィードバック"
 msgstr "Haptic feedback"
@@ -914,6 +1249,26 @@ msgstr "Haptic feedback"
 msgid "設定"
 msgstr "Settings"
 
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:57
+msgid "設定 (Universal)"
+msgstr "Settings (Universal)"
+
+#: src/app/(tabs)/(home)/expo-ui/index.tsx:47
+msgid "設定画面"
+msgstr "Settings screen"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:114
+msgid "詳細設定"
+msgstr "Advanced settings"
+
+#: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:74
+msgid "通知"
+msgstr "Notifications"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:117
+msgid "通知しない"
+msgstr "Do not notify"
+
 #: src/components/presentation-sample/PresentationSampleBody.tsx:63
 msgid "閉じる"
 msgstr "Close"
@@ -921,3 +1276,25 @@ msgstr "Close"
 #: src/components/presentation-sample/PresentationSampleBody.tsx:49
 msgid "閉じる操作"
 msgstr "Dismiss action"
+
+#. placeholder {0}: formatDate(date)
+#. placeholder {1}: formatTime(date)
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:128
+msgid "開催: {0} {1}"
+msgstr "Date: {0} {1}"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:70
+msgid "開催日"
+msgstr "Date"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:79
+msgid "開始時刻"
+msgstr "Start time"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:36
+msgid "非公開"
+msgstr "Private"
+
+#: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:40
+msgid "飲み会"
+msgstr "Party"

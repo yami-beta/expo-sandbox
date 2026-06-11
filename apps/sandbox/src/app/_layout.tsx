@@ -30,6 +30,13 @@ function RootLayoutContent() {
       <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
+          name="expo-ui/onboarding/index"
+          options={{
+            presentation: "fullScreenModal",
+            gestureEnabled: false,
+          }}
+        />
+        <Stack.Screen
           name="navigation-patterns/modal/on-root"
           options={{ presentation: "modal" }}
         />

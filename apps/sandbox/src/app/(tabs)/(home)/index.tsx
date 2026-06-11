@@ -36,6 +36,20 @@ export default function Index() {
             <Icon name="grid" size={22} color={tokens.color.text.secondary} decorative />
           ),
         },
+        {
+          href: "/expo-ui",
+          text: <Trans>Expo UI</Trans>,
+          description: <Trans>@expo/ui のネイティブ UI サンプル</Trans>,
+          leadingIcon: (
+            <Ionicons
+              name="cube-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
+          ),
+        },
       ],
     },
     {
