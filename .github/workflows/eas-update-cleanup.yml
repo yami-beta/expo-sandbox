@@ -1,0 +1,38 @@
+name: eas-update-cleanup
+
+on:
+  # 当面は手動実行のみ (定期実行する場合は schedule トリガーを追加する)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '削除せず計画のみ出力する (安全確認用)'
+        type: boolean
+        default: true
+
+jobs:
+  cleanup:
+    name: Cleanup old EAS Updates
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Cleanup old EAS Updates
+        run: node scripts/cleanup-eas-updates.mjs
+        working-directory: apps/sandbox
+        env:
+          BRANCH: development
+          MIN_KEEP: '10'
+          # 手動実行の入力に従う (既定 true = dry-run)。実削除は dry_run=false で実行
+          DRY_RUN: ${{ inputs.dry_run }}
