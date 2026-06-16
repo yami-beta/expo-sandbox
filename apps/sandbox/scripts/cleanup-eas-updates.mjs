@@ -80,11 +80,14 @@ async function listAllGroups(branch) {
     if (items.length < PAGE_SIZE) break;
     offset += PAGE_SIZE;
   }
-  // group id で重複排除 (念のため。順序は維持)
+  // group id で重複排除 (念のため。順序は維持)。
+  // group が取れない要素は捨てず保持し、下流の保護扱い + skipped 件数計上に乗せる
+  // (形状ズレを「0件取得」ではなく「保護した N 件」として可視化するため)。
   const seen = new Set();
   const unique = groups.filter((g) => {
     const id = g?.group;
-    if (!id || seen.has(id)) return false;
+    if (!id) return true;
+    if (seen.has(id)) return false;
     seen.add(id);
     return true;
   });
@@ -129,6 +132,15 @@ export function selectGroupsToDelete(groups, { minKeep }) {
 
 async function main() {
   console.log(`[cleanup-eas-updates] branch=${BRANCH} minKeep=${MIN_KEEP} dryRun=${DRY_RUN}`);
+
+  // MIN_KEEP が不正だと slice(minKeep) が全件削除に倒れるため、ここで早期に弾く
+  if (!Number.isInteger(MIN_KEEP) || MIN_KEEP < 1) {
+    console.error(
+      `[cleanup-eas-updates] MIN_KEEP は 1 以上の整数で指定してください (受け取った値: ${JSON.stringify(process.env.MIN_KEEP)})`,
+    );
+    process.exitCode = 1;
+    return;
+  }
 
   const { groups, firstPageRaw } = await listAllGroups(BRANCH);
   console.log(`[cleanup-eas-updates] 取得した update group 数: ${groups.length}`);
