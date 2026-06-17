@@ -15,7 +15,8 @@
     "lint:oxfmt": "oxfmt . --check",
     "format": "oxfmt . --write",
     "generate-types": "expo customize tsconfig.json",
-    "lingui:extract": "lingui extract --clean"
+    "lingui:extract": "lingui extract --clean",
+    "eas-update-cleanup": "eas-update-cleanup"
   },
   "dependencies": {
     "@expo/material-symbols": "^0.1.1",
@@ -68,6 +69,7 @@
     "oxfmt": "^0.51.0",
     "oxlint": "^1.66.0",
     "oxlint-tsgolint": "^0.23.0",
+    "tooling": "workspace:*",
     "typescript": "~6.0.3"
   }
 }

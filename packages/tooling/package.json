@@ -1,0 +1,28 @@
+{
+  "name": "tooling",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "eas-update-cleanup": "./src/eas-update-cleanup/cli.ts"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "pnpm run lint:oxlint && pnpm run lint:oxfmt",
+    "lint:oxlint": "oxlint --type-aware --type-check",
+    "lint:oxfmt": "oxfmt . --check",
+    "format": "oxfmt . --write"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
+    "oxlint-tsgolint": "^0.23.0",
+    "typescript": "~6.0.3",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
