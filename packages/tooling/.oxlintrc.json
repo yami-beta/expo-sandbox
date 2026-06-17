@@ -1,0 +1,21 @@
+{
+  "plugins": ["eslint", "unicorn", "typescript", "oxc", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "typescript/no-unsafe-type-assertion": "error",
+    "oxc/no-barrel-file": ["error", { "threshold": 1 }]
+  },
+  "settings": {
+    "vitest": {
+      "typecheck": false
+    }
+  },
+  "env": {
+    "builtin": true,
+    "node": true
+  },
+  "globals": {},
+  "ignorePatterns": ["coverage"]
+}

@@ -29,7 +29,8 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Cleanup old EAS Updates
-        run: node scripts/cleanup-eas-updates.mjs
+        # tooling パッケージの bin を apps/sandbox の cwd で実行 (eas のプロジェクト解決のため)
+        run: pnpm run eas-update-cleanup
         working-directory: apps/sandbox
         env:
           BRANCH: development

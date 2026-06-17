@@ -1,5 +1,6 @@
 packages:
   - apps/*
+  - packages/*
 
 # ビルドスクリプトの実行可否（prebuilt バイナリを利用するため実行不要。従来の ignoredBuilds 挙動を維持）
 allowBuilds:
