@@ -27,6 +27,11 @@ monorepo で管理された Expo アプリケーションのリポジトリ
   - 詳細: [`docs/lint.md`](docs/lint.md)
 - `pnpm -r run format`
 
+### テスト
+
+- `pnpm -r run test`
+  - ランナーの使い分け（sandbox=jest-expo / tooling=vitest）・書き方は [`docs/testing.md`](docs/testing.md)。CI（`ci.yml` の `test` ジョブ）でも実行される
+
 ### 国際化
 
 - `pnpm -r run lingui:extract`

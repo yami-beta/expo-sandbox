@@ -28,3 +28,17 @@ jobs:
 
       - name: Check formatting
         run: pnpm -r run lint:oxfmt
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Run tests
+        run: pnpm -r run test
