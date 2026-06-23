@@ -127,7 +127,7 @@ msgstr "128 MB in use"
 msgid "3 分前"
 msgstr "3 minutes ago"
 
-#: src/app/(tabs)/tab-a/detail.tsx:21
+#: src/app/(tabs)/tab-a/detail.tsx:25
 msgid "anchor の効果はコールド起動のディープリンクで現れます。アプリを終了し、次のコマンドで起動すると下に index が敷かれ、「戻る」でタブAトップへ戻れます。"
 msgstr "The effect of anchor appears with a cold-start deep link. Quit the app and launch it with the command below; index is placed underneath and Back returns to Tab A Top."
 
@@ -135,7 +135,7 @@ msgstr "The effect of anchor appears with a cold-start deep link. Quit the app a
 msgid "anchor 未指定のタブの詳細です。アプリ内 push で来た場合は index が表示済みのため「戻る」でタブBトップへ戻れますが、これは anchor の効果ではありません。"
 msgstr "Detail of a tab without anchor. If you arrived via in-app push, index is already shown so Back returns to Tab B Top — but that is not the effect of anchor."
 
-#: src/app/(tabs)/tab-a/detail.tsx:18
+#: src/app/(tabs)/tab-a/detail.tsx:22
 msgid "anchor: index のタブの詳細です。アプリ内の cross-tab 遷移では anchor は無視され、戻ると自タブ（タブA）の index に着地します（遷移元タブには戻りません）。"
 msgstr "Detail of a tab with anchor: index. In-app cross-tab navigation ignores anchor, and Back lands on this tab's (Tab A) index (it does not return to the originating tab)."
 
@@ -510,6 +510,14 @@ msgstr "The presentation style is `modal`, but with `animation` unspecified Andr
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style becomes `modal`, but the transition animation is controlled separately by the `animation` prop. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right, same as `card`), not the iOS-style \"slide up from the bottom\". Set `animation: slide_from_bottom` explicitly to slide up. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the back button or system gesture."
 
+#: src/app/(tabs)/tab-a/detail.tsx:39
+msgid "push と navigate の違い"
+msgstr "push vs navigate"
+
+#: src/app/(tabs)/tab-a/detail.tsx:42
+msgid "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
+msgstr "Tap the push button a few times to increase the screen count. Then tap the navigate button to return to the first detail (without creating a duplicate), which decreases the count."
+
 #: src/app/(tabs)/(home)/index.tsx:62
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
@@ -770,15 +778,19 @@ msgstr "Dark"
 msgid "タブA"
 msgstr "Tab A"
 
+#: src/app/(tabs)/tab-a/detail.tsx:45
+msgid "タブA スタックの画面数（index 含む）: {stackDepth}"
+msgstr "Tab A stack screen count (including index): {stackDepth}"
+
 #: src/app/(tabs)/tab-a/index.tsx:16
 msgid "タブA トップ"
 msgstr "Tab A Top"
 
-#: src/app/(tabs)/tab-a/detail.tsx:14
+#: src/app/(tabs)/tab-a/detail.tsx:18
 msgid "タブA 詳細"
 msgstr "Tab A Detail"
 
-#: src/app/(tabs)/tab-a/detail.tsx:16
+#: src/app/(tabs)/tab-a/detail.tsx:20
 msgid "タブA 詳細（anchor あり）"
 msgstr "Tab A Detail (with anchor)"
 
@@ -1113,7 +1125,7 @@ msgstr "Root Stack Screen"
 msgid "ルート Stack 画面（共通遷移先）"
 msgstr "Root Stack Screen (shared destination)"
 
-#: src/app/(tabs)/tab-a/detail.tsx:31
+#: src/app/(tabs)/tab-a/detail.tsx:35
 #: src/app/(tabs)/tab-a/index.tsx:28
 #: src/app/(tabs)/tab-b/detail.tsx:31
 #: src/app/(tabs)/tab-b/page.tsx:38
@@ -1235,6 +1247,14 @@ msgstr "A native push transition sliding in from the right. Since it sits under 
 msgid "右からスライドして push されるネイティブ遷移。ルート Stack 配下に push するため、遷移先ではタブバーが消える (タブ表示は (tabs) グループの中だけに存在し、ルート Stack の sibling screen にはタブが描画されないため)。左端からの swipe back ジェスチャーで戻れる。"
 msgstr "A native push transition sliding in from the right. Since it pushes under the root Stack, the tab bar disappears on the destination screen (the tabs UI only exists inside the (tabs) group and is not rendered for sibling screens of the root Stack). Dismissed via the left-edge swipe-back gesture."
 
+#: src/app/(tabs)/tab-a/detail.tsx:51
+msgid "同じ詳細へ navigate（重複しない）"
+msgstr "navigate to the same detail (no duplicate)"
+
+#: src/app/(tabs)/tab-a/detail.tsx:48
+msgid "同じ詳細を push（重ねる）"
+msgstr "push the same detail (stack it)"
+
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:96
 msgid "同意すると他のユーザーからプロフィールが見えるようになります"
 msgstr "Once you agree, other users will be able to see your profile"
@@ -1308,7 +1328,7 @@ msgstr "All set"
 msgid "無効"
 msgstr "Disabled"
 
-#: src/app/(tabs)/tab-a/detail.tsx:27
+#: src/app/(tabs)/tab-a/detail.tsx:31
 #: src/app/(tabs)/tab-a/index.tsx:21
 #: src/app/(tabs)/tab-b/detail.tsx:27
 #: src/app/(tabs)/tab-b/index.tsx:21
