@@ -24,11 +24,8 @@ export default function TabBPage(): ReactElement {
         <ThemedText type="label" tone="secondary">
           {t`タブを跨いだ遷移（cross-tab・タブバーは維持）`}
         </ThemedText>
-        <Link href="/tab-a/detail" push asChild>
-          <Button>{t`タブA 詳細へ push`}</Button>
-        </Link>
         <Link href="/tab-a/detail" asChild>
-          <Button variant="soft">{t`タブA 詳細へ navigate`}</Button>
+          <Button>{t`タブA 詳細へ`}</Button>
         </Link>
 
         <ThemedText type="label" tone="secondary">
