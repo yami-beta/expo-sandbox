@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Stack, usePathname, useRouter } from "expo-router";
+import { Link, Stack, usePathname } from "expo-router";
 import { useLingui } from "@lingui/react/macro";
 import { Button } from "../../../components/button/Button";
 import { ScreenScrollView } from "../../../components/screen-scroll-view/ScreenScrollView";
@@ -7,7 +7,6 @@ import { ThemedText } from "../../../components/themed-text/ThemedText";
 
 export default function TabBPage(): ReactElement {
   const { t } = useLingui();
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -25,15 +24,19 @@ export default function TabBPage(): ReactElement {
         <ThemedText type="label" tone="secondary">
           {t`タブを跨いだ遷移（cross-tab・タブバーは維持）`}
         </ThemedText>
-        <Button onPress={() => router.push("/tab-a/detail")}>{t`タブA 詳細へ push`}</Button>
-        <Button variant="soft" onPress={() => router.navigate("/tab-a/detail")}>
-          {t`タブA 詳細へ navigate`}
-        </Button>
+        <Link href="/tab-a/detail" push asChild>
+          <Button>{t`タブA 詳細へ push`}</Button>
+        </Link>
+        <Link href="/tab-a/detail" asChild>
+          <Button variant="soft">{t`タブA 詳細へ navigate`}</Button>
+        </Link>
 
         <ThemedText type="label" tone="secondary">
           {t`ルート Stack 画面へ（タブバーを覆う）`}
         </ThemedText>
-        <Button onPress={() => router.push("/cross-nav/detail")}>{t`ルート Stack 画面へ`}</Button>
+        <Link href="/cross-nav/detail" push asChild>
+          <Button>{t`ルート Stack 画面へ`}</Button>
+        </Link>
 
         <ThemedText type="caption" tone="tertiary">
           {t`※これらはアプリ内遷移のため anchor の差は出ません。anchor の比較はコールド起動のディープリンクで行います（タブA / タブB 詳細を参照）。`}

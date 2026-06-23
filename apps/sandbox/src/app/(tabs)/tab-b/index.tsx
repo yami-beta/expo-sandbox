@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Stack, usePathname, useRouter } from "expo-router";
+import { Link, Stack, usePathname } from "expo-router";
 import { useLingui } from "@lingui/react/macro";
 import { Button } from "../../../components/button/Button";
 import { ScreenScrollView } from "../../../components/screen-scroll-view/ScreenScrollView";
@@ -7,7 +7,6 @@ import { ThemedText } from "../../../components/themed-text/ThemedText";
 
 export default function TabBIndex(): ReactElement {
   const { t } = useLingui();
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -22,7 +21,9 @@ export default function TabBIndex(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Button onPress={() => router.push("/tab-b/page")}>{t`タブB ページへ push`}</Button>
+        <Link href="/tab-b/page" push asChild>
+          <Button>{t`タブB ページへ push`}</Button>
+        </Link>
       </ScreenScrollView>
     </>
   );

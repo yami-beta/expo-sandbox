@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Stack, usePathname, useRouter } from "expo-router";
+import { Link, Stack, usePathname } from "expo-router";
 import { useLingui } from "@lingui/react/macro";
 import { Button } from "../../../components/button/Button";
 import { ScreenScrollView } from "../../../components/screen-scroll-view/ScreenScrollView";
@@ -7,7 +7,6 @@ import { ThemedText } from "../../../components/themed-text/ThemedText";
 
 export default function TabBDetail(): ReactElement {
   const { t } = useLingui();
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -28,9 +27,9 @@ export default function TabBDetail(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Button variant="soft" onPress={() => router.push("/cross-nav/detail")}>
-          {t`ルート Stack 画面へ`}
-        </Button>
+        <Link href="/cross-nav/detail" push asChild>
+          <Button variant="soft">{t`ルート Stack 画面へ`}</Button>
+        </Link>
       </ScreenScrollView>
     </>
   );

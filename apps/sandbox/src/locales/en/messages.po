@@ -70,7 +70,7 @@ msgstr "Trying out the drop-in replacements from @expo/ui. It is convenient to s
 msgid "@expo/ui のネイティブ UI サンプル"
 msgstr "Native UI samples with @expo/ui"
 
-#: src/app/(tabs)/tab-b/page.tsx:39
+#: src/app/(tabs)/tab-b/page.tsx:42
 msgid "※これらはアプリ内遷移のため anchor の差は出ません。anchor の比較はコールド起動のディープリンクで行います（タブA / タブB 詳細を参照）。"
 msgstr "These are in-app navigations, so anchor makes no difference. Compare anchor with a cold-start deep link (see Tab A / Tab B Detail)."
 
@@ -127,15 +127,15 @@ msgstr "128 MB in use"
 msgid "3 分前"
 msgstr "3 minutes ago"
 
-#: src/app/(tabs)/tab-a/detail.tsx:22
+#: src/app/(tabs)/tab-a/detail.tsx:21
 msgid "anchor の効果はコールド起動のディープリンクで現れます。アプリを終了し、次のコマンドで起動すると下に index が敷かれ、「戻る」でタブAトップへ戻れます。"
 msgstr "The effect of anchor appears with a cold-start deep link. Quit the app and launch it with the command below; index is placed underneath and Back returns to Tab A Top."
 
-#: src/app/(tabs)/tab-b/detail.tsx:19
+#: src/app/(tabs)/tab-b/detail.tsx:18
 msgid "anchor 未指定のタブの詳細です。アプリ内 push で来た場合は index が表示済みのため「戻る」でタブBトップへ戻れますが、これは anchor の効果ではありません。"
 msgstr "Detail of a tab without anchor. If you arrived via in-app push, index is already shown so Back returns to Tab B Top — but that is not the effect of anchor."
 
-#: src/app/(tabs)/tab-a/detail.tsx:19
+#: src/app/(tabs)/tab-a/detail.tsx:18
 msgid "anchor: index のタブの詳細です。アプリ内の cross-tab 遷移では anchor は無視され、戻ると自タブ（タブA）の index に着地します（遷移元タブには戻りません）。"
 msgstr "Detail of a tab with anchor: index. In-app cross-tab navigation ignores anchor, and Back lands on this tab's (Tab A) index (it does not return to the originating tab)."
 
@@ -711,11 +711,11 @@ msgstr "Clipboard"
 msgid "クロスフェードで遷移"
 msgstr "Transition with a cross-fade"
 
-#: src/app/(tabs)/tab-b/index.tsx:19
+#: src/app/(tabs)/tab-b/index.tsx:18
 msgid "このタブの Stack は anchor を指定していません。まず「タブB ページ」へ進み、各種遷移を試してください。anchor 未指定の影響はコールド起動のディープリンク時のみ現れます（「タブB 詳細」を参照）。"
 msgstr "This tab's Stack does not specify anchor. First go to the Tab B Page screen, then try the various transitions. The effect of omitting anchor appears only with a cold-start deep link (see Tab B Detail)."
 
-#: src/app/(tabs)/tab-a/index.tsx:19
+#: src/app/(tabs)/tab-a/index.tsx:18
 msgid "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 msgstr "This tab's Stack sets anchor: index. However, anchor only takes effect on a cold-start deep link and is ignored during in-app navigation (index is the default initial route, so specifying it is redundant)."
 
@@ -766,23 +766,23 @@ msgid "ダーク"
 msgstr "Dark"
 
 #: src/app/(tabs)/_layout.tsx:35
-#: src/app/(tabs)/tab-a/index.tsx:15
+#: src/app/(tabs)/tab-a/index.tsx:14
 msgid "タブA"
 msgstr "Tab A"
 
-#: src/app/(tabs)/tab-a/index.tsx:17
+#: src/app/(tabs)/tab-a/index.tsx:16
 msgid "タブA トップ"
 msgstr "Tab A Top"
 
-#: src/app/(tabs)/tab-a/detail.tsx:15
+#: src/app/(tabs)/tab-a/detail.tsx:14
 msgid "タブA 詳細"
 msgstr "Tab A Detail"
 
-#: src/app/(tabs)/tab-a/detail.tsx:17
+#: src/app/(tabs)/tab-a/detail.tsx:16
 msgid "タブA 詳細（anchor あり）"
 msgstr "Tab A Detail (with anchor)"
 
-#: src/app/(tabs)/tab-b/page.tsx:30
+#: src/app/(tabs)/tab-b/page.tsx:31
 msgid "タブA 詳細へ navigate"
 msgstr "navigate to Tab A Detail"
 
@@ -792,19 +792,19 @@ msgid "タブA 詳細へ push"
 msgstr "push to Tab A Detail"
 
 #: src/app/(tabs)/_layout.tsx:43
-#: src/app/(tabs)/tab-b/index.tsx:15
+#: src/app/(tabs)/tab-b/index.tsx:14
 msgid "タブB"
 msgstr "Tab B"
 
-#: src/app/(tabs)/tab-b/index.tsx:17
+#: src/app/(tabs)/tab-b/index.tsx:16
 msgid "タブB トップ"
 msgstr "Tab B Top"
 
-#: src/app/(tabs)/tab-b/page.tsx:15
+#: src/app/(tabs)/tab-b/page.tsx:14
 msgid "タブB ページ"
 msgstr "Tab B Page"
 
-#: src/app/(tabs)/tab-b/page.tsx:17
+#: src/app/(tabs)/tab-b/page.tsx:16
 msgid "タブB ページ（遷移の起点）"
 msgstr "Tab B Page (transition origin)"
 
@@ -812,23 +812,23 @@ msgstr "Tab B Page (transition origin)"
 msgid "タブB ページへ push"
 msgstr "push to Tab B Page"
 
-#: src/app/(tabs)/tab-b/detail.tsx:15
+#: src/app/(tabs)/tab-b/detail.tsx:14
 msgid "タブB 詳細"
 msgstr "Tab B Detail"
 
-#: src/app/(tabs)/tab-b/detail.tsx:17
+#: src/app/(tabs)/tab-b/detail.tsx:16
 msgid "タブB 詳細（anchor なし）"
 msgstr "Tab B Detail (without anchor)"
 
-#: src/app/(tabs)/tab-a/index.tsx:30
+#: src/app/(tabs)/tab-a/index.tsx:31
 msgid "タブB 詳細へ cross-tab"
 msgstr "To Tab B Detail (cross-tab)"
 
-#: src/app/(tabs)/tab-b/page.tsx:19
+#: src/app/(tabs)/tab-b/page.tsx:18
 msgid "タブB 配下の一段深いページです。ここを起点に、別タブ（タブA）配下の画面やルート Stack 画面へ遷移し、タブ切り替えと戻る挙動を観察してください。"
 msgstr "A page one level deeper under Tab B. From here, navigate to a screen under another tab (Tab A) or to the root Stack screen, and observe tab switching and back behavior."
 
-#: src/app/(tabs)/tab-b/page.tsx:26
+#: src/app/(tabs)/tab-b/page.tsx:25
 msgid "タブを跨いだ遷移（cross-tab・タブバーは維持）"
 msgstr "Cross-tab transition (tab bar stays visible)"
 
@@ -1113,14 +1113,14 @@ msgstr "Root Stack Screen"
 msgid "ルート Stack 画面（共通遷移先）"
 msgstr "Root Stack Screen (shared destination)"
 
-#: src/app/(tabs)/tab-a/detail.tsx:32
-#: src/app/(tabs)/tab-a/index.tsx:27
-#: src/app/(tabs)/tab-b/detail.tsx:32
-#: src/app/(tabs)/tab-b/page.tsx:36
+#: src/app/(tabs)/tab-a/detail.tsx:31
+#: src/app/(tabs)/tab-a/index.tsx:28
+#: src/app/(tabs)/tab-b/detail.tsx:31
+#: src/app/(tabs)/tab-b/page.tsx:38
 msgid "ルート Stack 画面へ"
 msgstr "To the Root Stack Screen"
 
-#: src/app/(tabs)/tab-b/page.tsx:34
+#: src/app/(tabs)/tab-b/page.tsx:35
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "To the Root Stack Screen (covers the tab bar)"
 
@@ -1308,11 +1308,11 @@ msgstr "All set"
 msgid "無効"
 msgstr "Disabled"
 
-#: src/app/(tabs)/tab-a/detail.tsx:28
-#: src/app/(tabs)/tab-a/index.tsx:22
-#: src/app/(tabs)/tab-b/detail.tsx:28
-#: src/app/(tabs)/tab-b/index.tsx:22
-#: src/app/(tabs)/tab-b/page.tsx:22
+#: src/app/(tabs)/tab-a/detail.tsx:27
+#: src/app/(tabs)/tab-a/index.tsx:21
+#: src/app/(tabs)/tab-b/detail.tsx:27
+#: src/app/(tabs)/tab-b/index.tsx:21
+#: src/app/(tabs)/tab-b/page.tsx:21
 #: src/app/cross-nav/detail.tsx:22
 msgid "現在地: {pathname}"
 msgstr "Current path: {pathname}"
@@ -1396,7 +1396,7 @@ msgstr "Notifications"
 msgid "通知しない"
 msgstr "Do not notify"
 
-#: src/app/(tabs)/tab-b/detail.tsx:22
+#: src/app/(tabs)/tab-b/detail.tsx:21
 msgid "違いはコールド起動のディープリンクで現れます。アプリを終了し次のコマンドで起動すると、detail が起点になり「戻る」が出ません（anchor: index のタブAとの差）。"
 msgstr "The difference appears with a cold-start deep link. Quit the app and launch it with the command below; detail becomes the root and Back is not shown (the difference from Tab A with anchor: index)."
 

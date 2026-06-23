@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Stack, usePathname, useRouter } from "expo-router";
+import { Link, Stack, usePathname } from "expo-router";
 import { useLingui } from "@lingui/react/macro";
 import { Button } from "../../../components/button/Button";
 import { ScreenScrollView } from "../../../components/screen-scroll-view/ScreenScrollView";
@@ -7,7 +7,6 @@ import { ThemedText } from "../../../components/themed-text/ThemedText";
 
 export default function TabAIndex(): ReactElement {
   const { t } = useLingui();
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -22,13 +21,15 @@ export default function TabAIndex(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Button onPress={() => router.push("/tab-a/detail")}>{t`タブA 詳細へ push`}</Button>
-        <Button variant="soft" onPress={() => router.push("/cross-nav/detail")}>
-          {t`ルート Stack 画面へ`}
-        </Button>
-        <Button variant="soft" onPress={() => router.push("/tab-b/detail")}>
-          {t`タブB 詳細へ cross-tab`}
-        </Button>
+        <Link href="/tab-a/detail" push asChild>
+          <Button>{t`タブA 詳細へ push`}</Button>
+        </Link>
+        <Link href="/cross-nav/detail" push asChild>
+          <Button variant="soft">{t`ルート Stack 画面へ`}</Button>
+        </Link>
+        <Link href="/tab-b/detail" push asChild>
+          <Button variant="soft">{t`タブB 詳細へ cross-tab`}</Button>
+        </Link>
       </ScreenScrollView>
     </>
   );
