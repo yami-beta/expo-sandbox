@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/app/cross-nav/detail.tsx:19
+msgid "(tabs) の外側、ルート Stack に登録された画面です。card 遷移で (tabs) ごと覆うため、表示中はタブバーが隠れます。タブA・タブB どちらの画面からでも遷移でき、戻ると遷移元の画面（とそのタブ）に復帰します。"
+msgstr "A screen registered on the root Stack, outside (tabs). A card transition covers (tabs) entirely, so the tab bar is hidden while it is shown. You can reach it from screens in either Tab A or Tab B, and going back returns to the originating screen (and its tab)."
+
 #: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:48
 msgid "{label} に共有しました"
 msgstr "Shared to {label}"
@@ -66,6 +70,10 @@ msgstr "Trying out the drop-in replacements from @expo/ui. It is convenient to s
 msgid "@expo/ui のネイティブ UI サンプル"
 msgstr "Native UI samples with @expo/ui"
 
+#: src/app/(tabs)/tab-b/page.tsx:39
+msgid "※これらはアプリ内遷移のため anchor の差は出ません。anchor の比較はコールド起動のディープリンクで行います（タブA / タブB 詳細を参照）。"
+msgstr "These are in-app navigations, so anchor makes no difference. Compare anchor with a cold-start deep link (see Tab A / Tab B Detail)."
+
 #: src/app/(tabs)/(home)/navigation-patterns/full-screen-modal/index.tsx:34
 #: src/app/(tabs)/(home)/navigation-patterns/modal/index.tsx:34
 msgid "`animation: slide_from_bottom` で両 OS を下からスライドに統一した上で、ヘッダー左の戻る要素を 3 通りに切り替えたサンプル。on-root はタブバーごと覆う / in-tab は Android がタブ内、の挙動差も 同時に確認できる。"
@@ -118,6 +126,18 @@ msgstr "128 MB in use"
 #: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:77
 msgid "3 分前"
 msgstr "3 minutes ago"
+
+#: src/app/(tabs)/tab-a/detail.tsx:22
+msgid "anchor の効果はコールド起動のディープリンクで現れます。アプリを終了し、次のコマンドで起動すると下に index が敷かれ、「戻る」でタブAトップへ戻れます。"
+msgstr "The effect of anchor appears with a cold-start deep link. Quit the app and launch it with the command below; index is placed underneath and Back returns to Tab A Top."
+
+#: src/app/(tabs)/tab-b/detail.tsx:19
+msgid "anchor 未指定のタブの詳細です。アプリ内 push で来た場合は index が表示済みのため「戻る」でタブBトップへ戻れますが、これは anchor の効果ではありません。"
+msgstr "Detail of a tab without anchor. If you arrived via in-app push, index is already shown so Back returns to Tab B Top — but that is not the effect of anchor."
+
+#: src/app/(tabs)/tab-a/detail.tsx:19
+msgid "anchor: index のタブの詳細です。アプリ内の cross-tab 遷移では anchor は無視され、戻ると自タブ（タブA）の index に着地します（遷移元タブには戻りません）。"
+msgstr "Detail of a tab with anchor: index. In-app cross-tab navigation ignores anchor, and Back lands on this tab's (Tab A) index (it does not return to the originating tab)."
 
 #: src/app/navigation-patterns/form-sheet/on-root.tsx:40
 msgid ""
@@ -691,6 +711,14 @@ msgstr "Clipboard"
 msgid "クロスフェードで遷移"
 msgstr "Transition with a cross-fade"
 
+#: src/app/(tabs)/tab-b/index.tsx:19
+msgid "このタブの Stack は anchor を指定していません。まず「タブB ページ」へ進み、各種遷移を試してください。anchor 未指定の影響はコールド起動のディープリンク時のみ現れます（「タブB 詳細」を参照）。"
+msgstr "This tab's Stack does not specify anchor. First go to the Tab B Page screen, then try the various transitions. The effect of omitting anchor appears only with a cold-start deep link (see Tab B Detail)."
+
+#: src/app/(tabs)/tab-a/index.tsx:19
+msgid "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
+msgstr "This tab's Stack sets anchor: index. However, anchor only takes effect on a cold-start deep link and is ignored during in-app navigation (index is the default initial route, so specifying it is redundant)."
+
 #: src/app/expo-ui/onboarding/index.tsx:81
 msgid "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
 msgstr "This paging is powered by PagerView; swiping runs on the native implementation of each platform."
@@ -736,6 +764,73 @@ msgstr "More actions"
 #: src/app/(tabs)/settings/theme.tsx:16
 msgid "ダーク"
 msgstr "Dark"
+
+#: src/app/(tabs)/_layout.tsx:43
+#: src/app/(tabs)/tab-a/index.tsx:15
+msgid "タブA"
+msgstr "Tab A"
+
+#: src/app/(tabs)/tab-a/index.tsx:17
+msgid "タブA トップ"
+msgstr "Tab A Top"
+
+#: src/app/(tabs)/tab-a/detail.tsx:15
+msgid "タブA 詳細"
+msgstr "Tab A Detail"
+
+#: src/app/(tabs)/tab-a/detail.tsx:17
+msgid "タブA 詳細（anchor あり）"
+msgstr "Tab A Detail (with anchor)"
+
+#: src/app/(tabs)/tab-b/page.tsx:30
+msgid "タブA 詳細へ navigate"
+msgstr "navigate to Tab A Detail"
+
+#: src/app/(tabs)/tab-a/index.tsx:25
+#: src/app/(tabs)/tab-b/page.tsx:28
+msgid "タブA 詳細へ push"
+msgstr "push to Tab A Detail"
+
+#: src/app/(tabs)/_layout.tsx:51
+#: src/app/(tabs)/tab-b/index.tsx:15
+msgid "タブB"
+msgstr "Tab B"
+
+#: src/app/(tabs)/tab-b/index.tsx:17
+msgid "タブB トップ"
+msgstr "Tab B Top"
+
+#: src/app/(tabs)/tab-b/page.tsx:15
+msgid "タブB ページ"
+msgstr "Tab B Page"
+
+#: src/app/(tabs)/tab-b/page.tsx:17
+msgid "タブB ページ（遷移の起点）"
+msgstr "Tab B Page (transition origin)"
+
+#: src/app/(tabs)/tab-b/index.tsx:25
+msgid "タブB ページへ push"
+msgstr "push to Tab B Page"
+
+#: src/app/(tabs)/tab-b/detail.tsx:15
+msgid "タブB 詳細"
+msgstr "Tab B Detail"
+
+#: src/app/(tabs)/tab-b/detail.tsx:17
+msgid "タブB 詳細（anchor なし）"
+msgstr "Tab B Detail (without anchor)"
+
+#: src/app/(tabs)/tab-a/index.tsx:30
+msgid "タブB 詳細へ cross-tab"
+msgstr "To Tab B Detail (cross-tab)"
+
+#: src/app/(tabs)/tab-b/page.tsx:19
+msgid "タブB 配下の一段深いページです。ここを起点に、別タブ（タブA）配下の画面やルート Stack 画面へ遷移し、タブ切り替えと戻る挙動を観察してください。"
+msgstr "A page one level deeper under Tab B. From here, navigate to a screen under another tab (Tab A) or to the root Stack screen, and observe tab switching and back behavior."
+
+#: src/app/(tabs)/tab-b/page.tsx:26
+msgid "タブを跨いだ遷移（cross-tab・タブバーは維持）"
+msgstr "Cross-tab transition (tab bar stays visible)"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab.tsx:14
 msgid "タブ内 Stack に push される card 遷移"
@@ -1010,6 +1105,25 @@ msgstr "Full-screen modal on the root Stack (standard behavior)"
 msgid "ルート Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the root Stack"
 
+#: src/app/cross-nav/detail.tsx:15
+msgid "ルート Stack 画面"
+msgstr "Root Stack Screen"
+
+#: src/app/cross-nav/detail.tsx:17
+msgid "ルート Stack 画面（共通遷移先）"
+msgstr "Root Stack Screen (shared destination)"
+
+#: src/app/(tabs)/tab-a/detail.tsx:32
+#: src/app/(tabs)/tab-a/index.tsx:27
+#: src/app/(tabs)/tab-b/detail.tsx:32
+#: src/app/(tabs)/tab-b/page.tsx:36
+msgid "ルート Stack 画面へ"
+msgstr "To the Root Stack Screen"
+
+#: src/app/(tabs)/tab-b/page.tsx:34
+msgid "ルート Stack 画面へ（タブバーを覆う）"
+msgstr "To the Root Stack Screen (covers the tab bar)"
+
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:16
 msgid "下から上にスライドして表示される page sheet 風 modal。タブ内 Stack 配下に置いても iOS の modal は UIKit 上の最前面に出るため、結局タブバーを覆って表示される (ルート版とほぼ同じ見た目になる)。上端からの swipe down で閉じられる。"
 msgstr "A page sheet-style modal that slides up from the bottom. Even when placed under the in-tab Stack, iOS's modal still comes up at the front of UIKit's hierarchy and ends up covering the tab bar (visually nearly identical to the root variant). Dismissed via swipe down from the top edge."
@@ -1149,6 +1263,10 @@ msgstr "Implementation notes"
 msgid "情報"
 msgstr "Info"
 
+#: src/app/cross-nav/detail.tsx:26
+msgid "戻る"
+msgstr "Back"
+
 #: src/app/(tabs)/(home)/expo-ui/index.tsx:30
 #: src/app/(tabs)/(home)/expo-ui/share-actions/index.tsx:53
 msgid "投稿アクション"
@@ -1189,6 +1307,15 @@ msgstr "All set"
 #: src/app/(tabs)/(home)/components/index.tsx:76
 msgid "無効"
 msgstr "Disabled"
+
+#: src/app/(tabs)/tab-a/detail.tsx:28
+#: src/app/(tabs)/tab-a/index.tsx:22
+#: src/app/(tabs)/tab-b/detail.tsx:28
+#: src/app/(tabs)/tab-b/index.tsx:22
+#: src/app/(tabs)/tab-b/page.tsx:22
+#: src/app/cross-nav/detail.tsx:22
+msgid "現在地: {pathname}"
+msgstr "Current path: {pathname}"
 
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab-slide-from-bottom-back-hidden.tsx:28
 msgid "画面下部の「閉じる」ボタン、iOS の swipe down、Android のシステム戻るで閉じる。ヘッダー からは閉じる動線が無くなる。"
@@ -1268,6 +1395,10 @@ msgstr "Notifications"
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:117
 msgid "通知しない"
 msgstr "Do not notify"
+
+#: src/app/(tabs)/tab-b/detail.tsx:22
+msgid "違いはコールド起動のディープリンクで現れます。アプリを終了し次のコマンドで起動すると、detail が起点になり「戻る」が出ません（anchor: index のタブAとの差）。"
+msgstr "The difference appears with a cold-start deep link. Quit the app and launch it with the command below; detail becomes the root and Back is not shown (the difference from Tab A with anchor: index)."
 
 #: src/components/presentation-sample/PresentationSampleBody.tsx:63
 msgid "閉じる"

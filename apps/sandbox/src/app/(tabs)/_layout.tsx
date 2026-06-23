@@ -34,6 +34,22 @@ export default function TabLayout() {
           />
           <NativeTabs.Trigger.Label>{t`設定`}</NativeTabs.Trigger.Label>
         </NativeTabs.Trigger>
+
+        <NativeTabs.Trigger name="tab-a">
+          <NativeTabs.Trigger.Icon
+            sf={{ default: "a.circle", selected: "a.circle.fill" }}
+            md="looks_one"
+          />
+          <NativeTabs.Trigger.Label>{t`タブA`}</NativeTabs.Trigger.Label>
+        </NativeTabs.Trigger>
+
+        <NativeTabs.Trigger name="tab-b">
+          <NativeTabs.Trigger.Icon
+            sf={{ default: "b.circle", selected: "b.circle.fill" }}
+            md="looks_two"
+          />
+          <NativeTabs.Trigger.Label>{t`タブB`}</NativeTabs.Trigger.Label>
+        </NativeTabs.Trigger>
       </NativeTabs>
     </ThemeProvider>
   );

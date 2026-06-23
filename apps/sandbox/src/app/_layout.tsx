@@ -120,6 +120,8 @@ function RootLayoutContent() {
             headerShown: false,
           }}
         />
+        {/* ルート Stack 配下の共通遷移先。presentation 未指定の card 遷移のため (tabs) ごと覆い、表示中はタブバーが隠れる */}
+        <Stack.Screen name="cross-nav/detail" />
       </Stack>
     </>
   );
