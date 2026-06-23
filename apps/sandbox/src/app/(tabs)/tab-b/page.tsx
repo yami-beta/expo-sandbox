@@ -34,7 +34,7 @@ export default function TabBPage(): ReactElement {
         <ThemedText type="label" tone="secondary">
           {t`ルート Stack 画面へ（タブバーを覆う）`}
         </ThemedText>
-        <Link href="/cross-nav/detail" push asChild>
+        <Link href="/cross-nav/detail" asChild>
           <Button>{t`ルート Stack 画面へ`}</Button>
         </Link>
 

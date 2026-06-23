@@ -21,13 +21,13 @@ export default function TabAIndex(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Link href="/tab-a/detail" push asChild>
-          <Button>{t`タブA 詳細へ push`}</Button>
+        <Link href="/tab-a/detail" asChild>
+          <Button>{t`タブA 詳細へ`}</Button>
         </Link>
-        <Link href="/cross-nav/detail" push asChild>
+        <Link href="/cross-nav/detail" asChild>
           <Button variant="soft">{t`ルート Stack 画面へ`}</Button>
         </Link>
-        <Link href="/tab-b/detail" push asChild>
+        <Link href="/tab-b/detail" asChild>
           <Button variant="soft">{t`タブB 詳細へ cross-tab`}</Button>
         </Link>
       </ScreenScrollView>

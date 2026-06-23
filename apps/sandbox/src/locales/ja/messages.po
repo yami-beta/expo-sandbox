@@ -794,11 +794,14 @@ msgstr "タブA 詳細"
 msgid "タブA 詳細（anchor あり）"
 msgstr "タブA 詳細（anchor あり）"
 
+#: src/app/(tabs)/tab-a/index.tsx:25
+msgid "タブA 詳細へ"
+msgstr "タブA 詳細へ"
+
 #: src/app/(tabs)/tab-b/page.tsx:31
 msgid "タブA 詳細へ navigate"
 msgstr "タブA 詳細へ navigate"
 
-#: src/app/(tabs)/tab-a/index.tsx:25
 #: src/app/(tabs)/tab-b/page.tsx:28
 msgid "タブA 詳細へ push"
 msgstr "タブA 詳細へ push"
@@ -821,8 +824,8 @@ msgid "タブB ページ（遷移の起点）"
 msgstr "タブB ページ（遷移の起点）"
 
 #: src/app/(tabs)/tab-b/index.tsx:25
-msgid "タブB ページへ push"
-msgstr "タブB ページへ push"
+msgid "タブB ページへ"
+msgstr "タブB ページへ"
 
 #: src/app/(tabs)/tab-b/detail.tsx:14
 msgid "タブB 詳細"

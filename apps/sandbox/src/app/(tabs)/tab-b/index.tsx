@@ -21,8 +21,8 @@ export default function TabBIndex(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Link href="/tab-b/page" push asChild>
-          <Button>{t`タブB ページへ push`}</Button>
+        <Link href="/tab-b/page" asChild>
+          <Button>{t`タブB ページへ`}</Button>
         </Link>
       </ScreenScrollView>
     </>

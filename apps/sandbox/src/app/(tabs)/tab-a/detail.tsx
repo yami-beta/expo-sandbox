@@ -31,7 +31,7 @@ export default function TabADetail(): ReactElement {
           {t`現在地: ${pathname}`}
         </ThemedText>
 
-        <Link href="/cross-nav/detail" push asChild>
+        <Link href="/cross-nav/detail" asChild>
           <Button variant="soft">{t`ルート Stack 画面へ`}</Button>
         </Link>
 
