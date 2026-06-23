@@ -3,6 +3,13 @@ import { useTheme } from "../../../theme/useTheme";
 import { buildStackScreenOptions } from "../../../theme/navigationScreenOptions";
 import { closeHeaderBackIcon } from "../../../theme/headerCloseIcon";
 
+// anchor（旧 initialRouteName）。コールド起動のディープリンク時のみ効く。
+// このスタックは <Stack.Screen> を明示宣言しているため、anchor を指定しないと
+// 初期ルートが index に固定されず、宣言順の先頭 (card/in-tab-fade) になってしまう。
+// 例: sandbox://tab-b/detail でコールド起動後にホームタブを選ぶと card+fade が出る。
+// anchor: index で index をスタック底に固定し、常にホームへ着地できるようにする。
+export const unstable_settings = { anchor: "index" };
+
 export default function HomeLayout() {
   const { colorScheme, tokens } = useTheme();
 
