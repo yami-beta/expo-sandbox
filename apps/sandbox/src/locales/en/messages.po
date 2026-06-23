@@ -765,7 +765,7 @@ msgstr "More actions"
 msgid "ダーク"
 msgstr "Dark"
 
-#: src/app/(tabs)/_layout.tsx:43
+#: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/tab-a/index.tsx:15
 msgid "タブA"
 msgstr "Tab A"
@@ -791,7 +791,7 @@ msgstr "navigate to Tab A Detail"
 msgid "タブA 詳細へ push"
 msgstr "push to Tab A Detail"
 
-#: src/app/(tabs)/_layout.tsx:51
+#: src/app/(tabs)/_layout.tsx:43
 #: src/app/(tabs)/tab-b/index.tsx:15
 msgid "タブB"
 msgstr "Tab B"
@@ -1371,7 +1371,7 @@ msgstr "Duplicate"
 msgid "触覚フィードバック"
 msgstr "Haptic feedback"
 
-#: src/app/(tabs)/_layout.tsx:35
+#: src/app/(tabs)/_layout.tsx:51
 #: src/app/(tabs)/settings/index.tsx:88
 msgid "設定"
 msgstr "Settings"

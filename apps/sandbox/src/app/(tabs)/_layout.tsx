@@ -27,14 +27,6 @@ export default function TabLayout() {
           <NativeTabs.Trigger.Label>{t`ホーム`}</NativeTabs.Trigger.Label>
         </NativeTabs.Trigger>
 
-        <NativeTabs.Trigger name="settings">
-          <NativeTabs.Trigger.Icon
-            sf={{ default: "gearshape", selected: "gearshape.fill" }}
-            md="settings"
-          />
-          <NativeTabs.Trigger.Label>{t`設定`}</NativeTabs.Trigger.Label>
-        </NativeTabs.Trigger>
-
         <NativeTabs.Trigger name="tab-a">
           <NativeTabs.Trigger.Icon
             sf={{ default: "a.circle", selected: "a.circle.fill" }}
@@ -49,6 +41,14 @@ export default function TabLayout() {
             md="looks_two"
           />
           <NativeTabs.Trigger.Label>{t`タブB`}</NativeTabs.Trigger.Label>
+        </NativeTabs.Trigger>
+
+        <NativeTabs.Trigger name="settings">
+          <NativeTabs.Trigger.Icon
+            sf={{ default: "gearshape", selected: "gearshape.fill" }}
+            md="settings"
+          />
+          <NativeTabs.Trigger.Label>{t`設定`}</NativeTabs.Trigger.Label>
         </NativeTabs.Trigger>
       </NativeTabs>
     </ThemeProvider>
