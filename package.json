@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm -r run test"
+    "test": "pnpm -r run test",
+    "postinstall": "pnpm --dir apps/sandbox run lingui:compile-if-needed"
   },
   "keywords": [],
   "author": "",

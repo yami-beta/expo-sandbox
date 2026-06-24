@@ -40,4 +40,9 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# Lingui compiled catalogs（.po から生成。install/build 時に再生成）
+src/locales/**/messages.js
+src/locales/**/messages.mjs
+src/locales/**/messages.ts
+
 app-example

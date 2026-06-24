@@ -40,14 +40,22 @@
    msgid "ホーム画面へようこそ"
    msgstr "Welcome to Home Screen"
    ```
+   - 英語訳が未入力（空の`msgstr`）のままだとCIが失敗する（後述の`lingui:check`）
 
-4. **動作確認**
+4. **コンパイル成果物の生成**
+   ```bash
+   # .po から messages.ts を再生成（gitignore 対象。ランタイムはこれをインポート）
+   pnpm --dir apps/sandbox run lingui:compile
+   ```
+
+5. **動作確認**
    - デバイスの言語設定を変更して確認
    - iOS: 設定 > 一般 > 言語と地域
    - Android: Settings > System > Languages
 
-5. **コミット**
+6. **コミット**
    ```bash
+   # messages.ts は gitignore のため、コミット対象は .po のみ
    git add apps/sandbox/src/locales
    git commit -m "feat: add home screen translations"
    ```
@@ -96,21 +104,19 @@ import { SelectOrdinal } from "@lingui/react/macro";
 
 プロジェクトには2つのGitHub Actionsワークフローが設定されています：
 
-1. **ci.yml** - 全般的なコード品質チェック
-   - ESLint
-   - Prettier
-   - TypeScript型チェック
-   - **Lingui翻訳チェック**（並列実行）
+1. **ci.yml** - 全般的なコード品質チェック（`lint` / `test` ジョブ）
+   - Lint（Oxlint / expo lint / oxfmt）
+   - テスト（jest）
 
 2. **lingui-check.yml** - 翻訳専用チェック
    - `src/**/*.tsx`、`src/**/*.ts`、`src/**/*.po`の変更時に実行
    - mainブランチへのpush、PR時に自動実行
+   - カタログ同期チェックに加え、`lingui compile --strict` で未翻訳を検出
 
 ### CIチェックの内容
 
-1. `lingui:extract`を実行
-2. 翻訳ファイルに差分がないか確認
-3. 差分があればエラーとして報告
+1. `lingui:extract`を実行し、ソースとカタログ（`.po`）に差分がないか確認（差分があれば失敗）
+2. `lingui:check`（`lingui compile --strict`）を実行し、`en`（`sourceLocale`の`ja`以外）に未翻訳がないか確認（未翻訳があれば失敗）
 
 ### CIが失敗した場合
 
@@ -151,14 +157,14 @@ git add apps/sandbox/src/locales
 git commit -m "chore: update translation files"
 ```
 
-### エラー2: Missing translation for message
+### エラー2: Missing translations（`lingui compile --strict` が失敗）
 
-**原因**: 新規メッセージの英語翻訳が未設定
+**原因**: 新規メッセージの英語翻訳が未設定（空の`msgstr`）。`lingui-check.yml`の`lingui:check`が`Missing N translation(s)`で失敗する。
 
 **解決方法**:
-1. `apps/sandbox/src/locales/en/messages.po`を開く
-2. 空の`msgstr`を見つける
-3. 英語翻訳を追加
+1. ローカルで`pnpm --dir apps/sandbox run lingui:check`を実行し、不足を確認
+2. `apps/sandbox/src/locales/en/messages.po`の空の`msgstr`に英語翻訳を追加
+3. 再度`lingui:check`が通ることを確認（`sourceLocale`の`ja`は検査対象外）
 
 ### エラー3: Duplicate message ID
 
@@ -305,9 +311,11 @@ import { Trans } from "@lingui/macro";
    cat apps/sandbox/src/locales/en/messages.po | grep "検索語"
    ```
 
-3. **Metro Transformerの動作確認**
+3. **コンパイル成果物の再生成 / Metro 再起動**
    ```bash
-   # Metro Bundlerを再起動
+   # .po 変更後に messages.ts を再生成
+   pnpm --dir apps/sandbox run lingui:compile
+   # Metro Bundler を再起動
    pnpm --dir apps/sandbox start --clear
    ```
 
@@ -315,8 +323,7 @@ import { Trans } from "@lingui/macro";
 
 **Q: 翻訳が反映されない**
 A: 以下を確認してください：
-- `lingui:extract`を実行したか
-- 英語翻訳を追加したか
+- `lingui:extract` → 英語翻訳追加 → `lingui:compile` を実行したか
 - Metro Bundlerを再起動したか
 - デバイスの言語設定が正しいか
 
@@ -335,4 +342,4 @@ A: 仕様です。Lingui公式推奨により、モバイルアプリではOSの
 
 ---
 
-最終更新日: 2025-08-15
+最終更新日: 2026-06-24
