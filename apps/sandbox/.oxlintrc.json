@@ -40,5 +40,5 @@
     "builtin": true
   },
   "globals": {},
-  "ignorePatterns": []
+  "ignorePatterns": ["src/locales/*/messages.ts"]
 }

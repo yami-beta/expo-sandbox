@@ -12,4 +12,5 @@ export default defineConfig({
     },
   ],
   format: formatter(),
+  compileNamespace: "ts",
 });

@@ -18,6 +18,9 @@
     "format": "oxfmt . --write",
     "generate-types": "expo customize tsconfig.json",
     "lingui:extract": "lingui extract --clean",
+    "lingui:compile": "lingui compile",
+    "lingui:compile-if-needed": "[ -f src/locales/en/messages.ts ] || pnpm run lingui:compile",
+    "lingui:check": "lingui compile --strict",
     "eas-update-cleanup": "eas-update-cleanup"
   },
   "dependencies": {
@@ -63,7 +66,6 @@
     "@lingui/babel-plugin-lingui-macro": "^6.0.0",
     "@lingui/cli": "^6.0.0",
     "@lingui/format-po": "^6.0.0",
-    "@lingui/metro-transformer": "^6.0.0",
     "@testing-library/react-native": "^14.0.0",
     "@types/react": "~19.2.0",
     "eslint": "^9.39.2",

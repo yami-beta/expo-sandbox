@@ -1,7 +1,7 @@
 import { i18n } from "@lingui/core";
 import * as Localization from "expo-localization";
-import { messages as jaMessages } from "./locales/ja/messages.po";
-import { messages as enMessages } from "./locales/en/messages.po";
+import { messages as jaMessages } from "./locales/ja/messages";
+import { messages as enMessages } from "./locales/en/messages";
 
 // サポートする言語の定義
 export const locales = {

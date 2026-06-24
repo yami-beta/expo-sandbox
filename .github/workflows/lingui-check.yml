@@ -54,3 +54,6 @@ jobs:
           else
             echo "✅ All translation files are up to date"
           fi
+
+      - name: Check for missing translations (compile --strict)
+        run: pnpm --dir apps/sandbox run lingui:check

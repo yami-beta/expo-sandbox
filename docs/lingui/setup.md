@@ -20,16 +20,19 @@
 
 | パッケージ | 用途 |
 |-----------|------|
-| `@lingui/cli` | メッセージ抽出コマンド（`lingui extract`） |
+| `@lingui/cli` | メッセージ抽出・コンパイル（`lingui extract` / `lingui compile`） |
+| `@lingui/format-po` | カタログを PO 形式で読み書きするフォーマッタ |
 | `@lingui/babel-plugin-lingui-macro` | マクロをランタイムコードに変換するBabelプラグイン |
-| `@lingui/metro-transformer` | .poファイルをMetro経由で直接インポートするためのTransformer |
 
 ## 設定ファイル
 
-### lingui.config.js
+### lingui.config.mjs
 
 ```javascript
-module.exports = {
+import { defineConfig } from "@lingui/cli";
+import { formatter } from "@lingui/format-po";
+
+export default defineConfig({
   locales: ["ja", "en"],
   sourceLocale: "ja",
   catalogs: [
@@ -39,12 +42,14 @@ module.exports = {
       exclude: ["**/node_modules/**"],
     },
   ],
-  format: "po",
-};
+  format: formatter(),
+  compileNamespace: "ts",
+});
 ```
 
-- `sourceLocale: "ja"`: ソースコード中のテキストは日本語で記述する
-- `format: "po"`: PO形式を採用（Metro Transformerで直接インポート可能）
+- `sourceLocale: "ja"`: ソースコード中のテキストは日本語で記述する（`lingui compile --strict` の未翻訳チェック対象外）
+- `format: formatter()`: カタログは PO 形式（`@lingui/format-po`）
+- `compileNamespace: "ts"`: `lingui compile` の出力を `messages.ts` で生成（ランタイムはこれをインポート）
 
 ### babel.config.js
 
@@ -66,36 +71,27 @@ module.exports = function (api) {
 
 ```javascript
 const { getDefaultConfig } = require("expo/metro-config");
-const config = getDefaultConfig(__dirname);
-const { transformer, resolver } = config;
 
-config.transformer = {
-  ...transformer,
-  babelTransformerPath: require.resolve("@lingui/metro-transformer/expo"),
-};
-
-config.resolver = {
-  ...resolver,
-  sourceExts: [...resolver.sourceExts, "po", "pot"],
-};
-
-module.exports = config;
+module.exports = getDefaultConfig(__dirname);
 ```
 
-Metro Transformerにより `.po` ファイルを直接インポートできる。これにより `lingui compile` が不要になり、ワークフローが簡潔になる。
+デフォルト構成。ランタイムは `lingui compile` が生成した `messages.ts` をインポートする（`.po` は直接インポートしない）。
 
-## Metro Transformer方式
+## コンパイル方式（標準フロー）
 
-本プロジェクトではMetro Transformer方式を採用している。
+本プロジェクトは Lingui 標準の compile フローを採用する（`extract` → 翻訳 → `compile`）。
+ランタイムは `.po` を直接インポートせず、`lingui compile` が生成する `messages.ts`（`compileNamespace: "ts"`）をインポートする。
 
-### 従来方式との比較
+### コンパイル成果物の扱い
 
-| | Metro Transformer（本プロジェクト） | Compile方式（従来） |
-|---|---|---|
-| ワークフロー | `extract` のみ | `extract` → `compile` の2ステップ |
-| .poファイル | 直接インポート | コンパイル後のJSファイルをインポート |
-| ホットリロード | 対応 | コンパイルの再実行が必要 |
-| 導入時期 | Lingui 4.12.0（2024年11月）以降 | 従来から存在 |
+- `apps/sandbox/src/locales/{locale}/messages.ts` は **生成物のため gitignore**（コミットしない）。
+- 生成タイミングは **ルート `package.json` の `postinstall`**（`pnpm --dir apps/sandbox run lingui:compile-if-needed`）に集約。`pnpm install` 時にローカル / CI / EAS いずれでも生成される（gitignore のためチェックアウト直後は必ず不在 → 毎回生成）。
+- 翻訳を変更したら `pnpm --dir apps/sandbox run lingui:compile` で明示的に再生成する。
+- 生成 `messages.ts` は lint/format 対象外（`.oxlintrc.json` / `.oxfmtrc.json` の `ignorePatterns`）。
+
+### 未翻訳の検出（CI ゲート）
+
+`lingui compile --strict`（`lingui:check`）は、`sourceLocale`（`ja`）以外のカタログに未翻訳があると失敗する。`lingui-check.yml` でこれを実行し、英語訳の欠落で CI を落とす。
 
 ## Intl Polyfill設定
 
@@ -181,11 +177,12 @@ import { Trans } from "@lingui/macro";
 
 ## 言語の追加手順
 
-1. `lingui.config.js` の `locales` に言語コードを追加
+1. `lingui.config.mjs` の `locales` に言語コードを追加
 2. `_layout.tsx` に対応するPolyfillのlocale-dataインポートを追加
 3. `src/i18n.ts` の `locales` と `allMessages` に言語を追加
-4. `pnpm -r run lingui:extract` でメッセージカタログを生成
+4. `pnpm -r run lingui:extract` でメッセージカタログ（`.po`）を生成
 5. 生成された `.po` ファイルに翻訳を追加
+6. `pnpm --dir apps/sandbox run lingui:compile` で `messages.ts` を再生成
 
 ## 参考リンク
 
