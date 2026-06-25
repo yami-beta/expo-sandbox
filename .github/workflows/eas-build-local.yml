@@ -1,0 +1,61 @@
+name: eas-build-local
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/sandbox/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - '.github/workflows/eas-build-local.yml'
+      - '.github/actions/**'
+
+concurrency:
+  group: eas-build-local-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-android:
+    name: EAS Build (Android Local)
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Android (local)
+        run: eas build --local --profile development --platform android --non-interactive --output ./build-output/sandbox.apk
+        working-directory: apps/sandbox
+        env:
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        if: success()
+        with:
+          name: android-build-${{ github.event.pull_request.number }}
+          path: apps/sandbox/build-output/sandbox.apk
+          retention-days: 7
