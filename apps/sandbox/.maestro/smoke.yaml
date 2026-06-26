@@ -1,0 +1,13 @@
+# アプリ起動〜ホーム画面の表示を確認する最小スモークテスト。
+# CI の emulator はロケールを ja-JP に固定して起動する（.github/workflows/e2e.yml 参照）。
+# 表示テキストは lingui の <Trans>（sourceLocale=ja）。
+appId: com.yamibeta.sandbox
+---
+- launchApp:
+    clearState: true
+# release ビルドの初回起動が遅いことがあるため、最初の要素は長めに待つ
+- extendedWaitUntil:
+    visible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
+    timeout: 40000
+- assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目
+- assertVisible: "コンポーネント"

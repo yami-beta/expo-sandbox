@@ -1,0 +1,144 @@
+name: e2e
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/sandbox/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - '.github/workflows/e2e.yml'
+      - '.github/actions/**'
+
+concurrency:
+  group: e2e-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  # install.sh が cli- を付与するため数値のみを指定（再現性のためバージョン固定）
+  MAESTRO_VERSION: '2.6.1'
+  ANDROID_API_LEVEL: '34'
+  AVD_NAME: e2e
+
+jobs:
+  # Dev Client を含まない e2e プロファイル（JS バンドル埋め込み・Metro 不要）の APK を
+  # eas build --local でビルドし、その APK で Maestro E2E を実行する。
+  # ビルドが通ること自体がネイティブビルド破損の早期検知も兼ねる。
+  # 将来 iOS を対象にする場合は e2e-ios ジョブ（macOS ランナー / simulator）を追加する。
+  e2e-android:
+    name: E2E (Android)
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 75
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Android E2E APK (local)
+        run: eas build --local --profile e2e --platform android --non-interactive --output ./build-output/sandbox-e2e.apk
+        working-directory: apps/sandbox
+        env:
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      # KVM を有効化し emulator のハードウェアアクセラレーションを使う（起動高速化）
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      # ubuntu-latest にプリインストール済みの Android SDK ツールで emulator を用意する
+      # （サードパーティ Action は使わない方針）
+      - name: Install Android system image
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+            "platform-tools" \
+            "emulator" \
+            "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" > /dev/null
+          # adb / emulator を PATH に通す
+          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+          echo "$ANDROID_HOME/emulator" >> "$GITHUB_PATH"
+          # avdmanager の作成先と emulator の検索先を統一する（runner 既定はずれることがある）。
+          # runner コンテキストは job の env: では使えないため $GITHUB_ENV 経由で後続 step に渡す
+          echo "ANDROID_AVD_HOME=$RUNNER_TEMP/avd" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/avd"
+
+      - name: Create AVD
+        run: |
+          echo "no" | "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" create avd \
+            --force \
+            --name "$AVD_NAME" \
+            --package "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" \
+            --device "pixel_6"
+
+      - name: Run Maestro E2E
+        run: |
+          # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
+          "$ANDROID_HOME/emulator/emulator" -avd "$AVD_NAME" \
+            -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect &
+
+          # boot 完了を待つ（最大 5 分）
+          adb wait-for-device
+          timeout 300 bash -c 'until [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d "\r")" = "1" ]; do sleep 2; done'
+
+          # アプリを日本語表示にするため emulator のロケールを ja-JP に固定する。
+          # emulator の -prop では locale を変えられないため、adb root + setprop +
+          # フレームワーク再起動（stop; start）で反映する（google_apis イメージは root 可）。
+          adb root
+          adb wait-for-device
+          adb shell "setprop persist.sys.locale ja-JP"
+          adb shell "stop; setprop sys.boot_completed 0; start"
+          timeout 300 bash -c 'until [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d "\r")" = "1" ]; do sleep 2; done'
+
+          # PackageManager が応答するまで待ち、maestro driver の起動失敗（gRPC UNAVAILABLE）を防ぐ
+          timeout 120 bash -c 'until adb shell pm path android >/dev/null 2>&1; do sleep 2; done'
+          adb shell input keyevent 82 || true   # ロック画面を解除
+          sleep 10                                # system service 安定化の猶予
+
+          # 操作の安定化のためアニメーションを無効化
+          adb shell settings put global window_animation_scale 0
+          adb shell settings put global transition_animation_scale 0
+          adb shell settings put global animator_duration_scale 0
+
+          adb install -r apps/sandbox/build-output/sandbox-e2e.apk
+          # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
+          maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
+
+      # 成功・失敗にかかわらずレポートとスクショ/録画/ログを保存する
+      - name: Upload Maestro artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: maestro-results-${{ github.event.pull_request.number }}
+          path: |
+            maestro-report.xml
+            maestro-debug
+          retention-days: 7
+          if-no-files-found: warn

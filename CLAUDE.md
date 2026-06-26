@@ -31,6 +31,8 @@ monorepo で管理された Expo アプリケーションのリポジトリ
 
 - `pnpm -r run test`
   - ランナーの使い分け（sandbox=jest-expo / tooling=vitest）・書き方は [`docs/testing.md`](docs/testing.md)。CI（`ci.yml` の `test` ジョブ）でも実行される
+- E2E（Maestro）
+  - PR ごとに `eas build --local` + emulator で実行。構成・運用は [`docs/maestro.md`](docs/maestro.md)。CI（`e2e.yml`）
 
 ### 国際化
 
