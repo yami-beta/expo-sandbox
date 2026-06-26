@@ -23,6 +23,16 @@
         "simulator": true
       },
       "channel": "ios-simulator"
+    },
+    "e2e": {
+      "developmentClient": false,
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleRelease -x lintVitalRelease"
+      },
+      "ios": {
+        "simulator": true
+      }
     }
   },
   "submit": {
