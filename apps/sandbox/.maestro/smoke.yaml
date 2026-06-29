@@ -5,9 +5,12 @@ appId: com.yamibeta.sandbox
 ---
 - launchApp:
     clearState: true
-# release ビルドの初回起動が遅いことがあるため、最初の要素は長めに待つ
+# clearState 後は Metro からバンドルを再取得するため、「ホーム」が一瞬出た後に再ロードで
+# 空画面を挟むことがある。タイトルだけ待つと後続 assert が空画面で落ちるため、リストが
+# 描画完了した証跡となる項目を extendedWaitUntil で待ってから assert する。
+# （Dev Client は Metro 初回バンドル、非 Dev Client は埋め込み JS の初回起動が遅い）
 - extendedWaitUntil:
-    visible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
-    timeout: 40000
-- assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目
+    visible: "ナビゲーションパターン" # GroupedList の先頭項目（src/app/(tabs)/(home)/index.tsx）
+    timeout: 60000
+- assertVisible: "ホーム" # Stack.Screen.Title / タブラベル
 - assertVisible: "コンポーネント"

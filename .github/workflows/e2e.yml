@@ -23,9 +23,12 @@ env:
   AVD_NAME: e2e
 
 jobs:
-  # Dev Client を含まない e2e プロファイル（JS バンドル埋め込み・Metro 不要）の APK を
-  # eas build --local でビルドし、その APK で Maestro E2E を実行する。
-  # ビルドが通ること自体がネイティブビルド破損の早期検知も兼ねる。
+  # Development Build（Dev Client 入り）を expo run:android でビルド→install→Metro 起動→
+  # アプリ起動まで一括実行し、その上で Maestro E2E を実行する（ローカル開発と同一コマンド）。
+  # E2E_BUILD=true により app.config.ts が dev-client の config plugin を有効化し、
+  # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
+  # EAS / EXPO_TOKEN は不要。
+  # Dev Client を含まない（e2e プロファイル / 埋め込み JS）E2E は将来 main/定期実行で行う。
   # 将来 iOS を対象にする場合は e2e-ios ジョブ（macOS ランナー / simulator）を追加する。
   e2e-android:
     name: E2E (Android)
@@ -50,17 +53,6 @@ jobs:
 
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
-
-      - name: Setup EAS
-        uses: ./.github/actions/setup-eas
-        with:
-          token: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Build Android E2E APK (local)
-        run: eas build --local --profile e2e --platform android --non-interactive --output ./build-output/sandbox-e2e.apk
-        working-directory: apps/sandbox
-        env:
-          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
 
       - name: Install Maestro CLI
         run: |
@@ -99,6 +91,9 @@ jobs:
             --device "pixel_6"
 
       - name: Run Maestro E2E
+        env:
+          # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
           "$ANDROID_HOME/emulator/emulator" -avd "$AVD_NAME" \
@@ -127,9 +122,33 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-          adb install -r apps/sandbox/build-output/sandbox-e2e.apk
+          # Development Build を expo run:android でビルド→install→Metro 起動→adb reverse→
+          # アプリ起動まで一括実行する（ローカル開発と同一コマンド）。Metro はテスト中ずっと
+          # 生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
+          E2E_BUILD=true pnpm --dir apps/sandbox exec expo run:android > "$RUNNER_TEMP/expo-run.log" 2>&1 &
+          EXPO_RUN_PID=$!
+          echo "EXPO_RUN_PID=$EXPO_RUN_PID" >> "$GITHUB_ENV"
+
+          # ビルド→install→アプリ起動（MainActivity）まで待つ。expo run が途中で死んだら失敗させる
+          timeout 1200 bash -c '
+            until adb shell dumpsys activity activities 2>/dev/null | tr -d "\r" | grep -q "com.yamibeta.sandbox/.MainActivity"; do
+              kill -0 '"$EXPO_RUN_PID"' 2>/dev/null || { echo "expo run:android が予期せず終了しました"; exit 1; }
+              sleep 5
+            done'
+          # Metro の readiness を確認（Dev Client は defaultLaunchURL で localhost:8081 に接続）
+          timeout 120 bash -c 'until curl -fsS http://localhost:8081/status | grep -q "packager-status:running"; do sleep 2; done'
+
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
+
+      # Metro を停止し、ポート転送を解除する（バックグラウンドプロセスの hang 防止）
+      - name: Stop Expo / Metro
+        if: always()
+        run: |
+          adb reverse --remove-all || true
+          kill "$EXPO_RUN_PID" 2>/dev/null || true
+          pkill -f "expo run:android" 2>/dev/null || true
+          pkill -f "expo start" 2>/dev/null || true
 
       # 成功・失敗にかかわらずレポートとスクショ/録画/ログを保存する
       - name: Upload Maestro artifacts
@@ -140,5 +159,6 @@ jobs:
           path: |
             maestro-report.xml
             maestro-debug
+            ${{ runner.temp }}/expo-run.log
           retention-days: 7
           if-no-files-found: warn
