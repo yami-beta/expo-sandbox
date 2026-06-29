@@ -28,6 +28,9 @@ jobs:
   # E2E_BUILD=true により app.config.ts が dev-client の config plugin を有効化し、
   # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
   # EAS / EXPO_TOKEN は不要。
+  # ※ アプリ起動時の Metro バンドル生成（CPU スパイク）で低速 emulator の SystemUI/Launcher が ANR
+  #   しないよう、emulator は CI 向け軽量イメージ google_atd を使う（system process が軽く ANR しにくい）。
+  #   コマンドは素の expo run:android のままで、nice や pre-warm 等の小細工は使わない。
   # Dev Client を含まない（e2e プロファイル / 埋め込み JS）E2E は将来 main/定期実行で行う。
   # 将来 iOS を対象にする場合は e2e-ios ジョブ（macOS ランナー / simulator）を追加する。
   e2e-android:
@@ -73,7 +76,7 @@ jobs:
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
             "platform-tools" \
             "emulator" \
-            "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" > /dev/null
+            "system-images;android-${ANDROID_API_LEVEL};google_atd;x86_64" > /dev/null
           # adb / emulator を PATH に通す
           echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
           echo "$ANDROID_HOME/emulator" >> "$GITHUB_PATH"
@@ -87,7 +90,7 @@ jobs:
           echo "no" | "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" create avd \
             --force \
             --name "$AVD_NAME" \
-            --package "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" \
+            --package "system-images;android-${ANDROID_API_LEVEL};google_atd;x86_64" \
             --device "pixel_6"
 
       - name: Run Maestro E2E
@@ -96,7 +99,8 @@ jobs:
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
-          # CI で起動時に SystemUI/Launcher が ANR したため、緩和として RAM とコアを増やす。
+          # CI 用の軽量イメージ（google_atd）を使い、アプリ起動時の Metro バンドル生成（CPU スパイク）で
+          # SystemUI/Launcher が ANR するのを抑える。余裕のため RAM/コアも増やす。
           "$ANDROID_HOME/emulator/emulator" -avd "$AVD_NAME" \
             -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect \
             -memory 6144 -cores 4 &
@@ -107,7 +111,7 @@ jobs:
 
           # アプリを日本語表示にするため emulator のロケールを ja-JP に固定する。
           # emulator の -prop では locale を変えられないため、adb root + setprop +
-          # フレームワーク再起動（stop; start）で反映する（google_apis イメージは root 可）。
+          # フレームワーク再起動（stop; start）で反映する（ATD イメージも userdebug で root 可）。
           adb root
           adb wait-for-device
           adb shell "setprop persist.sys.locale ja-JP"
