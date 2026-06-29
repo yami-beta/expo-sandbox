@@ -23,9 +23,15 @@ env:
   AVD_NAME: e2e
 
 jobs:
-  # Dev Client を含まない e2e プロファイル（JS バンドル埋め込み・Metro 不要）の APK を
-  # eas build --local でビルドし、その APK で Maestro E2E を実行する。
-  # ビルドが通ること自体がネイティブビルド破損の早期検知も兼ねる。
+  # Development Build（Dev Client 入り）を expo run:android でビルド→install→Metro 起動→
+  # アプリ起動まで一括実行し、その上で Maestro E2E を実行する（ローカル開発と同一コマンド）。
+  # E2E_BUILD=true により app.config.ts が dev-client の config plugin を有効化し、
+  # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
+  # EAS / EXPO_TOKEN は不要。
+  # ※ アプリ起動時の Metro バンドル生成（CPU スパイク）で低速 emulator の SystemUI/Launcher が ANR
+  #   しないよう、emulator は CI 向け軽量イメージ google_atd を使う（system process が軽く ANR しにくい）。
+  #   コマンドは素の expo run:android のままで、nice や pre-warm 等の小細工は使わない。
+  # Dev Client を含まない（e2e プロファイル / 埋め込み JS）E2E は将来 main/定期実行で行う。
   # 将来 iOS を対象にする場合は e2e-ios ジョブ（macOS ランナー / simulator）を追加する。
   e2e-android:
     name: E2E (Android)
@@ -51,17 +57,6 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
-      - name: Setup EAS
-        uses: ./.github/actions/setup-eas
-        with:
-          token: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Build Android E2E APK (local)
-        run: eas build --local --profile e2e --platform android --non-interactive --output ./build-output/sandbox-e2e.apk
-        working-directory: apps/sandbox
-        env:
-          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
-
       - name: Install Maestro CLI
         run: |
           curl -fsSL "https://get.maestro.mobile.dev" | bash
@@ -81,7 +76,7 @@ jobs:
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
             "platform-tools" \
             "emulator" \
-            "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" > /dev/null
+            "system-images;android-${ANDROID_API_LEVEL};google_atd;x86_64" > /dev/null
           # adb / emulator を PATH に通す
           echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
           echo "$ANDROID_HOME/emulator" >> "$GITHUB_PATH"
@@ -95,14 +90,20 @@ jobs:
           echo "no" | "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" create avd \
             --force \
             --name "$AVD_NAME" \
-            --package "system-images;android-${ANDROID_API_LEVEL};google_apis;x86_64" \
+            --package "system-images;android-${ANDROID_API_LEVEL};google_atd;x86_64" \
             --device "pixel_6"
 
       - name: Run Maestro E2E
+        env:
+          # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
+          # CI 用の軽量イメージ（google_atd）を使い、アプリ起動時の Metro バンドル生成（CPU スパイク）で
+          # SystemUI/Launcher が ANR するのを抑える。余裕のため RAM/コアも増やす。
           "$ANDROID_HOME/emulator/emulator" -avd "$AVD_NAME" \
-            -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect &
+            -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect \
+            -memory 6144 -cores 4 &
 
           # boot 完了を待つ（最大 5 分）
           adb wait-for-device
@@ -110,7 +111,7 @@ jobs:
 
           # アプリを日本語表示にするため emulator のロケールを ja-JP に固定する。
           # emulator の -prop では locale を変えられないため、adb root + setprop +
-          # フレームワーク再起動（stop; start）で反映する（google_apis イメージは root 可）。
+          # フレームワーク再起動（stop; start）で反映する（ATD イメージも userdebug で root 可）。
           adb root
           adb wait-for-device
           adb shell "setprop persist.sys.locale ja-JP"
@@ -127,11 +128,52 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-          adb install -r apps/sandbox/build-output/sandbox-e2e.apk
+          # Development Build を expo run:android でビルド→install→Metro 起動→adb reverse→
+          # アプリ起動まで一括実行する（ローカル開発と同一コマンド）。Metro はテスト中ずっと
+          # 生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
+          E2E_BUILD=true pnpm --dir apps/sandbox exec expo run:android > "$RUNNER_TEMP/expo-run.log" 2>&1 &
+          EXPO_RUN_PID=$!
+          echo "EXPO_RUN_PID=$EXPO_RUN_PID" >> "$GITHUB_ENV"
+
+          # ビルド→install→アプリ起動（MainActivity）まで待つ。expo run が途中で死んだら失敗させる
+          timeout 1200 bash -c '
+            until adb shell dumpsys activity activities 2>/dev/null | tr -d "\r" | grep -q "com.yamibeta.sandbox/.MainActivity"; do
+              kill -0 '"$EXPO_RUN_PID"' 2>/dev/null || { echo "expo run:android が予期せず終了しました"; exit 1; }
+              sleep 5
+            done'
+          # Metro の readiness を確認（Dev Client は defaultLaunchURL で localhost:8081 に接続）
+          timeout 120 bash -c 'until curl -fsS http://localhost:8081/status | grep -q "packager-status:running"; do sleep 2; done'
+
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
-      # 成功・失敗にかかわらずレポートとスクショ/録画/ログを保存する
+      # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
+      # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）
+      - name: Capture device diagnostics
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/diag"
+          adb exec-out screencap -p > "$RUNNER_TEMP/diag/screen.png" 2>/dev/null || true
+          {
+            echo "persist.sys.locale=$(adb shell getprop persist.sys.locale | tr -d '\r')"
+            echo "ro.product.locale=$(adb shell getprop ro.product.locale | tr -d '\r')"
+          } > "$RUNNER_TEMP/diag/locale.txt" 2>/dev/null || true
+          adb shell dumpsys activity activities 2>/dev/null | tr -d '\r' | grep -iE "topResumedActivity|mResumedActivity" > "$RUNNER_TEMP/diag/activity.txt" || true
+          adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1 && adb pull /sdcard/ui.xml "$RUNNER_TEMP/diag/ui.xml" >/dev/null 2>&1 || true
+          echo "=== locale ==="; cat "$RUNNER_TEMP/diag/locale.txt" 2>/dev/null || true
+          echo "=== top activity ==="; cat "$RUNNER_TEMP/diag/activity.txt" 2>/dev/null || true
+          echo "=== UI に表示中のテキスト（抜粋） ==="; grep -oE 'text="[^"]+"' "$RUNNER_TEMP/diag/ui.xml" 2>/dev/null | head -40 || true
+
+      # Metro を停止し、ポート転送を解除する（バックグラウンドプロセスの hang 防止）
+      - name: Stop Expo / Metro
+        if: always()
+        run: |
+          adb reverse --remove-all || true
+          kill "$EXPO_RUN_PID" 2>/dev/null || true
+          pkill -f "expo run:android" 2>/dev/null || true
+          pkill -f "expo start" 2>/dev/null || true
+
+      # 成功・失敗にかかわらずレポート・スクショ/録画/ログ・診断（画面状態）を保存する
       - name: Upload Maestro artifacts
         if: always()
         uses: actions/upload-artifact@v7
@@ -140,5 +182,7 @@ jobs:
           path: |
             maestro-report.xml
             maestro-debug
+            ${{ runner.temp }}/expo-run.log
+            ${{ runner.temp }}/diag
           retention-days: 7
           if-no-files-found: warn
