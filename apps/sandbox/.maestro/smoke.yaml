@@ -11,6 +11,6 @@ appId: com.yamibeta.sandbox
 # （Dev Client は Metro 初回バンドル、非 Dev Client は埋め込み JS の初回起動が遅い）
 - extendedWaitUntil:
     visible: "ナビゲーションパターン" # GroupedList の先頭項目（src/app/(tabs)/(home)/index.tsx）
-    timeout: 60000
+    timeout: 120000
 - assertVisible: "ホーム" # Stack.Screen.Title / タブラベル
 - assertVisible: "コンポーネント"

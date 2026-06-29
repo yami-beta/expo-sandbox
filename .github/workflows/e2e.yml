@@ -96,8 +96,10 @@ jobs:
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
+          # CI で起動時に SystemUI/Launcher が ANR したため、緩和として RAM とコアを増やす。
           "$ANDROID_HOME/emulator/emulator" -avd "$AVD_NAME" \
-            -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect &
+            -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect \
+            -memory 6144 -cores 4 &
 
           # boot 完了を待つ（最大 5 分）
           adb wait-for-device
@@ -141,6 +143,23 @@ jobs:
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
+      # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
+      # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）
+      - name: Capture device diagnostics
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/diag"
+          adb exec-out screencap -p > "$RUNNER_TEMP/diag/screen.png" 2>/dev/null || true
+          {
+            echo "persist.sys.locale=$(adb shell getprop persist.sys.locale | tr -d '\r')"
+            echo "ro.product.locale=$(adb shell getprop ro.product.locale | tr -d '\r')"
+          } > "$RUNNER_TEMP/diag/locale.txt" 2>/dev/null || true
+          adb shell dumpsys activity activities 2>/dev/null | tr -d '\r' | grep -iE "topResumedActivity|mResumedActivity" > "$RUNNER_TEMP/diag/activity.txt" || true
+          adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1 && adb pull /sdcard/ui.xml "$RUNNER_TEMP/diag/ui.xml" >/dev/null 2>&1 || true
+          echo "=== locale ==="; cat "$RUNNER_TEMP/diag/locale.txt" 2>/dev/null || true
+          echo "=== top activity ==="; cat "$RUNNER_TEMP/diag/activity.txt" 2>/dev/null || true
+          echo "=== UI に表示中のテキスト（抜粋） ==="; grep -oE 'text="[^"]+"' "$RUNNER_TEMP/diag/ui.xml" 2>/dev/null | head -40 || true
+
       # Metro を停止し、ポート転送を解除する（バックグラウンドプロセスの hang 防止）
       - name: Stop Expo / Metro
         if: always()
@@ -150,7 +169,7 @@ jobs:
           pkill -f "expo run:android" 2>/dev/null || true
           pkill -f "expo start" 2>/dev/null || true
 
-      # 成功・失敗にかかわらずレポートとスクショ/録画/ログを保存する
+      # 成功・失敗にかかわらずレポート・スクショ/録画/ログ・診断（画面状態）を保存する
       - name: Upload Maestro artifacts
         if: always()
         uses: actions/upload-artifact@v7
@@ -160,5 +179,6 @@ jobs:
             maestro-report.xml
             maestro-debug
             ${{ runner.temp }}/expo-run.log
+            ${{ runner.temp }}/diag
           retention-days: 7
           if-no-files-found: warn
