@@ -29,6 +29,26 @@ export default function SettingsScreen() {
 
   const sections = [
     {
+      title: <Trans>一般</Trans>,
+      iconSlotReserved: true,
+      data: [
+        {
+          href: "/settings/language",
+          text: <Trans>言語</Trans>,
+          description: <Trans>システム / 日本語 / 英語</Trans>,
+          leadingIcon: (
+            <Ionicons
+              name="language-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
+          ),
+        },
+      ],
+    },
+    {
       title: <Trans>外観</Trans>,
       iconSlotReserved: true,
       data: [

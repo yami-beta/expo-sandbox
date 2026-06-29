@@ -17,6 +17,7 @@ import { useTheme } from "../theme/useTheme";
 import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
 import { initializeI18n } from "../i18n";
+import { LocaleProvider } from "../i18n/LocaleContext";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
@@ -130,9 +131,11 @@ function RootLayoutContent() {
 export default function RootLayout() {
   return (
     <I18nProvider i18n={i18n}>
-      <ThemeProvider>
-        <RootLayoutContent />
-      </ThemeProvider>
+      <LocaleProvider>
+        <ThemeProvider>
+          <RootLayoutContent />
+        </ThemeProvider>
+      </LocaleProvider>
     </I18nProvider>
   );
 }
