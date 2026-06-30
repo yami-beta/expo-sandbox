@@ -35,7 +35,7 @@ export default function SettingsScreen() {
         {
           href: "/settings/language",
           text: <Trans>言語</Trans>,
-          description: <Trans>システム / 日本語 / 英語</Trans>,
+          description: <Trans>システム / 日本語 / English</Trans>,
           leadingIcon: (
             <Ionicons
               name="language-outline"

@@ -741,8 +741,8 @@ msgid "サンプル"
 msgstr "Sample"
 
 #: src/app/(tabs)/settings/index.tsx:38
-msgid "システム / 日本語 / 英語"
-msgstr "System / Japanese / English"
+msgid "システム / 日本語 / English"
+msgstr "System / 日本語 / English"
 
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:50
 msgid "システムに従う"
