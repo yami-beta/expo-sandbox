@@ -1,5 +1,6 @@
 import { i18n } from "@lingui/core";
 import * as Localization from "expo-localization";
+import Storage from "expo-sqlite/kv-store";
 import { messages as jaMessages } from "./locales/ja/messages";
 import { messages as enMessages } from "./locales/en/messages";
 
@@ -10,6 +11,20 @@ export const locales = {
 } as const;
 
 export type Locale = keyof typeof locales;
+
+// 言語設定（アプリ側で永続化する値）
+// "system" は端末のロケールに従う。それ以外は Locale をそのまま使う。
+export type LocalePreference = "system" | Locale;
+
+// 言語設定の永続化キー（テーマの STORAGE_KEY と同じローカル定義スタイル）
+export const STORAGE_KEY = {
+  LOCALE: "locale-preference",
+} as const;
+
+// 言語設定の型ガード
+export function isValidLocalePreference(value: unknown): value is LocalePreference {
+  return value === "system" || (typeof value === "string" && isValidLocale(value));
+}
 
 // デフォルト言語
 export const defaultLocale: Locale = "ja";
@@ -52,11 +67,15 @@ function detectLocale(): Locale {
   return defaultLocale;
 }
 
-// i18nの初期化関数
-export function initI18n() {
-  const locale = detectLocale();
-  const messages = allMessages[locale];
-  i18n.loadAndActivate({ locale, messages });
+// 言語設定を実際に適用するロケールへ解決する
+// "system" は端末のロケールから検出し、それ以外はそのまま返す
+export function resolveLocale(preference: LocalePreference): Locale {
+  return preference === "system" ? detectLocale() : preference;
+}
+
+// 指定したロケールを i18n に適用する薄いラッパ
+export function applyLocale(locale: Locale) {
+  i18n.loadAndActivate({ locale, messages: allMessages[locale] });
 }
 
 // 現在のロケールを取得
@@ -69,7 +88,15 @@ export function getCurrentLocale(): Locale {
   return defaultLocale;
 }
 
-// アプリ起動時の初期化（デバイスの言語設定を読み込む）
+// 保存された言語設定を同期で読み込む（なければ "system"）
+export function getStoredLocalePreference(): LocalePreference {
+  const stored = Storage.getItemSync(STORAGE_KEY.LOCALE);
+  return isValidLocalePreference(stored) ? stored : "system";
+}
+
+// アプリ起動時の初期化
+// 保存された言語設定を同期で読み込み、解決したロケールを適用する。
+// 保存がなければ "system" 相当でデバイス検出。同期確定なのでちらつきなし。
 export function initializeI18n() {
-  initI18n();
+  applyLocale(resolveLocale(getStoredLocalePreference()));
 }

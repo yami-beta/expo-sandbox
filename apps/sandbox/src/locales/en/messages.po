@@ -676,7 +676,7 @@ msgstr "Choose an avatar color"
 msgid "アプリ全体のテーマ設定と連動します"
 msgstr "Linked to the app-wide theme setting"
 
-#: src/app/(tabs)/settings/index.tsx:57
+#: src/app/(tabs)/settings/index.tsx:77
 msgid "アプリ情報"
 msgstr "App info"
 
@@ -740,10 +740,15 @@ msgstr "Components"
 msgid "サンプル"
 msgstr "Sample"
 
+#: src/app/(tabs)/settings/index.tsx:38
+msgid "システム / 日本語 / English"
+msgstr "System / 日本語 / English"
+
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:50
 msgid "システムに従う"
 msgstr "Follow system"
 
+#: src/app/(tabs)/settings/language.tsx:15
 #: src/app/(tabs)/settings/theme.tsx:14
 msgid "システム設定に従う"
 msgstr "Follow system settings"
@@ -873,7 +878,7 @@ msgid "データ取得"
 msgstr "Data fetching"
 
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:96
-#: src/app/(tabs)/settings/index.tsx:37
+#: src/app/(tabs)/settings/index.tsx:57
 #: src/app/(tabs)/settings/theme.tsx:21
 msgid "テーマ"
 msgstr "Theme"
@@ -1043,7 +1048,7 @@ msgstr "yami beta"
 msgid "ようこそ。このタイトルは MaskedView で文字を型抜きし、背面の色帯を透過させています。"
 msgstr "Welcome. This title is cut out with MaskedView, letting the color stripes behind show through the text."
 
-#: src/app/(tabs)/settings/index.tsx:71
+#: src/app/(tabs)/settings/index.tsx:91
 msgid "ライセンス"
 msgstr "Licenses"
 
@@ -1052,7 +1057,7 @@ msgstr "Licenses"
 msgid "ライト"
 msgstr "Light"
 
-#: src/app/(tabs)/settings/index.tsx:38
+#: src/app/(tabs)/settings/index.tsx:58
 msgid "ライト / ダーク / システム"
 msgstr "Light / Dark / System"
 
@@ -1131,6 +1136,10 @@ msgstr "To the Root Stack Screen"
 #: src/app/(tabs)/tab-b/page.tsx:32
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "To the Root Stack Screen (covers the tab bar)"
+
+#: src/app/(tabs)/settings/index.tsx:32
+msgid "一般"
+msgstr "General"
 
 #: src/app/(tabs)/(home)/navigation-patterns/modal/in-tab.tsx:16
 msgid "下から上にスライドして表示される page sheet 風 modal。タブ内 Stack 配下に置いても iOS の modal は UIKit 上の最前面に出るため、結局タブバーを覆って表示される (ルート版とほぼ同じ見た目になる)。上端からの swipe down で閉じられる。"
@@ -1267,7 +1276,7 @@ msgstr "Overlays as an equivalent transparent modal. Since it sits under the roo
 msgid "変更"
 msgstr "Change"
 
-#: src/app/(tabs)/settings/index.tsx:32
+#: src/app/(tabs)/settings/index.tsx:52
 msgid "外観"
 msgstr "Appearance"
 
@@ -1275,7 +1284,7 @@ msgstr "Appearance"
 msgid "実装メモ"
 msgstr "Implementation notes"
 
-#: src/app/(tabs)/settings/index.tsx:52
+#: src/app/(tabs)/settings/index.tsx:72
 msgid "情報"
 msgstr "Info"
 
@@ -1387,8 +1396,14 @@ msgstr "Duplicate"
 msgid "触覚フィードバック"
 msgstr "Haptic feedback"
 
+#: src/app/(tabs)/settings/index.tsx:37
+#: src/app/(tabs)/settings/language.tsx:22
+msgid "言語"
+msgstr "Language"
+
 #: src/app/(tabs)/_layout.tsx:51
-#: src/app/(tabs)/settings/index.tsx:88
+#: src/app/(tabs)/settings/index.tsx:108
+#: src/app/(tabs)/settings/language.tsx:27
 msgid "設定"
 msgstr "Settings"
 
