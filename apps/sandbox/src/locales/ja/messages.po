@@ -1403,6 +1403,7 @@ msgstr "言語"
 
 #: src/app/(tabs)/_layout.tsx:51
 #: src/app/(tabs)/settings/index.tsx:108
+#: src/app/(tabs)/settings/language.tsx:27
 msgid "設定"
 msgstr "設定"
 

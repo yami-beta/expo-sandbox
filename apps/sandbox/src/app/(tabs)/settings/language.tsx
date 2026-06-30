@@ -20,6 +20,11 @@ export default function LanguageScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <Stack.Screen.Title>{t`言語`}</Stack.Screen.Title>
+      {/* iOS の戻るボタンのラベルは「現在画面の headerBackTitle」で、未指定だと
+          前画面タイトルを既定参照する。だがその既定参照は言語切替時に表示中のボタンへ
+          即座に反映されない（前画面の title 変更を UIKit がライブ更新しないため）。
+          現在画面のオプションとして明示することで、タイトルと同様 reactive に更新させる。 */}
+      <Stack.Screen.BackButton>{t`設定`}</Stack.Screen.BackButton>
       <View accessibilityRole="radiogroup">
         {options.map((option) => (
           <Pressable
