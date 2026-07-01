@@ -1,5 +1,6 @@
 # アプリ起動〜ホーム画面の表示を確認する最小スモークテスト。
-# CI の emulator はロケールを ja-JP に固定して起動する（.github/workflows/e2e.yml 参照）。
+# emulator ロケールは固定せず（既定 en-US）、E2E ビルドはアプリの言語既定値を ja に固定する
+# （E2E_DEFAULT_LOCALE=ja / .github/workflows/e2e.yml・src/i18n.ts 参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。
 appId: com.yamibeta.sandbox
 ---
