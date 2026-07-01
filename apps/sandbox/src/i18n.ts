@@ -88,10 +88,23 @@ export function getCurrentLocale(): Locale {
   return defaultLocale;
 }
 
-// 保存された言語設定を同期で読み込む（なければ "system"）
+// 保存値が無いときのフォールバック言語設定を解決する。
+// 通常ビルドは "system"（端末ロケール依存）。E2E ビルドでは EXPO_PUBLIC_E2E_DEFAULT_LOCALE
+// に固定言語を渡し、emulator ロケールに依存せず固定言語で assert できるようにする。
+// 無効値・未設定（通常ビルド）は "system" にフォールバックする。
+export function resolveDefaultPreference(e2eDefaultLocale: unknown): LocalePreference {
+  return isValidLocalePreference(e2eDefaultLocale) ? e2eDefaultLocale : "system";
+}
+
+// 保存された言語設定を同期で読み込む（保存値が無効/未保存ならフォールバックを解決）
 export function getStoredLocalePreference(): LocalePreference {
   const stored = Storage.getItemSync(STORAGE_KEY.LOCALE);
-  return isValidLocalePreference(stored) ? stored : "system";
+  if (isValidLocalePreference(stored)) {
+    return stored;
+  }
+  // EXPO_PUBLIC_ はドット記法の直書きのみバンドルにインライン化される（動的キー不可）。
+  // 通常ビルドでは undefined になり "system" にフォールバックする。
+  return resolveDefaultPreference(process.env.EXPO_PUBLIC_E2E_DEFAULT_LOCALE);
 }
 
 // アプリ起動時の初期化

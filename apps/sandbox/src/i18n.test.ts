@@ -1,6 +1,12 @@
 import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 import * as Localization from "expo-localization";
-import { resolveLocale } from "./i18n";
+import Storage from "expo-sqlite/kv-store";
+import {
+  getStoredLocalePreference,
+  resolveDefaultPreference,
+  resolveLocale,
+  STORAGE_KEY,
+} from "./i18n";
 
 // resolveLocale("system") は内部の detectLocale() を介して端末ロケール
 // (expo-localization の getLocales) を参照する。getLocales をモックして
@@ -85,5 +91,74 @@ describe("resolveLocale", () => {
       resolveLocale("en");
       expect(getLocales).not.toHaveBeenCalled();
     });
+  });
+});
+
+// 保存値が無いときのフォールバック言語設定を解決する純粋関数。
+// 通常ビルドは env 未設定で "system"、E2E ビルドは EXPO_PUBLIC_E2E_DEFAULT_LOCALE の
+// 固定言語を反映する。process.env は読まず引数のみで挙動が決まるためモック不要。
+describe("resolveDefaultPreference", () => {
+  describe("有効な LocalePreference はそのまま既定値になる", () => {
+    it('"ja" は E2E 既定として ja を反映する', () => {
+      expect(resolveDefaultPreference("ja")).toBe("ja");
+    });
+
+    it('"en" は E2E 既定として en を反映する（将来の en テスト拡張を担保）', () => {
+      expect(resolveDefaultPreference("en")).toBe("en");
+    });
+
+    it('"system" は端末ロケール依存の既定としてそのまま返す', () => {
+      expect(resolveDefaultPreference("system")).toBe("system");
+    });
+  });
+
+  describe('サポート外・無効な値は "system" にフォールバックする', () => {
+    it("未設定 (undefined) は通常ビルド相当で system", () => {
+      expect(resolveDefaultPreference(undefined)).toBe("system");
+    });
+
+    it("空文字は無効値なので system", () => {
+      expect(resolveDefaultPreference("")).toBe("system");
+    });
+
+    it("サポート外の言語コード (fr) は system", () => {
+      expect(resolveDefaultPreference("fr")).toBe("system");
+    });
+
+    it("null は非文字列の無効値なので system", () => {
+      expect(resolveDefaultPreference(null)).toBe("system");
+    });
+
+    it("数値は非文字列の無効値なので system", () => {
+      expect(resolveDefaultPreference(0)).toBe("system");
+    });
+
+    it("オブジェクトは非文字列の無効値なので system", () => {
+      expect(resolveDefaultPreference({ locale: "ja" })).toBe("system");
+    });
+  });
+});
+
+// getStoredLocalePreference は「ユーザーが保存した言語設定」を最優先し、無効/未保存のときだけ
+// フォールバック（通常ビルドは "system"）を解決する。この優先順位は本番挙動の中核なので回帰から守る。
+// expo-sqlite/kv-store は jest-setup.ts でインメモリ実装にモックされている。
+describe("getStoredLocalePreference", () => {
+  beforeEach(() => {
+    Storage.clearSync();
+  });
+
+  it("保存された有効な言語設定を最優先で返す（フォールバックより優先）", () => {
+    // env フォールバックは env 未設定なら "system" だが、保存値があればそちらが勝つ
+    Storage.setItemSync(STORAGE_KEY.LOCALE, "en");
+    expect(getStoredLocalePreference()).toBe("en");
+  });
+
+  it('保存値が無ければフォールバックへ落ちる（env 未設定の通常ビルドは "system"）', () => {
+    expect(getStoredLocalePreference()).toBe("system");
+  });
+
+  it('保存値が不正なら無視してフォールバックへ落ちる（env 未設定なら "system"）', () => {
+    Storage.setItemSync(STORAGE_KEY.LOCALE, "fr");
+    expect(getStoredLocalePreference()).toBe("system");
   });
 });
