@@ -98,9 +98,9 @@ jobs:
           # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
           # E2E ビルドはアプリの言語既定値を ja に固定する（emulator ロケールは既定 en-US のまま）。
-          # EXPO_PUBLIC_* は Metro のバンドル時にインライン化され、i18n.ts の
+          # app.config.ts が extra.e2eDefaultLocale に埋め込み、i18n.ts の
           # getStoredLocalePreference() の（保存値が無いときの）フォールバックとして参照される。
-          EXPO_PUBLIC_E2E_DEFAULT_LOCALE: ja
+          E2E_DEFAULT_LOCALE: ja
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
           # CI 用の軽量イメージ（google_atd）を使い、アプリ起動時の Metro バンドル生成（CPU スパイク）で
@@ -113,7 +113,7 @@ jobs:
           adb wait-for-device
           timeout 300 bash -c 'until [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d "\r")" = "1" ]; do sleep 2; done'
 
-          # emulator のロケールは既定（en-US）のまま。アプリの表示言語は EXPO_PUBLIC_E2E_DEFAULT_LOCALE=ja
+          # emulator のロケールは既定（en-US）のまま。アプリの表示言語は E2E_DEFAULT_LOCALE=ja
           # により ja に固定されるため、adb root + setprop によるロケール固定・フレームワーク再起動は不要。
 
           # PackageManager が応答するまで待ち、maestro driver の起動失敗（gRPC UNAVAILABLE）を防ぐ
@@ -152,7 +152,7 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/diag"
           adb exec-out screencap -p > "$RUNNER_TEMP/diag/screen.png" 2>/dev/null || true
-          # emulator 側ロケールの記録（既定 en-US のはず。アプリ表示言語は EXPO_PUBLIC_E2E_DEFAULT_LOCALE=ja
+          # emulator 側ロケールの記録（既定 en-US のはず。アプリ表示言語は E2E_DEFAULT_LOCALE=ja
           # で固定しており emulator ロケールとは独立。失敗解析時に環境を確認するために残す）
           {
             echo "persist.sys.locale=$(adb shell getprop persist.sys.locale | tr -d '\r')"
