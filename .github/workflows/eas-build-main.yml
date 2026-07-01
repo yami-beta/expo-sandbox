@@ -1,0 +1,59 @@
+name: eas-build-main
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/sandbox/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'package.json'
+      - '.github/workflows/eas-build-main.yml'
+      - '.github/actions/**'
+
+jobs:
+  # main への push のたびに development プロファイルのローカルネイティブビルドが
+  # 継続して成功することを検証する（eas-build.yml の手動リモートビルドを補完する）。
+  build-android:
+    name: EAS Build --local (development / Android)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Android (eas build --local, development profile)
+        run: |
+          eas build --local --profile development --platform android \
+            --non-interactive --output ./build-output/sandbox.apk
+        working-directory: apps/sandbox
+
+      - name: Upload build artifact
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: sandbox-android-${{ github.sha }}
+          path: apps/sandbox/build-output/sandbox.apk
+          retention-days: 7
+          if-no-files-found: error
