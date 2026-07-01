@@ -31,5 +31,13 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     name: config.name ?? "sandbox",
     slug: config.slug ?? "sandbox",
     plugins,
+    extra: {
+      ...config.extra,
+      // E2E ビルドでアプリの表示言語を固定するための既定値（src/i18n.ts が参照）。
+      // 通常ビルドでは未設定 → undefined になり従来どおり "system"（端末ロケール依存）になる。
+      // expo-constants の Gradle/Xcode ビルドタスクは毎ビルド app.config を再評価して埋め込むため、
+      // Dev Client 経由（expo run）でも非 Dev Client 経由（eas build --local）でも確実に反映される。
+      e2eDefaultLocale: process.env.E2E_DEFAULT_LOCALE,
+    },
   };
 };

@@ -1,4 +1,5 @@
 import { i18n } from "@lingui/core";
+import Constants from "expo-constants";
 import * as Localization from "expo-localization";
 import Storage from "expo-sqlite/kv-store";
 import { messages as jaMessages } from "./locales/ja/messages";
@@ -89,8 +90,8 @@ export function getCurrentLocale(): Locale {
 }
 
 // 保存値が無いときのフォールバック言語設定を解決する。
-// 通常ビルドは "system"（端末ロケール依存）。E2E ビルドでは EXPO_PUBLIC_E2E_DEFAULT_LOCALE
-// に固定言語を渡し、emulator ロケールに依存せず固定言語で assert できるようにする。
+// 通常ビルドは "system"（端末ロケール依存）。E2E ビルドでは app.config.ts の
+// extra.e2eDefaultLocale に固定言語を渡し、emulator ロケールに依存せず固定言語で assert できるようにする。
 // 無効値・未設定（通常ビルド）は "system" にフォールバックする。
 export function resolveDefaultPreference(e2eDefaultLocale: unknown): LocalePreference {
   return isValidLocalePreference(e2eDefaultLocale) ? e2eDefaultLocale : "system";
@@ -102,9 +103,9 @@ export function getStoredLocalePreference(): LocalePreference {
   if (isValidLocalePreference(stored)) {
     return stored;
   }
-  // EXPO_PUBLIC_ はドット記法の直書きのみバンドルにインライン化される（動的キー不可）。
-  // 通常ビルドでは undefined になり "system" にフォールバックする。
-  return resolveDefaultPreference(process.env.EXPO_PUBLIC_E2E_DEFAULT_LOCALE);
+  // 通常ビルドでは app.config.ts の extra.e2eDefaultLocale が未設定 → undefined になり
+  // "system" にフォールバックする。
+  return resolveDefaultPreference(Constants.expoConfig?.extra?.e2eDefaultLocale);
 }
 
 // アプリ起動時の初期化
