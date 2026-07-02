@@ -1,4 +1,4 @@
-import type { LocalePreference } from "../i18n";
+import type { LocalePreference } from "./locale";
 import { useLocaleContextInternal } from "./LocaleContext";
 
 export function useLocale(): {

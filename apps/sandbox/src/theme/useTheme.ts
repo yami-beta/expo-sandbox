@@ -1,4 +1,5 @@
-import type { ColorScheme, ColorTokens } from "../constants/theme";
+import type { ColorTokens } from "./legacyColors";
+import type { ColorScheme } from "./tokens/colors";
 import { useThemeContextInternal, type ThemeTokens } from "./ThemeContext";
 
 export function useTheme(): {

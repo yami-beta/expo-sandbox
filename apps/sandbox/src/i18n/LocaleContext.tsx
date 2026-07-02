@@ -8,7 +8,7 @@ import {
   resolveLocale,
   STORAGE_KEY,
   type LocalePreference,
-} from "../i18n";
+} from "./locale";
 
 export interface LocaleContextValue {
   preference: LocalePreference;

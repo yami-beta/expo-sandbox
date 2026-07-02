@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { PresentationSampleOverlay } from "../../../../../components/presentation-sample/PresentationSampleOverlay";
+import { PresentationSampleOverlay } from "../../../../../features/navigation-patterns/presentation-sample/PresentationSampleOverlay";
 
 export default function TransparentModalSample(): ReactElement {
   const { t } = useLingui();

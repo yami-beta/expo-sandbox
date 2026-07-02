@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { StyleSheet, View } from "react-native";
-import { useTheme } from "../../theme/useTheme";
+import { useTheme } from "../../../theme/useTheme";
 
 /** ミニチュアに描く提示スタイル。 */
 export type LauncherPreview = "push" | "sheet" | "formSheet" | "fullScreen" | "transparent";

@@ -7,7 +7,7 @@ import {
   resolveDefaultPreference,
   resolveLocale,
   STORAGE_KEY,
-} from "./i18n";
+} from "./locale";
 
 // resolveLocale("system") は内部の detectLocale() を介して端末ロケール
 // (expo-localization の getLocales) を参照する。getLocales をモックして

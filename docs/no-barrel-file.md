@@ -3,7 +3,7 @@
 「barrel file」とは、ディレクトリ内の複数モジュールをまとめて再エクスポートする `index.ts` などのファイル。本リポジトリでは原則として作成・利用しない。
 
 ```ts
-// features/button/index.ts (barrel file の例)
+// components/button/index.ts (barrel file の例)
 export * from "./Button";
 export * from "./useButton";
 export { ButtonGroup } from "./ButtonGroup";
@@ -16,8 +16,8 @@ export { ButtonGroup } from "./ButtonGroup";
 barrel から import すると、実際に使うのが一部であっても **解決時に barrel が参照するモジュールツリー全体が読み込まれる**。tree-shaking が効くケースでも、解析・パースのコストは発生する。
 
 ```ts
-// Button だけ使いたいのに features/button/* 全体がロードされる
-import { Button } from "@/features/button";
+// Button だけ使いたいのに components/button/* 全体がロードされる
+import { Button } from "../components/button";
 ```
 
 Next.js などで barrel パターンが起動遅延の主因になった事例: [Speeding up the JavaScript ecosystem - The barrel file debacle](https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7)
@@ -61,11 +61,11 @@ barrel を作らず、必要なものを直接 import する。
 
 ```ts
 // NG
-import { Button, useButton } from "@/features/button";
+import { Button, useButton } from "../components/button";
 
 // OK
-import { Button } from "@/features/button/Button";
-import { useButton } from "@/features/button/useButton";
+import { Button } from "../components/button/Button";
+import { useButton } from "../components/button/useButton";
 ```
 
 外部公開する API（npm パッケージのエントリポイント等）は barrel の合理性が残るが、本リポジトリはアプリケーションコードのみのため対象外。

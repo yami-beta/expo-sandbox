@@ -1,10 +1,6 @@
-// 旧 API。新規コードは ../theme/tokens/<name> から直接 import すること。
+// 旧 API。新規コードは ./tokens/<name> から直接 import すること。
 // 既存呼び出し箇所は第2段以降で順次置換する。
-import { semanticColors } from "../theme/tokens/colors";
-
-export type { ColorScheme } from "../theme/tokens/colors";
-export { Spacing, type SpacingName } from "../theme/tokens/spacing";
-export { Fonts } from "../theme/tokens/typography";
+import { semanticColors } from "./tokens/colors";
 
 export const Colors = {
   light: {

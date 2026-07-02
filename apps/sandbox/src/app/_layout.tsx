@@ -16,7 +16,7 @@ import { ThemeProvider } from "../theme/ThemeContext";
 import { useTheme } from "../theme/useTheme";
 import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
-import { initializeI18n } from "../i18n";
+import { initializeI18n } from "../i18n/locale";
 import { LocaleProvider } from "../i18n/LocaleContext";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）

@@ -72,8 +72,8 @@ export function ListItemRow({
 
   // 行のグルーピングと role は明示指定しない:
   // - Pressable は accessible 既定 true で子の Text を 1 要素に自動連結する。
-  // - expo-router の Link が role="link" を Slot 経由で Pressable に付与する
-  //   (TextLink の冗長 role 削除と同じ理屈)。明示すると二重指定になる。
+  // - expo-router の Link が role="link" を Slot 経由で Pressable に付与するため、
+  //   明示すると二重指定になる。
   return (
     <Link href={item.href} asChild>
       <Pressable>

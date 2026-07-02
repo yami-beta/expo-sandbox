@@ -2,8 +2,8 @@ import { i18n } from "@lingui/core";
 import Constants from "expo-constants";
 import * as Localization from "expo-localization";
 import Storage from "expo-sqlite/kv-store";
-import { messages as jaMessages } from "./locales/ja/messages";
-import { messages as enMessages } from "./locales/en/messages";
+import { messages as jaMessages } from "../locales/ja/messages";
+import { messages as enMessages } from "../locales/en/messages";
 
 // サポートする言語の定義
 export const locales = {

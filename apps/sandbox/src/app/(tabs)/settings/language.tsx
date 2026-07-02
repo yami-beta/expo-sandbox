@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Stack } from "expo-router";
-import type { LocalePreference } from "../../../i18n";
+import type { LocalePreference } from "../../../i18n/locale";
 import { useTheme } from "../../../theme/useTheme";
 import { useLocale } from "../../../i18n/useLocale";
 import { useLingui } from "@lingui/react/macro";

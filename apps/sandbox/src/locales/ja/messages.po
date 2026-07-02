@@ -167,7 +167,7 @@ msgstr ""
 "\n"
 "そのため SDK 55 ではシート内のコンテンツがシート高さを上回るボリュームに なるよう設計するか、grabber や明示的な閉じるボタンを必ず併設するのが安全。 このサンプル画面はその制約を満たすためにこのメモ自体でコンテンツを伸ばして いる。"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:46
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:46
 msgid "Android の挙動"
 msgstr "Android の挙動"
 
@@ -373,7 +373,7 @@ msgstr "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Androi
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:45
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:45
 msgid "iOS の挙動"
 msgstr "iOS の挙動"
 
@@ -1280,7 +1280,7 @@ msgstr "変更"
 msgid "外観"
 msgstr "外観"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:51
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:51
 msgid "実装メモ"
 msgstr "実装メモ"
 
@@ -1431,11 +1431,11 @@ msgstr "通知しない"
 msgid "違いはコールド起動のディープリンクで現れます。アプリを終了し次のコマンドで起動すると、detail が起点になり「戻る」が出ません（anchor: index のタブAとの差）。"
 msgstr "違いはコールド起動のディープリンクで現れます。アプリを終了し次のコマンドで起動すると、detail が起点になり「戻る」が出ません（anchor: index のタブAとの差）。"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:63
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:63
 msgid "閉じる"
 msgstr "閉じる"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:49
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:49
 msgid "閉じる操作"
 msgstr "閉じる操作"
 

@@ -98,7 +98,7 @@ jobs:
           # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
           # E2E ビルドはアプリの言語既定値を ja に固定する（emulator ロケールは既定 en-US のまま）。
-          # app.config.ts が extra.e2eDefaultLocale に埋め込み、i18n.ts の
+          # app.config.ts が extra.e2eDefaultLocale に埋め込み、i18n/locale.ts の
           # getStoredLocalePreference() の（保存値が無いときの）フォールバックとして参照される。
           E2E_DEFAULT_LOCALE: ja
         run: |

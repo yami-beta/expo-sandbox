@@ -4,7 +4,7 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import {
   type LauncherSection,
   PresentationLauncherList,
-} from "../../../../../components/presentation-launcher/PresentationLauncherList";
+} from "../../../../../features/navigation-patterns/presentation-launcher/PresentationLauncherList";
 
 export default function ContainedModalIntermediate(): ReactElement {
   const { t } = useLingui();

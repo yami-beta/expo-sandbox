@@ -179,7 +179,7 @@ import { Trans } from "@lingui/macro";
 
 1. `lingui.config.mjs` の `locales` に言語コードを追加
 2. `_layout.tsx` に対応するPolyfillのlocale-dataインポートを追加
-3. `src/i18n.ts` の `locales` と `allMessages` に言語を追加
+3. `src/i18n/locale.ts` の `locales` と `allMessages` に言語を追加
 4. `pnpm -r run lingui:extract` でメッセージカタログ（`.po`）を生成
 5. 生成された `.po` ファイルに翻訳を追加
 6. `pnpm --dir apps/sandbox run lingui:compile` で `messages.ts` を再生成
