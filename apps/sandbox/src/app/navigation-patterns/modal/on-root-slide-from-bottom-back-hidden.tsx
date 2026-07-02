@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { PresentationSampleScreen } from "../../../components/presentation-sample/PresentationSampleScreen";
+import { PresentationSampleScreen } from "../../../features/navigation-patterns/presentation-sample/PresentationSampleScreen";
 
 export default function ModalSlideFromBottomBackHiddenOnRootSample(): ReactElement {
   const { t } = useLingui();

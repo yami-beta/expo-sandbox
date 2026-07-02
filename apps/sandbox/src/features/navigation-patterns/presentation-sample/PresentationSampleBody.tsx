@@ -2,9 +2,9 @@ import type { ReactElement, ReactNode } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { Trans } from "@lingui/react/macro";
-import { Spacing } from "../../theme/tokens/spacing";
-import { useTheme } from "../../theme/useTheme";
-import { ThemedText } from "../themed-text/ThemedText";
+import { Spacing } from "../../../theme/tokens/spacing";
+import { useTheme } from "../../../theme/useTheme";
+import { ThemedText } from "../../../components/themed-text/ThemedText";
 import { PresentationSection } from "./PresentationSection";
 
 export interface PresentationSampleBodyProps {

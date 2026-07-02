@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { Spacing } from "../../theme/tokens/spacing";
-import { useTheme } from "../../theme/useTheme";
+import { Spacing } from "../../../theme/tokens/spacing";
+import { useTheme } from "../../../theme/useTheme";
 import { PresentationSampleBody, type PresentationSampleBodyProps } from "./PresentationSampleBody";
 
 export type PresentationSampleScreenProps = PresentationSampleBodyProps;

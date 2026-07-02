@@ -1,8 +1,8 @@
 import type { ReactElement, ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-import { Spacing } from "../../theme/tokens/spacing";
-import { useTheme } from "../../theme/useTheme";
-import { ThemedText } from "../themed-text/ThemedText";
+import { Spacing } from "../../../theme/tokens/spacing";
+import { useTheme } from "../../../theme/useTheme";
+import { ThemedText } from "../../../components/themed-text/ThemedText";
 
 interface PresentationSectionProps {
   title: ReactNode;

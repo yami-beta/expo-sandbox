@@ -1,10 +1,10 @@
 import { Link, type LinkProps } from "expo-router";
 import type { ReactElement, ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-import { useTheme } from "../../theme/useTheme";
-import { PressableCard } from "../card/PressableCard";
-import { ScreenScrollView } from "../screen-scroll-view/ScreenScrollView";
-import { ThemedText } from "../themed-text/ThemedText";
+import { useTheme } from "../../../theme/useTheme";
+import { PressableCard } from "../../../components/card/PressableCard";
+import { ScreenScrollView } from "../../../components/screen-scroll-view/ScreenScrollView";
+import { ThemedText } from "../../../components/themed-text/ThemedText";
 import { type LauncherPreview, type LauncherScope, PreviewThumbnail } from "./PreviewThumbnail";
 
 export { type LauncherPreview, type LauncherScope } from "./PreviewThumbnail";

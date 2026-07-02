@@ -1,8 +1,8 @@
 import type { ReactElement } from "react";
 import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
-import { Spacing } from "../../theme/tokens/spacing";
-import { useTheme } from "../../theme/useTheme";
+import { Spacing } from "../../../theme/tokens/spacing";
+import { useTheme } from "../../../theme/useTheme";
 import { PresentationSampleBody, type PresentationSampleBodyProps } from "./PresentationSampleBody";
 
 export type PresentationSampleOverlayProps = PresentationSampleBodyProps;

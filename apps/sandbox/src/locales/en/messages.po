@@ -167,7 +167,7 @@ msgstr ""
 "\n"
 "On SDK 55, the safe approach is therefore to either design sheet content so it overflows the sheet height, or always pair the sheet with a grabber or an explicit close button. This sample screen extends content with this note itself in order to satisfy that constraint."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:46
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:46
 msgid "Android の挙動"
 msgstr "Android behavior"
 
@@ -373,7 +373,7 @@ msgstr "On iOS, an explicit Close button is required (swipe down is disabled). A
 msgid "iOS では「閉じる」ボタンが必須 (swipe down 不可)。Android では戻る操作でも閉じる。 ルート版は配置 Stack が presentation context に影響しないため、in-tab 版とも iOS では同じ挙動。Android では in-tab 版が tab 内 push 風に出る点が差分。"
 msgstr "On iOS, an explicit Close button is required (swipe down is disabled). Android also dismisses on back navigation. The placement Stack doesn't affect presentation context for the root variant, so iOS behaves identically to the in-tab variant. The difference shows on Android, where the in-tab variant may appear push-like within the tab."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:45
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:45
 msgid "iOS の挙動"
 msgstr "iOS behavior"
 
@@ -1280,7 +1280,7 @@ msgstr "Change"
 msgid "外観"
 msgstr "Appearance"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:51
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:51
 msgid "実装メモ"
 msgstr "Implementation notes"
 
@@ -1431,11 +1431,11 @@ msgstr "Do not notify"
 msgid "違いはコールド起動のディープリンクで現れます。アプリを終了し次のコマンドで起動すると、detail が起点になり「戻る」が出ません（anchor: index のタブAとの差）。"
 msgstr "The difference appears with a cold-start deep link. Quit the app and launch it with the command below; detail becomes the root and Back is not shown (the difference from Tab A with anchor: index)."
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:63
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:63
 msgid "閉じる"
 msgstr "Close"
 
-#: src/components/presentation-sample/PresentationSampleBody.tsx:49
+#: src/features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx:49
 msgid "閉じる操作"
 msgstr "Dismiss action"
 
