@@ -69,7 +69,7 @@ Dev Client 経由（`expo run`）でも非 Dev Client 経由（`eas build --loca
 ロケール固定・フレームワーク再起動を撤廃した。アプリは常に日本語表示で起動するため、日本語で
 assert（`ホーム` / `ナビゲーションパターン` / `コンポーネント`）できる。
 
-- 「テスト時のみ既定言語が `ja` になる」分岐は `src/i18n.test.ts`（`resolveDefaultPreference`）で担保する。
+- 「テスト時のみ既定言語が `ja` になる」分岐は `src/i18n/locale.test.ts`（`resolveDefaultPreference`）で担保する。
 - 端末ロケール → アプリ言語の解決（`"system"` 経路）は emulator ロケールを動かさないため E2E では
   検証せず、ユニットテスト（`resolveLocale("system")`）でカバーする。
 - 言語切替 UI そのものの E2E は現状スコープ外。将来言語別フローを足す場合、タブは `NativeTabs`

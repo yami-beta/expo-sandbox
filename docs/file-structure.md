@@ -28,9 +28,10 @@
 ## 依存方向
 
 ```
-app → features → components → theme / i18n
+app → features → components → 横断インフラ（theme / i18n / locales / test-utils）
 ```
 
+- 矢印は「依存してよい方向」。隣接層に限らず、右側の任意の層へ直接 import してよい（例: `app` → `components`、`features` → `theme`）
 - `features/` 間の import は禁止。必要になったら `components/` への昇格か機能の統合を検討する
 - `components/` から `features/` への import は禁止
 
