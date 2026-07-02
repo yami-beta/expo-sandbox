@@ -14,6 +14,7 @@ monorepo で管理された Expo アプリケーションのリポジトリ
 ### ファイル配置
 
 - **機能で分類し co-location**: 関連する component/hooks/utils は同じ機能ディレクトリにまとめる
+  - src 第1階層の定義・機能と共有の線引きは [`docs/file-structure.md`](docs/file-structure.md)
 - `docs/`: 長期的に参照する設計ドキュメント・運用手順
 - `tasks/`: 後続タスクの引き継ぎ資料・バックログ。完了後は削除/アーカイブ
 

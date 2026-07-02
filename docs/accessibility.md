@@ -43,7 +43,7 @@
 | 系統 | 色 | テキスト / タッチ要素 | 例 |
 | --- | --- | --- | --- |
 | 新（推奨） | `useTheme().tokens` | `ThemedText` / `Button` | `components/button/Button.tsx` |
-| 旧（レガシー） | `useTheme().colors` | 生 `Text` / `Pressable` | `app/(tabs)/settings/theme.tsx`、`components/presentation-sample/PresentationSampleBody.tsx` |
+| 旧（レガシー） | `useTheme().colors` | 生 `Text` / `Pressable` | `app/(tabs)/settings/theme.tsx`、`features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx` |
 
 > ⚠️ 旧系統の画面でも a11y 属性（`accessibilityRole` 等）は同じ規約で付与します。スタイルだけは既存系統のまま触りません。
 
@@ -51,7 +51,7 @@
 
 新しいタッチ要素・画面・コンポーネントを追加するときは、次を確認してください。
 
-- [ ] **role**: タッチ要素に `accessibilityRole`（`button` / `radio` / `header` など）を付けたか。ただし `expo-router` の `Link` 配下と `TextLink` には付けない（[パターン 1](#1-タッチ可能要素の-role--state--label) 参照）
+- [ ] **role**: タッチ要素に `accessibilityRole`（`button` / `radio` / `header` など）を付けたか。ただし `expo-router` の `Link` 配下には付けない（[パターン 1](#1-タッチ可能要素の-role--state--label) 参照）
 - [ ] **label**: テキストを持たないアイコンのみのタッチ要素に `accessibilityLabel` を付けたか。文言は lingui `t` マクロ経由か（[パターン 2](#2-accessibilitylabel-は-lingui-t-マクロ経由)）
 - [ ] **state**: 無効・選択・展開などの状態を `accessibilityState`（`disabled` / `selected` / `expanded`）で伝えているか
 - [ ] **装飾の非表示**: テキストと併記された装飾アイコンを SR から隠したか（[パターン 3](#3-装飾要素を-sr-から隠す)）
@@ -69,7 +69,7 @@
 
 タッチ可能要素には `accessibilityRole` を付けます。状態は `accessibilityState` で伝えます。
 
-**ただし `expo-router` の `Link` 配下の `Pressable` と `TextLink` には role を明示しません。** `Link` が Slot 経由で `role="link"` を子に付与するため、明示すると二重指定になります。
+**ただし `expo-router` の `Link` 配下の `Pressable` には role を明示しません。** `Link` が Slot 経由で `role="link"` を子に付与するため、明示すると二重指定になります。
 
 ```tsx
 // components/button/Button.tsx — 汎用ボタンは role + state を明示
@@ -83,12 +83,9 @@
 ```
 
 ```tsx
-// components/text-link/TextLink.tsx — Link が role="link" を付与するので明示しない
-<Link href={href}>
-  <ThemedText type={type} tone="accent">
-    {children}
-  </ThemedText>
-</Link>
+// components/grouped-list/ListItem.tsx — Link が role="link" を付与するので明示しない
+<Link href={item.href} asChild>
+  <Pressable>
 ```
 
 ラジオ選択のように「選択状態」を背景色だけで表していた箇所は、`radiogroup` / `radio` と `accessibilityState={{ selected }}` で状態を伝えます。
@@ -113,7 +110,7 @@
 見出しには `accessibilityRole="header"` を付けます。
 
 ```tsx
-// components/presentation-sample/PresentationSampleBody.tsx
+// features/navigation-patterns/presentation-sample/PresentationSampleBody.tsx
 <ThemedText type="title" accessibilityRole="header">
   {heading}
 </ThemedText>
@@ -222,7 +219,7 @@ return {};
 - 全画面を覆う透明な backdrop `Pressable` は、無名の巨大ボタンとして読み上げられないよう[装飾隠しの定型](#3-装飾要素を-sr-から隠す)で SR から除外する。タップで閉じる挙動は sighted 向けのショートカットとして残し、SR 利用者は本体内の「閉じる」ボタンを使う。
 
 ```tsx
-// components/presentation-sample/PresentationSampleOverlay.tsx
+// features/navigation-patterns/presentation-sample/PresentationSampleOverlay.tsx
 <View style={styles.backdrop} accessibilityViewIsModal={true}>
   <Pressable
     style={StyleSheet.absoluteFill}

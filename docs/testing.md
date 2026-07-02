@@ -83,5 +83,5 @@ expect(screen.getByText("こんにちは")).toBeOnTheScreen();
 
 翻訳カタログ（`.po`）は読み込まず、`@lingui/core` の `setupI18n()` でロケールだけを活性化して
 Intl 由来の出力（日付・数値フォーマットなど）を検証する。`.po` の読み込みや
-`expo-localization` のデバイスロケール検出（`src/i18n.ts` の `detectLocale` 等）をテストする場合は、
+`expo-localization` のデバイスロケール検出（`src/i18n/locale.ts` の `detectLocale` 等）をテストする場合は、
 `expo-localization` のモックと `.po` import のモック（`moduleNameMapper` 等）が別途必要になる。
