@@ -39,9 +39,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     name: config.name ?? "sandbox",
     slug: config.slug ?? "sandbox",
     plugins,
-    ...(isE2EBuild
-      ? { buildCacheProvider: { plugin: "expo/local-build-cache-provider" } }
-      : {}),
+    ...(isE2EBuild ? { buildCacheProvider: { plugin: "expo/local-build-cache-provider" } } : {}),
     extra: {
       ...config.extra,
       // E2E ビルドでアプリの表示言語を固定するための既定値（src/i18n/locale.ts が参照）。
