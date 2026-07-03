@@ -23,6 +23,15 @@ jobs:
       - name: Generate Expo types
         run: pnpm --dir apps/sandbox run generate-types
 
+      # pnpm -r run <script> は各ワークスペースディレクトリを cwd として実行するため、
+      # oxlint の注釈の file= パスがワークスペース相対 (例: src/foo.ts) になり、
+      # リポジトリのファイルに正しく紐付かない。そのためリポジトリルートから
+      # 対象ディレクトリを引数で指定し、file= パスがルート相対になるようにしている。
+      #
+      # oxlint はドキュメント上 GitHub Actions 環境を自動検出して annotation
+      # 形式で出力するとされているが、pnpm-lock.yaml で固定しているバージョン
+      # (oxlint@1.67.0) では CI=true / GITHUB_ACTIONS=true を設定しても自動検出が
+      # 効かないことを実機の CI ログで確認したため、--format=github を明示指定している。
       - name: Run Oxlint
         run: |
           pnpm exec oxlint --type-aware --type-check --format=github apps/sandbox
