@@ -27,12 +27,21 @@ Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテ
   は release variant でビルドされ、`lintVitalRelease`（lint）が CI ランナーのメモリを使い切って
   `OutOfMemoryError` で落ちる。lint は E2E ビルドに不要（品質チェックは oxlint / expo lint で別途実施）なため、
   `e2e` プロファイルの `android.gradleCommand` を `:app:assembleRelease -x lintVitalRelease` にして除外している。
+- **ネイティブ部分に変更が無ければ Gradle ビルドをスキップする**。`apps/sandbox/app.config.ts` が
+  `E2E_BUILD=true` のときだけ `buildCacheProvider` に組み込みのローカル provider
+  （`expo/local-build-cache-provider`）を設定する。`expo run:android` はネイティブのフィンガープリント
+  （`@expo/fingerprint`。依存関係・ネイティブコード・config plugin・app.json/app.config の設定が対象。
+  JS/TSX のアプリケーションソースは対象外）が前回と一致すればキャッシュ済みバイナリの install・Metro 起動まで
+  内部で自動的に行い、フルビルドをスキップする。CI では `apps/sandbox/.expo/build-cache`（既定のキャッシュ
+  保存先）を `actions/cache` で永続化する。多くの PR は JS のみの変更でネイティブ部分は変わらないため、
+  この場合は毎回のフルビルドを避けられる。値は必ずオブジェクト形式 `{ plugin: "..." }` で指定すること
+  （生文字列は `@expo/cli` に `Invalid build cache provider` として拒否される）。
 
 ## 構成ファイル
 
 | ファイル | 役割 |
 | --- | --- |
-| `apps/sandbox/app.config.ts` | dynamic config。`E2E_BUILD=true` のときだけ `expo-dev-client` plugin（`defaultLaunchURL` 等）を追記。`E2E_DEFAULT_LOCALE` を `extra.e2eDefaultLocale` に埋め込み `src/i18n/locale.ts` の既定言語フォールバックへ渡す。通常ビルドはどちらも未設定 |
+| `apps/sandbox/app.config.ts` | dynamic config。`E2E_BUILD=true` のときだけ `expo-dev-client` plugin（`defaultLaunchURL` 等）と `buildCacheProvider`（ネイティブビルドキャッシュ）を追記。`E2E_DEFAULT_LOCALE` を `extra.e2eDefaultLocale` に埋め込み `src/i18n/locale.ts` の既定言語フォールバックへ渡す。通常ビルドはどちらも未設定 |
 | `apps/sandbox/eas.json` の `e2e` プロファイル | 将来の非 Dev Client 用 E2E ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
 | `apps/sandbox/.maestro/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（単一 `launchApp`） |
 | `.github/workflows/e2e.yml` | PR ごとに「emulator 起動 → `E2E_BUILD=true expo run:android`（build→install→Metro→接続）→ maestro test」を1ジョブで実行 |
@@ -136,6 +145,14 @@ maestro test apps/sandbox/.maestro/
 - 失敗時も `maestro-report.xml`（JUnit）・`--debug-output` のスクショ/録画/ログ・`expo-run.log`・
   画面診断（スクショ/ロケール/前面 activity/UI テキスト）を artifact に保存する。
 - Maestro CLI は再現性のためバージョン固定（`MAESTRO_VERSION`）。更新は意図的に PR で上げる。
+- **ネイティブビルドキャッシュ**（`buildCacheProvider`）が使う `apps/sandbox/.expo/build-cache` を
+  `actions/cache` で永続化する（`Restore native build cache` ステップ）。key は `github.run_id` で
+  常にユニークにし `restore-keys` で直近のキャッシュを復元する成長型キャッシュとしている。固定キーだと
+  `actions/cache` の「完全一致時は保存しない」仕様により、ネイティブ変更後も二度と更新されなくなるため。
+  ヒット/ミスの判定は `expo-run.log` を要約する `Summarize native build cache result` ステップが
+  Job Summary に表示する。異なるフィンガープリントのキャッシュエントリは自動削除されず
+  `.expo/build-cache` は増え続けるが、GitHub 側の自動退役に任せている。キャッシュミス時は通常の
+  フルビルドに安全にフォールバックする。
 
 ## iOS を対象に追加する場合
 
