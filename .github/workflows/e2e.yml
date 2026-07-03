@@ -76,16 +76,18 @@ jobs:
         uses: ./.github/actions/setup-node
 
       # TODO(debug, remove before merge): 別々の CI 実行でネイティブフィンガープリントが
-      # 一致しない原因調査のため、ソース単位のハッシュをダンプする。
-      - name: DEBUG dump fingerprint sources
+      # 一致しない原因調査のため、ビルド前後でソース単位のハッシュをダンプする。
+      # expo run:android の内部呼び出し（build-cache-providers/index.js）は platforms を
+      # 指定せず createFingerprintAsync を呼ぶため、ここでも指定しない（挙動を忠実に再現する）。
+      - name: DEBUG dump fingerprint (before build)
         run: |
           cd apps/sandbox
-          E2E_BUILD=true pnpm exec expo prebuild --platform android --no-install
+          E2E_BUILD=true pnpm exec expo prebuild --platform android
           E2E_BUILD=true node -e "
             const Fingerprint = require(require.resolve('@expo/fingerprint', { paths: [process.cwd()] }));
-            Fingerprint.createFingerprintAsync(process.cwd(), { platforms: ['android'], debug: true }).then(fp => {
-              console.log('DEBUG_HASH:', fp.hash);
-              require('fs').writeFileSync(process.env.RUNNER_TEMP + '/fingerprint-debug.json', JSON.stringify(fp, null, 2));
+            Fingerprint.createFingerprintAsync(process.cwd(), { debug: true }).then(fp => {
+              console.log('DEBUG_HASH_BEFORE:', fp.hash);
+              require('fs').writeFileSync(process.env.RUNNER_TEMP + '/fingerprint-debug-before.json', JSON.stringify(fp, null, 2));
             });
           "
 
@@ -177,6 +179,20 @@ jobs:
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
+      # TODO(debug, remove before merge): ビルド後のフィンガープリントをダンプする
+      # （before と比較し、ビルド自体がフィンガープリント対象ファイルを変化させていないか確認する）。
+      - name: DEBUG dump fingerprint (after build)
+        if: always()
+        run: |
+          cd apps/sandbox
+          E2E_BUILD=true node -e "
+            const Fingerprint = require(require.resolve('@expo/fingerprint', { paths: [process.cwd()] }));
+            Fingerprint.createFingerprintAsync(process.cwd(), { debug: true }).then(fp => {
+              console.log('DEBUG_HASH_AFTER:', fp.hash);
+              require('fs').writeFileSync(process.env.RUNNER_TEMP + '/fingerprint-debug-after.json', JSON.stringify(fp, null, 2));
+            });
+          "
+
       # ネイティブビルドキャッシュがヒットしたか確認できるよう expo-run.log を要約する。
       # grep パターンは node_modules/@expo/local-build-cache-provider・
       # node_modules/@expo/cli の実際のログ文言に基づく。
@@ -233,6 +249,7 @@ jobs:
             maestro-debug
             ${{ runner.temp }}/expo-run.log
             ${{ runner.temp }}/diag
-            ${{ runner.temp }}/fingerprint-debug.json
+            ${{ runner.temp }}/fingerprint-debug-before.json
+            ${{ runner.temp }}/fingerprint-debug-after.json
           retention-days: 7
           if-no-files-found: warn
