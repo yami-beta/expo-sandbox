@@ -55,15 +55,13 @@ jobs:
       # 成長型キャッシュとする。固定キーだと actions/cache の「完全一致時は保存しない」仕様により
       # ネイティブ変更後も更新されなくなるため。異なる fingerprint のエントリは自動削除されず
       # ディレクトリは増え続けるが、GitHub 側の自動退役に任せる（docs/maestro.md 参照）。
-      # TODO(debug, remove before merge): key prefix を一時的に変え、既存キャッシュを
-      # 削除せずに今回の実行だけ確実にキャッシュミス（フルビルド）させる。
       - name: Restore native build cache
         uses: actions/cache@v4
         with:
           path: apps/sandbox/.expo/build-cache
-          key: e2e-android-buildcache-debug-manifest-${{ github.run_id }}
+          key: e2e-android-buildcache-${{ github.run_id }}
           restore-keys: |
-            e2e-android-buildcache-debug-manifest-
+            e2e-android-buildcache-
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -76,27 +74,6 @@ jobs:
 
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
-
-      # TODO(debug, remove before merge): masked-view の AndroidManifest.xml が
-      # 「いつ」書き換わるのかを特定するため、pnpm install 直後（このステップ）と
-      # prebuild 直後の内容をスナップショットする。ビルド後のスナップショットは
-      # 「Run Maestro E2E」の直後で取る。
-      - name: DEBUG snapshot masked-view manifest (after install)
-        run: |
-          MV="node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml"
-          echo "=== after install ==="
-          cat "$MV" || echo "(not found)"
-          sha256sum "$MV" || true
-
-      - name: DEBUG snapshot masked-view manifest (after prebuild)
-        run: |
-          cd apps/sandbox
-          E2E_BUILD=true pnpm exec expo prebuild --platform android
-          cd ../..
-          MV="node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml"
-          echo "=== after prebuild ==="
-          cat "$MV" || echo "(not found)"
-          sha256sum "$MV" || true
 
       - name: Install Maestro CLI
         run: |
@@ -185,15 +162,6 @@ jobs:
 
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
-
-      # TODO(debug, remove before merge): ビルド後のスナップショット。
-      - name: DEBUG snapshot masked-view manifest (after build)
-        if: always()
-        run: |
-          MV="node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml"
-          echo "=== after build ==="
-          cat "$MV" || echo "(not found)"
-          sha256sum "$MV" || true
 
       # ネイティブビルドキャッシュがヒットしたか確認できるよう expo-run.log を要約する。
       # grep パターンは node_modules/@expo/local-build-cache-provider・
