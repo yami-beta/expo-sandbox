@@ -15,6 +15,11 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 // バイナリを再利用させる。CI（e2e.yml）側で actions/cache によりこのディレクトリを永続化する。
 // 値は必ずオブジェクト形式で指定すること（生文字列は @expo/cli が
 // "Invalid build cache provider" として拒否する）。
+// plugin の "expo/local-build-cache-provider" は expo パッケージが公開しているサブパス
+// （node_modules/expo/local-build-cache-provider.js。実体は @expo/local-build-cache-provider
+// への re-export）。スコープ付きパッケージ名 "@expo/local-build-cache-provider" を直接指定
+// しても現状は解決できるが、これは apps/sandbox の直接依存ではなく expo 経由の推移依存
+// （pnpm-lock.yaml にのみ存在）のため、意図して "expo/..." のサブパス経由で参照する。
 //
 // 詳細は docs/maestro.md を参照。
 export default ({ config }: ConfigContext): ExpoConfig => {
