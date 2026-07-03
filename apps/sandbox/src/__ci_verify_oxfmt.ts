@@ -1,1 +1,1 @@
-const x=1
+export const _x=1
