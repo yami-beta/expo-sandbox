@@ -25,8 +25,8 @@ jobs:
 
       - name: Run Oxlint
         run: |
-          pnpm exec oxlint --type-aware --type-check apps/sandbox
-          pnpm exec oxlint --type-aware --type-check packages/tooling
+          pnpm exec oxlint --type-aware --type-check --format=github apps/sandbox
+          pnpm exec oxlint --type-aware --type-check --format=github packages/tooling
 
       - name: Run expo lint
         run: pnpm -r run lint:expo
