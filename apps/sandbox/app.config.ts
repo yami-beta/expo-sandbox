@@ -9,11 +9,19 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 //   fallback としても効くため clearState 後も再接続する）
 // - skipOnboarding / showMenuAtLaunch / toolsButton: オンボーディング・起動時メニュー・
 //   フローティングツールボタンが assert を阻害しないよう無効化する
+//
+// buildCacheProvider: expo run:android/ios のネイティブフィンガープリントが前回と一致する
+// 場合、Gradle ビルドをスキップしローカルキャッシュ（apps/sandbox/.expo/build-cache）済みの
+// バイナリを再利用させる。CI（e2e.yml）側で actions/cache によりこのディレクトリを永続化する。
+// 値は必ずオブジェクト形式で指定すること（生文字列は @expo/cli が
+// "Invalid build cache provider" として拒否する）。
+//
 // 詳細は docs/maestro.md を参照。
 export default ({ config }: ConfigContext): ExpoConfig => {
   const plugins = [...(config.plugins ?? [])];
+  const isE2EBuild = process.env.E2E_BUILD === "true";
 
-  if (process.env.E2E_BUILD === "true") {
+  if (isE2EBuild) {
     const devClientPlugin: [string, Record<string, unknown>] = [
       "expo-dev-client",
       {
@@ -31,6 +39,9 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     name: config.name ?? "sandbox",
     slug: config.slug ?? "sandbox",
     plugins,
+    ...(isE2EBuild
+      ? { buildCacheProvider: { plugin: "expo/local-build-cache-provider" } }
+      : {}),
     extra: {
       ...config.extra,
       // E2E ビルドでアプリの表示言語を固定するための既定値（src/i18n/locale.ts が参照）。
