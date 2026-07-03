@@ -75,6 +75,20 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
+      # TODO(debug, remove before merge): 別々の CI 実行でネイティブフィンガープリントが
+      # 一致しない原因調査のため、ソース単位のハッシュをダンプする。
+      - name: DEBUG dump fingerprint sources
+        run: |
+          cd apps/sandbox
+          E2E_BUILD=true pnpm exec expo prebuild --platform android --no-install
+          E2E_BUILD=true node -e "
+            const Fingerprint = require(require.resolve('@expo/fingerprint', { paths: [process.cwd()] }));
+            Fingerprint.createFingerprintAsync(process.cwd(), { platforms: ['android'], debug: true }).then(fp => {
+              console.log('DEBUG_HASH:', fp.hash);
+              require('fs').writeFileSync(process.env.RUNNER_TEMP + '/fingerprint-debug.json', JSON.stringify(fp, null, 2));
+            });
+          "
+
       - name: Install Maestro CLI
         run: |
           curl -fsSL "https://get.maestro.mobile.dev" | bash
@@ -219,5 +233,6 @@ jobs:
             maestro-debug
             ${{ runner.temp }}/expo-run.log
             ${{ runner.temp }}/diag
+            ${{ runner.temp }}/fingerprint-debug.json
           retention-days: 7
           if-no-files-found: warn
