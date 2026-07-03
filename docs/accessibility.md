@@ -2,10 +2,7 @@
 
 このドキュメントは、`apps/sandbox` でアクセシビリティ（a11y）を維持するための運用ルールをまとめたものです。新規コンポーネントを追加するとき、または既存コンポーネントを変更するときに、スクリーンリーダー（VoiceOver / TalkBack）対応を最初から正しく組み込めるよう、**実際に確定した規約とコードパターン**を示します。
 
-ここに載るパターンは机上のものではなく、監査・改善（tracking [#169](https://github.com/yami-beta/expo-sandbox/issues/169)）の Phase 1〜3（PR #171〜#176・CLOSED #167）で実コードに反映された規約です。背景・監査結果は次を参照してください。
-
-- 監査タスク: [`tasks/accessibility-audit.md`](../tasks/accessibility-audit.md)
-- 静的監査 findings（9 観点・対象 56 ファイル）: [`tasks/accessibility-audit-findings.md`](../tasks/accessibility-audit-findings.md)
+ここに載るパターンは机上のものではなく、監査・改善（tracking [#169](https://github.com/yami-beta/expo-sandbox/issues/169)）の Phase 1〜3（PR #171〜#176・CLOSED #167）で実コードに反映された規約です。監査タスク（静的監査 findings・9 観点・対象 56 ファイル）は完了済みのため PR #200 で削除されており、9 観点は[観点別チェックリスト](#観点別チェックリスト監査-9-観点)に転記済みです。
 
 ## 目次
 
@@ -305,7 +302,7 @@ React Native は `allowFontScaling`（既定 `true`）のとき、`lineHeight`�
 
 ## 観点別チェックリスト（監査 9 観点）
 
-[`tasks/accessibility-audit-findings.md`](../tasks/accessibility-audit-findings.md) の 9 観点を踏襲した、レビュー時の確認項目です。
+監査 findings（完了済みのため PR #200 で削除）の 9 観点を踏襲した、レビュー時の確認項目です。
 
 1. **タッチ可能要素のラベル**: すべてのタッチ要素に `accessibilityRole` があるか（`Link` 配下を除く）。アイコンのみのボタンに `accessibilityLabel`（`t` マクロ経由）があるか。透明な hit-area は隠せているか。
 2. **画像・アイコンの代替テキスト**: 意味アイコンに `accessibilityLabel`、装飾アイコンに装飾隠しの定型があるか。
@@ -341,6 +338,6 @@ PR 本文に次のチェックリストを記載します（[#169](https://githu
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
 - [iOS Human Interface Guidelines - Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 - [Android Accessibility](https://developer.android.com/guide/topics/ui/accessibility)
-- 内部: [`tasks/accessibility-audit.md`](../tasks/accessibility-audit.md) / [`tasks/accessibility-audit-findings.md`](../tasks/accessibility-audit-findings.md) / [`docs/lingui/workflow.md`](./lingui/workflow.md)
+- 内部: [`docs/lingui/workflow.md`](./lingui/workflow.md)（監査タスクは完了済みのため PR #200 で削除。9 観点は[観点別チェックリスト](#観点別チェックリスト監査-9-観点)を参照）
 
-最終更新日: 2026-06-05
+最終更新日: 2026-07-03
