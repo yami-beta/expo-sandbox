@@ -20,14 +20,29 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
 
+      - name: Generate Expo types
+        run: pnpm --dir apps/sandbox run generate-types
+
       - name: Run Oxlint
-        run: pnpm -r run lint:oxlint --format=github
+        run: |
+          pnpm exec oxlint --type-aware --type-check apps/sandbox
+          pnpm exec oxlint --type-aware --type-check packages/tooling
 
       - name: Run expo lint
         run: pnpm -r run lint:expo
 
       - name: Check formatting
-        run: pnpm -r run lint:oxfmt
+        run: |
+          status=0
+          for dir in apps/sandbox packages/tooling; do
+            files=$(pnpm exec oxfmt "$dir" --list-different) || status=1
+            if [ -n "$files" ]; then
+              while IFS= read -r f; do
+                [ -n "$f" ] && echo "::error file=${f}::Not formatted. Run \`pnpm run format\` in ${dir} to fix."
+              done <<< "$files"
+            fi
+          done
+          exit $status
 
   test:
     name: Test
