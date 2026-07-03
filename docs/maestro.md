@@ -36,13 +36,9 @@ Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテ
   保存先）を `actions/cache` で永続化する。多くの PR は JS のみの変更でネイティブ部分は変わらないため、
   この場合は毎回のフルビルドを避けられる。値は必ずオブジェクト形式 `{ plugin: "..." }` で指定すること
   （生文字列は `@expo/cli` に `Invalid build cache provider` として拒否される）。
-  - `apps/sandbox/.fingerprintignore` で `@react-native-masked-view/masked-view` の
-    `android/src/main/AndroidManifest.xml` を除外している。このファイルは Gradle ビルド中に
-    （AGP8 互換のための package 属性除去とみられる書き換えで）内容が変わり、ビルド前
-    （`resolveBuildCache`）とビルド後（`uploadBuildCache`）でフィンガープリントが一致せず
-    キャッシュが常に MISS になる原因だったため、実際に CI 上でビルド前後の fingerprint の
-    ソース単位ハッシュを比較して特定した。今後同様に「ビルドで node_modules 内のファイルが
-    書き換わる」パッケージが見つかった場合はこのファイルに追記する。
+  - `apps/sandbox/.fingerprintignore` でビルド中に内容が変わり誤検出を招く既知のファイルを
+    除外している。原因・調査内容はファイル内のコメントを参照。今後同様のパッケージが
+    見つかった場合はこのファイルに追記する。
 
 ## 構成ファイル
 
