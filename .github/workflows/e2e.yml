@@ -55,13 +55,15 @@ jobs:
       # 成長型キャッシュとする。固定キーだと actions/cache の「完全一致時は保存しない」仕様により
       # ネイティブ変更後も更新されなくなるため。異なる fingerprint のエントリは自動削除されず
       # ディレクトリは増え続けるが、GitHub 側の自動退役に任せる（docs/maestro.md 参照）。
+      # TODO(debug, remove before merge): key prefix を一時的に変え、既存キャッシュを
+      # 削除せずに今回の実行だけ確実にキャッシュミス（フルビルド）させる。
       - name: Restore native build cache
         uses: actions/cache@v4
         with:
           path: apps/sandbox/.expo/build-cache
-          key: e2e-android-buildcache-${{ github.run_id }}
+          key: e2e-android-buildcache-debug-manifest-${{ github.run_id }}
           restore-keys: |
-            e2e-android-buildcache-
+            e2e-android-buildcache-debug-manifest-
 
       - name: Setup JDK
         uses: actions/setup-java@v5
