@@ -36,12 +36,20 @@ Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテ
   保存先）を `actions/cache` で永続化する。多くの PR は JS のみの変更でネイティブ部分は変わらないため、
   この場合は毎回のフルビルドを避けられる。値は必ずオブジェクト形式 `{ plugin: "..." }` で指定すること
   （生文字列は `@expo/cli` に `Invalid build cache provider` として拒否される）。
+  - `apps/sandbox/.fingerprintignore` で `@react-native-masked-view/masked-view` の
+    `android/src/main/AndroidManifest.xml` を除外している。このファイルは Gradle ビルド中に
+    （AGP8 互換のための package 属性除去とみられる書き換えで）内容が変わり、ビルド前
+    （`resolveBuildCache`）とビルド後（`uploadBuildCache`）でフィンガープリントが一致せず
+    キャッシュが常に MISS になる原因だったため、実際に CI 上でビルド前後の fingerprint の
+    ソース単位ハッシュを比較して特定した。今後同様に「ビルドで node_modules 内のファイルが
+    書き換わる」パッケージが見つかった場合はこのファイルに追記する。
 
 ## 構成ファイル
 
 | ファイル | 役割 |
 | --- | --- |
 | `apps/sandbox/app.config.ts` | dynamic config。`E2E_BUILD=true` のときだけ `expo-dev-client` plugin（`defaultLaunchURL` 等）と `buildCacheProvider`（ネイティブビルドキャッシュ）を追記。`E2E_DEFAULT_LOCALE` を `extra.e2eDefaultLocale` に埋め込み `src/i18n/locale.ts` の既定言語フォールバックへ渡す。通常ビルドはどちらも未設定 |
+| `apps/sandbox/.fingerprintignore` | ネイティブビルドキャッシュのフィンガープリント計算から除外するパス。ビルドで内容が変わり無限に MISS を招く既知のファイル（`@react-native-masked-view/masked-view` の `AndroidManifest.xml` 等）を列挙 |
 | `apps/sandbox/eas.json` の `e2e` プロファイル | 将来の非 Dev Client 用 E2E ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
 | `apps/sandbox/.maestro/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（単一 `launchApp`） |
 | `.github/workflows/e2e.yml` | PR ごとに「emulator 起動 → `E2E_BUILD=true expo run:android`（build→install→Metro→接続）→ maestro test」を1ジョブで実行 |

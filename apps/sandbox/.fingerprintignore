@@ -1,0 +1,6 @@
+# @react-native-masked-view/masked-view の AndroidManifest.xml は Gradle ビルド時に
+# AGP8 互換のため package 属性が取り除かれる形で書き換えられる（ビルド前後で内容が変わる）。
+# @expo/fingerprint がこれを検出すると、ビルド前（resolveBuildCache）とビルド後
+# （uploadBuildCache）でフィンガープリントが一致せず、ネイティブビルドキャッシュが
+# 常に MISS になってしまうため除外する。
+**/node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml
