@@ -32,17 +32,7 @@ jobs:
         run: pnpm --dir apps/sandbox run lint:expo
 
       - name: Check formatting
-        run: |
-          status=0
-          for dir in apps/sandbox packages/tooling; do
-            files=$(pnpm exec oxfmt "$dir" --list-different) || status=1
-            if [ -n "$files" ]; then
-              while IFS= read -r f; do
-                [ -n "$f" ] && echo "::error file=${f}::Not formatted. Run \`pnpm run format\` in ${dir} to fix."
-              done <<< "$files"
-            fi
-          done
-          exit $status
+        run: pnpm -r run lint:oxfmt
 
   test:
     name: Test
