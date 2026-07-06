@@ -164,11 +164,11 @@ maestro test apps/sandbox/.maestro/
 ## CI（`.github/workflows/e2e-main.yml`）
 
 - トリガー: `main` への push（`apps/sandbox/**` などの paths フィルタは `e2e.yml` と同様）。
-  手動検証用に `workflow_dispatch` も併設している。`e2e.yml` にある dependabot 除外条件（PR の
-  submitter 判定）はここでは付けていない。dependabot が `@dependabot merge` 等で直接 main に
-  push した場合は actor が `dependabot[bot]` になり `secrets.EXPO_TOKEN` が渡らず
-  `.github/actions/setup-eas` が明示エラーで失敗する経路が残るが、`eas-build-main.yml` も同じ
-  制約を持っており今回新たに生じたものではない。
+  手動検証用に `workflow_dispatch` も併設している。dependabot が `@dependabot merge` 等で
+  直接 main に push した場合、actor が `dependabot[bot]` になり `secrets.EXPO_TOKEN` が渡らず
+  `.github/actions/setup-eas` が明示エラーで失敗し main の E2E が恒常的に失敗するノイズに
+  なりうるため、`e2e.yml` の dependabot 除外と同様に `if: github.actor != 'dependabot[bot]'`
+  でジョブごと skip している。
 - ビルドは `eas build --local --profile e2e --platform android`（本番相当の release ビルド・
   Dev Client 無し・埋め込み JS）で行う。`E2E_BUILD` は設定しない（`E2E_DEFAULT_LOCALE=ja` のみ設定）。
   設定すると `app.config.ts` が `expo-dev-client` plugin と `buildCacheProvider` を有効化してしまい

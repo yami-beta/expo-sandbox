@@ -31,8 +31,13 @@ jobs:
   # E2E_BUILD は設定しない。設定すると apps/sandbox/app.config.ts が expo-dev-client plugin と
   # buildCacheProvider（expo run:android 専用のネイティブビルドキャッシュ）を有効化してしまい、
   # release / 埋め込み JS のビルドに Dev Client が混入するため。
+  # dependabot が @dependabot merge 等で直接 main に push した場合、actor が dependabot[bot]
+  # になり secrets.EXPO_TOKEN が渡らず setup-eas が明示エラーで落ちる。main の E2E が
+  # 恒常的に失敗してノイズになるのを避けるため、このケースはジョブごと skip する
+  # （e2e.yml の dependabot 除外と同様の意図）。
   e2e-android:
     name: E2E (Android / main)
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
