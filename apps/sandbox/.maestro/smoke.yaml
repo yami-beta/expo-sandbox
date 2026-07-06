@@ -15,9 +15,11 @@ appId: com.yamibeta.sandbox
 # バンドルを再取得する際、「ホーム」が一瞬表示された直後に画面が空白になることがあり、
 # 過去にこれを避けるため待機対象を「ナビゲーションパターン」（リスト描画完了の証跡）に
 # 変更したことがある。表示確認としての分かりやすさを優先してこの順序に戻すが、
-# 「ナビゲーションパターン」を既定（短め）のタイムアウトの assertVisible のままにすると、
-# リスト描画が遅いタイミングでは "ホーム" の表示後に空白を挟んで flaky failure になりうる
-# ため、こちらも extendedWaitUntil で長めに待ってから assert する。
+# assertVisible の既定の自動リトライは7秒（docs.maestro.dev/reference/commands-available/
+# assertvisible 参照）しかなく、このリストの遅延はそれをはるかに超える場合がある
+# （このタイムアウトが 40000 → 60000 → 120000 と段階的に伸ばされてきた過去の経緯を参照。
+# git log --follow -p -- apps/sandbox/.maestro/smoke.yaml）。そのため「ナビゲーションパターン」も
+# assertVisible の既定リトライに任せず extendedWaitUntil で同じ長さまで待ってから assert する。
 - extendedWaitUntil:
     visible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
     timeout: 120000
