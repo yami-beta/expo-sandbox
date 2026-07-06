@@ -56,7 +56,7 @@ jobs:
       # ネイティブ変更後も更新されなくなるため。異なる fingerprint のエントリは自動削除されず
       # ディレクトリは増え続けるが、GitHub 側の自動退役に任せる（docs/maestro.md 参照）。
       - name: Restore native build cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: apps/sandbox/.expo/build-cache
           key: e2e-android-buildcache-${{ github.run_id }}
