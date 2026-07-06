@@ -28,6 +28,9 @@ jobs:
   # E2E_BUILD=true により app.config.ts が dev-client の config plugin を有効化し、
   # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
   # EAS / EXPO_TOKEN は不要。
+  # ネイティブフィンガープリントが前回と一致する場合は expo run:android 自体が
+  # Gradle ビルドをスキップしてキャッシュ済みバイナリを再利用する
+  # （apps/sandbox/app.config.ts の buildCacheProvider、下記 actions/cache で永続化）。
   # ※ アプリ起動時の Metro バンドル生成（CPU スパイク）で低速 emulator の SystemUI/Launcher が ANR
   #   しないよう、emulator は CI 向け軽量イメージ google_atd を使う（system process が軽く ANR しにくい）。
   #   コマンドは素の expo run:android のままで、nice や pre-warm 等の小細工は使わない。
@@ -44,6 +47,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+
+      # expo run:android のネイティブビルドキャッシュ（apps/sandbox/app.config.ts の
+      # buildCacheProvider）が使うディレクトリを永続化する。fingerprint が前回と一致すれば
+      # expo run:android が Gradle ビルドをスキップしてこの中のバイナリを再利用する。
+      # key は常にユニーク（run_id）にし restore-keys で直近のキャッシュを復元する
+      # 成長型キャッシュとする。固定キーだと actions/cache の「完全一致時は保存しない」仕様により
+      # ネイティブ変更後も更新されなくなるため。異なる fingerprint のエントリは自動削除されず
+      # ディレクトリは増え続けるが、GitHub 側の自動退役に任せる（docs/maestro.md 参照）。
+      - name: Restore native build cache
+        uses: actions/cache@v6
+        with:
+          path: apps/sandbox/.expo/build-cache
+          key: e2e-android-buildcache-${{ github.run_id }}
+          restore-keys: |
+            e2e-android-buildcache-
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -144,6 +162,23 @@ jobs:
 
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
+
+      # ネイティブビルドキャッシュがヒットしたか確認できるよう expo-run.log を要約する。
+      # grep パターンは node_modules/@expo/local-build-cache-provider・
+      # node_modules/@expo/cli の実際のログ文言に基づく。
+      - name: Summarize native build cache result
+        if: always()
+        run: |
+          LOG="$RUNNER_TEMP/expo-run.log"
+          if [ ! -f "$LOG" ]; then
+            echo "### Native build cache: expo-run.log が見つかりません" >> "$GITHUB_STEP_SUMMARY"
+          elif grep -qE 'Installing .*\.expo/build-cache/' "$LOG"; then
+            echo "### Native build cache: HIT（ネイティブビルドをスキップ）" >> "$GITHUB_STEP_SUMMARY"
+          elif grep -q 'Copying build to local cache' "$LOG"; then
+            echo "### Native build cache: MISS（フルビルド実行 → 今回の成果をキャッシュに追加）" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Native build cache: 判定不能（expo-run.log を確認）" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
       # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）

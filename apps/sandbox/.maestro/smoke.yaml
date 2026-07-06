@@ -1,4 +1,7 @@
 # アプリ起動〜ホーム画面の表示を確認する最小スモークテスト。
+# このフローへの変更はネイティブ部分（依存関係・ネイティブコード・config plugin・app.json/
+# app.config の設定）を伴わないため、CI のネイティブビルドキャッシュ（docs/maestro.md 参照）が
+# ヒットし expo run:android の Gradle ビルドがスキップされる想定。
 # emulator ロケールは固定せず（既定 en-US）、E2E ビルドはアプリの言語既定値を ja に固定する
 # （E2E_DEFAULT_LOCALE=ja / .github/workflows/e2e.yml・src/i18n/locale.ts 参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。
