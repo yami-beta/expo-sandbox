@@ -3,18 +3,22 @@
 # app.config の設定）を伴わないため、CI のネイティブビルドキャッシュ（docs/maestro.md 参照）が
 # ヒットし expo run:android の Gradle ビルドがスキップされる想定。
 # emulator ロケールは固定せず（既定 en-US）、E2E ビルドはアプリの言語既定値を ja に固定する
-# （E2E_DEFAULT_LOCALE=ja / .github/workflows/e2e.yml・src/i18n/locale.ts 参照）。
+# （E2E_DEFAULT_LOCALE=ja / .github/workflows/e2e.yml・e2e-main.yml・src/i18n/locale.ts 参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。
 appId: com.yamibeta.sandbox
 ---
 - launchApp:
     clearState: true
-# clearState 後は Metro からバンドルを再取得するため、「ホーム」が一瞬出た後に再ロードで
-# 空画面を挟むことがある。タイトルだけ待つと後続 assert が空画面で落ちるため、リストが
-# 描画完了した証跡となる項目を extendedWaitUntil で待ってから assert する。
-# （Dev Client は Metro 初回バンドル、非 Dev Client は埋め込み JS の初回起動が遅い）
+# ページの表示確認としてまず画面タイトル「ホーム」を待ってから assert する。
+# 埋め込み JS ビルド（e2e-main.yml / main）はこの順序で問題なく動く。
+# Dev Client ビルド（e2e.yml / PR）は clearState 後、defaultLaunchURL 経由で Metro に再接続し
+# バンドルを再取得する際、「ホーム」が一瞬表示された直後に画面が空白になることがあり、
+# 過去にこれを避けるため待機対象を「ナビゲーションパターン」（リスト描画完了の証跡）に
+# 変更したことがある。表示確認としての分かりやすさを優先してこの順序に戻しているため、
+# Dev Client 側でこの空白挙動による flaky failure が再発した場合は待機対象の変更や
+# flow の分割を検討すること。
 - extendedWaitUntil:
-    visible: "ナビゲーションパターン" # GroupedList の先頭項目（src/app/(tabs)/(home)/index.tsx）
+    visible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
     timeout: 120000
-- assertVisible: "ホーム" # Stack.Screen.Title / タブラベル
+- assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目
 - assertVisible: "コンポーネント"
