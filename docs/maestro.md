@@ -1,13 +1,14 @@
 # E2E テスト（Maestro）
 
 [Maestro](https://maestro.dev/) を使った UI 自動テスト（E2E）の構成と運用。`apps/sandbox` の起動〜画面表示を
-Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）とは別系統。
+Pull Request ごと（`e2e.yml`）と main ブランチへの push ごと（`e2e-main.yml`）に自動検証する。
+jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）とは別系統。
 
 ## 方針
 
-- **EAS のビルドクレジットは使わない**。PR は `expo run:android`（GitHub Actions の Linux ランナー上で
-  ローカル gradle ビルド）で完結し、EAS リモートビルドや `EXPO_TOKEN` に依存しない。将来の非 Dev Client 用
-  `e2e` プロファイルのみ `eas build --local` を使う。
+- **EAS のビルドクレジットは PR では使わない**。PR は `expo run:android`（GitHub Actions の Linux ランナー上で
+  ローカル gradle ビルド）で完結し、EAS リモートビルドや `EXPO_TOKEN` に依存しない。main ブランチ用の
+  非 Dev Client `e2e` プロファイルのみ `eas build --local` を使う（`EXPO_TOKEN` が必要）。
 - **PR は Development Build（Dev Client / Metro 接続）でテストする**。ローカル開発（`expo start` +
   `expo run:ios/android`）と前提を揃え、release ではなく debug ビルドにすることでビルド時間も短縮する。
   Dev Client（`developmentClient: true`）は本来起動時に Metro dev server を探す launcher 画面が出るが、
@@ -21,9 +22,9 @@ Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテ
     起動時のデベロッパーメニュー・フローティングツールボタンが assert を阻害しないよう無効化する。
 - **フローは Dev Client あり/なしの両対応**。`defaultLaunchURL` による自動接続のおかげで、Maestro フローは
   単一の `launchApp` で済み、Dev Client あり（自動接続）/ なし（埋め込み JS）の両方が同じフローで通る。
-  Dev Client を含まない E2E（`e2e` プロファイル / release / 埋め込み JS）は将来 main ブランチ or 定期実行で
-  行う想定で、その際も同じフローを再利用する。
-- **release ビルドの lint を除外**（将来の非 Dev Client 用 `e2e` プロファイル）。`developmentClient: false`
+  Dev Client を含まない E2E（`e2e` プロファイル / release / 埋め込み JS）は `.github/workflows/e2e-main.yml`
+  で main ブランチへの push 時に実行し、同じフローを再利用する。
+- **release ビルドの lint を除外**（非 Dev Client 用 `e2e` プロファイル）。`developmentClient: false`
   は release variant でビルドされ、`lintVitalRelease`（lint）が CI ランナーのメモリを使い切って
   `OutOfMemoryError` で落ちる。lint は E2E ビルドに不要（品質チェックは oxlint / expo lint で別途実施）なため、
   `e2e` プロファイルの `android.gradleCommand` を `:app:assembleRelease -x lintVitalRelease` にして除外している。
@@ -46,9 +47,10 @@ Pull Request ごとに自動検証する。jest-expo / Vitest のユニットテ
 | --- | --- |
 | `apps/sandbox/app.config.ts` | dynamic config。`E2E_BUILD=true` のときだけ `expo-dev-client` plugin（`defaultLaunchURL` 等）と `buildCacheProvider`（ネイティブビルドキャッシュ）を追記。`E2E_DEFAULT_LOCALE` を `extra.e2eDefaultLocale` に埋め込み `src/i18n/locale.ts` の既定言語フォールバックへ渡す。通常ビルドはどちらも未設定 |
 | `apps/sandbox/.fingerprintignore` | ネイティブビルドキャッシュのフィンガープリント計算から除外するパス。ビルドで内容が変わり無限に MISS を招く既知のファイル（`@react-native-masked-view/masked-view` の `AndroidManifest.xml` 等）を列挙 |
-| `apps/sandbox/eas.json` の `e2e` プロファイル | 将来の非 Dev Client 用 E2E ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
+| `apps/sandbox/eas.json` の `e2e` プロファイル | 非 Dev Client 用 E2E ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
 | `apps/sandbox/.maestro/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（単一 `launchApp`） |
 | `.github/workflows/e2e.yml` | PR ごとに「emulator 起動 → `E2E_BUILD=true expo run:android`（build→install→Metro→接続）→ maestro test」を1ジョブで実行 |
+| `.github/workflows/e2e-main.yml` | main への push ごとに「`eas build --local --profile e2e`（release / 埋め込み JS）→ emulator 起動 → APK install → maestro test」を1ジョブで実行 |
 
 ## フローの書き方
 
@@ -109,15 +111,16 @@ E2E_BUILD=true E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec expo run:andro
 maestro test apps/sandbox/.maestro/
 ```
 
-### 非 Dev Client 経路（将来 main 互換の回帰確認）
+### 非 Dev Client 経路（main 互換の回帰確認）
 
-EAS CLI（`npm i -g eas-cli`）と EAS ログイン（`eas login`）が必要。
+EAS CLI（`npm i -g eas-cli`）と EAS ログイン（`eas login`）が必要。`.github/workflows/e2e-main.yml`
+が CI で実行しているのと同じ経路。
 
 ```bash
 # 1. e2e プロファイルで APK をローカルビルド（Dev Client 無し・Metro 不要）
 #    非 Dev Client でも E2E_DEFAULT_LOCALE=ja をビルド時に設定すると app.config.ts 経由で
 #    extra.e2eDefaultLocale に埋め込まれる（expo-constants のビルドタスクが毎ビルド再評価するため
-#    Dev Client 経路と同じ仕組みで確実に反映される。※ この経路は現状 CI 未使用（将来 main 互換の回帰用））
+#    Dev Client 経路と同じ仕組みで確実に反映される）。
 E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec eas build --local --profile e2e --platform android \
   --non-interactive --output ./build-output/sandbox-e2e.apk
 
@@ -157,6 +160,31 @@ maestro test apps/sandbox/.maestro/
   Job Summary に表示する。異なるフィンガープリントのキャッシュエントリは自動削除されず
   `.expo/build-cache` は増え続けるが、GitHub 側の自動退役に任せている。キャッシュミス時は通常の
   フルビルドに安全にフォールバックする。
+
+## CI（`.github/workflows/e2e-main.yml`）
+
+- トリガー: `main` への push（`apps/sandbox/**` などの paths フィルタは `e2e.yml` と同様）。
+  手動検証用に `workflow_dispatch` も併設している。`e2e.yml` にある dependabot 除外条件（PR の
+  submitter 判定）はここでは付けていない。dependabot が `@dependabot merge` 等で直接 main に
+  push した場合は actor が `dependabot[bot]` になり `secrets.EXPO_TOKEN` が渡らず
+  `.github/actions/setup-eas` が明示エラーで失敗する経路が残るが、`eas-build-main.yml` も同じ
+  制約を持っており今回新たに生じたものではない。
+- ビルドは `eas build --local --profile e2e --platform android`（本番相当の release ビルド・
+  Dev Client 無し・埋め込み JS）で行う。`E2E_BUILD` は設定しない（`E2E_DEFAULT_LOCALE=ja` のみ設定）。
+  設定すると `app.config.ts` が `expo-dev-client` plugin と `buildCacheProvider` を有効化してしまい
+  Dev Client が混入するため。EAS の認証には `.github/actions/setup-eas`（`secrets.EXPO_TOKEN`）を使う。
+- Metro は使わないため、`expo run:android` のような build→install→起動の自動化は無い。ビルドした APK を
+  `adb install` するだけで、アプリの起動自体は `apps/sandbox/.maestro/smoke.yaml` の `launchApp` に
+  任せる（maestro test 実行前に明示的に起動する必要は無い）。
+- `e2e.yml` が使うネイティブビルドキャッシュ（`buildCacheProvider`）は使わない（上記の通り
+  `E2E_BUILD` を設定しないため）。そのため毎回フルの release ビルド相当になる。
+- `concurrency.group` は PR 番号が存在しないため固定文字列 `e2e-main` を使用し、
+  `cancel-in-progress: false` として実行中の検証を中断しない（GitHub Actions の concurrency 仕様上、
+  保留は最新 1 件のみ残るためキューが際限なく積み上がることはない）。
+- artifact 名は `maestro-results-${{ github.sha }}`（push イベントには PR 番号が無いため）。
+  失敗解析用にビルド済み APK も artifact に含める。
+- その他（emulator 起動・ANR 対策の `google_atd` イメージ・アニメーション無効化・
+  診断情報採取など）は `e2e.yml` と同じロジックを再利用している。
 
 ## iOS を対象に追加する場合
 
