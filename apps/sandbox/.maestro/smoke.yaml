@@ -14,11 +14,14 @@ appId: com.yamibeta.sandbox
 # Dev Client ビルド（e2e.yml / PR）は clearState 後、defaultLaunchURL 経由で Metro に再接続し
 # バンドルを再取得する際、「ホーム」が一瞬表示された直後に画面が空白になることがあり、
 # 過去にこれを避けるため待機対象を「ナビゲーションパターン」（リスト描画完了の証跡）に
-# 変更したことがある。表示確認としての分かりやすさを優先してこの順序に戻しているため、
-# Dev Client 側でこの空白挙動による flaky failure が再発した場合は待機対象の変更や
-# flow の分割を検討すること。
+# 変更したことがある。表示確認としての分かりやすさを優先してこの順序に戻すが、
+# 「ナビゲーションパターン」を既定（短め）のタイムアウトの assertVisible のままにすると、
+# リスト描画が遅いタイミングでは "ホーム" の表示後に空白を挟んで flaky failure になりうる
+# ため、こちらも extendedWaitUntil で長めに待ってから assert する。
 - extendedWaitUntil:
     visible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
     timeout: 120000
-- assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目
+- extendedWaitUntil:
+    visible: "ナビゲーションパターン" # GroupedList の先頭項目
+    timeout: 120000
 - assertVisible: "コンポーネント"
