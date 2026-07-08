@@ -18,8 +18,10 @@ jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）と
   本来起動時に Metro dev server を探す launcher 画面が出るが、**`defaultLaunchURL` を焼き込んで Metro へ
   自動接続**させることで launcher を経由せず起動する。
 - **config plugin の設定は E2E ビルド時のみ適用する**。`apps/sandbox/app.config.ts`（dynamic config）が
-  `E2E_BUILD=true` のときだけ `expo-dev-client` plugin を追記する。これにより通常の `expo run` や配布用
-  dev build（`eas-build.yml` の `development` プロファイル）の開発体験には影響しない。E2E では次を設定:
+  `E2E_BUILD=true` のときだけ `expo-dev-client` plugin を追記する。E2E は eas.json の `development`
+  プロファイルを再利用するが、通常の development ビルドとの差分は `E2E_BUILD` 環境変数だけ。`E2E_BUILD` を
+  設定しない通常の `expo run` や配布用 dev build（`eas-build.yml` / `eas-build-main.yml` の `development`
+  プロファイル）には plugin が追記されず、開発体験には影響しない。E2E では次を設定:
   - `defaultLaunchURL: "http://localhost:8081"`: launcher を経由せず直接 Metro へ接続。`launchMode`
     （既定 `most-recent`）の fallback としても効くため、`clearState` 後の起動でも再接続する。
   - `skipOnboarding: true` / `showMenuAtLaunch: false` / `toolsButton: false`: オンボーディング・
