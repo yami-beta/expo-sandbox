@@ -26,11 +26,10 @@ env:
 jobs:
   # Dev Client を含まない release ビルド（eas.json の e2e プロファイル / 埋め込み JS）を
   # eas build --local でビルドし、emulator に install した上で Maestro E2E を実行する。
-  # e2e.yml（PRごと、Dev Client + expo run:android + Metro 接続）とはビルド経路が根本的に
-  # 異なるため、共通化はせず独立したワークフローとする。
-  # E2E_BUILD は設定しない。設定すると apps/sandbox/app.config.ts が expo-dev-client plugin と
-  # buildCacheProvider（expo run:android 専用のネイティブビルドキャッシュ）を有効化してしまい、
-  # release / 埋め込み JS のビルドに Dev Client が混入するため。
+  # e2e.yml（PRごと、Dev Client + Metro 接続）とはビルド経路（profile / debug vs release）が
+  # 根本的に異なるため、ジョブは分ける。
+  # E2E_BUILD は設定しない。設定すると apps/sandbox/app.config.ts が expo-dev-client plugin を
+  # 有効化し、release / 埋め込み JS のビルドに Dev Client が混入するため。
   # dependabot が @dependabot merge 等で直接 main に push した場合、actor が dependabot[bot]
   # になり secrets.EXPO_TOKEN が渡らず setup-eas が明示エラーで落ちる。main の E2E が
   # 恒常的に失敗してノイズになるのを避けるため、このケースはジョブごと skip する
@@ -142,8 +141,8 @@ jobs:
           adb shell settings put global animator_duration_scale 0
 
       # アプリの起動は行わない。apps/sandbox/.maestro/smoke.yaml の先頭が launchApp であり、
-      # maestro test 自体が起動を担う（e2e.yml では expo run:android が install の副作用として
-      # 自動起動するため待機ロジックがあるが、ここでは install 済みであれば launchApp が起動できる）。
+      # maestro test 自体が起動を担う（release / 埋め込み JS のため Metro も不要。install 済みで
+      # あれば launchApp が起動できる）。
       - name: Install app
         run: adb install -r apps/sandbox/build-output/sandbox-e2e.apk
 
@@ -186,3 +185,96 @@ jobs:
           if-no-files-found: warn
           # 同一コミットへの re-run で同名アーティファクトが既に存在する場合の 409 Conflict を避ける
           overwrite: true
+
+  # PR の e2e.yml が使う dev-client debug APK のビルドキャッシュを main で温める。
+  # GitHub Actions のキャッシュはブランチスコープで、新規 PR ブランチが復元できるのは
+  # default ブランチ（main）が書き込んだキャッシュのみ。このジョブが main への push ごとに
+  # e2e.yml と同一の fingerprint / 同一 profile（development）で APK を eas build --local し
+  # actions/cache（同一キー e2e-android-devclient-apk-<hash>）へ保存することで、ネイティブ変更の
+  # 無い（JS のみの）PR が初回プッシュからヒットしてビルドを丸ごと省略できるようにする。
+  # 上の release e2e ジョブとは目的（release 検証 vs dev-client キャッシュ温め）が異なるため
+  # 独立したジョブとし、emulator / Metro / maestro は使わない（build のみ）。
+  warm-devclient-cache:
+    name: Warm dev-client APK cache
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    # build のみ（emulator/maestro なし）だが、キャッシュミス時の初回フルビルドに余裕を持たせる
+    timeout-minutes: 60
+    env:
+      APK_PATH: apps/sandbox/build-output/sandbox-e2e-devclient.apk
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      # e2e.yml と同一のコマンド・profile・env で fingerprint を計算する（ハッシュ一致が前提）
+      - name: Compute native fingerprint
+        id: fp
+        working-directory: apps/sandbox
+        env:
+          E2E_BUILD: 'true'
+          E2E_DEFAULT_LOCALE: ja
+        run: |
+          HASH="$(eas fingerprint:generate --platform android --build-profile development --json --non-interactive | jq -r '.hash')"
+          if [ -z "$HASH" ] || [ "$HASH" = "null" ]; then
+            echo "::error::native fingerprint の取得に失敗しました" >&2
+            exit 1
+          fi
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+          echo "native fingerprint: $HASH"
+
+      # e2e.yml と同一キー（arch も一致させる）。既にこの fingerprint がキャッシュ済みなら HIT し
+      # build は走らない。
+      - name: Cache dev-client APK
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.APK_PATH }}
+          key: e2e-android-devclient-apk-x86_64-${{ steps.fp.outputs.hash }}
+
+      # キャッシュミス時のみビルドし、post ステップで actions/cache が default ブランチスコープへ保存する。
+      # x86_64 のみビルドして PR 側 emulator（x86_64）と arch を一致させる。
+      - name: Build dev-client APK (eas build --local)
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: apps/sandbox
+        env:
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
+          E2E_BUILD: 'true'
+          E2E_DEFAULT_LOCALE: ja
+        run: |
+          eas build --local --profile development --platform android \
+            --non-interactive --output ./build-output/sandbox-e2e-devclient.apk
+
+      - name: Summarize APK cache result
+        if: always()
+        run: |
+          if [ -z "${{ steps.fp.outputs.hash }}" ]; then
+            echo "### dev-client APK cache: 判定不能（fingerprint の取得に失敗）" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.cache.outputs.cache-hit }}" = "true" ]; then
+            echo "### dev-client APK cache: HIT（最新 fingerprint がキャッシュ済み・温め不要）" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "fingerprint: \`${{ steps.fp.outputs.hash }}\`" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### dev-client APK cache: MISS（eas build --local を実行 → キャッシュに保存）" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "fingerprint: \`${{ steps.fp.outputs.hash }}\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
