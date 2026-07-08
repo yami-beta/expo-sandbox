@@ -226,7 +226,9 @@ jobs:
         with:
           token: ${{ secrets.EXPO_TOKEN }}
 
-      # e2e.yml と同一のコマンド・profile・env で fingerprint を計算する（ハッシュ一致が前提）
+      # e2e.yml と同一のコマンド・env で fingerprint を計算する（ハッシュ一致が初回ヒットの前提）。
+      # @expo/fingerprint（pnpm-lock.yaml 固定）を API 直呼びで使い、EAS 認証・ネットワーク不要かつ
+      # ランをまたいで決定的にする。詳細は e2e.yml の同ステップのコメント参照。
       - name: Compute native fingerprint
         id: fp
         working-directory: apps/sandbox
@@ -234,8 +236,8 @@ jobs:
           E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
-          HASH="$(eas fingerprint:generate --platform android --build-profile development --json --non-interactive | jq -r '.hash')"
-          if [ -z "$HASH" ] || [ "$HASH" = "null" ]; then
+          HASH="$(node -e "require('@expo/fingerprint').createProjectHashAsync(process.cwd(), { platforms: ['android'] }).then((h) => process.stdout.write(h)).catch((e) => { console.error(e); process.exit(1); })")"
+          if [ -z "$HASH" ]; then
             echo "::error::native fingerprint の取得に失敗しました" >&2
             exit 1
           fi

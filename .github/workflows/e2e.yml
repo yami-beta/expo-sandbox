@@ -72,10 +72,14 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       # ネイティブフィンガープリント（@expo/fingerprint）を APK キャッシュのキーにする。
-      # E2E_BUILD / E2E_DEFAULT_LOCALE は app.config.ts が読む env。ビルドと同じ値を渡し、
-      # 同じ build profile（development）で計算することで、PR と e2e-main.yml の warm ジョブで
-      # ハッシュが一致する（fingerprint は JS を含まずネイティブ依存・config のみを対象とするため、
-      # JS のみの変更ではハッシュ不変 → 既存 APK を再利用でき、更新 JS は Metro が配信する）。
+      # eas-cli 経由（eas fingerprint:generate）ではなく @expo/fingerprint の API を直接使う:
+      # pnpm-lock.yaml でバージョン固定されるためランをまたいで決定的（eas-version: latest だと
+      # 実行時期でアルゴリズムがドリフトしキャッシュが常時 MISS になりうる）で、EAS 認証・ネットワークも
+      # 不要。E2E_BUILD / E2E_DEFAULT_LOCALE は app.config.ts の評価に反映され（ExpoConfigLoader が
+      # process.env を継承）、.fingerprintignore と eas.json も自動でハッシュ対象に含まれる。
+      # fingerprint は JS を含まずネイティブ依存・config のみが対象のため、JS のみの変更ではハッシュ
+      # 不変 → 既存 APK を再利用でき、更新 JS は Metro が配信する。PR と e2e-main.yml の warm ジョブは
+      # 同一コマンド・同一 env で計算するためハッシュが一致する。
       - name: Compute native fingerprint
         id: fp
         working-directory: apps/sandbox
@@ -83,8 +87,8 @@ jobs:
           E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
-          HASH="$(eas fingerprint:generate --platform android --build-profile development --json --non-interactive | jq -r '.hash')"
-          if [ -z "$HASH" ] || [ "$HASH" = "null" ]; then
+          HASH="$(node -e "require('@expo/fingerprint').createProjectHashAsync(process.cwd(), { platforms: ['android'] }).then((h) => process.stdout.write(h)).catch((e) => { console.error(e); process.exit(1); })")"
+          if [ -z "$HASH" ]; then
             echo "::error::native fingerprint の取得に失敗しました" >&2
             exit 1
           fi
