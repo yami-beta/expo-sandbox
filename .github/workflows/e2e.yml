@@ -72,7 +72,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       # ネイティブフィンガープリント（@expo/fingerprint）を APK キャッシュのキーにする。
-      # eas-cli 経由（eas fingerprint:generate）ではなく @expo/fingerprint の API を直接使う:
+      # eas-cli 経由（eas fingerprint:generate）ではなく @expo/fingerprint の CLI を使う:
       # pnpm-lock.yaml でバージョン固定されるためランをまたいで決定的（eas-version: latest だと
       # 実行時期でアルゴリズムがドリフトしキャッシュが常時 MISS になりうる）で、EAS 認証・ネットワークも
       # 不要。E2E_BUILD / E2E_DEFAULT_LOCALE は app.config.ts の評価に反映され（ExpoConfigLoader が
@@ -87,8 +87,8 @@ jobs:
           E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
-          HASH="$(node -e "require('@expo/fingerprint').createProjectHashAsync(process.cwd(), { platforms: ['android'] }).then((h) => process.stdout.write(h)).catch((e) => { console.error(e); process.exit(1); })")"
-          if [ -z "$HASH" ]; then
+          HASH="$(pnpm exec fingerprint fingerprint:generate --platform android | jq -r '.hash')"
+          if [ -z "$HASH" ] || [ "$HASH" = "null" ]; then
             echo "::error::native fingerprint の取得に失敗しました" >&2
             exit 1
           fi

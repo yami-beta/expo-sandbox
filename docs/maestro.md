@@ -154,8 +154,8 @@ maestro test apps/sandbox/.maestro/
   `secrets.EXPO_TOKEN` が fork/dependabot には渡らないため）。
 - サードパーティ Action は使わず、GitHub / Gradle / Expo / pnpm の公式 Action と、ubuntu-latest に
   プリインストール済みの Android SDK ツール（`sdkmanager` / `avdmanager` / `emulator` / `adb`）のみで構成。
-- **ステップ順**: `Setup EAS`（`EXPO_TOKEN`）→ fingerprint 計算（`@expo/fingerprint` の
-  `createProjectHashAsync` を API 直呼び。pnpm-lock.yaml 固定で決定的・EAS 認証不要）→
+- **ステップ順**: `Setup EAS`（`EXPO_TOKEN`）→ fingerprint 計算（`@expo/fingerprint` の CLI
+  `pnpm exec fingerprint fingerprint:generate --platform android`。pnpm-lock.yaml 固定で決定的・EAS 認証不要）→
   `actions/cache`（キー `e2e-android-devclient-apk-x86_64-<hash>`）→ ミス時のみ
   `eas build --local --profile development`（dev-client debug APK）→ emulator 起動 →
   `adb install -r` → `expo start`（Metro を background 起動）→ `adb reverse tcp:8081 tcp:8081` →
