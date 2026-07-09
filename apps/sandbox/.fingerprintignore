@@ -1,25 +1,20 @@
 # --- @react-native-masked-view/masked-view の AndroidManifest.xml ---
 #
-# 症状: ネイティブビルドキャッシュ（apps/sandbox/app.config.ts の buildCacheProvider）が
-# 常に MISS になり、キャッシュが一切効かない。
+# このファイルは Gradle ビルド実行中に書き換わる（pnpm install 直後・expo prebuild 直後の内容は
+# 同一で、Gradle ビルド後にだけ変化することを実際の CI 実行で確認済み）。具体的には
+# `package="org.reactnative.maskedview"` 属性が取り除かれ、跡地に二重スペースが残る
+# （<manifest  xmlns:android=...> ）。XML をパースして書き直したのではなく単純な文字列置換の痕跡で、
+# このモジュールに対して実行される Gradle タスクはすべて AGP（Android Gradle Plugin）標準の組み込み
+# タスクのみだった（Expo/RN 独自のカスタムタスクは無かった）ことから、AGP 自身（あるいは Gradle の
+# ビルドキャッシュ機構）による挙動と推測される。正確な実装箇所は AGP がクローズドソースのため未特定。
 #
-# 原因: このファイルは Gradle ビルド実行中に書き換わる（pnpm install 直後・
-# expo prebuild 直後の内容は同一で、Gradle ビルド後にだけ変化することを実際の CI 実行で
-# 確認済み）。具体的には `package="org.reactnative.maskedview"` 属性が取り除かれ、
-# 跡地に二重スペースが残る（<manifest  xmlns:android=...> ）。XML をパースして
-# 書き直したのではなく単純な文字列置換の痕跡で、このモジュールに対して実行される
-# Gradle タスクはすべて AGP（Android Gradle Plugin）標準の組み込みタスクのみだった
-# （Expo/RN 独自のカスタムタスクは無かった）ことから、AGP 自身（あるいは Gradle の
-# ビルドキャッシュ機構）による挙動と推測される。正確な実装箇所は AGP がクローズド
-# ソースのため特定できていない。
+# 影響: E2E の dev-client APK キャッシュは、ビルド前に `eas fingerprint:generate`（@expo/fingerprint）
+# で計算したハッシュをキーにする（e2e.yml の PR ジョブと e2e-main.yml の warm ジョブが同一ハッシュを
+# 出すことが初回ヒットの前提）。この churning ファイルをフィンガープリントに含めると、Gradle ビルドを
+# 走らせた runner 上で内容が変わりハッシュがドリフトしうるため、除外して内容の変化を無視する。
 #
-# @expo/fingerprint はビルド前（resolveBuildCache）とビルド後（uploadBuildCache）の
-# 2回、別々にこのファイルを含むフィンガープリントを計算する。書き換えが起きるため
-# 同一コミット・同一実行内でもこの2回の値が一致せず、過去にアップロードされた
-# キャッシュには原理的に絶対ヒットしない。
-#
-# 補足: @react-native-masked-view/masked-view は Expo 公式パッケージではなく、
-# expo-router が内部にバンドルしている React Navigation 由来の画面遷移コンポーネント
+# 補足: @react-native-masked-view/masked-view は Expo 公式パッケージではなく、expo-router が内部に
+# バンドルしている React Navigation 由来の画面遷移コンポーネント
 # （expo-router/build/react-navigation/elements/）が使うサードパーティパッケージ。
 # 原因が判明している expo-* パッケージ群には同様の差分は見られなかった。
 #

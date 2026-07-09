@@ -21,20 +21,26 @@ env:
   MAESTRO_VERSION: '2.6.1'
   ANDROID_API_LEVEL: '34'
   AVD_NAME: e2e
+  # dev-client debug APK の出力/キャッシュ先（fingerprint キャッシュの path と一致させる）
+  APK_PATH: apps/sandbox/build-output/sandbox-e2e-devclient.apk
 
 jobs:
-  # Development Build（Dev Client 入り）を expo run:android でビルド→install→Metro 起動→
-  # アプリ起動まで一括実行し、その上で Maestro E2E を実行する（ローカル開発と同一コマンド）。
-  # E2E_BUILD=true により app.config.ts が dev-client の config plugin を有効化し、
+  # Development Build（Dev Client 入り）の debug APK を eas build --local でビルドし、その APK を
+  # expo run:android --binary で emulator に install → Metro 起動 → dev-client 起動 → Maestro E2E を実行する。
+  # ビルド成果物(APK)は @expo/fingerprint のハッシュをキーに actions/cache で永続化し、
+  # ネイティブ fingerprint が一致する限り eas build --local を丸ごとスキップする。
+  # main への push では e2e-main.yml の warm ジョブが同じ fingerprint / 同じ profile で
+  # APK を事前にキャッシュへ投入するため、ネイティブ変更の無い（JS のみの）PR は
+  # 初回プッシュから default ブランチのキャッシュにヒットし、ビルドを省略できる。
+  # E2E_BUILD=true により app.config.ts が expo-dev-client の config plugin を有効化し、
   # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
-  # EAS / EXPO_TOKEN は不要。
-  # ネイティブフィンガープリントが前回と一致する場合は expo run:android 自体が
-  # Gradle ビルドをスキップしてキャッシュ済みバイナリを再利用する
-  # （apps/sandbox/app.config.ts の buildCacheProvider、下記 actions/cache で永続化）。
+  # ビルドは eas build --local を使うため EXPO_TOKEN（secrets）が必要。
+  # dev-client debug ビルドには eas.json の development プロファイルを再利用する
+  # （developmentClient: true → Android は :app:assembleDebug = APK）。
   # ※ アプリ起動時の Metro バンドル生成（CPU スパイク）で低速 emulator の SystemUI/Launcher が ANR
   #   しないよう、emulator は CI 向け軽量イメージ google_atd を使う（system process が軽く ANR しにくい）。
-  #   コマンドは素の expo run:android のままで、nice や pre-warm 等の小細工は使わない。
-  # Dev Client を含まない（e2e プロファイル / 埋め込み JS）E2E は e2e-main.yml（main への push）で行う。
+  # Dev Client を含まない（e2e プロファイル / 埋め込み JS）release ビルドの E2E は
+  # e2e-main.yml（main への push）で行う。
   # 将来 iOS を対象にする場合は e2e-ios ジョブ（macOS ランナー / simulator）を追加する。
   e2e-android:
     name: E2E (Android)
@@ -48,21 +54,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # expo run:android のネイティブビルドキャッシュ（apps/sandbox/app.config.ts の
-      # buildCacheProvider）が使うディレクトリを永続化する。fingerprint が前回と一致すれば
-      # expo run:android が Gradle ビルドをスキップしてこの中のバイナリを再利用する。
-      # key は常にユニーク（run_id）にし restore-keys で直近のキャッシュを復元する
-      # 成長型キャッシュとする。固定キーだと actions/cache の「完全一致時は保存しない」仕様により
-      # ネイティブ変更後も更新されなくなるため。異なる fingerprint のエントリは自動削除されず
-      # ディレクトリは増え続けるが、GitHub 側の自動退役に任せる（docs/maestro.md 参照）。
-      - name: Restore native build cache
-        uses: actions/cache@v6
-        with:
-          path: apps/sandbox/.expo/build-cache
-          key: e2e-android-buildcache-${{ github.run_id }}
-          restore-keys: |
-            e2e-android-buildcache-
-
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
@@ -74,6 +65,74 @@ jobs:
 
       - name: Setup Node.js and pnpm
         uses: ./.github/actions/setup-node
+
+      - name: Setup EAS
+        uses: ./.github/actions/setup-eas
+        with:
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      # ネイティブフィンガープリント（@expo/fingerprint）を APK キャッシュのキーにする。
+      # eas-cli 経由（eas fingerprint:generate）ではなく @expo/fingerprint の CLI を使う:
+      # pnpm-lock.yaml でバージョン固定されるためランをまたいで決定的（eas-version: latest だと
+      # 実行時期でアルゴリズムがドリフトしキャッシュが常時 MISS になりうる）で、EAS 認証・ネットワークも
+      # 不要。E2E_BUILD / E2E_DEFAULT_LOCALE は app.config.ts の評価に反映され（ExpoConfigLoader が
+      # process.env を継承）、.fingerprintignore と eas.json も自動でハッシュ対象に含まれる。
+      # fingerprint は JS を含まずネイティブ依存・config のみが対象のため、JS のみの変更ではハッシュ
+      # 不変 → 既存 APK を再利用でき、更新 JS は Metro が配信する。PR と e2e-main.yml の warm ジョブは
+      # 同一コマンド・同一 env で計算するためハッシュが一致する。
+      - name: Compute native fingerprint
+        id: fp
+        working-directory: apps/sandbox
+        env:
+          E2E_BUILD: 'true'
+          E2E_DEFAULT_LOCALE: ja
+        run: |
+          HASH="$(pnpm exec fingerprint fingerprint:generate --platform android | jq -r '.hash')"
+          if [ -z "$HASH" ] || [ "$HASH" = "null" ]; then
+            echo "::error::native fingerprint の取得に失敗しました" >&2
+            exit 1
+          fi
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+          echo "native fingerprint: $HASH"
+
+      # fingerprint を exact-match キーにした APK キャッシュ。restore-keys は使わない
+      # （fingerprint が変われば別キー = 正しくミスし、下の Build ステップで作り直して保存する）。
+      # arch（x86_64）は fingerprint に含まれないためキーに明示する。将来 arch を増やす場合は
+      # ここを変えれば別キーになり、stale な x86_64 APK のヒットを防げる。
+      - name: Cache dev-client APK
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.APK_PATH }}
+          key: e2e-android-devclient-apk-x86_64-${{ steps.fp.outputs.hash }}
+
+      # キャッシュミス時のみ eas build --local で dev-client debug APK をビルドする。
+      # x86_64 のみビルドして emulator の arch と一致させる（install 可能・ビルド時間短縮）。
+      - name: Build dev-client APK (eas build --local)
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: apps/sandbox
+        env:
+          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
+          E2E_BUILD: 'true'
+          E2E_DEFAULT_LOCALE: ja
+        run: |
+          eas build --local --profile development --platform android \
+            --non-interactive --output ./build-output/sandbox-e2e-devclient.apk
+
+      - name: Summarize APK cache result
+        if: always()
+        run: |
+          if [ -z "${{ steps.fp.outputs.hash }}" ]; then
+            echo "### dev-client APK cache: 判定不能（fingerprint の取得に失敗）" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.cache.outputs.cache-hit }}" = "true" ]; then
+            echo "### dev-client APK cache: HIT（eas build --local をスキップ）" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "fingerprint: \`${{ steps.fp.outputs.hash }}\`" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### dev-client APK cache: MISS（eas build --local を実行 → キャッシュに保存）" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "fingerprint: \`${{ steps.fp.outputs.hash }}\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Install Maestro CLI
         run: |
@@ -113,11 +172,11 @@ jobs:
 
       - name: Run Maestro E2E
         env:
-          # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
-          ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
           # E2E ビルドはアプリの言語既定値を ja に固定する（emulator ロケールは既定 en-US のまま）。
-          # app.config.ts が extra.e2eDefaultLocale に埋め込み、i18n/locale.ts の
-          # getStoredLocalePreference() の（保存値が無いときの）フォールバックとして参照される。
+          # dev-client では Constants.expoConfig は Metro が配信する manifest 由来のため、
+          # expo run:android が起動する Metro にも E2E_BUILD / E2E_DEFAULT_LOCALE を渡して app.config を
+          # 同条件で評価させる（i18n/locale.ts の getStoredLocalePreference() のフォールバックが ja になる）。
+          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
@@ -144,14 +203,19 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-          # Development Build を expo run:android でビルド→install→Metro 起動→adb reverse→
-          # アプリ起動まで一括実行する（ローカル開発と同一コマンド）。Metro はテスト中ずっと
-          # 生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
-          E2E_BUILD=true pnpm --dir apps/sandbox exec expo run:android > "$RUNNER_TEMP/expo-run.log" 2>&1 &
+          # ビルド済み（キャッシュ or eas build --local）の dev-client debug APK を expo run:android に
+          # --binary で渡し、install → Metro 起動 → adb reverse → dev-client 起動（defaultLaunchURL で
+          # Metro へ接続）まで一括で行う。--binary で Gradle ビルドはスキップされる（ビルドは上の
+          # eas build --local 済み）。素の adb install + expo start では dev-client が Metro に接続せず
+          # 黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
+          # Metro はテスト中ずっと生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
+          # --binary は絶対パスで渡す（pnpm --dir で cwd が apps/sandbox になり、リポジトリルート相対の
+          # $APK_PATH がそのままでは解決できないため $GITHUB_WORKSPACE を前置する）。
+          pnpm --dir apps/sandbox exec expo run:android --binary "$GITHUB_WORKSPACE/$APK_PATH" > "$RUNNER_TEMP/expo-run.log" 2>&1 &
           EXPO_RUN_PID=$!
           echo "EXPO_RUN_PID=$EXPO_RUN_PID" >> "$GITHUB_ENV"
 
-          # ビルド→install→アプリ起動（MainActivity）まで待つ。expo run が途中で死んだら失敗させる
+          # install → dev-client 起動（MainActivity）まで待つ。expo run が途中で死んだら失敗させる
           timeout 1200 bash -c '
             until adb shell dumpsys activity activities 2>/dev/null | tr -d "\r" | grep -q "com.yamibeta.sandbox/.MainActivity"; do
               kill -0 '"$EXPO_RUN_PID"' 2>/dev/null || { echo "expo run:android が予期せず終了しました"; exit 1; }
@@ -162,23 +226,6 @@ jobs:
 
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
-
-      # ネイティブビルドキャッシュがヒットしたか確認できるよう expo-run.log を要約する。
-      # grep パターンは node_modules/@expo/local-build-cache-provider・
-      # node_modules/@expo/cli の実際のログ文言に基づく。
-      - name: Summarize native build cache result
-        if: always()
-        run: |
-          LOG="$RUNNER_TEMP/expo-run.log"
-          if [ ! -f "$LOG" ]; then
-            echo "### Native build cache: expo-run.log が見つかりません" >> "$GITHUB_STEP_SUMMARY"
-          elif grep -qE 'Installing .*\.expo/build-cache/' "$LOG"; then
-            echo "### Native build cache: HIT（ネイティブビルドをスキップ）" >> "$GITHUB_STEP_SUMMARY"
-          elif grep -q 'Copying build to local cache' "$LOG"; then
-            echo "### Native build cache: MISS（フルビルド実行 → 今回の成果をキャッシュに追加）" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "### Native build cache: 判定不能（expo-run.log を確認）" >> "$GITHUB_STEP_SUMMARY"
-          fi
 
       # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
       # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）

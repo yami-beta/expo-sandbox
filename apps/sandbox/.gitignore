@@ -13,6 +13,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# eas build --local の出力（E2E ビルド成果物。CI では actions/cache 経由で扱う）
+build-output/
+
 # Native
 .kotlin/
 *.orig.*
