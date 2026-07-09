@@ -58,7 +58,7 @@ jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）と
 | `apps/sandbox/eas.json` の `development` プロファイル | PR の dev-client debug E2E ビルドに再利用（`developmentClient: true` → Android は `:app:assembleDebug` = APK） |
 | `apps/sandbox/eas.json` の `e2e` プロファイル | 非 Dev Client 用（main の release E2E）ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
 | `apps/sandbox/.maestro/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（単一 `launchApp`） |
-| `.github/workflows/e2e.yml` | PR ごとに「fingerprint 計算 → APK キャッシュ復元／（ミス時）`eas build --local --profile development` → emulator 起動 → `adb install` → `expo start`（Metro）→ maestro test」を実行 |
+| `.github/workflows/e2e.yml` | PR ごとに「fingerprint 計算 → APK キャッシュ復元／（ミス時）`eas build --local --profile development` → emulator 起動 → `expo run:android --binary <APK>`（install→Metro→`adb reverse`→dev-client 起動）→ maestro test」を実行 |
 | `.github/workflows/e2e-main.yml` | main への push ごとに、release E2E ジョブ（`eas build --local --profile e2e` → install → maestro）と dev-client APK 温めジョブ（`warm-devclient-cache`。fingerprint → `eas build --local --profile development` → キャッシュ保存。build のみ）を並列実行 |
 
 ## フローの書き方
@@ -120,14 +120,20 @@ E2E_BUILD=true E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec expo run:andro
 maestro test apps/sandbox/.maestro/
 ```
 
-> CI（`e2e.yml`）は同じ dev-client debug ビルドを `eas build --local --profile development` で作り、
-> `adb install` → `expo start`（Metro）→ `adb reverse` の順で実行する（emulator を伴わない main の
-> 温めジョブと同一のビルドを再利用するため）。CI と同じ経路を手元で再現したい場合は次を使う:
+> CI（`e2e.yml`）は同じ dev-client debug ビルドを `eas build --local --profile development` で作り
+> （emulator を伴わない main の温めジョブと同一のビルドを再利用）、その APK を
+> `expo run:android --binary <APK>` に渡して install→Metro→`adb reverse`→dev-client 起動まで行う
+> （`--binary` で Gradle ビルドはスキップ。素の `adb install` + `expo start` では dev-client が Metro に
+> 接続せず黒画面になるため、接続確立を含む run:android の launch ロジックを使う）。CI と同じ経路を手元で
+> 再現したい場合は、上の Dev Client 経路（`expo run:android`）をそのまま使えばよい。APK を明示的に作るなら:
 >
 > ```bash
 > E2E_BUILD=true E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec eas build --local \
 >   --profile development --platform android --non-interactive \
 >   --output ./build-output/sandbox-e2e-devclient.apk
+> # 上記 APK を使って install→Metro→起動:
+> E2E_BUILD=true E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec \
+>   expo run:android --binary ./build-output/sandbox-e2e-devclient.apk
 > ```
 
 ### 非 Dev Client 経路（main 互換の回帰確認）
@@ -160,13 +166,16 @@ maestro test apps/sandbox/.maestro/
   `pnpm exec fingerprint fingerprint:generate --platform android`。pnpm-lock.yaml 固定で決定的・EAS 認証不要）→
   `actions/cache`（キー `e2e-android-devclient-apk-x86_64-<hash>`）→ ミス時のみ
   `eas build --local --profile development`（dev-client debug APK）→ emulator 起動 →
-  `adb install -r` → `expo start`（Metro を background 起動）→ `adb reverse tcp:8081 tcp:8081` →
-  Metro readiness 待ち → `maestro test`。テスト後は `expo start`（Metro）を kill する。
-- Dev Client は `defaultLaunchURL` により起動時に `localhost:8081` の Metro へ自動接続するため、
-  明示的な初回 launch は不要（maestro の `launchApp` が起動を担う）。
-- `E2E_BUILD` / `E2E_DEFAULT_LOCALE` は fingerprint 計算・ビルド・`expo start` の各ステップに step `env`
-  として同じ値（`true` / `ja`）を渡す。dev-client では `Constants.expoConfig` が Metro 配信の manifest
-  由来のため、`expo start` にも渡して app.config を同条件で評価させる（既定言語が `ja` になる）。
+  `expo run:android --binary <APK>`（install→Metro 起動→`adb reverse`→dev-client 起動を一括。`--binary` で
+  Gradle ビルドはスキップ）→ アプリ起動（MainActivity）と Metro readiness を待って `maestro test`。
+  テスト後は `expo run:android`（Metro 含む）を kill する。
+- **`adb install` + `expo start` の手組みは使わない**。dev-client は素の `launchApp` では `defaultLaunchURL`
+  の自動接続が効かず黒画面になる（Metro に bundle を要求しない）ため、接続確立を含む `expo run:android` の
+  launch ロジック（`--binary` でビルドのみスキップ）を再利用する。dev-client 起動後の Metro 接続確立は
+  run:android が担い、maestro の `launchApp`（clearState）はその接続を再利用する。
+- `E2E_BUILD` / `E2E_DEFAULT_LOCALE` は fingerprint 計算・ビルド・`expo run:android` の各ステップに
+  step `env` として同じ値（`true` / `ja`）を渡す。dev-client では `Constants.expoConfig` が Metro 配信の
+  manifest 由来のため、run:android が起動する Metro にも渡して app.config を同条件で評価させる（既定言語が `ja`）。
 - アプリの言語は `E2E_DEFAULT_LOCALE=ja` で固定するため、adb によるロケール固定は行わない
   （emulator ロケールは既定 en-US のまま）。
 - **ANR 対策に CI 用軽量イメージ `google_atd`（Automated Test Device）を使う**。低速な CI emulator
@@ -176,7 +185,7 @@ maestro test apps/sandbox/.maestro/
   ANR しにくい。
 - `ORG_GRADLE_PROJECT_reactNativeArchitectures=x86_64` でビルド ABI を emulator の `arch` と一致させている
   （install 可能・ビルド時間短縮）。emulator には `-memory 6144 -cores 4` を付与。
-- 失敗時も `maestro-report.xml`（JUnit）・`--debug-output` のスクショ/録画/ログ・`expo-start.log`・
+- 失敗時も `maestro-report.xml`（JUnit）・`--debug-output` のスクショ/録画/ログ・`expo-run.log`・
   画面診断（スクショ/ロケール/前面 activity/UI テキスト）を artifact に保存する。
 - Maestro CLI は再現性のためバージョン固定（`MAESTRO_VERSION`）。更新は意図的に PR で上げる。
 - **APK ビルドキャッシュ**: fingerprint（`@expo/fingerprint`）のハッシュを **exact-match キー**

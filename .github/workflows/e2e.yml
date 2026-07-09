@@ -25,8 +25,8 @@ env:
   APK_PATH: apps/sandbox/build-output/sandbox-e2e-devclient.apk
 
 jobs:
-  # Development Build（Dev Client 入り）の debug APK を eas build --local でビルドし、
-  # emulator に install → Metro（expo start）を起動 → Maestro E2E を実行する。
+  # Development Build（Dev Client 入り）の debug APK を eas build --local でビルドし、その APK を
+  # expo run:android --binary で emulator に install → Metro 起動 → dev-client 起動 → Maestro E2E を実行する。
   # ビルド成果物(APK)は @expo/fingerprint のハッシュをキーに actions/cache で永続化し、
   # ネイティブ fingerprint が一致する限り eas build --local を丸ごとスキップする。
   # main への push では e2e-main.yml の warm ジョブが同じ fingerprint / 同じ profile で
@@ -174,8 +174,8 @@ jobs:
         env:
           # E2E ビルドはアプリの言語既定値を ja に固定する（emulator ロケールは既定 en-US のまま）。
           # dev-client では Constants.expoConfig は Metro が配信する manifest 由来のため、
-          # expo start にも E2E_BUILD / E2E_DEFAULT_LOCALE を渡して app.config を同条件で評価させる
-          # （i18n/locale.ts の getStoredLocalePreference() のフォールバックが ja になる）。
+          # expo run:android が起動する Metro にも E2E_BUILD / E2E_DEFAULT_LOCALE を渡して app.config を
+          # 同条件で評価させる（i18n/locale.ts の getStoredLocalePreference() のフォールバックが ja になる）。
           E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
@@ -203,26 +203,24 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-          # ビルド済み（キャッシュ or eas build --local）の dev-client debug APK を install する
-          adb install -r "$APK_PATH"
+          # ビルド済み（キャッシュ or eas build --local）の dev-client debug APK を expo run:android に
+          # --binary で渡し、install → Metro 起動 → adb reverse → dev-client 起動（defaultLaunchURL で
+          # Metro へ接続）まで一括で行う。--binary で Gradle ビルドはスキップされる（ビルドは上の
+          # eas build --local 済み）。素の adb install + expo start では dev-client が Metro に接続せず
+          # 黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
+          # Metro はテスト中ずっと生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
+          pnpm --dir apps/sandbox exec expo run:android --binary "$APK_PATH" > "$RUNNER_TEMP/expo-run.log" 2>&1 &
+          EXPO_RUN_PID=$!
+          echo "EXPO_RUN_PID=$EXPO_RUN_PID" >> "$GITHUB_ENV"
 
-          # Metro を background 起動する。Dev Client は defaultLaunchURL(http://localhost:8081) で
-          # 起動時に Metro へ自動接続するため、初回の明示 launch は不要（maestro の launchApp が担う）。
-          # Metro はテスト中ずっと生かす必要があるため PID は cleanup 用に記録する。
-          pnpm --dir apps/sandbox exec expo start > "$RUNNER_TEMP/expo-start.log" 2>&1 &
-          EXPO_START_PID=$!
-          echo "EXPO_START_PID=$EXPO_START_PID" >> "$GITHUB_ENV"
-
-          # device → host の Metro へポート転送（Dev Client が localhost:8081 に到達できるようにする）
-          adb reverse tcp:8081 tcp:8081
-
-          # Metro の readiness を確認（Dev Client は defaultLaunchURL で localhost:8081 に接続）。
-          # expo start が途中で死んだら 120 秒待たず即失敗させる（診断の高速化）。
-          timeout 120 bash -c '
-            until curl -fsS http://localhost:8081/status 2>/dev/null | grep -q "packager-status:running"; do
-              kill -0 '"$EXPO_START_PID"' 2>/dev/null || { echo "expo start が予期せず終了しました"; exit 1; }
-              sleep 2
+          # install → dev-client 起動（MainActivity）まで待つ。expo run が途中で死んだら失敗させる
+          timeout 1200 bash -c '
+            until adb shell dumpsys activity activities 2>/dev/null | tr -d "\r" | grep -q "com.yamibeta.sandbox/.MainActivity"; do
+              kill -0 '"$EXPO_RUN_PID"' 2>/dev/null || { echo "expo run:android が予期せず終了しました"; exit 1; }
+              sleep 5
             done'
+          # Metro の readiness を確認（Dev Client は defaultLaunchURL で localhost:8081 に接続）
+          timeout 120 bash -c 'until curl -fsS http://localhost:8081/status | grep -q "packager-status:running"; do sleep 2; done'
 
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
@@ -251,7 +249,8 @@ jobs:
         if: always()
         run: |
           adb reverse --remove-all || true
-          kill "$EXPO_START_PID" 2>/dev/null || true
+          kill "$EXPO_RUN_PID" 2>/dev/null || true
+          pkill -f "expo run:android" 2>/dev/null || true
           pkill -f "expo start" 2>/dev/null || true
 
       # 成功・失敗にかかわらずレポート・スクショ/録画/ログ・診断（画面状態）を保存する
@@ -263,7 +262,7 @@ jobs:
           path: |
             maestro-report.xml
             maestro-debug
-            ${{ runner.temp }}/expo-start.log
+            ${{ runner.temp }}/expo-run.log
             ${{ runner.temp }}/diag
           retention-days: 7
           if-no-files-found: warn
