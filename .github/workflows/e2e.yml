@@ -209,7 +209,9 @@ jobs:
           # eas build --local 済み）。素の adb install + expo start では dev-client が Metro に接続せず
           # 黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
           # Metro はテスト中ずっと生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
-          pnpm --dir apps/sandbox exec expo run:android --binary "$APK_PATH" > "$RUNNER_TEMP/expo-run.log" 2>&1 &
+          # --binary は絶対パスで渡す（pnpm --dir で cwd が apps/sandbox になり、リポジトリルート相対の
+          # $APK_PATH がそのままでは解決できないため $GITHUB_WORKSPACE を前置する）。
+          pnpm --dir apps/sandbox exec expo run:android --binary "$GITHUB_WORKSPACE/$APK_PATH" > "$RUNNER_TEMP/expo-run.log" 2>&1 &
           EXPO_RUN_PID=$!
           echo "EXPO_RUN_PID=$EXPO_RUN_PID" >> "$GITHUB_ENV"
 
