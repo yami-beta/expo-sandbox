@@ -32,8 +32,11 @@ jobs:
   # main への push では e2e-main.yml の warm ジョブが同じ fingerprint / 同じ profile で
   # APK を事前にキャッシュへ投入するため、ネイティブ変更の無い（JS のみの）PR は
   # 初回プッシュから default ブランチのキャッシュにヒットし、ビルドを省略できる。
-  # E2E_BUILD=true により app.config.ts が expo-dev-client の config plugin を有効化し、
-  # defaultLaunchURL(http://localhost:8081) で launcher を経由せず Metro へ自動接続する。
+  # app.config.ts は expo-dev-client の config plugin（skipOnboarding 等）を常時有効化する
+  # （E2E ビルド専用の分岐は無い。preview/production プロファイルにも適用されるが、それらは
+  # Dev Client 自体を含まないビルドのため影響しない）。clearState 後の Metro への再接続は
+  # Maestro フロー側のディープリンク（apps/sandbox/.maestro/subflows/launch-app.yaml、
+  # `-e DEV_CLIENT=true`）で行う。詳細は docs/maestro.md 参照。
   # ビルドは eas build --local を使うため EXPO_TOKEN（secrets）が必要。
   # dev-client debug ビルドには eas.json の development プロファイルを再利用する
   # （developmentClient: true → Android は :app:assembleDebug = APK）。
@@ -75,7 +78,7 @@ jobs:
       # eas-cli 経由（eas fingerprint:generate）ではなく @expo/fingerprint の CLI を使う:
       # pnpm-lock.yaml でバージョン固定されるためランをまたいで決定的（eas-version: latest だと
       # 実行時期でアルゴリズムがドリフトしキャッシュが常時 MISS になりうる）で、EAS 認証・ネットワークも
-      # 不要。E2E_BUILD / E2E_DEFAULT_LOCALE は app.config.ts の評価に反映され（ExpoConfigLoader が
+      # 不要。E2E_DEFAULT_LOCALE は app.config.ts の評価に反映され（ExpoConfigLoader が
       # process.env を継承）、.fingerprintignore と eas.json も自動でハッシュ対象に含まれる。
       # fingerprint は JS を含まずネイティブ依存・config のみが対象のため、JS のみの変更ではハッシュ
       # 不変 → 既存 APK を再利用でき、更新 JS は Metro が配信する。PR と e2e-main.yml の warm ジョブは
@@ -84,7 +87,6 @@ jobs:
         id: fp
         working-directory: apps/sandbox
         env:
-          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           HASH="$(pnpm exec fingerprint fingerprint:generate --platform android | jq -r '.hash')"
@@ -113,7 +115,6 @@ jobs:
         working-directory: apps/sandbox
         env:
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
-          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           eas build --local --profile development --platform android \
@@ -174,9 +175,8 @@ jobs:
         env:
           # E2E ビルドはアプリの言語既定値を ja に固定する（emulator ロケールは既定 en-US のまま）。
           # dev-client では Constants.expoConfig は Metro が配信する manifest 由来のため、
-          # expo run:android が起動する Metro にも E2E_BUILD / E2E_DEFAULT_LOCALE を渡して app.config を
+          # expo run:android が起動する Metro にも E2E_DEFAULT_LOCALE を渡して app.config を
           # 同条件で評価させる（i18n/locale.ts の getStoredLocalePreference() のフォールバックが ja になる）。
-          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           # emulator をバックグラウンド起動（テスト端末ロケールは既定の en-US を使う）
@@ -204,10 +204,13 @@ jobs:
           adb shell settings put global animator_duration_scale 0
 
           # ビルド済み（キャッシュ or eas build --local）の dev-client debug APK を expo run:android に
-          # --binary で渡し、install → Metro 起動 → adb reverse → dev-client 起動（defaultLaunchURL で
-          # Metro へ接続）まで一括で行う。--binary で Gradle ビルドはスキップされる（ビルドは上の
-          # eas build --local 済み）。素の adb install + expo start では dev-client が Metro に接続せず
-          # 黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
+          # --binary で渡し、install → Metro 起動 → adb reverse → dev-client 起動（expo run:android 自身の
+          # launch ロジックが Metro への接続を行う）まで一括で行う。--binary で Gradle ビルドはスキップ
+          # される（ビルドは上の eas build --local 済み）。素の adb install + expo start では dev-client が
+          # Metro に接続せず黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
+          # （この初回起動時の接続は expo-cli 自体の機能であり defaultLaunchURL の有無に依存しない。
+          # 後続の Maestro フロー（apps/sandbox/.maestro/subflows/launch-app.yaml）による再起動時の
+          # 再接続は、この初回起動とは別に、独立コマンドの clearState → openLink のディープリンクで行う）
           # Metro はテスト中ずっと生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
           # --binary は絶対パスで渡す（pnpm --dir で cwd が apps/sandbox になり、リポジトリルート相対の
           # $APK_PATH がそのままでは解決できないため $GITHUB_WORKSPACE を前置する）。
@@ -221,11 +224,13 @@ jobs:
               kill -0 '"$EXPO_RUN_PID"' 2>/dev/null || { echo "expo run:android が予期せず終了しました"; exit 1; }
               sleep 5
             done'
-          # Metro の readiness を確認（Dev Client は defaultLaunchURL で localhost:8081 に接続）
+          # Metro の readiness を確認
           timeout 120 bash -c 'until curl -fsS http://localhost:8081/status | grep -q "packager-status:running"; do sleep 2; done'
 
+          # -e DEV_CLIENT=true により、smoke.yaml が呼ぶ launch-app.yaml が clearState → ディープリンク
+          # （openLink）で Metro へ再接続する（apps/sandbox/.maestro/subflows/launch-app.yaml 参照）。
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
-          maestro test apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
+          maestro test -e DEV_CLIENT=true apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
       # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
       # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）

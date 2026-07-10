@@ -28,8 +28,10 @@ jobs:
   # eas build --local でビルドし、emulator に install した上で Maestro E2E を実行する。
   # e2e.yml（PRごと、Dev Client + Metro 接続）とはビルド経路（profile / debug vs release）が
   # 根本的に異なるため、ジョブは分ける。
-  # E2E_BUILD は設定しない。設定すると apps/sandbox/app.config.ts が expo-dev-client plugin を
-  # 有効化し、release / 埋め込み JS のビルドに Dev Client が混入するため。
+  # apps/sandbox/app.config.ts の expo-dev-client plugin（skipOnboarding 等）は常時有効だが、
+  # このジョブはそもそも Dev Client を含まない e2e プロファイル（developmentClient: false）で
+  # ビルドするため Dev Client 自体が混入しない。maestro test にも -e DEV_CLIENT を渡さない
+  # （Metro が無いため再接続ステップ自体が不要。apps/sandbox/.maestro/subflows/launch-app.yaml 参照）。
   # dependabot が @dependabot merge 等で直接 main に push した場合、actor が dependabot[bot]
   # になり secrets.EXPO_TOKEN が渡らず setup-eas が明示エラーで落ちる。main の E2E が
   # 恒常的に失敗してノイズになるのを避けるため、このケースはジョブごと skip する
@@ -100,7 +102,7 @@ jobs:
             --device "pixel_6"
 
       # eas.json の e2e プロファイル（developmentClient: false / release / lintVitalRelease 除外）で
-      # ビルドする。E2E_DEFAULT_LOCALE のみ設定し E2E_BUILD は設定しない（上記コメント参照）。
+      # ビルドする。E2E_DEFAULT_LOCALE のみ設定する（上記コメント参照）。
       - name: Build Android APK (eas build --local, e2e profile)
         env:
           # x86_64 のみビルドして emulator の arch と一致させる（ビルド時間短縮）
@@ -140,9 +142,9 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-      # アプリの起動は行わない。apps/sandbox/.maestro/smoke.yaml の先頭が launchApp であり、
-      # maestro test 自体が起動を担う（release / 埋め込み JS のため Metro も不要。install 済みで
-      # あれば launchApp が起動できる）。
+      # アプリの起動は行わない。apps/sandbox/.maestro/smoke.yaml が呼ぶ subflows/launch-app.yaml
+      # （-e DEV_CLIENT 未指定なので素の launchApp 分岐）を maestro test 自体が担う
+      # （release / 埋め込み JS のため Metro も不要。install 済みであれば launchApp が起動できる）。
       - name: Install app
         run: adb install -r apps/sandbox/build-output/sandbox-e2e.apk
 
@@ -233,7 +235,6 @@ jobs:
         id: fp
         working-directory: apps/sandbox
         env:
-          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           HASH="$(pnpm exec fingerprint fingerprint:generate --platform android | jq -r '.hash')"
@@ -260,7 +261,6 @@ jobs:
         working-directory: apps/sandbox
         env:
           ORG_GRADLE_PROJECT_reactNativeArchitectures: x86_64
-          E2E_BUILD: 'true'
           E2E_DEFAULT_LOCALE: ja
         run: |
           eas build --local --profile development --platform android \

@@ -7,21 +7,11 @@
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。
 appId: com.yamibeta.sandbox
 ---
-- launchApp:
-    clearState: true
+# アプリの起動（Dev Client か release かの分岐を含む）は subflows/launch-app.yaml に
+# 切り出してある。新しいフローを追加する場合もこの1行を最初に置く（docs/maestro.md
+# 「フローの書き方」参照）。分岐の詳細・過去の flaky 対応の経緯は launch-app.yaml のコメントを参照。
+- runFlow: subflows/launch-app.yaml
 # ページの表示確認としてまず画面タイトル「ホーム」を assert し、続けて画面内の項目を確認する。
-# 過去（b0810b4）に、Dev Client ビルド（e2e.yml / PR）で clearState 後 defaultLaunchURL 経由で
-# Metro に再接続する際、「ホーム」が一瞬表示された直後に画面が空白になる現象が観測され、
-# assertVisible の既定リトライ（7秒。docs.maestro.dev/reference/commands-available/assertvisible
-# 参照）では足りず、待機対象を「ナビゲーションパターン」に変更した上でタイムアウトを
-# 40000 → 60000 → 120000 と段階的に伸ばす対応が取られていた
-# （git log --follow -p -- apps/sandbox/.maestro/smoke.yaml 参照）。
-# しかし現在のコードベースでこの空白挙動は再現しない（Dev Client ビルドで clearState ありの
-# 状態から assertVisible のみ・既定リトライで launchApp→3件の assert まで計8回連続成功、
-# 1回あたり約13秒）。そのため extendedWaitUntil による延長は行わず、素の assertVisible に
-# 戻している。将来 Dev Client 側でこの空白挙動由来の flaky failure が再発した場合は、
-# テストのタイムアウトを伸ばす前に、まず実装側（Metro 再接続・router hydration 等）の
-# 遅延の原因を調査すること。
 - assertVisible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
 - assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目
 - assertVisible: "コンポーネント"

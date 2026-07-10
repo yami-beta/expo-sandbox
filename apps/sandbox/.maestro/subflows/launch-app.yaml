@@ -1,0 +1,32 @@
+# アプリの起動をビルド種別で分岐する共通サブフロー。各テストフローは
+# `runFlow: subflows/launch-app.yaml` の1行を最初に置くだけでよい
+# （分岐ロジック自体をテストフローごとに書かない。docs/maestro.md「フローの書き方」参照）。
+# maestro test はデフォルトでサブフォルダを走査しないため、このファイルも runFlow から
+# 明示的に呼ばれない限り単独のテストとしては実行されない。
+appId: com.yamibeta.sandbox
+---
+# Dev Client ビルド（-e DEV_CLIENT=true）は、クリーンな状態から launcher 画面を経由せず
+# ディープリンクで直接 Metro（http://localhost:8081）へ接続する。従来 app.config.ts の
+# defaultLaunchURL がビルド時に焼き込んでいた効果を、ランタイムのディープリンクで実現する
+# （expo-dev-launcher は <scheme>://expo-development-client/?url=<encoded> 形式の VIEW
+# インテントを isDevLauncherUrl で検出し、指定 URL の Metro へ接続する）。
+#
+# clearState（独立コマンド。アプリを起動しない）→ openLink（未起動の状態から直接コールドスタート）
+# の順にする。launchApp で一度「未接続の launcher 状態」でアプリを起動してから別ステップで
+# openLink すると、redirect 分の遅延で assertVisible の既定リトライ（7秒）ではタイムアウトする
+# ことを実機検証（Pixel_9_Pro_API_35 emulator）で確認している。この順序なら素の assertVisible
+# のみで安定する（詳細は docs/maestro.md「フローの書き方」参照）。
+- runFlow:
+    when:
+      true: ${DEV_CLIENT == "true"}
+    commands:
+      - clearState
+      - openLink: "exp+sandbox://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081"
+    label: "Dev Client ビルドの場合はディープリンクで直接起動する（-e DEV_CLIENT=true のときのみ）"
+- runFlow:
+    when:
+      true: ${DEV_CLIENT != "true"}
+    commands:
+      - launchApp:
+          clearState: true
+    label: "Dev Client を使わない場合（release / 埋め込み JS）は通常どおり起動する"
