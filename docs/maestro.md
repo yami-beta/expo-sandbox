@@ -18,8 +18,9 @@ jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）と
   本来起動時に Metro dev server を探す launcher 画面が出るが、Maestro フロー側でディープリンクを送り
   **launcher を経由せず Metro へ再接続**させる（後述）。
 - **expo-dev-client の config plugin は常時適用する（E2E ビルド専用の分岐は無い）**。
-  `apps/sandbox/app.config.ts`（dynamic config）が Dev Client を含むすべてのビルド
-  （通常の `expo run` / 配布用 dev build / CI の E2E ビルド）に対して次を常時設定する:
+  `apps/sandbox/app.config.ts`（dynamic config）の plugin エントリ自体は `eas.json` の全プロファイル
+  （`preview`/`production` 含む）で評価されるが、実際に効くのは Dev Client を含むビルド
+  （通常の `expo run` / 配布用 dev build / CI の E2E ビルド）のみで、次を常時設定する:
   - `skipOnboarding: true` / `showMenuAtLaunch: false` / `toolsButton: false`: オンボーディング・
     起動時のデベロッパーメニュー・フローティングツールボタンが assert を阻害しないよう無効化する。
     これらは以前 `E2E_BUILD=true` のときだけ有効化していたが、`expo-dev-menu` は
@@ -260,7 +261,8 @@ maestro test apps/sandbox/.maestro/
     （Metro が無いため再接続ステップが不要。渡さなければ `runFlow` がスキップされるだけで安全）。
     EAS の認証には `.github/actions/setup-eas`（`secrets.EXPO_TOKEN`）を使う。
   - Metro は使わないため、build→install→起動の自動化は無い。ビルドした APK を `adb install` するだけで、
-    アプリの起動自体は `apps/sandbox/.maestro/smoke.yaml` の `launchApp` に任せる。
+    アプリの起動自体は `apps/sandbox/.maestro/smoke.yaml` が呼ぶ `subflows/launch-app.yaml`
+    （`-e DEV_CLIENT` 未指定なので素の `launchApp` 分岐）に任せる。
   - artifact 名は `maestro-results-${{ github.sha }}`（push イベントには PR 番号が無いため）。
     失敗解析用にビルド済み APK も artifact に含める。
   - その他（emulator 起動・ANR 対策の `google_atd` イメージ・アニメーション無効化・診断情報採取など）は

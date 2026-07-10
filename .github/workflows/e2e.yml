@@ -33,9 +33,10 @@ jobs:
   # APK を事前にキャッシュへ投入するため、ネイティブ変更の無い（JS のみの）PR は
   # 初回プッシュから default ブランチのキャッシュにヒットし、ビルドを省略できる。
   # app.config.ts は expo-dev-client の config plugin（skipOnboarding 等）を常時有効化する
-  # （E2E ビルド専用の分岐は無い）。clearState 後の Metro への再接続は Maestro フロー側の
-  # ディープリンク（apps/sandbox/.maestro/subflows/connect-metro.yaml、`-e DEV_CLIENT=true`）
-  # で行う。詳細は docs/maestro.md 参照。
+  # （E2E ビルド専用の分岐は無い。preview/production プロファイルにも適用されるが、それらは
+  # Dev Client 自体を含まないビルドのため影響しない）。clearState 後の Metro への再接続は
+  # Maestro フロー側のディープリンク（apps/sandbox/.maestro/subflows/launch-app.yaml、
+  # `-e DEV_CLIENT=true`）で行う。詳細は docs/maestro.md 参照。
   # ビルドは eas build --local を使うため EXPO_TOKEN（secrets）が必要。
   # dev-client debug ビルドには eas.json の development プロファイルを再利用する
   # （developmentClient: true → Android は :app:assembleDebug = APK）。
@@ -208,8 +209,8 @@ jobs:
           # される（ビルドは上の eas build --local 済み）。素の adb install + expo start では dev-client が
           # Metro に接続せず黒画面になるため、接続確立を含む expo run:android の launch ロジックを再利用する。
           # （この初回起動時の接続は expo-cli 自体の機能であり defaultLaunchURL の有無に依存しない。
-          # 後続の Maestro `launchApp: {clearState: true}` による再起動時の再接続は、この初回起動とは
-          # 別に apps/sandbox/.maestro/subflows/connect-metro.yaml のディープリンクで行う）
+          # 後続の Maestro フロー（apps/sandbox/.maestro/subflows/launch-app.yaml）による再起動時の
+          # 再接続は、この初回起動とは別に、独立コマンドの clearState → openLink のディープリンクで行う）
           # Metro はテスト中ずっと生かす必要があるためバックグラウンド実行（PID は cleanup 用に記録）。
           # --binary は絶対パスで渡す（pnpm --dir で cwd が apps/sandbox になり、リポジトリルート相対の
           # $APK_PATH がそのままでは解決できないため $GITHUB_WORKSPACE を前置する）。
@@ -226,8 +227,8 @@ jobs:
           # Metro の readiness を確認
           timeout 120 bash -c 'until curl -fsS http://localhost:8081/status | grep -q "packager-status:running"; do sleep 2; done'
 
-          # -e DEV_CLIENT=true により、smoke.yaml の launchApp(clearState) 直後にディープリンクで
-          # Metro へ再接続する（apps/sandbox/.maestro/subflows/connect-metro.yaml 参照）。
+          # -e DEV_CLIENT=true により、smoke.yaml が呼ぶ launch-app.yaml が clearState → ディープリンク
+          # （openLink）で Metro へ再接続する（apps/sandbox/.maestro/subflows/launch-app.yaml 参照）。
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
           maestro test -e DEV_CLIENT=true apps/sandbox/.maestro/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 

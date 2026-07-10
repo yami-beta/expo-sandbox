@@ -31,7 +31,7 @@ jobs:
   # apps/sandbox/app.config.ts の expo-dev-client plugin（skipOnboarding 等）は常時有効だが、
   # このジョブはそもそも Dev Client を含まない e2e プロファイル（developmentClient: false）で
   # ビルドするため Dev Client 自体が混入しない。maestro test にも -e DEV_CLIENT を渡さない
-  # （Metro が無いため再接続ステップ自体が不要。apps/sandbox/.maestro/smoke.yaml 参照）。
+  # （Metro が無いため再接続ステップ自体が不要。apps/sandbox/.maestro/subflows/launch-app.yaml 参照）。
   # dependabot が @dependabot merge 等で直接 main に push した場合、actor が dependabot[bot]
   # になり secrets.EXPO_TOKEN が渡らず setup-eas が明示エラーで落ちる。main の E2E が
   # 恒常的に失敗してノイズになるのを避けるため、このケースはジョブごと skip する
@@ -142,9 +142,9 @@ jobs:
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0
 
-      # アプリの起動は行わない。apps/sandbox/.maestro/smoke.yaml の先頭が launchApp であり、
-      # maestro test 自体が起動を担う（release / 埋め込み JS のため Metro も不要。install 済みで
-      # あれば launchApp が起動できる）。
+      # アプリの起動は行わない。apps/sandbox/.maestro/smoke.yaml が呼ぶ subflows/launch-app.yaml
+      # （-e DEV_CLIENT 未指定なので素の launchApp 分岐）を maestro test 自体が担う
+      # （release / 埋め込み JS のため Metro も不要。install 済みであれば launchApp が起動できる）。
       - name: Install app
         run: adb install -r apps/sandbox/build-output/sandbox-e2e.apk
 

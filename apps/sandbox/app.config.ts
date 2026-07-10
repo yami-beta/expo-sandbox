@@ -7,9 +7,12 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 // 設けず、通常の expo run / 配布用 dev build を含むすべての Dev Client ビルドに適用する）:
 // - skipOnboarding / showMenuAtLaunch / toolsButton: オンボーディング・起動時メニュー・
 //   フローティングツールボタンが assert を阻害しないよう無効化する
+// この plugin エントリ自体は eas.json の全プロファイル（preview/production 含む）で評価されるが、
+// developmentClient を有効にしないビルド（e2e/preview/production）は Dev Client のネイティブ
+// コード自体を含まないため、上記オプションは実質的に無関係で影響しない。
 //
 // Metro への接続（従来 defaultLaunchURL で焼き込んでいたもの）はビルド設定ではなく、
-// Maestro フロー側のディープリンク（apps/sandbox/.maestro/subflows/connect-metro.yaml）で
+// Maestro フロー側のディープリンク（apps/sandbox/.maestro/subflows/launch-app.yaml）で
 // 行う。詳細は docs/maestro.md を参照。
 export default ({ config }: ConfigContext): ExpoConfig => {
   return {
