@@ -1,40 +1,25 @@
 import type { ConfigContext, ExpoConfig } from "expo/config";
 
-// app.json を base に読み込み、E2E ビルド時（E2E_BUILD=true）だけ expo-dev-client の
-// config plugin を追記する dynamic config。通常の expo run / 配布用 dev build
-// （eas.json の development プロファイル）には影響しない。
+// app.json を base に読み込む dynamic config。
 //
-// E2E では Dev Client を Metro に自動接続させ、テストを阻害するオーバーレイを抑止する:
-// - defaultLaunchURL: launcher を経由せず直接 Metro へ接続（launchMode=most-recent の
-//   fallback としても効くため clearState 後も再接続する）
+// expo-dev-client の launch 時オンボーディング・起動時デベロッパーメニュー・フローティング
+// ツールボタンは Maestro E2E の assert を阻害するため常時無効化する（E2E ビルド専用の分岐は
+// 設けず、通常の expo run / 配布用 dev build を含むすべての Dev Client ビルドに適用する）:
 // - skipOnboarding / showMenuAtLaunch / toolsButton: オンボーディング・起動時メニュー・
 //   フローティングツールボタンが assert を阻害しないよう無効化する
 //
-// E2E の CI では dev-client debug APK を eas build --local でビルドし、@expo/fingerprint の
-// ハッシュをキーに APK を actions/cache へ保存して再利用する（buildCacheProvider には依存しない）。
-// 詳細は docs/maestro.md を参照。
+// Metro への接続（従来 defaultLaunchURL で焼き込んでいたもの）はビルド設定ではなく、
+// Maestro フロー側のディープリンク（apps/sandbox/.maestro/subflows/connect-metro.yaml）で
+// 行う。詳細は docs/maestro.md を参照。
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const plugins = [...(config.plugins ?? [])];
-  const isE2EBuild = process.env.E2E_BUILD === "true";
-
-  if (isE2EBuild) {
-    const devClientPlugin: [string, Record<string, unknown>] = [
-      "expo-dev-client",
-      {
-        skipOnboarding: true,
-        showMenuAtLaunch: false,
-        toolsButton: false,
-        defaultLaunchURL: "http://localhost:8081",
-      },
-    ];
-    plugins.push(devClientPlugin);
-  }
-
   return {
     ...config,
     name: config.name ?? "sandbox",
     slug: config.slug ?? "sandbox",
-    plugins,
+    plugins: [
+      ...(config.plugins ?? []),
+      ["expo-dev-client", { skipOnboarding: true, showMenuAtLaunch: false, toolsButton: false }],
+    ],
     extra: {
       ...config.extra,
       // E2E ビルドでアプリの表示言語を固定するための既定値（src/i18n/locale.ts が参照）。
