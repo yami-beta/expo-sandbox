@@ -18,6 +18,11 @@ monorepo で管理された Expo アプリケーションのリポジトリ
 - `docs/`: 長期的に参照する設計ドキュメント・運用手順
 - `tasks/`: 後続タスクの引き継ぎ資料・バックログ。完了後は削除/アーカイブ
 
+### コードスタイル
+
+- **JSX の条件分岐**: DRY を優先して条件分岐が複数箇所に散らばると、読解時に複数条件を頭の中で合成する必要が生じ、コンテキスト消費が増える。多少の重複を許容してでも1つの状態の挙動を1箇所で追える方を優先する
+  - 具体的なテクニック・コード例は [`docs/conditional-rendering.md`](docs/conditional-rendering.md)
+
 ## Commands
 
 `apps/sandbox/package.json` を参照
