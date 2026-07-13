@@ -50,6 +50,20 @@ export default function Index() {
             />
           ),
         },
+        {
+          href: "/redirect",
+          text: <Trans>Redirect</Trans>,
+          description: <Trans>非同期処理の完了後に画面遷移するサンプル</Trans>,
+          leadingIcon: (
+            <Ionicons
+              name="trail-sign-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
+          ),
+        },
       ],
     },
     {
