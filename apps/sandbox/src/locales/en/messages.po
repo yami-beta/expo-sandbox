@@ -518,9 +518,14 @@ msgstr "push vs navigate"
 msgid "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 msgstr "Tap the push button a few times to increase the screen count. Then tap the navigate button to return to the first detail (without creating a duplicate), which decreases the count."
 
-#: src/app/(tabs)/(home)/index.tsx:62
+#: src/app/(tabs)/(home)/index.tsx:76
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
+
+#: src/app/(tabs)/(home)/index.tsx:55
+#: src/app/(tabs)/(home)/redirect/index.tsx:11
+msgid "Redirect"
+msgstr "Redirect"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:96
 msgid "SegmentedControl"
@@ -873,7 +878,7 @@ msgstr "Full-screen modal on the in-tab Stack"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/index.tsx:61
+#: src/app/(tabs)/(home)/index.tsx:75
 msgid "データ取得"
 msgstr "Data fetching"
 
@@ -946,6 +951,10 @@ msgstr "Falls back to transparentModal because Android has no native equivalent 
 #: src/app/expo-ui/onboarding/index.tsx:117
 msgid "はじめる"
 msgstr "Get started"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:31
+msgid "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
+msgstr "A sample that mimics an async operation like a form submission. Pressing \"Submit\" waits for the operation to complete, then Redirect navigates to the completion screen."
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab-none.tsx:37
 msgid "プログラムによる画面差し替えや、独自トランジションを別途実装する場合など、ネイティブの 遷移アニメーションを抑制したいケースに向く。"
@@ -1020,7 +1029,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "Return to the previous screen via the back button in the header or the OS gesture. The pop is also a cross-fade. Comparing against the in-tab variant with `animation` unspecified (slide-in from the right) makes the difference easy to see."
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:79
+#: src/app/(tabs)/(home)/index.tsx:93
 msgid "ホーム"
 msgstr "Home"
 
@@ -1223,6 +1232,10 @@ msgstr "Share"
 msgid "共有先を選択"
 msgstr "Choose where to share"
 
+#: src/features/redirect/RedirectCompleteScreen.tsx:13
+msgid "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
+msgstr "Redirect detected that the operation completed and navigated you to this screen. Because Redirect performs a replace navigation internally, the pre-submission screen isn't kept in history. Pressing back skips the form and returns straight to the list screen (this also prevents duplicate submissions)."
+
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:118
 msgid "利用状況データを送信"
 msgstr "Send usage data"
@@ -1321,7 +1334,7 @@ msgstr "Instead of the default OS-standard transition (often slide-in from the r
 msgid "次へ"
 msgstr "Next"
 
-#: src/app/(tabs)/(home)/index.tsx:56
+#: src/app/(tabs)/(home)/index.tsx:70
 msgid "準備中"
 msgstr "Coming soon"
 
@@ -1419,6 +1432,22 @@ msgstr "Settings screen"
 msgid "詳細設定"
 msgstr "Advanced settings"
 
+#: src/features/redirect/RedirectCompleteScreen.tsx:10
+msgid "送信が完了しました"
+msgstr "Submission complete"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:54
+msgid "送信する"
+msgstr "Submit"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:63
+msgid "送信中…"
+msgstr "Submitting…"
+
+#: src/app/(tabs)/(home)/redirect/complete.tsx:11
+msgid "送信完了"
+msgstr "Submission Complete"
+
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:74
 msgid "通知"
 msgstr "Notifications"
@@ -1456,6 +1485,10 @@ msgstr "Start time"
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:36
 msgid "非公開"
 msgstr "Private"
+
+#: src/app/(tabs)/(home)/index.tsx:56
+msgid "非同期処理の完了後に画面遷移するサンプル"
+msgstr "A sample that navigates after an async operation completes"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:40
 msgid "飲み会"

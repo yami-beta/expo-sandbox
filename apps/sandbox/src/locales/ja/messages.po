@@ -518,9 +518,14 @@ msgstr "push と navigate の違い"
 msgid "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 msgstr "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 
-#: src/app/(tabs)/(home)/index.tsx:62
+#: src/app/(tabs)/(home)/index.tsx:76
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch サンプル (準備中)"
+
+#: src/app/(tabs)/(home)/index.tsx:55
+#: src/app/(tabs)/(home)/redirect/index.tsx:11
+msgid "Redirect"
+msgstr "Redirect"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:96
 msgid "SegmentedControl"
@@ -873,7 +878,7 @@ msgstr "タブ内 Stack 上の全画面モーダル"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "タブ内 Stack 上の背景透過モーダル"
 
-#: src/app/(tabs)/(home)/index.tsx:61
+#: src/app/(tabs)/(home)/index.tsx:75
 msgid "データ取得"
 msgstr "データ取得"
 
@@ -946,6 +951,10 @@ msgstr "ネイティブの対応 presentation がないため transparentModal �
 #: src/app/expo-ui/onboarding/index.tsx:117
 msgid "はじめる"
 msgstr "はじめる"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:31
+msgid "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
+msgstr "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
 
 #: src/app/(tabs)/(home)/navigation-patterns/card/in-tab-none.tsx:37
 msgid "プログラムによる画面差し替えや、独自トランジションを別途実装する場合など、ネイティブの 遷移アニメーションを抑制したいケースに向く。"
@@ -1020,7 +1029,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。戻り (pop) も同じく クロスフェードになる。animation 未指定の in-tab 版 (右からスライド) との差分を見比べると 分かりやすい。"
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:79
+#: src/app/(tabs)/(home)/index.tsx:93
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -1223,6 +1232,10 @@ msgstr "共有"
 msgid "共有先を選択"
 msgstr "共有先を選択"
 
+#: src/features/redirect/RedirectCompleteScreen.tsx:13
+msgid "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
+msgstr "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
+
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:118
 msgid "利用状況データを送信"
 msgstr "利用状況データを送信"
@@ -1321,7 +1334,7 @@ msgstr "既定の OS 標準遷移 (多くは右からスライド) ではなく�
 msgid "次へ"
 msgstr "次へ"
 
-#: src/app/(tabs)/(home)/index.tsx:56
+#: src/app/(tabs)/(home)/index.tsx:70
 msgid "準備中"
 msgstr "準備中"
 
@@ -1419,6 +1432,22 @@ msgstr "設定画面"
 msgid "詳細設定"
 msgstr "詳細設定"
 
+#: src/features/redirect/RedirectCompleteScreen.tsx:10
+msgid "送信が完了しました"
+msgstr "送信が完了しました"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:54
+msgid "送信する"
+msgstr "送信する"
+
+#: src/features/redirect/RedirectDemoScreen.tsx:63
+msgid "送信中…"
+msgstr "送信中…"
+
+#: src/app/(tabs)/(home)/redirect/complete.tsx:11
+msgid "送信完了"
+msgstr "送信完了"
+
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:74
 msgid "通知"
 msgstr "通知"
@@ -1456,6 +1485,10 @@ msgstr "開始時刻"
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:36
 msgid "非公開"
 msgstr "非公開"
+
+#: src/app/(tabs)/(home)/index.tsx:56
+msgid "非同期処理の完了後に画面遷移するサンプル"
+msgstr "非同期処理の完了後に画面遷移するサンプル"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:40
 msgid "飲み会"

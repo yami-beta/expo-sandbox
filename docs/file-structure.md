@@ -13,6 +13,8 @@
 
 - 新しいレイヤーディレクトリ（`utils/` `hooks/` `constants/` など）は第1階層に作らない。ユーティリティや hooks は利用する機能・コンポーネントのディレクトリへ co-location する
 - `app/` にルート以外のファイルを置かないのは Expo Router の制約と公式方針による（app/ 配下のファイルはルートとして解釈される）。参考: [Expo Router: Core concepts](https://docs.expo.dev/router/basics/core-concepts/)
+  - この制約により `app/` 配下の画面はテストを co-location できない。画面ファイルは `Stack.Screen.Title` の設定と `features/` のコンポーネント呼び出しだけの薄いラッパーに保ち、実際のロジック・表示は `features/<name>/` に切り出してそちらで co-location テストする
+  - 個別画面ではなく実際のルーティング挙動（複数ルートをまたぐ画面遷移など）そのものを検証したい場合は、第1階層に `__tests__/` を作り、対象の画面コンポーネントを直接 import してテストする（[Expo Router: Testing](https://docs.expo.dev/router/reference/testing/) が明示的に推奨する配置。`app` → `features`/`components` と同様、依存方向のルールはテストコードには適用しない）
 
 ## 機能と共有の線引き
 
