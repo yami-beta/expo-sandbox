@@ -523,7 +523,7 @@ msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch サンプル (準備中)"
 
 #: src/app/(tabs)/(home)/index.tsx:55
-#: src/app/(tabs)/(home)/redirect/index.tsx:32
+#: src/app/(tabs)/(home)/redirect/index.tsx:11
 msgid "Redirect"
 msgstr "Redirect"
 
@@ -952,7 +952,7 @@ msgstr "ネイティブの対応 presentation がないため transparentModal �
 msgid "はじめる"
 msgstr "はじめる"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:35
+#: src/features/redirect/RedirectDemoScreen.tsx:31
 msgid "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
 msgstr "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
 
@@ -1232,7 +1232,7 @@ msgstr "共有"
 msgid "共有先を選択"
 msgstr "共有先を選択"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:18
+#: src/features/redirect/RedirectCompleteScreen.tsx:13
 msgid "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
 msgstr "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
 
@@ -1432,19 +1432,19 @@ msgstr "設定画面"
 msgid "詳細設定"
 msgstr "詳細設定"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:15
+#: src/features/redirect/RedirectCompleteScreen.tsx:10
 msgid "送信が完了しました"
 msgstr "送信が完了しました"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:50
+#: src/features/redirect/RedirectDemoScreen.tsx:47
 msgid "送信する"
 msgstr "送信する"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:44
+#: src/features/redirect/RedirectDemoScreen.tsx:40
 msgid "送信中…"
 msgstr "送信中…"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:12
+#: src/app/(tabs)/(home)/redirect/complete.tsx:11
 msgid "送信完了"
 msgstr "送信完了"
 

@@ -523,7 +523,7 @@ msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
 
 #: src/app/(tabs)/(home)/index.tsx:55
-#: src/app/(tabs)/(home)/redirect/index.tsx:32
+#: src/app/(tabs)/(home)/redirect/index.tsx:11
 msgid "Redirect"
 msgstr "Redirect"
 
@@ -952,7 +952,7 @@ msgstr "Falls back to transparentModal because Android has no native equivalent 
 msgid "はじめる"
 msgstr "Get started"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:35
+#: src/features/redirect/RedirectDemoScreen.tsx:31
 msgid "フォーム送信のような非同期処理を模したサンプルです。「送信する」を押すと、処理の完了を待って Redirect が完了画面へ遷移させます。"
 msgstr "A sample that mimics an async operation like a form submission. Pressing \"Submit\" waits for the operation to complete, then Redirect navigates to the completion screen."
 
@@ -1232,7 +1232,7 @@ msgstr "Share"
 msgid "共有先を選択"
 msgstr "Choose where to share"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:18
+#: src/features/redirect/RedirectCompleteScreen.tsx:13
 msgid "処理の完了を検知した Redirect によってこの画面に遷移しました。Redirect は内部で replace によるナビゲーションを行うため、送信前の画面は履歴に残りません。戻るボタンを押すと送信前のフォームを経由せず、一覧画面まで戻ります(二重送信の防止にもなります)。"
 msgstr "Redirect detected that the operation completed and navigated you to this screen. Because Redirect performs a replace navigation internally, the pre-submission screen isn't kept in history. Pressing back skips the form and returns straight to the list screen (this also prevents duplicate submissions)."
 
@@ -1432,19 +1432,19 @@ msgstr "Settings screen"
 msgid "詳細設定"
 msgstr "Advanced settings"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:15
+#: src/features/redirect/RedirectCompleteScreen.tsx:10
 msgid "送信が完了しました"
 msgstr "Submission complete"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:50
+#: src/features/redirect/RedirectDemoScreen.tsx:47
 msgid "送信する"
 msgstr "Submit"
 
-#: src/app/(tabs)/(home)/redirect/index.tsx:44
+#: src/features/redirect/RedirectDemoScreen.tsx:40
 msgid "送信中…"
 msgstr "Submitting…"
 
-#: src/app/(tabs)/(home)/redirect/complete.tsx:12
+#: src/app/(tabs)/(home)/redirect/complete.tsx:11
 msgid "送信完了"
 msgstr "Submission Complete"
 
