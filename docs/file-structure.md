@@ -10,9 +10,11 @@
 | `features/<name>/` | **単一機能専用**のコード。内部構成は機能の形に合わせる（一律には規定しない）。テストは対象と同じディレクトリに co-location |
 | `components/` | **2機能以上から使われる**共有 UI |
 | `theme/` `i18n/` `locales/` `test-utils/` | 横断インフラ（テーマ・国際化・lingui 生成物・テストユーティリティ） |
+| `__tests__/` | `app/` 配下の画面（route）自体の挙動を検証するテスト専用 |
 
 - 新しいレイヤーディレクトリ（`utils/` `hooks/` `constants/` など）は第1階層に作らない。ユーティリティや hooks は利用する機能・コンポーネントのディレクトリへ co-location する
 - `app/` にルート以外のファイルを置かないのは Expo Router の制約と公式方針による（app/ 配下のファイルはルートとして解釈される）。参考: [Expo Router: Core concepts](https://docs.expo.dev/router/basics/core-concepts/)
+  - この制約により `app/` 配下の画面は co-location でテストできないため、`__tests__/` から対象の画面コンポーネントを直接 import してテストする（`app` → `features`/`components` と同様、依存方向のルールはテストコードには適用しない）
 
 ## 機能と共有の線引き
 
