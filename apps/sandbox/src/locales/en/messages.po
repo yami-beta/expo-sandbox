@@ -1436,11 +1436,11 @@ msgstr "Advanced settings"
 msgid "送信が完了しました"
 msgstr "Submission complete"
 
-#: src/features/redirect/RedirectDemoScreen.tsx:47
+#: src/features/redirect/RedirectDemoScreen.tsx:54
 msgid "送信する"
 msgstr "Submit"
 
-#: src/features/redirect/RedirectDemoScreen.tsx:40
+#: src/features/redirect/RedirectDemoScreen.tsx:63
 msgid "送信中…"
 msgstr "Submitting…"
 

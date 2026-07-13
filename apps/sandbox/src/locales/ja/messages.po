@@ -1436,11 +1436,11 @@ msgstr "詳細設定"
 msgid "送信が完了しました"
 msgstr "送信が完了しました"
 
-#: src/features/redirect/RedirectDemoScreen.tsx:47
+#: src/features/redirect/RedirectDemoScreen.tsx:54
 msgid "送信する"
 msgstr "送信する"
 
-#: src/features/redirect/RedirectDemoScreen.tsx:40
+#: src/features/redirect/RedirectDemoScreen.tsx:63
 msgid "送信中…"
 msgstr "送信中…"
 
