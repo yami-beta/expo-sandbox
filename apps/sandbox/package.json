@@ -20,8 +20,7 @@
     "lingui:extract": "lingui extract --clean",
     "lingui:compile": "lingui compile",
     "lingui:compile-if-needed": "[ -f src/locales/en/messages.ts ] || pnpm run lingui:compile",
-    "lingui:check": "lingui compile --strict",
-    "eas-update-cleanup": "eas-update-cleanup"
+    "lingui:check": "lingui compile --strict"
   },
   "dependencies": {
     "@expo/material-symbols": "^0.1.1",

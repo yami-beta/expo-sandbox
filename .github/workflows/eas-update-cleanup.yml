@@ -30,7 +30,7 @@ jobs:
 
       - name: Cleanup old EAS Updates
         # tooling パッケージの bin を apps/sandbox の cwd で実行 (eas のプロジェクト解決のため)
-        run: pnpm run eas-update-cleanup
+        run: pnpm exec eas-update-cleanup
         working-directory: apps/sandbox
         env:
           BRANCH: development
