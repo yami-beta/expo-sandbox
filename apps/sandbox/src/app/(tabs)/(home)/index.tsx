@@ -64,6 +64,20 @@ export default function Index() {
             />
           ),
         },
+        {
+          href: "/auth",
+          text: <Trans>ログイン処理のサンプル</Trans>,
+          description: <Trans>Protected Routes によるサインイン/サインアウトのデモ</Trans>,
+          leadingIcon: (
+            <Ionicons
+              name="log-in-outline"
+              size={22}
+              color={tokens.color.text.secondary}
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+            />
+          ),
+        },
       ],
     },
     {
