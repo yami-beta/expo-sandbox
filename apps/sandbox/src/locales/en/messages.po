@@ -510,6 +510,10 @@ msgstr "The presentation style is `modal`, but with `animation` unspecified Andr
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style becomes `modal`, but the transition animation is controlled separately by the `animation` prop. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right, same as `card`), not the iOS-style \"slide up from the bottom\". Set `animation: slide_from_bottom` explicitly to slide up. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the back button or system gesture."
 
+#: src/app/(tabs)/(home)/index.tsx:70
+msgid "Protected Routes によるサインイン/サインアウトのデモ"
+msgstr "A sign-in/sign-out demo using Protected Routes"
+
 #: src/app/(tabs)/tab-a/detail.tsx:39
 msgid "push と navigate の違い"
 msgstr "push vs navigate"
@@ -518,7 +522,7 @@ msgstr "push vs navigate"
 msgid "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 msgstr "Tap the push button a few times to increase the screen count. Then tap the navigate button to return to the first detail (without creating a duplicate), which decreases the count."
 
-#: src/app/(tabs)/(home)/index.tsx:76
+#: src/app/(tabs)/(home)/index.tsx:90
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch sample (coming soon)"
 
@@ -741,6 +745,22 @@ msgstr "This paging is powered by PagerView; swiping runs on the native implemen
 msgid "コンポーネント"
 msgstr "Components"
 
+#: src/features/auth/AuthenticatedScreen.tsx:41
+msgid "サインアウト"
+msgstr "Sign out"
+
+#: src/app/(tabs)/(home)/auth/sign-in.tsx:10
+msgid "サインイン"
+msgstr "Sign In"
+
+#: src/features/auth/AuthenticatedScreen.tsx:34
+msgid "サインインしています。"
+msgstr "You are signed in."
+
+#: src/features/auth/SignInScreen.tsx:38
+msgid "サインインする"
+msgstr "Sign in"
+
 #: src/app/(tabs)/(home)/index.tsx:14
 msgid "サンプル"
 msgstr "Sample"
@@ -782,6 +802,10 @@ msgstr "More actions"
 #: src/app/(tabs)/settings/theme.tsx:16
 msgid "ダーク"
 msgstr "Dark"
+
+#: src/features/auth/SignInScreen.tsx:34
+msgid "タップすると即座にサインインするサンプルです(実際の認証処理は行いません)。"
+msgstr "A sample that signs you in instantly on tap (no real authentication is performed)."
 
 #: src/app/(tabs)/_layout.tsx:35
 #: src/app/(tabs)/tab-a/index.tsx:14
@@ -878,7 +902,7 @@ msgstr "Full-screen modal on the in-tab Stack"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "Transparent modal on the in-tab Stack"
 
-#: src/app/(tabs)/(home)/index.tsx:75
+#: src/app/(tabs)/(home)/index.tsx:89
 msgid "データ取得"
 msgstr "Data fetching"
 
@@ -1029,13 +1053,17 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "Return to the previous screen via the back button in the header or the OS gesture. The pop is also a cross-fade. Comparing against the in-tab variant with `animation` unspecified (slide-in from the right) makes the difference easy to see."
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:93
+#: src/app/(tabs)/(home)/index.tsx:107
 msgid "ホーム"
 msgstr "Home"
 
 #: src/app/(tabs)/(home)/components/index.tsx:66
 msgid "ボタン"
 msgstr "Button"
+
+#: src/app/(tabs)/(home)/auth/index.tsx:10
+msgid "マイページ"
+msgstr "My Page"
 
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:109
 msgid "まだ保存されていません"
@@ -1145,6 +1173,10 @@ msgstr "To the Root Stack Screen"
 #: src/app/(tabs)/tab-b/page.tsx:32
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "To the Root Stack Screen (covers the tab bar)"
+
+#: src/app/(tabs)/(home)/index.tsx:69
+msgid "ログイン処理のサンプル"
+msgstr "Sign-in sample"
 
 #: src/app/(tabs)/settings/index.tsx:32
 msgid "一般"
@@ -1334,7 +1366,7 @@ msgstr "Instead of the default OS-standard transition (often slide-in from the r
 msgid "次へ"
 msgstr "Next"
 
-#: src/app/(tabs)/(home)/index.tsx:70
+#: src/app/(tabs)/(home)/index.tsx:84
 msgid "準備中"
 msgstr "Coming soon"
 
@@ -1431,6 +1463,11 @@ msgstr "Settings screen"
 #: src/app/(tabs)/(home)/expo-ui/settings/index.tsx:114
 msgid "詳細設定"
 msgstr "Advanced settings"
+
+#: src/features/auth/AuthenticatedScreen.tsx:20
+#: src/features/auth/SignInScreen.tsx:20
+msgid "読み込み中…"
+msgstr "Loading…"
 
 #: src/features/redirect/RedirectCompleteScreen.tsx:10
 msgid "送信が完了しました"
