@@ -1,0 +1,24 @@
+# ログイン処理のサンプル（Protected Routes）の E2E フロー。
+# サインアウト時に auth/sign-in へ正しくフォールバックされるか、戻る操作で home へ戻れるかを検証する。
+# アプリの起動（Dev Client か release かの分岐を含む）は subflows/launch-app.yaml に切り出してある
+# （docs/maestro.md「フローの書き方」参照）。
+# 表示テキストは lingui の <Trans>（sourceLocale=ja）。Maestro の assertVisible/tapOn は部分一致のため、
+# 裸の「サインイン」は使わない: サインイン画面のタイトル「サインイン」・ボタン「サインインする」・
+# 認証済み画面（マイページ）の本文「サインインしています。」がいずれも「サインイン」を部分文字列として
+# 含み、サインアウトが機能せず認証済み画面に留まるバグがあっても誤ってパスしてしまうため。
+# ボタン文言「サインインする」に統一して assertVisible/tapOn する。
+# なお SignInScreen の本文（「タップすると即座にサインインするサンプルです…」）自体が
+# 「サインインする」を部分文字列として含むため、tapOn は正規表現アンカー（^$）でボタン文言に
+# 完全一致させ、本文を誤ってタップしないようにする。
+appId: com.yamibeta.sandbox
+---
+- runFlow: subflows/launch-app.yaml
+- assertVisible: "ホーム"
+- tapOn: "ログイン処理のサンプル"
+- assertVisible: "サインインする"
+- tapOn: "^サインインする$"
+- assertVisible: "サインアウト"
+- tapOn: "サインアウト"
+- assertVisible: "サインインする"
+- back
+- assertVisible: "ホーム"
