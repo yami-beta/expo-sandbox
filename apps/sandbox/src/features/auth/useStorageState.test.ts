@@ -118,6 +118,49 @@ describe("useStorageState", () => {
         expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith("native-delete-key");
       });
     });
+
+    it("読み込み中に SecureStore.getItemAsync が reject しても isLoading: false / value: null に落ち着く", async () => {
+      const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+      jest
+        .mocked(SecureStore.getItemAsync)
+        .mockRejectedValueOnce(new Error("keychain access failed"));
+
+      const { result } = await renderHook(() => useStorageState("native-load-error-key"));
+
+      // 失敗しても isLoading が true のまま固まらず false に戻ることを検証する
+      // (.catch() が無いと setState が一度も呼ばれずローディングのまま固まる)。
+      await waitFor(() => {
+        expect(result.current[0]).toEqual([false, null]);
+      });
+      expect(consoleErrorSpy).toHaveBeenCalled();
+
+      consoleErrorSpy.mockRestore();
+    });
+
+    it("setValue で SecureStore.setItemAsync が reject しても未処理rejectionにならず console.error が呼ばれる", async () => {
+      const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+      jest
+        .mocked(SecureStore.setItemAsync)
+        .mockRejectedValueOnce(new Error("keychain write failed"));
+
+      const { result } = await renderHook(() => useStorageState("native-save-error-key"));
+      await waitFor(() => {
+        expect(result.current[0]).toEqual([false, null]);
+      });
+
+      await act(() => {
+        result.current[1]("new-token");
+      });
+
+      // setValue は fire-and-forget で書き込むため、ローカル state は失敗しても "new-token" のまま
+      // (公式リファレンス実装と同様、書き込み失敗時に state をロールバックする仕組みは持たない)。
+      expect(result.current[0]).toEqual([false, "new-token"]);
+      await waitFor(() => {
+        expect(consoleErrorSpy).toHaveBeenCalled();
+      });
+
+      consoleErrorSpy.mockRestore();
+    });
   });
 
   describe("web (localStorage)", () => {

@@ -46,16 +46,24 @@ export function useStorageState(key: string): UseStateHook<string> {
         console.error(e);
       }
     } else {
-      void SecureStore.getItemAsync(key).then((value) => {
-        setState(value);
-      });
+      void SecureStore.getItemAsync(key)
+        .then((value) => {
+          setState(value);
+        })
+        .catch((e: unknown) => {
+          // 失敗時も isLoading を false に戻す (これを省くと画面がローディングのまま固まる)。
+          console.error(e);
+          setState(null);
+        });
     }
   }, [key, setState]);
 
   const setValue = useCallback(
     (value: string | null) => {
       setState(value);
-      void setStorageItemAsync(key, value);
+      void setStorageItemAsync(key, value).catch((e: unknown) => {
+        console.error(e);
+      });
     },
     [key, setState],
   );
