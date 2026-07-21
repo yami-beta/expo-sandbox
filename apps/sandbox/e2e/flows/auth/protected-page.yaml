@@ -1,0 +1,23 @@
+# tab-a/protected(RequireAuth で既存ページに後付けした保護)の E2E フロー。
+# 保護ページ→サインイン→戻るボタンで元の保護ページに戻り、認証済みコンテンツが表示される
+# ことを検証する。ここでの RequireAuth は replace を指定しない(既定 push)ため、サインイン後は
+# 戻るボタンで元のページに戻れる設計になっている(auth.yaml が検証する /sign-in ⇔ /account の
+# replace 遷移とは異なる経路であることに注意。features/auth/RequireAuth.tsx 参照)。
+# アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
+# （docs/maestro.md「フローの書き方」参照）。
+# 表示テキストは lingui の <Trans>/t（sourceLocale=ja）。auth.yaml と同様、「サインインする」
+# ボタンは本文中の同一部分文字列と誤爆しないよう正規表現アンカー（^$）で完全一致させる。
+appId: com.yamibeta.sandbox
+---
+- runFlow: ../../common/launch-app.yaml
+- assertVisible: "ホーム"
+- tapOn: "タブA"
+- tapOn: "保護ページへ"
+- assertVisible: "このページの閲覧にはサインインが必要です。"
+- tapOn: "サインイン画面へ"
+- assertVisible: "サインインする"
+- tapOn: "^サインインする$"
+- assertVisible: "マイページへ"
+- back
+- assertVisible: "RequireAuth でラップされている"
+- assertNotVisible: "このページの閲覧にはサインインが必要です。"

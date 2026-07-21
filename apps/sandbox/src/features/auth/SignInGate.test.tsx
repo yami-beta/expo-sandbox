@@ -58,7 +58,11 @@ describe("SignInGate", () => {
     await renderWithProviders(<SignInGate />);
 
     expect(screen.getByText(/サインインしています/)).toBeOnTheScreen();
-    expect(mockLink).toHaveBeenCalledWith(expect.objectContaining({ href: "/account" }));
+    // replace: スタックを積み上げず、往復しても深さが増えないようにするため
+    // (SignInGate.tsx のコメント参照)。
+    expect(mockLink).toHaveBeenCalledWith(
+      expect.objectContaining({ href: "/account", replace: true }),
+    );
     expect(mockSignInScreen).not.toHaveBeenCalled();
   });
 });

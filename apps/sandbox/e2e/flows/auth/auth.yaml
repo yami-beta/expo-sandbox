@@ -1,5 +1,10 @@
 # サインイン(グローバル /sign-in)→マイページ(/account、RequireAuthで保護)の E2E フロー。
-# サインアウト後、/account がその場で RequireAuth の未認証表示に切り替わること(遷移しない)を検証する。
+# サインアウト後、/account がその場で RequireAuth の未認証表示に切り替わること(遷移しない)、
+# /sign-in ⇔ /account の往復を2周しても遷移スタックが積み上がらないこと(2周目の終わりに
+# back を1回押すだけで home まで戻れること)を検証する。
+# /sign-in ⇔ /account はどちらも RequireAuth/SignInGate から replace で遷移しており
+# (features/auth/RequireAuth.tsx・SignInGate.tsx 参照)、往復のたびに push で積み上がっていた
+# 不具合の再発防止を兼ねる。
 # アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
 # （docs/maestro.md「フローの書き方」参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。Maestro の assertVisible/tapOn は部分一致のため、
@@ -22,6 +27,14 @@ appId: com.yamibeta.sandbox
 - assertVisible: "サインアウト"
 - tapOn: "サインアウト"
 - assertVisible: "このページの閲覧にはサインインが必要です。"
-- back
+# 2周目: /sign-in ⇔ /account を再度往復してもスタックが積み上がらないことを確認する
+- tapOn: "サインイン画面へ"
+- assertVisible: "サインインする"
+- tapOn: "^サインインする$"
+- assertVisible: "マイページへ"
+- tapOn: "マイページへ"
+- assertVisible: "サインアウト"
+- tapOn: "サインアウト"
+- assertVisible: "このページの閲覧にはサインインが必要です。"
 - back
 - assertVisible: "ホーム"

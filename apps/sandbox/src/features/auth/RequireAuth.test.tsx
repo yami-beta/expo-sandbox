@@ -23,9 +23,9 @@ jest.mock("expo-router", () => ({
 
 const PROTECTED_TEST_ID = "protected-content";
 
-function renderRequireAuth() {
+function renderRequireAuth(replace = false) {
   return renderWithProviders(
-    <RequireAuth>
+    <RequireAuth replace={replace}>
       <Text testID={PROTECTED_TEST_ID}>secret</Text>
     </RequireAuth>,
   );
@@ -75,12 +75,31 @@ describe("RequireAuth", () => {
 
     // 状態2: 案内テキスト + /sign-in への Link
     expect(screen.getByText(/サインインが必要/)).toBeOnTheScreen();
-    expect(mockLink).toHaveBeenCalledWith(expect.objectContaining({ href: "/sign-in" }));
+    // replace 未指定時は push(replace: false)。任意の保護ページから開いた場合に
+    // 戻るボタンで元のページへ戻れるようにするための既定値(RequireAuthProps参照)。
+    expect(mockLink).toHaveBeenCalledWith(
+      expect.objectContaining({ href: "/sign-in", replace: false }),
+    );
 
     // 排他性: 他の2状態のマーカーは出ない
     expect(screen.queryByTestId(PROTECTED_TEST_ID)).toBeNull();
     expect(screen.queryByText(/読み込み中/)).toBeNull();
     expect(activityIndicatorCount()).toBe(0);
+  });
+
+  it("replace={true} のとき、/sign-in への Link に replace を渡す", async () => {
+    mockUseSession.mockReturnValue({
+      isLoading: false,
+      session: null,
+      signIn: jest.fn(),
+      signOut: jest.fn(),
+    });
+
+    await renderRequireAuth(true);
+
+    expect(mockLink).toHaveBeenCalledWith(
+      expect.objectContaining({ href: "/sign-in", replace: true }),
+    );
   });
 
   it("isLoading: false かつ session が非null(認証済み) のとき、children のみを表示する", async () => {
