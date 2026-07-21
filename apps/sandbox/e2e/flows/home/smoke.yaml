@@ -7,10 +7,10 @@
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。
 appId: com.yamibeta.sandbox
 ---
-# アプリの起動（Dev Client か release かの分岐を含む）は subflows/launch-app.yaml に
+# アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に
 # 切り出してある。新しいフローを追加する場合もこの1行を最初に置く（docs/maestro.md
 # 「フローの書き方」参照）。分岐の詳細・過去の flaky 対応の経緯は launch-app.yaml のコメントを参照。
-- runFlow: subflows/launch-app.yaml
+- runFlow: ../../common/launch-app.yaml
 # ページの表示確認としてまず画面タイトル「ホーム」を assert し、続けて画面内の項目を確認する。
 - assertVisible: "ホーム" # Stack.Screen.Title / タブラベル（src/app/(tabs)/(home)/index.tsx）
 - assertVisible: "ナビゲーションパターン" # GroupedList の先頭項目

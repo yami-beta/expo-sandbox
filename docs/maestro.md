@@ -32,10 +32,10 @@ jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）と
     **Maestro フロー側のディープリンク**で行う。`expo-dev-launcher` は
     `<scheme>://expo-development-client/?url=<encoded>` 形式の VIEW インテントを受け取ると、
     ビルド時の設定に関わらずそのURLのMetroへ接続する。この仕組みは起動方法を分岐する共通サブフロー
-    `apps/sandbox/.maestro/subflows/launch-app.yaml` に閉じており、Dev Client ビルドのときだけ
+    `apps/sandbox/e2e/common/launch-app.yaml` に閉じており、Dev Client ビルドのときだけ
     （`-e DEV_CLIENT=true`）実行される（「フローの書き方」参照）。
 - **フローは Dev Client あり/なしの両対応**。各テストフローは起動処理を自前で書かず
-  `runFlow: subflows/launch-app.yaml` の1行を呼ぶだけで、`-e DEV_CLIENT` を渡すかどうかだけで
+  `runFlow: ../../common/launch-app.yaml` の1行を呼ぶだけで、`-e DEV_CLIENT` を渡すかどうかだけで
   両方のビルド種別に対応する（「フローの書き方」参照）。
   Dev Client を含まない E2E（`e2e` プロファイル / release / 埋め込み JS）は
   `.github/workflows/e2e-main.yml` で main ブランチへの push 時に実行し、同じフローを再利用する。
@@ -68,24 +68,26 @@ jest-expo / Vitest のユニットテスト（[`testing.md`](./testing.md)）と
 | `apps/sandbox/.fingerprintignore` | dev-client APK キャッシュのキーに使う `@expo/fingerprint` の計算から除外するパス。ビルドで内容が変わり無駄な MISS を招く既知のファイル（`@react-native-masked-view/masked-view` の `AndroidManifest.xml` 等）を列挙 |
 | `apps/sandbox/eas.json` の `development` プロファイル | PR の dev-client debug E2E ビルドに再利用（`developmentClient: true` → Android は `:app:assembleDebug` = APK） |
 | `apps/sandbox/eas.json` の `e2e` プロファイル | 非 Dev Client 用（main の release E2E）ビルド設定（`developmentClient: false` / release で lint 除外 / `ios.simulator: true`） |
-| `apps/sandbox/.maestro/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（起動処理は `runFlow: subflows/launch-app.yaml` の1行に任せる。「フローの書き方」参照） |
-| `apps/sandbox/.maestro/subflows/launch-app.yaml` | 起動方法をビルド種別で分岐する共通サブフロー。`DEV_CLIENT` に応じて `clearState` → ディープリンク（`openLink`）による Metro 接続を行うか、素の `launchApp: {clearState: true}` を実行するかを切り替える。各テストフローはこれを `runFlow` で呼ぶだけでよく、分岐ロジックを重複して書かない。`maestro test` はデフォルトでサブフォルダを走査しないため単独実行はされない |
+| `apps/sandbox/e2e/flows/**/*.yaml` | Maestro フロー。`appId: com.yamibeta.sandbox`。プラットフォーム・ビルド種別非依存（起動処理は `runFlow: ../../common/launch-app.yaml` の1行に任せる。「フローの書き方」参照） |
+| `apps/sandbox/e2e/common/launch-app.yaml` | 起動方法をビルド種別で分岐する共通サブフロー。`DEV_CLIENT` に応じて `clearState` → ディープリンク（`openLink`）による Metro 接続を行うか、素の `launchApp: {clearState: true}` を実行するかを切り替える。各テストフローはこれを `runFlow` で呼ぶだけでよく、分岐ロジックを重複して書かない。`apps/sandbox/e2e/config.yaml` の `flows: - "flows/**"` により `flows/` 配下のみが実行対象となるため、`common/` 配下は単独実行の対象から除外される |
 | `.github/workflows/e2e.yml` | PR ごとに「fingerprint 計算 → APK キャッシュ復元／（ミス時）`eas build --local --profile development` → emulator 起動 → `expo run:android --binary <APK>`（install→Metro→`adb reverse`→dev-client 起動）→ `maestro test -e DEV_CLIENT=true`」を実行 |
 | `.github/workflows/e2e-main.yml` | main への push ごとに、release E2E ジョブ（`eas build --local --profile e2e` → install → `maestro test`。Dev Client が無いため `-e DEV_CLIENT` は渡さない）と dev-client APK 温めジョブ（`warm-devclient-cache`。fingerprint → `eas build --local --profile development` → キャッシュ保存。build のみ）を並列実行 |
 
 ## フローの書き方
 
-`apps/sandbox/.maestro/` に `*.yaml` を追加する（機能ごとに co-location）。アプリの起動処理は
-自前で書かず、共通サブフロー `runFlow: subflows/launch-app.yaml` を最初に置くだけでよい:
+`apps/sandbox/e2e/flows/<機能名>/` に `*.yaml` を追加する（機能ごとに co-location）。
+`apps/sandbox/e2e/config.yaml` の `flows: - "flows/**"` により `flows/` 配下が実行対象になる。
+アプリの起動処理は自前で書かず、共通サブフロー `runFlow: ../../common/launch-app.yaml` を
+最初に置くだけでよい:
 
 ```yaml
 appId: com.yamibeta.sandbox
 ---
-- runFlow: subflows/launch-app.yaml
+- runFlow: ../../common/launch-app.yaml
 - assertVisible: "ホーム"
 ```
 
-`launch-app.yaml`（`apps/sandbox/.maestro/subflows/launch-app.yaml`）が `DEV_CLIENT` で
+`launch-app.yaml`（`apps/sandbox/e2e/common/launch-app.yaml`）が `DEV_CLIENT` で
 起動方法を分岐する:
 
 ```yaml
@@ -171,7 +173,7 @@ Maestro CLI が未インストールなら `curl -fsSL "https://get.maestro.mobi
 pnpm --dir apps/sandbox exec expo run:android
 
 # 2. 別ターミナルでフローを実行する（-e DEV_CLIENT=true でディープリンクによる Metro 再接続が有効になる）
-maestro test -e DEV_CLIENT=true apps/sandbox/.maestro/
+maestro test -e DEV_CLIENT=true apps/sandbox/e2e/
 ```
 
 > CI（`e2e.yml`）は同じ dev-client debug ビルドを `eas build --local --profile development` で作り
@@ -198,7 +200,7 @@ E2E_DEFAULT_LOCALE=ja pnpm --dir apps/sandbox exec eas build --local --profile e
 adb install -r apps/sandbox/build-output/sandbox-e2e.apk
 
 # 3. 同じフローを実行（Metro 不要、-e DEV_CLIENT は渡さない）
-maestro test apps/sandbox/.maestro/
+maestro test apps/sandbox/e2e/
 ```
 
 ## CI（`.github/workflows/e2e.yml`）
@@ -220,7 +222,7 @@ maestro test apps/sandbox/.maestro/
   `expo start` では Metro に接続せず黒画面になる）、`--binary` で Gradle ビルドのみスキップして
   このロジックを再利用する。dev-client 起動後の Metro 接続確立は run:android が担い、maestro の
   `clearState` で状態がクリアされた後の再接続は `-e DEV_CLIENT=true` によるディープリンク
-  （`apps/sandbox/.maestro/subflows/launch-app.yaml`）が担う。
+  （`apps/sandbox/e2e/common/launch-app.yaml`）が担う。
 - `E2E_DEFAULT_LOCALE` は fingerprint 計算・ビルド・`expo run:android` の各ステップに
   step `env` として同じ値（`ja`）を渡す。dev-client では `Constants.expoConfig` が Metro 配信の
   manifest 由来のため、run:android が起動する Metro にも渡して app.config を同条件で評価させる（既定言語が `ja`）。
@@ -261,7 +263,7 @@ maestro test apps/sandbox/.maestro/
     （Metro が無いため再接続ステップが不要。渡さなければ `runFlow` がスキップされるだけで安全）。
     EAS の認証には `.github/actions/setup-eas`（`secrets.EXPO_TOKEN`）を使う。
   - Metro は使わないため、build→install→起動の自動化は無い。ビルドした APK を `adb install` するだけで、
-    アプリの起動自体は `apps/sandbox/.maestro/smoke.yaml` が呼ぶ `subflows/launch-app.yaml`
+    アプリの起動自体は `apps/sandbox/e2e/flows/home/smoke.yaml` が呼ぶ `common/launch-app.yaml`
     （`-e DEV_CLIENT` 未指定なので素の `launchApp` 分岐）に任せる。
   - artifact 名は `maestro-results-${{ github.sha }}`（push イベントには PR 番号が無いため）。
     失敗解析用にビルド済み APK も artifact に含める。
@@ -287,7 +289,7 @@ maestro test apps/sandbox/.maestro/
   `-e DEV_CLIENT=true` を渡す。非 Dev Client なら `e2e` プロファイル（`ios.simulator: true`）を
   `eas build --local --platform ios` でビルドする。
 - ワークフローに macOS ランナーの `e2e-ios` ジョブを追加し、simulator を起動 → 上記でビルド/install →
-  `maestro test` を実行する。フロー（`.maestro/*.yaml`）はそのまま再利用できる。
+  `maestro test` を実行する。フロー（`e2e/flows/**/*.yaml`）はそのまま再利用できる。
 - iOS simulator は `localhost` が直接ホストを指すため `adb reverse` は不要（`expo run:ios` 経由なら
-  Metro 接続も自動）。`apps/sandbox/.maestro/subflows/launch-app.yaml` のディープリンクも
+  Metro 接続も自動）。`apps/sandbox/e2e/common/launch-app.yaml` のディープリンクも
   `http://localhost:8081` のまま Metro に接続できる。

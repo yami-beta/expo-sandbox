@@ -1,8 +1,9 @@
 # アプリの起動をビルド種別で分岐する共通サブフロー。各テストフローは
-# `runFlow: subflows/launch-app.yaml` の1行を最初に置くだけでよい
+# `runFlow: ../../common/launch-app.yaml` の1行を最初に置くだけでよい
 # （分岐ロジック自体をテストフローごとに書かない。docs/maestro.md「フローの書き方」参照）。
-# maestro test はデフォルトでサブフォルダを走査しないため、このファイルも runFlow から
-# 明示的に呼ばれない限り単独のテストとしては実行されない。
+# apps/sandbox/e2e/config.yaml の `flows: - "flows/**"` により flows/ 配下のみが実行対象と
+# なるため、このファイル（common/ 配下）は runFlow から明示的に呼ばれない限り単独のテストとしては
+# 実行されない。
 appId: com.yamibeta.sandbox
 ---
 # Dev Client ビルド（-e DEV_CLIENT=true）は、クリーンな状態から launcher 画面を経由せず
