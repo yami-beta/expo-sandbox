@@ -18,6 +18,7 @@ import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
 import { initializeI18n } from "../i18n/locale";
 import { LocaleProvider } from "../i18n/LocaleContext";
+import { SessionProvider } from "../features/auth/SessionContext";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
@@ -30,6 +31,10 @@ function RootLayoutContent() {
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* RequireAuth のフォールバック・ホーム画面のリンク等からの遷移先。通常のページ遷移で、
+            戻る操作で呼び出し元のページへ戻れる */}
+        <Stack.Screen name="sign-in" />
+        <Stack.Screen name="account" />
         <Stack.Screen
           name="expo-ui/onboarding/index"
           options={{
@@ -133,7 +138,9 @@ export default function RootLayout() {
     <I18nProvider i18n={i18n}>
       <LocaleProvider>
         <ThemeProvider>
-          <RootLayoutContent />
+          <SessionProvider>
+            <RootLayoutContent />
+          </SessionProvider>
         </ThemeProvider>
       </LocaleProvider>
     </I18nProvider>

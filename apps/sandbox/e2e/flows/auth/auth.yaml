@@ -1,5 +1,5 @@
-# ログイン処理のサンプル（Protected Routes）の E2E フロー。
-# サインアウト時に auth/sign-in へ正しくフォールバックされるか、戻る操作で home へ戻れるかを検証する。
+# サインイン(グローバル /sign-in)→マイページ(/account、RequireAuthで保護)の E2E フロー。
+# サインアウト後、/account がその場で RequireAuth の未認証表示に切り替わること(遷移しない)を検証する。
 # アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
 # （docs/maestro.md「フローの書き方」参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。Maestro の assertVisible/tapOn は部分一致のため、
@@ -14,11 +14,14 @@ appId: com.yamibeta.sandbox
 ---
 - runFlow: ../../common/launch-app.yaml
 - assertVisible: "ホーム"
-- tapOn: "ログイン処理のサンプル"
+- tapOn: "サインインのサンプル"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
+- assertVisible: "マイページへ"
+- tapOn: "マイページへ"
 - assertVisible: "サインアウト"
 - tapOn: "サインアウト"
-- assertVisible: "サインインする"
+- assertVisible: "このページの閲覧にはサインインが必要です。"
+- back
 - back
 - assertVisible: "ホーム"

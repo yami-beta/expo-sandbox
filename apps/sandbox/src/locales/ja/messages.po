@@ -510,10 +510,6 @@ msgstr "presentation 形式は modal だが、Android では animation 未指定
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 
-#: src/app/(tabs)/(home)/index.tsx:70
-msgid "Protected Routes によるサインイン/サインアウトのデモ"
-msgstr "Protected Routes によるサインイン/サインアウトのデモ"
-
 #: src/app/(tabs)/tab-a/detail.tsx:39
 msgid "push と navigate の違い"
 msgstr "push と navigate の違い"
@@ -736,6 +732,14 @@ msgstr "このタブの Stack は anchor を指定していません。まず「
 msgid "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 msgstr "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 
+#: src/features/auth/RequireAuth.tsx:33
+msgid "このページの閲覧にはサインインが必要です。"
+msgstr "このページの閲覧にはサインインが必要です。"
+
+#: src/app/(tabs)/tab-a/protected.tsx:18
+msgid "このページは RequireAuth でラップされているため、未認証では表示されず案内とサインイン導線に置き換わります。どのタブ・どの Stack にあるページでも、同じコンポーネントで包むだけで保護を後付けできます。"
+msgstr "このページは RequireAuth でラップされているため、未認証では表示されず案内とサインイン導線に置き換わります。どのタブ・どの Stack にあるページでも、同じコンポーネントで包むだけで保護を後付けできます。"
+
 #: src/app/expo-ui/onboarding/index.tsx:81
 msgid "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
 msgstr "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
@@ -749,17 +753,30 @@ msgstr "コンポーネント"
 msgid "サインアウト"
 msgstr "サインアウト"
 
-#: src/app/(tabs)/(home)/auth/sign-in.tsx:10
+#: src/app/sign-in.tsx:13
 msgid "サインイン"
 msgstr "サインイン"
 
+#: src/app/(tabs)/(home)/index.tsx:70
+msgid "サインイン・サインアウトとマイページのデモ"
+msgstr "サインイン・サインアウトとマイページのデモ"
+
 #: src/features/auth/AuthenticatedScreen.tsx:34
+#: src/features/auth/SignInGate.tsx:20
 msgid "サインインしています。"
 msgstr "サインインしています。"
 
 #: src/features/auth/SignInScreen.tsx:38
 msgid "サインインする"
 msgstr "サインインする"
+
+#: src/app/(tabs)/(home)/index.tsx:69
+msgid "サインインのサンプル"
+msgstr "サインインのサンプル"
+
+#: src/features/auth/RequireAuth.tsx:37
+msgid "サインイン画面へ"
+msgstr "サインイン画面へ"
 
 #: src/app/(tabs)/(home)/index.tsx:14
 msgid "サンプル"
@@ -789,6 +806,10 @@ msgstr "スプラッシュ → 本体や、内容だけ差し替えたい画面�
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:41
 msgid "スポーツ"
 msgstr "スポーツ"
+
+#: src/app/(tabs)/tab-a/protected.tsx:21
+msgid "セッションはグローバルなサインイン画面・マイページ(/account)と共有しています。そちらでサインイン/サインアウトすると、このページの表示もあわせて切り替わります。"
+msgstr "セッションはグローバルなサインイン画面・マイページ(/account)と共有しています。そちらでサインイン/サインアウトすると、このページの表示もあわせて切り替わります。"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:42
 msgid "その他"
@@ -1061,9 +1082,13 @@ msgstr "ホーム"
 msgid "ボタン"
 msgstr "ボタン"
 
-#: src/app/(tabs)/(home)/auth/index.tsx:10
+#: src/app/account.tsx:11
 msgid "マイページ"
 msgstr "マイページ"
+
+#: src/features/auth/SignInGate.tsx:24
+msgid "マイページへ"
+msgstr "マイページへ"
 
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:109
 msgid "まだ保存されていません"
@@ -1174,10 +1199,6 @@ msgstr "ルート Stack 画面へ"
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "ルート Stack 画面へ（タブバーを覆う）"
 
-#: src/app/(tabs)/(home)/index.tsx:69
-msgid "ログイン処理のサンプル"
-msgstr "ログイン処理のサンプル"
-
 #: src/app/(tabs)/settings/index.tsx:32
 msgid "一般"
 msgstr "一般"
@@ -1210,6 +1231,15 @@ msgstr "保存"
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:55
 msgid "保存しました: {0}"
 msgstr "保存しました: {0}"
+
+#: src/app/(tabs)/tab-a/protected.tsx:13
+#: src/app/(tabs)/tab-a/protected.tsx:16
+msgid "保護ページ"
+msgstr "保護ページ"
+
+#: src/app/(tabs)/tab-a/index.tsx:34
+msgid "保護ページへ"
+msgstr "保護ページへ"
 
 #. placeholder {0}: page + 1
 #: src/app/expo-ui/onboarding/index.tsx:101
@@ -1465,6 +1495,7 @@ msgid "詳細設定"
 msgstr "詳細設定"
 
 #: src/features/auth/AuthenticatedScreen.tsx:20
+#: src/features/auth/RequireAuth.tsx:22
 #: src/features/auth/SignInScreen.tsx:20
 msgid "読み込み中…"
 msgstr "読み込み中…"

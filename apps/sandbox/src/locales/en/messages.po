@@ -510,10 +510,6 @@ msgstr "The presentation style is `modal`, but with `animation` unspecified Andr
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "The presentation style becomes `modal`, but the transition animation is controlled separately by the `animation` prop. With `animation` unspecified, it uses the OS-default transition (often slide-in from the right, same as `card`), not the iOS-style \"slide up from the bottom\". Set `animation: slide_from_bottom` explicitly to slide up. Since it sits under the root Stack, the tab bar disappears on the destination screen. Dismissed via the back button or system gesture."
 
-#: src/app/(tabs)/(home)/index.tsx:70
-msgid "Protected Routes によるサインイン/サインアウトのデモ"
-msgstr "A sign-in/sign-out demo using Protected Routes"
-
 #: src/app/(tabs)/tab-a/detail.tsx:39
 msgid "push と navigate の違い"
 msgstr "push vs navigate"
@@ -736,6 +732,14 @@ msgstr "This tab's Stack does not specify anchor. First go to the Tab B Page scr
 msgid "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 msgstr "This tab's Stack sets anchor: index. However, anchor only takes effect on a cold-start deep link and is ignored during in-app navigation (index is the default initial route, so specifying it is redundant)."
 
+#: src/features/auth/RequireAuth.tsx:33
+msgid "このページの閲覧にはサインインが必要です。"
+msgstr "Signing in is required to view this page."
+
+#: src/app/(tabs)/tab-a/protected.tsx:18
+msgid "このページは RequireAuth でラップされているため、未認証では表示されず案内とサインイン導線に置き換わります。どのタブ・どの Stack にあるページでも、同じコンポーネントで包むだけで保護を後付けできます。"
+msgstr "This page is wrapped with RequireAuth, so when signed out it is replaced with a notice and a sign-in link instead of being shown. Any page in any tab or Stack can add this protection just by wrapping it with the same component."
+
 #: src/app/expo-ui/onboarding/index.tsx:81
 msgid "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
 msgstr "This paging is powered by PagerView; swiping runs on the native implementation of each platform."
@@ -749,17 +753,30 @@ msgstr "Components"
 msgid "サインアウト"
 msgstr "Sign out"
 
-#: src/app/(tabs)/(home)/auth/sign-in.tsx:10
+#: src/app/sign-in.tsx:13
 msgid "サインイン"
 msgstr "Sign In"
 
+#: src/app/(tabs)/(home)/index.tsx:70
+msgid "サインイン・サインアウトとマイページのデモ"
+msgstr "Demo of sign-in/sign-out and My Page"
+
 #: src/features/auth/AuthenticatedScreen.tsx:34
+#: src/features/auth/SignInGate.tsx:20
 msgid "サインインしています。"
 msgstr "You are signed in."
 
 #: src/features/auth/SignInScreen.tsx:38
 msgid "サインインする"
 msgstr "Sign in"
+
+#: src/app/(tabs)/(home)/index.tsx:69
+msgid "サインインのサンプル"
+msgstr "Sign-in sample"
+
+#: src/features/auth/RequireAuth.tsx:37
+msgid "サインイン画面へ"
+msgstr "To Sign In Screen"
 
 #: src/app/(tabs)/(home)/index.tsx:14
 msgid "サンプル"
@@ -789,6 +806,10 @@ msgstr "Suited for transitions without positional movement, such as splash → m
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:41
 msgid "スポーツ"
 msgstr "Sports"
+
+#: src/app/(tabs)/tab-a/protected.tsx:21
+msgid "セッションはグローバルなサインイン画面・マイページ(/account)と共有しています。そちらでサインイン/サインアウトすると、このページの表示もあわせて切り替わります。"
+msgstr "The session is shared with the global sign-in screen and My Page (/account). Signing in or out there also switches what this page shows."
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:42
 msgid "その他"
@@ -1061,9 +1082,13 @@ msgstr "Home"
 msgid "ボタン"
 msgstr "Button"
 
-#: src/app/(tabs)/(home)/auth/index.tsx:10
+#: src/app/account.tsx:11
 msgid "マイページ"
 msgstr "My Page"
+
+#: src/features/auth/SignInGate.tsx:24
+msgid "マイページへ"
+msgstr "To My Page"
 
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:109
 msgid "まだ保存されていません"
@@ -1174,10 +1199,6 @@ msgstr "To the Root Stack Screen"
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "To the Root Stack Screen (covers the tab bar)"
 
-#: src/app/(tabs)/(home)/index.tsx:69
-msgid "ログイン処理のサンプル"
-msgstr "Sign-in sample"
-
 #: src/app/(tabs)/settings/index.tsx:32
 msgid "一般"
 msgstr "General"
@@ -1210,6 +1231,15 @@ msgstr "Save"
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:55
 msgid "保存しました: {0}"
 msgstr "Saved: {0}"
+
+#: src/app/(tabs)/tab-a/protected.tsx:13
+#: src/app/(tabs)/tab-a/protected.tsx:16
+msgid "保護ページ"
+msgstr "Protected Page"
+
+#: src/app/(tabs)/tab-a/index.tsx:34
+msgid "保護ページへ"
+msgstr "To Protected Page"
 
 #. placeholder {0}: page + 1
 #: src/app/expo-ui/onboarding/index.tsx:101
@@ -1465,6 +1495,7 @@ msgid "詳細設定"
 msgstr "Advanced settings"
 
 #: src/features/auth/AuthenticatedScreen.tsx:20
+#: src/features/auth/RequireAuth.tsx:22
 #: src/features/auth/SignInScreen.tsx:20
 msgid "読み込み中…"
 msgstr "Loading…"

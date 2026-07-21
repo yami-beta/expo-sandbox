@@ -65,9 +65,9 @@ export default function Index() {
           ),
         },
         {
-          href: "/auth",
-          text: <Trans>ログイン処理のサンプル</Trans>,
-          description: <Trans>Protected Routes によるサインイン/サインアウトのデモ</Trans>,
+          href: "/sign-in",
+          text: <Trans>サインインのサンプル</Trans>,
+          description: <Trans>サインイン・サインアウトとマイページのデモ</Trans>,
           leadingIcon: (
             <Ionicons
               name="log-in-outline"
