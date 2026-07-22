@@ -28,9 +28,12 @@ appId: com.yamibeta.sandbox
 - tapOn: "^サインインする$"
 - waitForAnimationToEnd:
     timeout: 5000
-# 一時追加(デバッグ用): これまでの CI 診断ラウンドで、header title "保護ページ" は
-# Stack.Screen.Title が RequireAuth の外側に書かれているため常に表示される(認証状態と無関係)
-# と判明した。body 側テキスト(children/未認証案内/isLoading)がいずれも見えないまま CI が
-# 失敗し続けているため、実画面を直接スクリーンショットで確認する。原因判明後にこの
-# takeScreenshot は削除する。
-- takeScreenshot: protected-page-after-signin
+# 一時追加(デバッグ用): header title "保護ページ" は Stack.Screen.Title が RequireAuth の
+# 外側に書かれているため常に表示される(認証状態の判別材料にならない、と判明済み)。
+# ここでは本来の期待値(RequireAuth の children ブランチ)を直接 assert し、失敗した場合は
+# ワークフロー側で UI 階層ダンプ(screencap 経由のスクリーンショットが真っ黒になるため、
+# テキストベースのダンプを使う)から実際の描画内容を確認する。
+- extendedWaitUntil:
+    visible: "RequireAuth でラップされている"
+    timeout: 15000
+- assertNotVisible: "このページの閲覧にはサインインが必要です。"
