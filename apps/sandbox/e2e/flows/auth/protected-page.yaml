@@ -22,21 +22,12 @@ appId: com.yamibeta.sandbox
 - tapOn: "サインイン画面へ"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
-# サインイン成功: ルート Stack.Protected が /sign-in を弾き (tabs) に戻る。
-# active tab / tab-a 内の Stack が保持されるとは限らないため、タブA→保護ページを再度辿って
-# 認証済み状態の RequireAuth 分岐(children 描画)が表示されることを確認する。
-# 段階的にアサートし、失敗時にどこまで到達したかを CI ログから追えるようにする。
+# サインイン成功: ルート Stack.Protected が /sign-in を弾く。診断で判明した挙動:
+# active tab は anchor である (tabs) の先頭タブ (home) にリセットされるが、tab-a 内の
+# Stack は [index, protected] のまま保持されている。したがってタブAをタップすれば
+# 直接 /tab-a/protected に戻り、そこの RequireAuth が session の更新を反映して
+# children を描画する(= "RequireAuth でラップされている" が見える)ことを検証する。
 - assertVisible: "ホーム" # (tabs) の tab bar 復帰確認
-# 診断プローブ: tab-a 経路からのサインインで session が反映されているか(home 側の認証済みリンク
-# 「マイページ」が出るか) をまず確認する。auth.yaml の home 経路ではここが必ず成立している。
-# ここで「サインインのサンプル」が出るようなら session が消えている(=真のバグ)ため、
-# yaml をこれ以上ひねっても解決しない
-- tapOn: "ホーム"
-- assertVisible: "マイページ"
 - tapOn: "タブA"
-- assertVisible: "タブA トップ" # tab-a index に到達したことを確認(tab-a index 固有の見出し)
-- tapOn: "保護ページへ"
-- extendedWaitUntil:
-    visible: "RequireAuth でラップされている"
-    timeout: 10000
+- assertVisible: "RequireAuth でラップされている"
 - assertNotVisible: "このページの閲覧にはサインインが必要です。"
