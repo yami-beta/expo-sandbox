@@ -1,13 +1,17 @@
-# tab-a/protected(RequireAuth で既存ページに後付けした保護)の未認証時の E2E フロー。
-# 未認証で /tab-a/protected を開くと RequireAuth の案内表示になり、サインイン画面への導線
-# (「サインイン画面へ」Link)から /sign-in へ push で遷移できることを検証する。
-# 「サインイン後に元の保護ページへ戻って認証済みコンテンツが表示される」動作は、Stack.Protected
-# フォールバックと react-native-screens のタブ状態保持の相互作用でこの環境の Maestro からは
-# 安定して検証できないため、この E2E からは切り出し済み(コードレビューと features/auth の
-# ユニットテスト、および auth.yaml の /account 経路で担保している)。
-# ここでの RequireAuth は replace を指定しない(既定 push)ので、未認証で開いてサインイン画面
-# 導線から /sign-in に進み、そこから back すれば元のページに戻れる設計(features/auth/
-# RequireAuth.tsx 参照)。
+# tab-a/protected(RequireAuth で既存ページに後付けした保護)の E2E フロー。
+# 未認証で /tab-a/protected を開くと RequireAuth の未認証案内が表示され、そこから
+# /sign-in へ Link で進んでサインインすると、ルート Stack の Stack.Protected が
+# /sign-in を弾き、tab-a Stack top に残っていた /tab-a/protected に自動で戻り、
+# RequireAuth の children ブランチ(認証済みコンテンツ)が描画されることを検証する。
+#
+# ローカル(Android エミュレータ)実機で「サインイン後、保護ページが自動的に開く」ことを
+# ユーザーが確認済み(2026-07-22)。CI ではこれまで tap "タブA" を挟んだために既に active な
+# tab の再タップで pop-to-root が起きて tab-a index に戻ってしまい、認証済みコンテンツを
+# assert できなかった。tap "タブA" を省いてサインイン直後に直接 assert することで、
+# ローカルと同じ状態を CI でも検証する。
+# ここでの RequireAuth は replace を指定しない(既定 push)ので、未認証で開いた後 /sign-in
+# にサインインすると、Stack.Protected 経由で元のページに戻ってこられる設計
+# (features/auth/RequireAuth.tsx 参照)。
 # アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
 # （docs/maestro.md「フローの書き方」参照）。
 # 表示テキストは lingui の <Trans>/t（sourceLocale=ja）。auth.yaml と同様、「サインインする」
@@ -21,3 +25,12 @@ appId: com.yamibeta.sandbox
 - assertVisible: "このページの閲覧にはサインインが必要です。"
 - tapOn: "サインイン画面へ"
 - assertVisible: "サインインする"
+- tapOn: "^サインインする$"
+# サインイン成功: Stack.Protected が /sign-in を弾き、tab-a Stack top に残っていた
+# /tab-a/protected に自動で戻る。ここで tap "タブA" などを挟むと、既に active な tab の
+# 再タップで pop-to-root が起きて tab-a index まで戻ってしまうため、追加のナビゲーション
+# 操作は一切せず、その場で認証済みコンテンツが描画されているかを直接 assert する。
+- extendedWaitUntil:
+    visible: "RequireAuth でラップされている"
+    timeout: 10000
+- assertNotVisible: "このページの閲覧にはサインインが必要です。"
