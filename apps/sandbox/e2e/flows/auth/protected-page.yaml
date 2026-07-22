@@ -5,10 +5,14 @@
 # RequireAuth の children ブランチ(認証済みコンテンツ)が描画されることを検証する。
 #
 # ローカル(Android エミュレータ)実機で「サインイン後、保護ページが自動的に開く」ことを
-# ユーザーが確認済み(2026-07-22)。CI ではこれまで tap "タブA" を挟んだために既に active な
-# tab の再タップで pop-to-root が起きて tab-a index に戻ってしまい、認証済みコンテンツを
-# assert できなかった。tap "タブA" を省いてサインイン直後に直接 assert することで、
-# ローカルと同じ状態を CI でも検証する。
+# ユーザーが確認済み(2026-07-22)。CI(google_atd + swiftshader_indirect のソフトウェア
+# レンダラー)では同じ遷移が local よりかなり遅く、adb uiautomator dump による直接確認で
+# 「時間をかければ正しく children が描画される」ことを確認済み(単なる速度差であり、
+# app 側のバグではない)。そのため、この CI 環境の速度に合わせて extendedWaitUntil の
+# timeout を長めに確保している。
+#
+# tap "タブA" 等の追加ナビゲーションは挟まない(既に active な tab の再タップで
+# pop-to-root が起きるため)。
 # ここでの RequireAuth は replace を指定しない(既定 push)ので、未認証で開いた後 /sign-in
 # にサインインすると、Stack.Protected 経由で元のページに戻ってこられる設計
 # (features/auth/RequireAuth.tsx 参照)。
@@ -26,14 +30,7 @@ appId: com.yamibeta.sandbox
 - tapOn: "サインイン画面へ"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
-- waitForAnimationToEnd:
-    timeout: 5000
-# 一時追加(デバッグ用): header title "保護ページ" は Stack.Screen.Title が RequireAuth の
-# 外側に書かれているため常に表示される(認証状態の判別材料にならない、と判明済み)。
-# ここでは本来の期待値(RequireAuth の children ブランチ)を直接 assert し、失敗した場合は
-# ワークフロー側で UI 階層ダンプ(screencap 経由のスクリーンショットが真っ黒になるため、
-# テキストベースのダンプを使う)から実際の描画内容を確認する。
 - extendedWaitUntil:
     visible: "RequireAuth でラップされている"
-    timeout: 15000
+    timeout: 45000
 - assertNotVisible: "このページの閲覧にはサインインが必要です。"

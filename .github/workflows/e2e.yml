@@ -230,30 +230,7 @@ jobs:
           # -e DEV_CLIENT=true により、smoke.yaml が呼ぶ launch-app.yaml が clearState → ディープリンク
           # （openLink）で Metro へ再接続する（apps/sandbox/e2e/common/launch-app.yaml 参照）。
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
-          #
-          # 一時追加（デバッグ用）: protected-page.yaml を単独実行し、直後に UI 階層テキストを
-          # ダンプする。screencap によるスクリーンショットがこの環境では常に真っ黒になる
-          # (swiftshader ソフトウェアレンダラーの framebuffer 読み取り不具合と推測)ため、
-          # UI Automator のテキストベースのダンプで実際の描画内容を確認する。
-          # 原因判明後、この一時的な分割実行は元の一括実行に戻す。
-          mkdir -p "$RUNNER_TEMP/diag"
-          maestro test -e DEV_CLIENT=true apps/sandbox/e2e/flows/auth/auth.yaml --format junit --output maestro-report-auth.xml --debug-output ./maestro-debug
-
-          set +e
-          maestro test -e DEV_CLIENT=true apps/sandbox/e2e/flows/auth/protected-page.yaml --format junit --output maestro-report-protected.xml --debug-output ./maestro-debug
-          PROTECTED_PAGE_EXIT=$?
-          set -e
-
-          adb shell uiautomator dump /sdcard/ui-after-protected.xml
-          adb pull /sdcard/ui-after-protected.xml "$RUNNER_TEMP/diag/ui-after-protected.xml"
-          echo "=== protected-page 直後の UI に表示中のテキスト(全件) ==="
-          grep -oE 'text="[^"]*"' "$RUNNER_TEMP/diag/ui-after-protected.xml" | grep -v 'text=""'
-
-          maestro test -e DEV_CLIENT=true apps/sandbox/e2e/flows/home/smoke.yaml --format junit --output maestro-report-smoke.xml --debug-output ./maestro-debug
-
-          # protected-page が失敗していた場合、診断採取後にここで改めて失敗させる
-          # (診断のために一時的に握りつぶした失敗を、ジョブの成否には正しく反映させる)
-          exit "$PROTECTED_PAGE_EXIT"
+          maestro test -e DEV_CLIENT=true apps/sandbox/e2e/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
       # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
       # スクショ・ロケール・前面 activity・UI 階層テキストを adb で直接取得する）
@@ -292,7 +269,6 @@ jobs:
           path: |
             maestro-report.xml
             maestro-debug
-            *.png
             ${{ runner.temp }}/expo-run.log
             ${{ runner.temp }}/diag
           retention-days: 7
