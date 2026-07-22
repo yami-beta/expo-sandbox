@@ -27,6 +27,12 @@ appId: com.yamibeta.sandbox
 # 認証済み状態の RequireAuth 分岐(children 描画)が表示されることを確認する。
 # 段階的にアサートし、失敗時にどこまで到達したかを CI ログから追えるようにする。
 - assertVisible: "ホーム" # (tabs) の tab bar 復帰確認
+# 診断プローブ: tab-a 経路からのサインインで session が反映されているか(home 側の認証済みリンク
+# 「マイページ」が出るか) をまず確認する。auth.yaml の home 経路ではここが必ず成立している。
+# ここで「サインインのサンプル」が出るようなら session が消えている(=真のバグ)ため、
+# yaml をこれ以上ひねっても解決しない
+- tapOn: "ホーム"
+- assertVisible: "マイページ"
 - tapOn: "タブA"
 - assertVisible: "タブA トップ" # tab-a index に到達したことを確認(tab-a index 固有の見出し)
 - tapOn: "保護ページへ"
