@@ -8,8 +8,8 @@
 # ユーザーが確認済み(2026-07-22)。CI(google_atd + swiftshader_indirect のソフトウェア
 # レンダラー)では同じ遷移が local よりかなり遅く、adb uiautomator dump による直接確認で
 # 「時間をかければ正しく children が描画される」ことを確認済み(単なる速度差であり、
-# app 側のバグではない)。そのため、この CI 環境の速度に合わせて extendedWaitUntil の
-# timeout を長めに確保している。
+# app 側のバグではない)。45秒でも足りず1分5秒かかったケースが観測されているため、
+# この CI 環境のばらつきを吸収できるよう timeout を大きめに確保している。
 #
 # tap "タブA" 等の追加ナビゲーションは挟まない(既に active な tab の再タップで
 # pop-to-root が起きるため)。
@@ -32,5 +32,5 @@ appId: com.yamibeta.sandbox
 - tapOn: "^サインインする$"
 - extendedWaitUntil:
     visible: "RequireAuth でラップされている"
-    timeout: 45000
+    timeout: 90000
 - assertNotVisible: "このページの閲覧にはサインインが必要です。"
