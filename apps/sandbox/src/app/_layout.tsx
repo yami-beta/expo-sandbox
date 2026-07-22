@@ -19,21 +19,29 @@ import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
 import { initializeI18n } from "../i18n/locale";
 import { LocaleProvider } from "../i18n/LocaleContext";
 import { SessionProvider } from "../features/auth/SessionContext";
+import { useSession } from "../features/auth/useSession";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
 
 function RootLayoutContent() {
   const { colorScheme, tokens } = useTheme();
+  const { session } = useSession();
 
   return (
     <>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* RequireAuth のフォールバック・ホーム画面のリンク等からの遷移先。通常のページ遷移で、
-            戻る操作で呼び出し元のページへ戻れる */}
-        <Stack.Screen name="sign-in" />
+        {/* 認証済みで /sign-in へ遷移しようとした場合は Stack.Protected のフォールバックで
+            ルートStackの先頭にある (tabs) に戻される(既にサインイン済みならサインイン画面を
+            見せる必要が無いという使い分け)。未認証時はホームや RequireAuth の Link から
+            通常の push で開ける */}
+        <Stack.Protected guard={!session}>
+          <Stack.Screen name="sign-in" />
+        </Stack.Protected>
+        {/* RequireAuth のフォールバックとホーム画面「マイページ」リンクからの遷移先。
+            未認証で直接開かれた場合は RequireAuth が案内 + サインイン画面への導線を出す */}
         <Stack.Screen name="account" />
         <Stack.Screen
           name="expo-ui/onboarding/index"

@@ -1,20 +1,21 @@
-# サインイン(グローバル /sign-in)→マイページ(/account、RequireAuthで保護)の E2E フロー。
-# サインアウト後、/account がその場で RequireAuth の未認証表示に切り替わること(遷移しない)、
-# /sign-in ⇔ /account の往復を2周しても遷移スタックが積み上がらないこと(2周目の終わりに
-# back を1回押すだけで home まで戻れること)を検証する。
-# /sign-in ⇔ /account はどちらも RequireAuth/SignInGate から replace で遷移しており
-# (features/auth/RequireAuth.tsx・SignInGate.tsx 参照)、往復のたびに push で積み上がっていた
-# 不具合の再発防止を兼ねる。
+# サインイン(グローバル /sign-in、Stack.Protectedで認証済みだと anchor に戻される)→
+# サインイン成功で home に自動フォールバック→ home 経由でマイページ(/account、RequireAuthで保護)→
+# サインアウト後 /account がその場で RequireAuth の未認証表示に切り替わる、という一連のフローを検証する。
+# さらに /sign-in ⇔ /account の往復を2周しても遷移スタックが積み上がらないこと(2周目の終わりに
+# back を1回押すだけで home まで戻れること)も確認する。往復は RequireAuth/account.tsx から replace で
+# 行っている(features/auth/RequireAuth.tsx・app/account.tsx 参照)。
 # アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
 # （docs/maestro.md「フローの書き方」参照）。
 # 表示テキストは lingui の <Trans>（sourceLocale=ja）。Maestro の assertVisible/tapOn は部分一致のため、
-# 裸の「サインイン」は使わない: サインイン画面のタイトル「サインイン」・ボタン「サインインする」・
-# 認証済み画面（マイページ）の本文「サインインしています。」がいずれも「サインイン」を部分文字列として
-# 含み、サインアウトが機能せず認証済み画面に留まるバグがあっても誤ってパスしてしまうため。
-# ボタン文言「サインインする」に統一して assertVisible/tapOn する。
+# 裸の「サインイン」は使わない: サインイン画面のタイトル「サインイン」・ボタン「サインインする」が
+# いずれも「サインイン」を部分文字列として含み、サインアウトが機能せず認証済み画面に留まるバグがあっても
+# 誤ってパスしてしまうため。ボタン文言「サインインする」に統一して assertVisible/tapOn する。
 # なお SignInScreen の本文（「タップすると即座にサインインするサンプルです…」）自体が
 # 「サインインする」を部分文字列として含むため、tapOn は正規表現アンカー（^$）でボタン文言に
 # 完全一致させ、本文を誤ってタップしないようにする。
+# 「マイページ」は home のサンプル一覧の項目タイトルで、未認証時のリンク「サインインのサンプル」
+# (description=「サインイン画面のデモ」)には登場しないため、サインイン成功後の状態を検証する
+# 目印として使える。
 appId: com.yamibeta.sandbox
 ---
 - runFlow: ../../common/launch-app.yaml
@@ -22,8 +23,11 @@ appId: com.yamibeta.sandbox
 - tapOn: "サインインのサンプル"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
-- assertVisible: "マイページへ"
-- tapOn: "マイページへ"
+# サインイン成功: Stack.Protected が /sign-in をフィルタし、anchor である (tabs) にフォールバック。
+# home に自動的に戻り、認証状態に合わせて「マイページ」リンクが表示される
+- assertVisible: "マイページ"
+- assertVisible: "ホーム"
+- tapOn: "^マイページ$"
 - assertVisible: "サインアウト"
 - tapOn: "サインアウト"
 - assertVisible: "このページの閲覧にはサインインが必要です。"
@@ -31,8 +35,9 @@ appId: com.yamibeta.sandbox
 - tapOn: "サインイン画面へ"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
-- assertVisible: "マイページへ"
-- tapOn: "マイページへ"
+- assertVisible: "マイページ"
+- assertVisible: "ホーム"
+- tapOn: "^マイページ$"
 - assertVisible: "サインアウト"
 - tapOn: "サインアウト"
 - assertVisible: "このページの閲覧にはサインインが必要です。"
