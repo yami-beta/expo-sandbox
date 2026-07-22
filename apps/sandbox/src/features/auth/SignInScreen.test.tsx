@@ -5,8 +5,10 @@ import { SignInScreen } from "./SignInScreen";
 
 // AuthenticatedScreen.test.tsx と同型: useSession を直接モックし、
 // SessionProvider / expo-secure-store は一切介在させない。
-// サインイン後の画面遷移は Stack.Protected のガード再評価のみで行われる
-// (auth-protected-routes.test.tsx 側で検証済み) ため、expo-router のモックは不要。
+// SignInScreen 自体はナビゲーションを一切行わない(signIn() を呼ぶだけ)。
+// signIn() 後の遷移はルート Stack の Stack.Protected(app/_layout.tsx)が session の変化を
+// 見て /sign-in をフィルタし、anchor((tabs))へフォールバックさせるため、expo-router の
+// モックは不要。
 const mockUseSession = jest.fn();
 jest.mock("./useSession", () => ({
   useSession: () => mockUseSession(),

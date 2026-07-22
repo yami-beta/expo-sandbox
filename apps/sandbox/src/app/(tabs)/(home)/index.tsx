@@ -1,6 +1,7 @@
 import { Ionicons } from "@react-native-vector-icons/ionicons/static";
 import { Stack } from "expo-router";
 import { Trans, useLingui } from "@lingui/react/macro";
+import { useSession } from "../../../features/auth/useSession";
 import { GroupedList, type ListSection } from "../../../components/grouped-list/GroupedList";
 import { Icon } from "../../../components/icon/Icon";
 import { useTheme } from "../../../theme/useTheme";
@@ -8,6 +9,40 @@ import { useTheme } from "../../../theme/useTheme";
 export default function Index() {
   const { t } = useLingui();
   const { tokens } = useTheme();
+  const { session } = useSession();
+  // 認証状態でサンプルの導線を出し分ける(session の判定は他の auth 関連コンポーネントと
+  // 同じく falsy チェックで揃える)。
+  // 未認証: /sign-in へのリンク。認証済み: /sign-in は Stack.Protected でフィルタされ
+  // 遷移しても anchor に戻るだけになるため、代わりに /account への導線を見せる。
+  const authSampleItem = session
+    ? ({
+        href: "/account",
+        text: <Trans>マイページ</Trans>,
+        description: <Trans>サインイン済みユーザー向けのマイページ画面のデモ</Trans>,
+        leadingIcon: (
+          <Ionicons
+            name="person-circle-outline"
+            size={22}
+            color={tokens.color.text.secondary}
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+          />
+        ),
+      } as const)
+    : ({
+        href: "/sign-in",
+        text: <Trans>サインインのサンプル</Trans>,
+        description: <Trans>サインイン画面のデモ</Trans>,
+        leadingIcon: (
+          <Ionicons
+            name="log-in-outline"
+            size={22}
+            color={tokens.color.text.secondary}
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+          />
+        ),
+      } as const);
 
   const sections = [
     {
@@ -64,20 +99,7 @@ export default function Index() {
             />
           ),
         },
-        {
-          href: "/auth",
-          text: <Trans>ログイン処理のサンプル</Trans>,
-          description: <Trans>Protected Routes によるサインイン/サインアウトのデモ</Trans>,
-          leadingIcon: (
-            <Ionicons
-              name="log-in-outline"
-              size={22}
-              color={tokens.color.text.secondary}
-              accessibilityElementsHidden={true}
-              importantForAccessibility="no-hide-descendants"
-            />
-          ),
-        },
+        authSampleItem,
       ],
     },
     {

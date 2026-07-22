@@ -30,6 +30,9 @@ export default function TabAIndex(): ReactElement {
         <Link href="/tab-b/detail" asChild>
           <Button variant="soft">{t`タブB 詳細へ cross-tab`}</Button>
         </Link>
+        <Link href="/tab-a/protected" asChild>
+          <Button variant="soft">{t`保護ページへ`}</Button>
+        </Link>
       </ScreenScrollView>
     </>
   );

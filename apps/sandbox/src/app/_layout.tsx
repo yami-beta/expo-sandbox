@@ -18,18 +18,37 @@ import { buildStackScreenOptions } from "../theme/navigationScreenOptions";
 import { closeHeaderBackIcon } from "../theme/headerCloseIcon";
 import { initializeI18n } from "../i18n/locale";
 import { LocaleProvider } from "../i18n/LocaleContext";
+import { SessionProvider } from "../features/auth/SessionContext";
+import { useSession } from "../features/auth/useSession";
 
 // アプリ起動時に一度だけi18nを初期化（デバイスの言語設定を読み込む）
 initializeI18n();
 
 function RootLayoutContent() {
   const { colorScheme, tokens } = useTheme();
+  const { session } = useSession();
 
   return (
     <>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <Stack screenOptions={buildStackScreenOptions(tokens.color, colorScheme)}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* 認証済みで /sign-in へ遷移しようとした場合は Stack.Protected のフォールバックで
+            ルートStackの先頭にある (tabs) に戻される(既にサインイン済みならサインイン画面を
+            見せる必要が無いという使い分け)。未認証時はホームや RequireAuth の Link から
+            通常の push で開ける。
+            guard には isLoading を含めない: session 読み込み中(isLoading=true)は /sign-in の
+            表示を許可し、読み込み後に session が真なら (tabs) にフォールバックさせる。
+            isLoading を弾く条件(!isLoading && !session)にすると、未認証でのコールドスタート時に
+            /sign-in へディープリンクした際にも一瞬弾いてしまう副作用の方が痛いため、こちらは避ける。
+            認証済みで /sign-in にディープリンクした場合は一瞬 SignInScreen が見えるが、
+            「戻される画面」(見る必要がない画面)の方針として許容する。 */}
+        <Stack.Protected guard={!session}>
+          <Stack.Screen name="sign-in" />
+        </Stack.Protected>
+        {/* RequireAuth のフォールバックとホーム画面「マイページ」リンクからの遷移先。
+            未認証で直接開かれた場合は RequireAuth が案内 + サインイン画面への導線を出す */}
+        <Stack.Screen name="account" />
         <Stack.Screen
           name="expo-ui/onboarding/index"
           options={{
@@ -133,7 +152,9 @@ export default function RootLayout() {
     <I18nProvider i18n={i18n}>
       <LocaleProvider>
         <ThemeProvider>
-          <RootLayoutContent />
+          <SessionProvider>
+            <RootLayoutContent />
+          </SessionProvider>
         </ThemeProvider>
       </LocaleProvider>
     </I18nProvider>

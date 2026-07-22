@@ -66,7 +66,7 @@ msgstr "「閉じる」ボタン、iOS の swipe down、Android の戻る操作�
 msgid "@expo/ui の Drop-in replacements を試しています。既存ライブラリと同じ API のままネイティブ実装に置き換えられるのが便利。"
 msgstr "@expo/ui の Drop-in replacements を試しています。既存ライブラリと同じ API のままネイティブ実装に置き換えられるのが便利。"
 
-#: src/app/(tabs)/(home)/index.tsx:42
+#: src/app/(tabs)/(home)/index.tsx:77
 msgid "@expo/ui のネイティブ UI サンプル"
 msgstr "@expo/ui のネイティブ UI サンプル"
 
@@ -256,7 +256,7 @@ msgid "Drop-in replacements"
 msgstr "Drop-in replacements"
 
 #: src/app/(tabs)/(home)/expo-ui/index.tsx:61
-#: src/app/(tabs)/(home)/index.tsx:41
+#: src/app/(tabs)/(home)/index.tsx:76
 msgid "Expo UI"
 msgstr "Expo UI"
 
@@ -315,7 +315,7 @@ msgstr "headerBackVisible: false でヘッダー左を非表示"
 msgid "Host 配下を iOS は SwiftUI、Android は Jetpack Compose で描画するクロスプラットフォームコンポーネント。@expo/ui は新しいパッケージのため API は変わる可能性があります。"
 msgstr "Host 配下を iOS は SwiftUI、Android は Jetpack Compose で描画するクロスプラットフォームコンポーネント。@expo/ui は新しいパッケージのため API は変わる可能性があります。"
 
-#: src/app/(tabs)/(home)/index.tsx:34
+#: src/app/(tabs)/(home)/index.tsx:69
 msgid "Icon / Button / Card など"
 msgstr "Icon / Button / Card など"
 
@@ -494,7 +494,7 @@ msgstr "Picker。iOS はホイール、Android はドロップダウン"
 msgid "Presentation オプション"
 msgstr "Presentation オプション"
 
-#: src/app/(tabs)/(home)/index.tsx:20
+#: src/app/(tabs)/(home)/index.tsx:55
 msgid "presentation オプションのデモ"
 msgstr "presentation オプションのデモ"
 
@@ -510,10 +510,6 @@ msgstr "presentation 形式は modal だが、Android では animation 未指定
 msgid "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 msgstr "presentation 形式は modal になるが、画面遷移アニメーションは独立した `animation` プロパティで決まる。`animation` 未指定だと `card` と同じ OS 標準の遷移 (多くは右からスライド) になり、iOS のような「下から上」にはならない。下から上 にしたい場合は `animation: slide_from_bottom` を明示する。ルート Stack に出るので 遷移先ではタブバーが消える。戻るボタン / システムジェスチャーで閉じられる。"
 
-#: src/app/(tabs)/(home)/index.tsx:70
-msgid "Protected Routes によるサインイン/サインアウトのデモ"
-msgstr "Protected Routes によるサインイン/サインアウトのデモ"
-
 #: src/app/(tabs)/tab-a/detail.tsx:39
 msgid "push と navigate の違い"
 msgstr "push と navigate の違い"
@@ -522,11 +518,11 @@ msgstr "push と navigate の違い"
 msgid "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 msgstr "push ボタンを数回押すと画面数が増えます。その後 navigate ボタンを押すと、最初の詳細まで戻り（重複を作らず）画面数が減ります。"
 
-#: src/app/(tabs)/(home)/index.tsx:90
+#: src/app/(tabs)/(home)/index.tsx:112
 msgid "React Query / fetch サンプル (準備中)"
 msgstr "React Query / fetch サンプル (準備中)"
 
-#: src/app/(tabs)/(home)/index.tsx:55
+#: src/app/(tabs)/(home)/index.tsx:90
 #: src/app/(tabs)/(home)/redirect/index.tsx:11
 msgid "Redirect"
 msgstr "Redirect"
@@ -736,12 +732,20 @@ msgstr "このタブの Stack は anchor を指定していません。まず「
 msgid "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 msgstr "このタブの Stack は anchor: index を設定しています。ただし anchor が効くのはコールド起動のディープリンク時のみで、アプリ内の遷移では無視されます（index は既定の初期ルートなので明示は冗長です）。"
 
+#: src/features/auth/RequireAuth.tsx:43
+msgid "このページの閲覧にはサインインが必要です。"
+msgstr "このページの閲覧にはサインインが必要です。"
+
+#: src/app/(tabs)/tab-a/protected.tsx:18
+msgid "このページは RequireAuth でラップされているため、未認証では表示されず案内とサインイン導線に置き換わります。どのタブ・どの Stack にあるページでも、同じコンポーネントで包むだけで保護を後付けできます。"
+msgstr "このページは RequireAuth でラップされているため、未認証では表示されず案内とサインイン導線に置き換わります。どのタブ・どの Stack にあるページでも、同じコンポーネントで包むだけで保護を後付けできます。"
+
 #: src/app/expo-ui/onboarding/index.tsx:81
 msgid "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
 msgstr "このページ送りは PagerView によるもので、iOS / Android それぞれのネイティブ実装でスワイプが動きます。"
 
 #: src/app/(tabs)/(home)/components/index.tsx:45
-#: src/app/(tabs)/(home)/index.tsx:33
+#: src/app/(tabs)/(home)/index.tsx:68
 msgid "コンポーネント"
 msgstr "コンポーネント"
 
@@ -749,7 +753,7 @@ msgstr "コンポーネント"
 msgid "サインアウト"
 msgstr "サインアウト"
 
-#: src/app/(tabs)/(home)/auth/sign-in.tsx:10
+#: src/app/sign-in.tsx:15
 msgid "サインイン"
 msgstr "サインイン"
 
@@ -761,7 +765,23 @@ msgstr "サインインしています。"
 msgid "サインインする"
 msgstr "サインインする"
 
-#: src/app/(tabs)/(home)/index.tsx:14
+#: src/app/(tabs)/(home)/index.tsx:34
+msgid "サインインのサンプル"
+msgstr "サインインのサンプル"
+
+#: src/app/(tabs)/(home)/index.tsx:21
+msgid "サインイン済みユーザー向けのマイページ画面のデモ"
+msgstr "サインイン済みユーザー向けのマイページ画面のデモ"
+
+#: src/app/(tabs)/(home)/index.tsx:35
+msgid "サインイン画面のデモ"
+msgstr "サインイン画面のデモ"
+
+#: src/features/auth/RequireAuth.tsx:47
+msgid "サインイン画面へ"
+msgstr "サインイン画面へ"
+
+#: src/app/(tabs)/(home)/index.tsx:49
 msgid "サンプル"
 msgstr "サンプル"
 
@@ -789,6 +809,10 @@ msgstr "スプラッシュ → 本体や、内容だけ差し替えたい画面�
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:41
 msgid "スポーツ"
 msgstr "スポーツ"
+
+#: src/app/(tabs)/tab-a/protected.tsx:21
+msgid "セッションはグローバルなサインイン画面・マイページ(/account)と共有しています。そちらでサインイン/サインアウトすると、このページの表示もあわせて切り替わります。"
+msgstr "セッションはグローバルなサインイン画面・マイページ(/account)と共有しています。そちらでサインイン/サインアウトすると、このページの表示もあわせて切り替わります。"
 
 #: src/app/(tabs)/(home)/expo-ui/event-form/index.tsx:42
 msgid "その他"
@@ -902,7 +926,7 @@ msgstr "タブ内 Stack 上の全画面モーダル"
 msgid "タブ内 Stack 上の背景透過モーダル"
 msgstr "タブ内 Stack 上の背景透過モーダル"
 
-#: src/app/(tabs)/(home)/index.tsx:89
+#: src/app/(tabs)/(home)/index.tsx:111
 msgid "データ取得"
 msgstr "データ取得"
 
@@ -919,7 +943,7 @@ msgstr "テーマ"
 msgid "デフォルトの戻る ←"
 msgstr "デフォルトの戻る ←"
 
-#: src/app/(tabs)/(home)/index.tsx:19
+#: src/app/(tabs)/(home)/index.tsx:54
 #: src/app/(tabs)/(home)/navigation-patterns/index.tsx:38
 msgid "ナビゲーションパターン"
 msgstr "ナビゲーションパターン"
@@ -1053,7 +1077,7 @@ msgid "ヘッダー左の戻るボタン、または OS のジェスチャーで
 msgstr "ヘッダー左の戻るボタン、または OS のジェスチャーで前画面に戻る。戻り (pop) も同じく クロスフェードになる。animation 未指定の in-tab 版 (右からスライド) との差分を見比べると 分かりやすい。"
 
 #: src/app/(tabs)/_layout.tsx:27
-#: src/app/(tabs)/(home)/index.tsx:107
+#: src/app/(tabs)/(home)/index.tsx:129
 msgid "ホーム"
 msgstr "ホーム"
 
@@ -1061,7 +1085,8 @@ msgstr "ホーム"
 msgid "ボタン"
 msgstr "ボタン"
 
-#: src/app/(tabs)/(home)/auth/index.tsx:10
+#: src/app/(tabs)/(home)/index.tsx:20
+#: src/app/account.tsx:11
 msgid "マイページ"
 msgstr "マイページ"
 
@@ -1174,10 +1199,6 @@ msgstr "ルート Stack 画面へ"
 msgid "ルート Stack 画面へ（タブバーを覆う）"
 msgstr "ルート Stack 画面へ（タブバーを覆う）"
 
-#: src/app/(tabs)/(home)/index.tsx:69
-msgid "ログイン処理のサンプル"
-msgstr "ログイン処理のサンプル"
-
 #: src/app/(tabs)/settings/index.tsx:32
 msgid "一般"
 msgstr "一般"
@@ -1210,6 +1231,15 @@ msgstr "保存"
 #: src/app/(tabs)/(home)/expo-ui/profile-edit/index.tsx:55
 msgid "保存しました: {0}"
 msgstr "保存しました: {0}"
+
+#: src/app/(tabs)/tab-a/protected.tsx:13
+#: src/app/(tabs)/tab-a/protected.tsx:16
+msgid "保護ページ"
+msgstr "保護ページ"
+
+#: src/app/(tabs)/tab-a/index.tsx:34
+msgid "保護ページへ"
+msgstr "保護ページへ"
 
 #. placeholder {0}: page + 1
 #: src/app/expo-ui/onboarding/index.tsx:101
@@ -1366,7 +1396,7 @@ msgstr "既定の OS 標準遷移 (多くは右からスライド) ではなく�
 msgid "次へ"
 msgstr "次へ"
 
-#: src/app/(tabs)/(home)/index.tsx:84
+#: src/app/(tabs)/(home)/index.tsx:106
 msgid "準備中"
 msgstr "準備中"
 
@@ -1465,6 +1495,7 @@ msgid "詳細設定"
 msgstr "詳細設定"
 
 #: src/features/auth/AuthenticatedScreen.tsx:20
+#: src/features/auth/RequireAuth.tsx:32
 #: src/features/auth/SignInScreen.tsx:20
 msgid "読み込み中…"
 msgstr "読み込み中…"
@@ -1523,7 +1554,7 @@ msgstr "開始時刻"
 msgid "非公開"
 msgstr "非公開"
 
-#: src/app/(tabs)/(home)/index.tsx:56
+#: src/app/(tabs)/(home)/index.tsx:91
 msgid "非同期処理の完了後に画面遷移するサンプル"
 msgstr "非同期処理の完了後に画面遷移するサンプル"
 

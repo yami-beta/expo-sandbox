@@ -98,7 +98,6 @@ export default function HomeLayout() {
         name="navigation-patterns/form-sheet/in-tab"
         options={{ presentation: "formSheet", sheetGrabberVisible: true }}
       />
-      <Stack.Screen name="auth" options={{ headerShown: false }} />
     </Stack>
   );
 }
