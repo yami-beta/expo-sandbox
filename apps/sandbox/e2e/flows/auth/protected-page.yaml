@@ -28,13 +28,9 @@ appId: com.yamibeta.sandbox
 - tapOn: "^サインインする$"
 - waitForAnimationToEnd:
     timeout: 5000
-# 前回(711593c)の実行結果:
-# - assertVisible "^保護ページ$" → PASS(/tab-a/protected の header に到達)
-# - extendedWaitUntil "RequireAuth でラップされている" → FAIL(children 未描画)
-# つまり /tab-a/protected には居るのに RequireAuth の children ブランチが描画されていない。
-# 今回の diag: unauth 案内が可視化されているかを直接確認する。
-# これが可視化されれば「session context の更新が RequireAuth まで届いていない」ことになる
-# (session はグローバルに truthy になっているが RequireAuth 側は古い state で描画している)。
-- assertVisible: "^保護ページ$"
-- assertVisible: "このページの閲覧にはサインインが必要です。"
-- assertNotVisible: "RequireAuth でラップされている"
+# 一時追加(デバッグ用): これまでの CI 診断ラウンドで、header title "保護ページ" は
+# Stack.Screen.Title が RequireAuth の外側に書かれているため常に表示される(認証状態と無関係)
+# と判明した。body 側テキスト(children/未認証案内/isLoading)がいずれも見えないまま CI が
+# 失敗し続けているため、実画面を直接スクリーンショットで確認する。原因判明後にこの
+# takeScreenshot は削除する。
+- takeScreenshot: protected-page-after-signin

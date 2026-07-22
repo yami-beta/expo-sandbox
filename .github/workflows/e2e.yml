@@ -230,6 +230,10 @@ jobs:
           # -e DEV_CLIENT=true により、smoke.yaml が呼ぶ launch-app.yaml が clearState → ディープリンク
           # （openLink）で Metro へ再接続する（apps/sandbox/e2e/common/launch-app.yaml 参照）。
           # 失敗時のスクショ/ログは maestro の --debug-output（maestro-debug/）に出力される
+          #
+          # 一時追加（デバッグ用）: protected-page.yaml が原因調査中のフローのため takeScreenshot
+          # 呼び出しを含む。生成された PNG は cwd（このステップは working-directory 未指定 = リポジトリ
+          # ルート）に保存される。原因判明後、この一時追加は元に戻す。
           maestro test -e DEV_CLIENT=true apps/sandbox/e2e/ --format junit --output maestro-report.xml --debug-output ./maestro-debug
 
       # maestro 失敗時も画面状態を確実に記録する（maestro --debug-output が空のことがあるため、
@@ -269,6 +273,7 @@ jobs:
           path: |
             maestro-report.xml
             maestro-debug
+            *.png
             ${{ runner.temp }}/expo-run.log
             ${{ runner.temp }}/diag
           retention-days: 7
