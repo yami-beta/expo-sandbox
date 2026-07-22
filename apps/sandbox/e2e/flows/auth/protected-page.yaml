@@ -25,7 +25,7 @@ appId: com.yamibeta.sandbox
 # サインイン成功: ルート Stack.Protected が /sign-in を弾き (tabs) に戻る。
 # active tab / tab-a 内の Stack が保持されるとは限らないため、タブA→保護ページを再度辿って
 # 認証済み状態の RequireAuth 分岐(children 描画)が表示されることを確認する
-- assertVisible: "ホーム"                     # (tabs) の tab bar に戻ったことのアンカー
+- assertVisible: "ホーム" # (tabs) の tab bar に戻ったことのアンカー
 - tapOn: "タブA"
 - tapOn: "保護ページへ"
 - assertVisible: "RequireAuth でラップされている"
