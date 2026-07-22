@@ -27,13 +27,15 @@ appId: com.yamibeta.sandbox
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
 # サインイン成功: Stack.Protected が /sign-in を弾き、tab-a Stack top に残っていた
-# /tab-a/protected に自動で戻る。ここで tap "タブA" などを挟むと、既に active な tab の
-# 再タップで pop-to-root が起きて tab-a index まで戻ってしまうため、追加のナビゲーション
-# 操作は一切せず、その場で認証済みコンテンツが描画されているかを直接 assert する。
+# /tab-a/protected に自動で戻る。追加のナビゲーション操作は挟まない(既に active な tab の
+# 再タップで pop-to-root が起きるため)。
 # waitForAnimationToEnd で Stack.Protected 経路の transition と /tab-a/protected 再描画の
 # 完了を待つ(CI 環境の emulator では local より遅い可能性があるため)
 - waitForAnimationToEnd:
     timeout: 5000
+# 診断: まず /tab-a/protected の header に到達しているか(Stack.Screen.Title "保護ページ")を確認
+- assertVisible: "^保護ページ$"
+# その上で RequireAuth の children ブランチが描画されているかを確認
 - extendedWaitUntil:
     visible: "RequireAuth でラップされている"
     timeout: 15000
