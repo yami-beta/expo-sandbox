@@ -765,15 +765,15 @@ msgstr "サインインしています。"
 msgid "サインインする"
 msgstr "サインインする"
 
-#: src/app/(tabs)/(home)/index.tsx:20
+#: src/app/(tabs)/(home)/index.tsx:34
 msgid "サインインのサンプル"
 msgstr "サインインのサンプル"
 
-#: src/app/(tabs)/(home)/index.tsx:35
+#: src/app/(tabs)/(home)/index.tsx:21
 msgid "サインイン済みユーザー向けのマイページ画面のデモ"
 msgstr "サインイン済みユーザー向けのマイページ画面のデモ"
 
-#: src/app/(tabs)/(home)/index.tsx:21
+#: src/app/(tabs)/(home)/index.tsx:35
 msgid "サインイン画面のデモ"
 msgstr "サインイン画面のデモ"
 
@@ -1085,7 +1085,7 @@ msgstr "ホーム"
 msgid "ボタン"
 msgstr "ボタン"
 
-#: src/app/(tabs)/(home)/index.tsx:34
+#: src/app/(tabs)/(home)/index.tsx:20
 #: src/app/account.tsx:11
 msgid "マイページ"
 msgstr "マイページ"

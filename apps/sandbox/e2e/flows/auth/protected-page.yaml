@@ -1,7 +1,10 @@
 # tab-a/protected(RequireAuth で既存ページに後付けした保護)の E2E フロー。
-# 保護ページ→サインイン→戻るボタンで元の保護ページに戻り、認証済みコンテンツが表示される
-# ことを検証する。ここでの RequireAuth は replace を指定しない(既定 push)ため、サインイン後は
-# 戻るボタンで元のページに戻れる設計になっている(auth.yaml が検証する /sign-in ⇔ /account の
+# 保護ページ→未認証案内→サインイン画面→サインインで、ルート Stack の Stack.Protected が
+# /sign-in を弾いて anchor((tabs)) にフォールバック → tab-a Stack の top に残っていた
+# /tab-a/protected が RequireAuth の認証済み分岐に切り替わり、その場で認証済みコンテンツが
+# 表示されることを検証する。
+# ここでの RequireAuth は replace を指定しない(既定 push)ので、未認証状態で戻るボタンを
+# 押した場合には元のページに戻れる設計になっている(auth.yaml が検証する /sign-in ⇔ /account の
 # replace 遷移とは異なる経路であることに注意。features/auth/RequireAuth.tsx 参照)。
 # アプリの起動（Dev Client か release かの分岐を含む）は common/launch-app.yaml に切り出してある
 # （docs/maestro.md「フローの書き方」参照）。
@@ -17,7 +20,7 @@ appId: com.yamibeta.sandbox
 - tapOn: "サインイン画面へ"
 - assertVisible: "サインインする"
 - tapOn: "^サインインする$"
-- assertVisible: "マイページへ"
-- back
+# サインイン成功 → ルート Stack.Protected が /sign-in を弾き、anchor((tabs)) にフォールバック。
+# tab-a Stack の top には /tab-a/protected が残っているので、そのまま認証済み分岐が表示される
 - assertVisible: "RequireAuth でラップされている"
 - assertNotVisible: "このページの閲覧にはサインインが必要です。"
