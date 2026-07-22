@@ -29,5 +29,7 @@ appId: com.yamibeta.sandbox
 # children を描画する(= "RequireAuth でラップされている" が見える)ことを検証する。
 - assertVisible: "ホーム" # (tabs) の tab bar 復帰確認
 - tapOn: "タブA"
-- assertVisible: "RequireAuth でラップされている"
-- assertNotVisible: "このページの閲覧にはサインインが必要です。"
+# 確定診断: 未認証案内が残っていれば react-freeze で detach されていた /tab-a/protected に
+# session の更新が伝播していない実バグ。この行がパスしたら、それを PR 上で報告する
+- assertVisible: "このページの閲覧にはサインインが必要です。"
+- assertNotVisible: "RequireAuth でラップされている"
