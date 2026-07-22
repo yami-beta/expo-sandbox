@@ -29,7 +29,8 @@ appId: com.yamibeta.sandbox
 # children を描画する(= "RequireAuth でラップされている" が見える)ことを検証する。
 - assertVisible: "ホーム" # (tabs) の tab bar 復帰確認
 - tapOn: "タブA"
-# 確定診断: 未認証案内が残っていれば react-freeze で detach されていた /tab-a/protected に
-# session の更新が伝播していない実バグ。この行がパスしたら、それを PR 上で報告する
-- assertVisible: "このページの閲覧にはサインインが必要です。"
-- assertNotVisible: "RequireAuth でラップされている"
+# 確定診断3(RequireAuth の isLoading 状態にスタックしていないか): children でも unauth でも
+# ないなら残るのは isLoading のみ。これがパスすれば RequireAuth の第3の状態(spinner+
+# 「読み込み中…」)にスタックしている = useStorageState の再読み込みが完了していない状態、
+# と確定する
+- assertVisible: "読み込み中"
